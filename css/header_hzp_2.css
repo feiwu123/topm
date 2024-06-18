@@ -1,0 +1,209 @@
+.header{
+	height: 72px;
+	position: fixed;
+	width: 100%;
+	transition: all 300ms ease;
+	z-index: 999;
+	top: 0px;
+}
+
+@media screen and (max-width: 992px){
+    .header{
+        height: 56px;
+    }    
+}
+.header.scroll{
+    background-color: #364545;
+}
+.header:hover{
+	background-color: #364545;
+}
+.app{
+	position: relative;
+}
+
+.app .inner_con{
+    background-color: #fff;
+}
+.header.hasbg{
+	background-color: #fff;
+	color: #000;
+	position: sticky;
+	border-bottom: 1px solid #ccc;
+}
+.header.coffee{
+	background-color: #364545;
+}
+.header.white{
+	background-color: rgb(255 255 255);
+}
+.width1920{
+	max-width: 191.33rem;
+	margin: 0px auto;
+}
+@media(min-width: 1920px){
+    .width1920{
+	    max-width: 191.33rem;
+	    margin: 0 18.67rem;
+    }
+}
+@media(max-width: 1920px){
+    .width1920{
+	    max-width: 1440px;
+	    margin: 0 auto!important;
+    }
+}
+.left_con .logo{
+	max-width: 4.4rem;
+	height: 3.3rem;
+	margin-top: 1.1rem;
+}
+.left_con .menu_tabs{
+	display: flex;
+	align-items: center;
+	margin-top: 38px;
+	margin-left: 6rem;
+	height: 1.1rem;
+	font-size: 1rem;
+	font-family: CamphorPro-Regular, CamphorPro;
+	font-weight: 400;
+	color: #4A341F;
+	line-height: 1.3rem;
+}
+.header.hasbg .menu_tabs .tabItem{
+	color: #333;
+}
+.left_con .menu_tabs .tabItem{
+	margin-right: 3.1rem;
+	color: #fff;
+	cursor: pointer;
+}
+.search{
+	position: relative;
+	margin-right: 3.73rem;
+}
+.search #search_input{
+	position: absolute;
+	background-color: transparent;
+	border: 0px;
+	outline: none;
+	width: 17.6rem;
+	height: 2.67rem;
+	right: 3.73rem;
+	top:20px;
+	border-bottom: 1px solid #fff;
+	color: #fff;
+}
+.hasbg .search #search_input{color: black;}
+.header.hasbg  .search #search_input{
+	position: absolute;
+	background-color: transparent;
+	border: 0px;
+	outline: none;
+	width: 17.6rem;
+	height: 2.67rem;
+	right: 3.73rem;
+	top:1rem;
+	border-bottom: 1px solid #333;
+}
+#search_input::-webkit-input-placeholder{
+	color: #fff;
+	font-size: 1rem;
+}
+
+.header.hasbg #search_input::-webkit-input-placeholder{
+	color: #333;
+}
+
+.search_icon{
+	width: 1.6rem;
+	height: 1.6rem;
+	position: absolute;
+	right: 4.33rem;
+	top: 1.8rem;
+}
+.search_icon img{
+    width: 100%;
+}
+.right_con .login_icons{
+	display: flex;
+	align-items: center;
+	margin-top: 27px;
+}
+.right_con .login_icons .icon{
+	width: 1.6rem;
+	height: 1.6rem;
+	margin-right: 1.6rem;
+	cursor: pointer;
+}
+.right_con .login_icons .icon:last-child{
+    margin-right: 0px;
+}
+
+
+/* åº•éƒ¨ */
+
+.footer{
+	width: 100%;
+	background: #364545;
+	clear: both;
+	padding-bottom: 1.33rem;
+}
+
+.article_list{
+	padding: 4rem 0rem;
+}
+.article_list .article_item .title h1{
+	height: 16px;
+    font-size: 1.33rem;
+    font-family: CamphorPro-Regular, CamphorPro;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 16px;
+}
+.article_list .article_item .dialogs{
+	margin-top: 1.5rem;
+}
+.article_list .article_item .dialogs .dialogsItem{
+	height: 15px;
+    font-size: 1rem;
+    font-family: CamphorPro-Regular, CamphorPro;
+    font-weight: 400;
+    color: #ffffff;
+    line-height: 15px;
+    margin-top: 1.8rem;
+    cursor: pointer;
+}
+.noOptions .noOptionsImg{
+    width: 25rem;
+    height: 21.73rem;
+    margin: 0 auto;
+    margin-top:8.73rem;
+}
+.noOptions .noOptionsImg img{
+    width: 100%;
+}
+.noOptions .title{
+    height: 1.67rem;
+    font-size: 1.2rem;
+    font-family: PingFangSC-Semibold, PingFang SC;
+    font-weight: 600;
+    color: #364545;
+    line-height: 25px;
+    margin: 0 auto;
+    margin-top: 2.67rem;
+    text-align: center;
+    
+}
+.noOptions .detail{
+    width: 20rem;
+    height: 2.8rem;
+    font-size: 1rem;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #999999;
+    margin: 0 auto;
+    text-align: center;
+    margin-top:8px;
+    margin-bottom: 12.67rem;
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="28px" viewBox="0 0 30 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ICON/列表</title>
+    <g id="效果图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页" transform="translate(-260, -136)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="ICON/列表" transform="translate(260, 136)">
+                <path d="M14.2105263,0 L14.2105263,3.1111111 L0,3.1111111 L0,0 L14.2105263,0 Z M20.5263158,24.8888889 L20.5263158,28 L0,28 L0,24.8888889 L20.5263158,24.8888889 Z M30,12.4444444 L30,15.5555556 L0,15.5555556 L0,12.4444444 L30,12.4444444 Z" id="形状"></path>
+            </g>
+        </g>
+    </g>
+</svg>

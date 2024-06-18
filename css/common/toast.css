@@ -1,0 +1,93 @@
+/* å…¬å…±ä¸­é—´å¼¹çª— */
+.totast{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	overflow: hidden;
+	z-index: 9999;
+	height: 100%;
+}
+.totast .bgCon{
+	background-color:#000;
+	opacity: 0.5;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: -1;
+}
+.totast .pupCon{
+	background-color: #fff;
+	min-width: 749px;
+	height: 406px;
+	width: 40%;
+	margin: 20vh auto;
+}
+.totast .deleteIcon{
+	float: right;
+	width: 2.13rem;
+	height: 2.13rem;
+	margin-top: 1.6rem;
+	margin-right: 1.6rem;
+	cursor: pointer;
+}
+.totast .deleteIcon img{
+    width: 100%;
+}
+.totast .centerCon{
+	text-align: center;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.totast .centerCon .tipTitle{
+	font-size: 1.2rem;
+	font-family: PingFangSC-Semibold, PingFang SC;
+	font-weight: 600;
+	color: #364545;
+	line-height: 25px;
+	margin-top: 1.33rem;
+}
+.totast .centerCon .tipMsg{
+	font-size: 1rem;
+	font-family: PingFangSC-Regular, PingFang SC;
+	font-weight: 400;
+	color: #999999;
+	line-height: 21px;
+	margin-top: 10px;
+}
+.totast .bottomCon{
+	display: flex;
+	justify-content: space-around;
+	width: 80%;
+    margin: 0 auto;
+}
+.totast .bottomCon .knowBtn{
+	width: 262px;
+	height: 61px;
+	background: #364545;
+	line-height: 61px;
+	text-align: center;
+	color: #fff;
+	margin-top: 2.93rem;
+	cursor: pointer;
+}
+.totast .bottomCon .cancel{
+	width: 262px;
+	height: 61px;
+	background: #F4F4F4;
+	line-height: 61px;
+	text-align: center;
+	color: #000;
+	margin-top: 2.93rem;
+	cursor: pointer;
+}
+@media(max-width: 992px){
+    .totast .pupCon{
+        min-width: auto;
+        width: 90%;
+        height: auto;
+        padding: 20px;
+    }    
+    
+}

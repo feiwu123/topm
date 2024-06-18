@@ -1,0 +1,100 @@
+img{
+	display: block;
+}
+.topCon{
+	height: 104px;
+	line-height: 104px;
+	box-sizing: border-box;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+}
+.topCon .logo{
+	font-size: 40px;
+	color: #333333;
+	line-height: 46px;
+	letter-spacing: 2px;
+	text-align: left;
+	font-style: normal;
+}
+.userIconsgroups{
+	display: flex;
+	align-items: center;
+	justify-content: end;
+	gap: 39px;
+}
+.userIconsgroups .userIcon{
+	width: 40px;
+	height: 40px;
+}
+.userIconsgroups .userIcon img{
+	width: 100%;
+}
+
+.searchCon{
+	height: 92px;
+	line-height: 92px;
+	background-color: #3B4656;
+}
+.searchCon .searchInner{
+	display: grid;
+	grid-template-columns: 140px 1fr 180px;
+	justify-content: space-between;
+	align-items: center;
+}
+@media(max-width: 992px){
+	.searchCon .searchInner{
+		grid-template-columns: 1fr 2fr 1fr;
+	}
+}
+
+.categoryIcon{
+	display: flex;
+	align-items: center;
+}
+.cateIcon{
+	width: 30px;
+	height: 28px;
+}
+.categoryTxt{
+	font-size: 1.5rem;
+	color: #fff;
+}
+.balance{
+	display: flex;
+	align-items: center;
+	justify-content: end;
+}
+.searchInput .searchEle{
+	position: relative;
+	width: 100%;
+	max-width: 893px;
+	height: 60px;
+	background: #FFFFFF;
+	border-radius: 79px;
+	overflow: hidden;
+	line-height: 1;
+}
+.searchInput .searchEle .labelName{
+	position: absolute;
+	font-weight: 400;
+	font-size: 14px;
+	color: #999999;
+	left: 32px;
+	top: 21px;
+}
+.searchInput .searchEle .searchName{
+	width: 100%;
+	outline: none;
+	border: 0;
+	padding: 0 32px;
+	height: 60px;
+	font-size: 20px;
+}
+.seachIconEle{
+	position: absolute;
+	width: 18px;
+	height: 18px;
+	right: 32px;
+	top: 21px;
+}
