@@ -22,7 +22,7 @@
 			//设计图参考宽度
 			let design = 1920;
 			if (clientWidth >= 1920){
-				document.getElementsByTagName('html')[0].style.fontSize = '15px';
+				document.getElementsByTagName('html')[0].style.fontSize = '10px';
 			}else if(clientWidth < 1920 && clientWidth > 1200){
 				document.getElementsByTagName('html')[0].style.fontSize = clientWidth / design * 16 + 'px';
 			}else{
@@ -67,7 +67,7 @@
 					<div class="searchInput">
 						<div class="searchEle">
 							<label class="labelName">请输入想要搜索的商品</label>
-							<input class="searchName" name="keywords"/>
+							<input class="searchName" name="keywords" required/>
 							<div class="seachIconEle">
 								<img class="searchIcon" src="./images/icons/search_icon.svg"/>
 							</div>

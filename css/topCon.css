@@ -38,16 +38,10 @@ img{
 }
 .searchCon .searchInner{
 	display: grid;
-	grid-template-columns: 140px 1fr 180px;
+	grid-template-columns: 231px 1fr 278px;
 	justify-content: space-between;
 	align-items: center;
 }
-@media(max-width: 992px){
-	.searchCon .searchInner{
-		grid-template-columns: 1fr 2fr 1fr;
-	}
-}
-
 .categoryIcon{
 	display: flex;
 	align-items: center;
@@ -59,11 +53,8 @@ img{
 .categoryTxt{
 	font-size: 1.5rem;
 	color: #fff;
-}
-.balance{
-	display: flex;
-	align-items: center;
-	justify-content: end;
+	margin-left: 24px;
+	display: block;
 }
 .searchInput .searchEle{
 	position: relative;
@@ -78,10 +69,12 @@ img{
 .searchInput .searchEle .labelName{
 	position: absolute;
 	font-weight: 400;
-	font-size: 14px;
+	font-size: 0.8rem;
 	color: #999999;
 	left: 32px;
-	top: 21px;
+	top: 0px;
+	height: 100%;
+	line-height: 60px;
 }
 .searchInput .searchEle .searchName{
 	width: 100%;
@@ -90,11 +83,47 @@ img{
 	padding: 0 32px;
 	height: 60px;
 	font-size: 20px;
+	z-index: 1;
+	position: relative;
+	background: transparent;
 }
+
+.searchEle:has(.searchName:focus)>label{
+	display: none;
+}
+.searchEle:has(.searchName:required:valid)>label{
+	display: none;
+}
+.searchEle:has(.searchName:required:empty:focus)>label{
+	display: none;
+}
+
+
 .seachIconEle{
 	position: absolute;
 	width: 18px;
 	height: 18px;
 	right: 32px;
 	top: 21px;
+}
+.searchInner .balance{
+	display: flex;
+	align-items: center;
+	justify-content: end;
+	gap: 10px;
+}
+.balance_value{
+	font-size: 1rem;
+	color: #fff;
+	display: flex;
+	gap: 5px;
+}
+
+@media(max-width: 992px){
+	.searchCon .searchInner{
+		grid-template-columns: 1fr 2fr 1fr;
+	}
+	.categoryTxt{
+		display: none;
+	}
 }
