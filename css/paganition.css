@@ -1,0 +1,32 @@
+.paginaition{
+	display: flex;
+	justify-content: flex-end;
+	flex-wrap: wrap;
+	gap: 16px;
+}
+.paginaition .pagitItem{
+	height: 30px;
+	min-width: 30px;
+	background-color: #F8F8F8;
+	text-align: center;
+	font-family: CamphorPro, CamphorPro;
+	font-weight: 400;
+	font-size: 16px;
+	color: #333333;
+	cursor: pointer;
+	line-height: 30px;
+}
+.paginaition .pagitItem:hover{
+	background-color: #3B4656;
+	color: #fff;
+}
+.paginaition .pagitItem:hover svg rect{
+	fill: #3B4656;
+}
+.paginaition .pagitItem:hover svg rect+g{
+	fill:#fff;
+}
+.paginaition .pagitItem.active{
+	background-color: #3B4656;
+	color: #fff;
+}

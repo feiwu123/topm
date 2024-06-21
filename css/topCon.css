@@ -26,6 +26,7 @@ img{
 .userIconsgroups .userIcon{
 	width: 40px;
 	height: 40px;
+	cursor: pointer;
 }
 .userIconsgroups .userIcon img{
 	width: 100%;
@@ -69,7 +70,7 @@ img{
 .searchInput .searchEle .labelName{
 	position: absolute;
 	font-weight: 400;
-	font-size: 0.8rem;
+	font-size: 1rem;
 	color: #999999;
 	left: 32px;
 	top: 0px;
@@ -113,7 +114,7 @@ img{
 	gap: 10px;
 }
 .balance_value{
-	font-size: 1rem;
+	font-size: 1.5rem;
 	color: #fff;
 	display: flex;
 	gap: 5px;
