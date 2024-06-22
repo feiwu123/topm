@@ -177,105 +177,7 @@ $(document).ready(function(){
     })
 })
 
-//组合产品查看明细
-$(document).on('click', '.comboView', function(){
-    var obj = $(this);
-    var group_id = obj.data("group_id");
-    var order_id = obj.data("order_id");
-    
-    var onload = obj.data("onload");//是否ajax
-    var id = '#comboView_'+group_id+'_'+order_id;
-    
-    if(onload){
-        $(id).toggleClass("hide");
-        obj.find(".icon_down_img").toggleClass("up");
-        $(id).hasClass("hide")?obj.find(".comboTxt").text("Ver los detalles"):obj.find(".comboTxt").text("Detalles de cierre");
-    }else{
-        if(order_id>0 && group_id != ''){
-        //ajax提交
-    		$.ajax({
-    			url:"user.php?act=get_combo_parts",
-    			type:"post",
-    			data: {order_id:order_id, group_id:group_id},
-    			dataType: "json",
-    			success:function(result){
-    			    $(id).append(result.content).removeClass("hide");
-    			    $('#loadingCon').addClass('hide');
-    			    obj.find(".comboTxt").text("Detalles de cierre");
-    			    obj.find(".icon_down_img").addClass("up");
-    			    obj.data("onload", true);
-    			},
-    			beforeSend:function(){
-    			    $('#loadingCon').removeClass('hide');
-    	         }
-    		});
-        }
-    }
-})
 
-
-
-//组合产品查看明细
-$(document).on('click', '.comboDetailView', function(){
-    var obj = $(this);
-    var group_id = obj.data("group_id");
-    var order_id = obj.data("order_id");
-    
-    var onload = obj.data("onload");//是否ajax
-    var id = '#comboView_'+group_id+'_'+order_id;
-    
-    if(onload){
-        $(id).toggleClass("hide");
-        obj.find(".icon_down_img").toggleClass("up");
-        $(id).hasClass("hide")?obj.find(".comboTxt").text("Ver los detalles"):obj.find(".comboTxt").text("Detalles de cierre");
-    }else{
-        if(order_id>0 && group_id != ''){
-        //ajax提交
-    		$.ajax({
-    			url:"user.php?act=get_combo_parts",
-    			type:"post",
-    			data: {order_id:order_id, group_id:group_id},
-    			dataType: "json",
-    			success:function(result){
-    			    var arr = result.goods;
-    			    var str;
-    			    arr.forEach((item,index)=>{
-    			        str=`
-    			        <div class="table_tr combo_tr">
-									<div class="order_pro_infor">
-										<div class="pro_img">
-											<a href="goods.php?id=${item.id}" title="${item.goods_name}" class="img"><img src="${item.goods_thumb}" alt="${item.goods_name}" title="${item.goods_name}"/></a>
-										</div>
-										<div class="order_pro_detail">
-											<div class="pro_title">${item.goods_name}</div>
-											<div class="part">PART</div>
-											
-											<div class="pro_props">${item.goods_attr}</div>
-										</div>
-									
-									</div>
-									<div class="ordrId">${item.goods_sn}</div>
-									<div class="price">
-										<div class="pro_price">${item.goods_price}</div>
-										<div class="pro_sl">×${item.goods_number}</div>
-									</div>
-									<div class="pro_total_price">${item.subtotal}</div>
-								</div>
-    			        `;
-    			        $(id).append(str).removeClass("hide");
-        			    $('#loadingCon').addClass('hide');
-        			    obj.find(".comboTxt").text("Detalles de cierre");
-    			        obj.find(".icon_down_img").addClass("up");
-        			    obj.data("onload", true);
-    			    })
-    			},
-    			beforeSend:function(){
-    			    $('#loadingCon').removeClass('hide');
-    	         }
-    		});
-        }
-    }
-})
 
 //登录提交表单
 function userLogin(){
@@ -498,3 +400,32 @@ $("#mobile_header_popup").on("click",".parent_cate .title",function(){
 $(document).on('click', '#checkPackages .closeIcon', function(){
 	$("#checkPackages").modal('hide');
 })
+
+
+$(document).on("click","#getSheinAddress",function(){
+	alert('getAddress');
+	let sheinOrderid = $("#sheinOrderId").val();
+	$.ajax({
+		url:"flow.php?step=ajax_cart_goods_amount",
+		type:"post",
+		data: {orderid:sheinOrderid},
+		dataType: "json",
+		success:change_cart_goods_response,
+		beforeSend:function(){
+		    $('#loadingCon').removeClass('hide');
+	     }
+	});
+})
+//点击面包屑分类
+function diySelect(){
+	$(document).on("click",".bread_categoryList",function(event){
+		event.stopImmediatePropagation();
+		let that = this;
+		$(that).find(".subListCates").addClass('selected');
+		
+		$(document).on("click",function(e){
+			$(that).find(".subListCates").removeClass('selected');
+		});
+	});
+}
+diySelect();

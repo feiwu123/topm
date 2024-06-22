@@ -433,7 +433,7 @@ input[type=checkbox]:checked:after {
 		position: absolute;
 		width: 210px;
 		transform: translateX(-99px);
-		box-shadow: 1px 2px 2px 1px #f0f0f0;
+		box-shadow: 1px 2px 2px 3px #f0f0f0;
 		margin-top: 8px;
 		visibility: hidden;
 	} 	

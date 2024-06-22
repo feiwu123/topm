@@ -1,0 +1,33 @@
+.shoppingCar .carCon{
+	padding:1.7rem;
+}
+.shoppingCar .bottomConDiv{
+	height: 70px;
+	padding: 12px 24px;
+	background-color: #F8F8F8;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 24px;
+	gap: 16px;
+}
+.shoppingCar .bottomConDiv .sheinOrderNumber{
+	flex:1;	
+}
+.shoppingCar .bottomConDiv .sheinOrderNumber input{
+	border: none;
+	outline: none;
+	width: 100%;
+	height: 46px;
+	border-radius: 6px;
+	padding: 0 16px;
+}
+.sheinGetAddress{
+	width: 93px;
+	height: 46px;
+	line-height: 46px;
+	text-align: center;
+	background-color: #fff;
+	border-radius: 6px;
+	cursor: pointer;
+}

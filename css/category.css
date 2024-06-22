@@ -6,7 +6,42 @@
 .categoryBreads .breadName{
 	font-size: 14px;
 	color: #999999;
+	min-width: 50px;
 }
+.categoryBreads .breadName .selectedCate{
+	font-size: 14px;
+	color: #999999;
+	display: flex;
+	position: relative;
+	align-items: center;
+	cursor: pointer;
+	justify-content: space-between;
+}
+.categoryBreads .breadName .subListCates{
+	position: absolute;
+	height: 0px;
+	width: 100px;
+	overflow-y: auto;
+	text-align: center;
+	transform: translateX(-30px);
+	border: 0px solid #ddd;
+	box-sizing: border-box;
+}
+.categoryBreads .breadName .subListCates.selected{
+	height: 200px;
+	border: 1px solid #ddd;
+}
+.categoryBreads .breadName .subListCates .subListCates_item{
+	color: #333;
+	border-bottom: 1px solid #333;
+	background-color: #fff;
+	height: 40px;
+	line-height: 40px;
+}
+.categoryBreads .breadName .subListCates .subListCates_item:last-child{
+	border-bottom: 0px;
+}
+
 .categoryBreads .breadName:after{
 	content:'/';
 	color:#999;
