@@ -494,3 +494,7 @@ $("#mobile_header_popup").on("click",".parent_cate .title",function(){
         }
         return flag;
     }
+	
+$(document).on('click', '#checkPackages .closeIcon', function(){
+	$("#checkPackages").modal('hide');
+})

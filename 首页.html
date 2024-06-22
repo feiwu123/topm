@@ -67,15 +67,17 @@
 							全部商品
 						</div>
 					</div>
-					<div class="searchInput">
-						<div class="searchEle">
-							<label class="labelName">请输入想要搜索的商品</label>
-							<input class="searchName" name="keywords" required/>
-							<div class="seachIconEle">
-								<img class="searchIcon" src="./images/icons/search_icon.svg"/>
+					<form action="/search.php" name="search" method="get" class="search_form" id="searchForm">
+						<div class="searchInput">
+							<div class="searchEle">
+								<label class="labelName">请输入想要搜索的商品</label>
+								<input class="searchName" name="keywords" required/>
+								<div class="seachIconEle">
+									<img class="searchIcon" src="./images/icons/search_icon.svg" onclick="document.search[1].submit()"/>
+								</div>
 							</div>
 						</div>
-					</div>
+					</form>
 					<div class="balance">
 						<div class="balance_icon">
 							<img src="./images/icons/bags_icon.svg" />
@@ -346,23 +348,46 @@
 	<!-- 购物车弹窗 -->
 	<div class="shoppingCar popup" id="shoppingCar">
 		<div class="bgCon"></div>
-	<div class="carCon">
-		<div class="topCon">
-			<div class="title">Carrito</div>
-			<div class="deleteIcon">
-				<img src="/images/hzp2/delete.svg" />
+		<div class="carCon">
+			<div class="topCon">
+				<div class="title">Carrito</div>
+				<div class="deleteIcon">
+					<img src="/images/hzp2/delete.svg" />
+				</div>
+			</div>
+			<div class="prompt">
+				<div class="nogoods">
+					<div class="nogoodsImg">
+						<img src="/images/hzp2/nogoods.webp" />
+					</div>
+					<div class="nogoodsTxt">No hay productos todavia!</div>
+					<div class="tips">Su carrito es vacío!</div>
+					<div class="knowBtn" id="know">Cerrar</div>
+				</div>
 			</div>
 		</div>
-		<div class="prompt">
-		    <div class="nogoods">
-		        <div class="nogoodsImg">
-		            <img src="/images/hzp2/nogoods.webp" />
-		        </div>
-		        <div class="nogoodsTxt">No hay productos todavia!</div>
-		        <div class="tips">Su carrito es vacío!</div>
-		        <div class="knowBtn" id="know">Cerrar</div>
-		    </div>
-		</div>
+	</div>
+	
+	<!-- 分包提示 -->
+	<div class="modal fade" id="checkPackages" tabindex="-1" role="dialog" aria-labelledby="checkPackagesLabel" aria-hidden="true">
+	    <div class="modal-dialog" role="document">
+	        <div class="modal-content">
+	          <div class="modal-body">
+				<div class="title">
+						分装提示
+						<div class="closeIcon">
+							<img src="http://110.238.85.82/images/hzp2/delete.svg" />
+						</div>  
+				</div>
+	            <div class="msg">
+	                本次订单包含多个商家，需要进行分装处理
+	            </div>
+	            <div class="trunMsgBtn">
+	                confirmación
+	            </div>
+	          </div>
+	        </div>
+	    </div>
 	</div>
 	
 	</body>
@@ -372,3 +397,8 @@
 <script src="./js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="./js/bootstrap.min.js"></script>
 <script src="./js/common.js"></script>
+<script>
+	
+	$("#checkPackages").modal('show');
+	
+</script>
