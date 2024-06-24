@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="./css/admin/main.css"/>
+		<link rel="stylesheet" href="./css/admin/perfect-scrollbar.min.css"/>
+	</head>
+	<style>
+	</style>
+	<body>
+		
+		<!-- 单选 多选 输入框-->
+		<div class="multi_wu_select">
+			<label class="attri_name"></label>
+			<div id="shenInAttr_0" class="imitate_select select_w320 wuSelect">
+			</div>
+		</div>
+		<div class="multi_wu_select">
+			<label class="attri_name"></label>
+			<div id="shenInAttr_1" class="imitate_select select_w320 wuSelect">
+			</div>
+		</div>
+		<div class="multi_wu_select">
+			<label class="attri_name"></label>
+			<div id="shenInAttr_3" class="imitate_select select_w320 wuSelect">
+			</div>
+		</div>
+		
+		
+		<!-- attribute_mode = 2 -->
+		<div id="attribute_mode_2" class="multi_wu_select">
+			<input name="attr_name_id" type="hidden" value="" class="attr_selected_name_id">
+			<div class="attr_group">
+				<div class="select_item">
+					<div  class="imitate_select select_w320 wuSelect select_name"></div>
+					<div  class="imitate_select select_w320 wuSelect select_value noborder"></div>
+				</div>
+			</div>
+			<a class="btn h30 mr10 fl addItem">
+				添加
+			</a>
+		</div>
+		
+		<!-- attribute_mode = 4 -->
+		<div id="attribute_mode_4" class="multi_wu_select">
+			<label class="attri_name"></label>
+			<input name="attr_value_id" type="hidden" value="" class="attr_selected_value_id">
+			<div class="attr_group">
+				<div class="select_item">
+					<div class="imitate_select select_w120 wuSelect">
+					</div>
+					<div class="numberInputDiv">
+						<input type="number" class="inputEle w50"/>
+					</div>
+				</div>
+			</div>	
+			<a class="btn h30 mr10 fl addItem">
+				添加
+			</a>
+		</div>	
+	</body>
+</html>	
+<script src="./js/jquery-1.9.1.min.js"></script>
+<script src="./js/perfect-scrollbar.min.js"></script>
+<script src="./js/multi_select.js"></script>
+<script>
+	// 判断单选或者多选  用的是attribute_mode这个：属性录入方式。
+	// 0: 手工填写参数；
+	// 1：下拉列表选择（可多选）；
+	// 2：销售属性专属 （只针对销售属性，下拉列表选择）；
+	// 3：下拉列表选择（单选）；
+	// 4：下拉列表+手工参数
+	var attri_list = [
+		{attribute_id:'1000019',
+		 attribute_name:'接口',
+		 attribute_name_en:'Interface',
+		 attribute_type:4,
+		 attribute_mode:2,
+		 attribute_value_info_list:[{attribute_value:'3.5mm',attribute_value_id:1002161,attribute_value_en:'ss'},
+									{attribute_value:'AV',attribute_value_id:1000470,attribute_value_en:'AV'},
+									{attribute_value:'AV',attribute_value_id:1000471,attribute_value_en:'AV1'},
+									{attribute_value:'AV',attribute_value_id:1000472,attribute_value_en:'AV2'},
+									{attribute_value:'AV',attribute_value_id:1000473,attribute_value_en:'AV3'},
+									{attribute_value:'AV',attribute_value_id:1000474,attribute_value_en:'AV4'},
+									{attribute_value:'AV',attribute_value_id:1000475,attribute_value_en:'AV5'},
+									{attribute_value:'AV',attribute_value_id:1000476,attribute_value_en:'AV6'},
+									{attribute_value:'AV',attribute_value_id:1000477,attribute_value_en:'AV7'},
+									{attribute_value:'AV',attribute_value_id:1000478,attribute_value_en:'AV8'},
+									{attribute_value:'AV',attribute_value_id:1000479,attribute_value_en:'AV9'},
+									{attribute_value:'AV',attribute_value_id:1000410,attribute_value_en:'AV10'},
+									{attribute_value:'AV',attribute_value_id:1000411,attribute_value_en:'AV11'},
+									{attribute_value:'AV',attribute_value_id:1000412,attribute_value_en:'AV12'},
+									{attribute_value:'AV',attribute_value_id:1000413,attribute_value_en:'AV13'},
+									{attribute_value:'AV',attribute_value_id:1000414,attribute_value_en:'AV14'}]},
+									
+		{attribute_id:'1001184',attribute_name:'款式',attribute_name_en:'Interface',attribute_type:4,attribute_mode:2,attribute_value_info_list:[{attribute_value:'A',attribute_value_id:886},
+																											   {attribute_value:'AV',attribute_value_id:1000470},]},
+	    {attribute_id:'87',attribute_name:'尺寸',attribute_name_en:'Interface',attribute_type:4,attribute_mode:2,
+		attribute_value_info_list:[{attribute_value:'6英寸',attribute_value_id:1001940},
+	    																									   {attribute_value:'AV',attribute_value_id:1000470},]}
+	];
+	
+	var attr_value_list = [{attribute_id:'1000019',
+		 attribute_name:'接口',
+		 attribute_name_en:'Interface',
+		 attribute_type:4,
+		 attribute_mode:4,
+		 attribute_value_info_list:[{attribute_value:'3.5mm',attribute_value_id:1002161,attribute_value_en:'ss'},
+									{attribute_value:'AV',attribute_value_id:1000470,attribute_value_en:'AV'},
+									{attribute_value:'AV',attribute_value_id:1000471,attribute_value_en:'AV1'},
+									{attribute_value:'AV',attribute_value_id:1000472,attribute_value_en:'AV2'},
+									{attribute_value:'AV',attribute_value_id:1000473,attribute_value_en:'AV3'},
+									{attribute_value:'AV',attribute_value_id:1000474,attribute_value_en:'AV4'},
+									{attribute_value:'AV',attribute_value_id:1000475,attribute_value_en:'AV5'},
+									{attribute_value:'AV',attribute_value_id:1000476,attribute_value_en:'AV6'},
+									{attribute_value:'AV',attribute_value_id:1000477,attribute_value_en:'AV7'},
+									{attribute_value:'AV',attribute_value_id:1000478,attribute_value_en:'AV8'},
+									{attribute_value:'AV',attribute_value_id:1000479,attribute_value_en:'AV9'},
+									{attribute_value:'AV',attribute_value_id:1000410,attribute_value_en:'AV10'},
+									{attribute_value:'AV',attribute_value_id:1000411,attribute_value_en:'AV11'},
+									{attribute_value:'AV',attribute_value_id:1000412,attribute_value_en:'AV12'},
+									{attribute_value:'AV',attribute_value_id:1000413,attribute_value_en:'AV13'},
+									{attribute_value:'AV',attribute_value_id:1000414,attribute_value_en:'AV14'}]}];
+	var attr_value_list0 = [{attribute_id:'1000019',
+		 attribute_name:'接口',
+		 attribute_name_en:'Interface',
+		 attribute_type:4,
+		 attribute_mode:0,//0,1,3
+		 attribute_value_info_list:[{attribute_value:'3.5mm',attribute_value_id:1002161,attribute_value_en:'ss'},
+									{attribute_value:'AV',attribute_value_id:1000470,attribute_value_en:'AV'},
+									{attribute_value:'AV',attribute_value_id:1000471,attribute_value_en:'AV1'},
+									{attribute_value:'AV',attribute_value_id:1000472,attribute_value_en:'AV2'},
+									{attribute_value:'AV',attribute_value_id:1000473,attribute_value_en:'AV3'},
+									{attribute_value:'AV',attribute_value_id:1000474,attribute_value_en:'AV4'},
+									{attribute_value:'AV',attribute_value_id:1000475,attribute_value_en:'AV5'},
+									{attribute_value:'AV',attribute_value_id:1000476,attribute_value_en:'AV6'},
+									{attribute_value:'AV',attribute_value_id:1000477,attribute_value_en:'AV7'},
+									{attribute_value:'AV',attribute_value_id:1000478,attribute_value_en:'AV8'},
+									{attribute_value:'AV',attribute_value_id:1000479,attribute_value_en:'AV9'},
+									{attribute_value:'AV',attribute_value_id:1000410,attribute_value_en:'AV10'},
+									{attribute_value:'AV',attribute_value_id:1000411,attribute_value_en:'AV11'},
+									{attribute_value:'AV',attribute_value_id:1000412,attribute_value_en:'AV12'},
+									{attribute_value:'AV',attribute_value_id:1000413,attribute_value_en:'AV13'},
+									{attribute_value:'AV',attribute_value_id:1000414,attribute_value_en:'AV14'}]}];
+		var attr_value_list1 = [{attribute_id:'1000019',
+			 attribute_name:'接口',
+			 attribute_name_en:'Interface',
+			 attribute_type:4,
+			 attribute_mode:1,//0,1,3
+			 attribute_value_info_list:[{attribute_value:'3.5mm',attribute_value_id:1002161,attribute_value_en:'ss'},
+										{attribute_value:'AV',attribute_value_id:1000470,attribute_value_en:'AV'},
+										{attribute_value:'AV',attribute_value_id:1000471,attribute_value_en:'AV1'},
+										{attribute_value:'AV',attribute_value_id:1000472,attribute_value_en:'AV2'},
+										{attribute_value:'AV',attribute_value_id:1000473,attribute_value_en:'AV3'},
+										{attribute_value:'AV',attribute_value_id:1000474,attribute_value_en:'AV4'},
+										{attribute_value:'AV',attribute_value_id:1000475,attribute_value_en:'AV5'},
+										{attribute_value:'AV',attribute_value_id:1000476,attribute_value_en:'AV6'},
+										{attribute_value:'AV',attribute_value_id:1000477,attribute_value_en:'AV7'},
+										{attribute_value:'AV',attribute_value_id:1000478,attribute_value_en:'AV8'},
+										{attribute_value:'AV',attribute_value_id:1000479,attribute_value_en:'AV9'},
+										{attribute_value:'AV',attribute_value_id:1000410,attribute_value_en:'AV10'},
+										{attribute_value:'AV',attribute_value_id:1000411,attribute_value_en:'AV11'},
+										{attribute_value:'AV',attribute_value_id:1000412,attribute_value_en:'AV12'},
+										{attribute_value:'AV',attribute_value_id:1000413,attribute_value_en:'AV13'},
+										{attribute_value:'AV',attribute_value_id:1000414,attribute_value_en:'AV14'}]}];	
+		var attr_value_list3 = [{attribute_id:'1000019',
+			 attribute_name:'接口',
+			 attribute_name_en:'Interface',
+			 attribute_type:4,
+			 attribute_mode:3,//0,1,3
+			 attribute_value_info_list:[{attribute_value:'3.5mm',attribute_value_id:1002161,attribute_value_en:'ss'},
+										{attribute_value:'AV',attribute_value_id:1000470,attribute_value_en:'AV'},
+										{attribute_value:'AV',attribute_value_id:1000471,attribute_value_en:'AV1'},
+										{attribute_value:'AV',attribute_value_id:1000472,attribute_value_en:'AV2'},
+										{attribute_value:'AV',attribute_value_id:1000473,attribute_value_en:'AV3'},
+										{attribute_value:'AV',attribute_value_id:1000474,attribute_value_en:'AV4'},
+										{attribute_value:'AV',attribute_value_id:1000475,attribute_value_en:'AV5'},
+										{attribute_value:'AV',attribute_value_id:1000476,attribute_value_en:'AV6'},
+										{attribute_value:'AV',attribute_value_id:1000477,attribute_value_en:'AV7'},
+										{attribute_value:'AV',attribute_value_id:1000478,attribute_value_en:'AV8'},
+										{attribute_value:'AV',attribute_value_id:1000479,attribute_value_en:'AV9'},
+										{attribute_value:'AV',attribute_value_id:1000410,attribute_value_en:'AV10'},
+										{attribute_value:'AV',attribute_value_id:1000411,attribute_value_en:'AV11'},
+										{attribute_value:'AV',attribute_value_id:1000412,attribute_value_en:'AV12'},
+										{attribute_value:'AV',attribute_value_id:1000413,attribute_value_en:'AV13'},
+										{attribute_value:'AV',attribute_value_id:1000414,attribute_value_en:'AV14'}]}];																						
+	
+	
+	//$.divselect('#goods_name',"#cat_id");
+	//attri_list的attribute_mode =0||1||3
+	$.multiSelect("#shenInAttr_0",attr_value_list0[0]);
+	$.multiSelect("#shenInAttr_1",attr_value_list1[0]);
+	$.multiSelect("#shenInAttr_3",attr_value_list3[0]);
+	// for(let i=0;i<attr_value_list3.length;i++){
+	// 	$.multiSelect("#shenInAttr_4"+i,attr_value_list3[i]);
+	// }
+	
+	//attri_list必须attribute_mode=2的数组
+	$.multiSelect("#attribute_mode_2",attri_list);
+	
+	$.multiSelect("#attribute_mode_4",attr_value_list[0]);
+</script>
