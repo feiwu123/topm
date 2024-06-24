@@ -1034,8 +1034,18 @@ i.ice_b{ background-position:-336px -214px;}
 .imitate_select ul li a.selected{color:#31b4e1}
 .imitate_select ul li a.selected::after{content: '';background:url(../images/admin-icon.png) -131px -471px no-repeat; display:block; width:28px; height:28px; position: absolute;top:0;right:0;}
 .imitate_select .multi{min-height:30px;padding: 0 10px;display: flex;gap:10px;flex-wrap: wrap;}
+
+.wuSelect{ float: left; position:relative;border: 1px solid #dbdbdb;border-radius: 2px;height: 28px;line-height: 28px; margin-right:10px;font-size: 12px;}
+.wuSelect .cite{ background: #fff url(../images/xjt.png) right 11px no-repeat; padding: 0 10px; cursor:pointer;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; text-align:left;}
+.wuSelect ul{ position:absolute; top:28px; left:-1px; background:#fff; width:100%; border:1px solid #dbdbdb; border-radius:0 0 3px 3px; display:none; z-index:199; max-height:280px; overflow:hidden;}
+.wuSelect ul li{ padding:0 10px; cursor:pointer;}
+.wuSelect ul li:hover{ background:#f5faff;}
+.wuSelect ul li a{ display:block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; text-align:left; color:#707070;position: relative;}
+.wuSelect ul li a.selected{color:#31b4e1}
+.wuSelect ul li a.selected::after{content: '';background:url(../images/admin-icon.png) -131px -471px no-repeat; display:block; width:28px; height:28px; position: absolute;top:0;right:0;}
+.wuSelect .multi{min-height:30px;padding: 0 10px;display: flex;gap:10px;flex-wrap: wrap;}
 .wuSelect{height: auto;}
-.imitate_select.wuSelect ul{top:initial;}
+.wuSelect ul{top:initial;}
 .multi_wu_select{clear: right;float: left;display: flex;flex-direction: column;}
 .multi_wu_select .wuInput{width: 100% !important;box-sizing: border-box;}
 .multi_wu_select .select_item{display: flex;gap:10px;margin-bottom:10px}
@@ -1043,6 +1053,9 @@ i.ice_b{ background-position:-336px -214px;}
 .multi_wu_select .addItem{line-height: 30px;margin-top: 10px;width: 30px;}
 .multi_wu_select .removeItem{line-height: 30px;width: 30px;}
 .multi_wu_select .inputEle{border: 1px solid #dbdbdb;border-radius: 2px;height: 28px;line-height: 28px;}
+.wuSelect ul li.li_not{ text-align:center;padding: 20px 10px;}
+.wuSelect .upward{ top:inherit; bottom:28px; border-radius:3px 3px 0 0;}
+
 
 .imitate_select ul li.li_not{ text-align:center;padding: 20px 10px;}
 .imitate_select .upward{ top:inherit; bottom:28px; border-radius:3px 3px 0 0;}

@@ -68,7 +68,7 @@ function selectAttenEvent(divselectid,selectType){
 		obj = $(that).parent().find("ul");
 		
 		var select_ids = $(that).parent().find(".attr_value").val().split(",");
-		$(".imitate_select").find("ul").hide();
+		$(".wuSelect").find("ul").hide();
 		
 		if(obj.css("display")=="none"){
 			obj.css("display","block");
@@ -204,7 +204,7 @@ function attentSelectMode2(selectId,listData){
 		obj = $(that).parent().find("ul");
 		
 		var select_ids = $(selectId).find(".attr_selected_name_id").val().split(",");
-		$(".imitate_select").find("ul").hide();
+		$(".wuSelect").find("ul").hide();
 		
 		if(obj.css("display")=="none"){
 			obj.css("display","block");
@@ -263,8 +263,8 @@ function attentSelectMode2(selectId,listData){
 			return;
 		}
 		var attr_ele = `<div class="select_item">
-					<div  class="imitate_select select_w320 wuSelect select_name"></div>
-					<div  class="imitate_select select_w320 wuSelect select_value noborder"></div>
+					<div  class="select_w320 wuSelect select_name"></div>
+					<div  class="select_w320 wuSelect select_value noborder"></div>
 					<a class="btn h30 mr10 fl removeItem">
 						删除
 					</a>
