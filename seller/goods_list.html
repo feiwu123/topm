@@ -3,11 +3,15 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title></title>
+	<title>商品列表</title>
 	<link rel="stylesheet" type="text/css" href="./css/common.css" />
 	<link rel="stylesheet" type="text/css" href="./css/menu.css" />
 	<link rel="stylesheet" type="text/css" href="./css/index.css" />
+	
+	<!-- switch样式 -->
 	<link rel="stylesheet" type="text/css" href="./css/jquery.easyswitch.css" />
+	<!-- 滚动条样式 -->
+	<link rel="stylesheet" type="text/css" href="https://ayamcn.com/js/perfect-scrollbar/perfect-scrollbar.min.css"/>
 	
 	<!-- 引入字体文件 -->
 	<link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/c/font_4643688_s31x8xlzi6.css"/>
@@ -123,6 +127,7 @@
 				</div>
 			</div>
 		</div>
+		
 		<div class="rightCon">
 			<div class="header">
 				<div class="category">
@@ -285,6 +290,8 @@
 
 <script type="text/javascript" src="https://ayamcn.com/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="./js/jquery.easyswitch.js"></script>
+
+<script type="text/javascript" src="https://ayamcn.com/js/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 <script>
 	$('.easyswitch').easyswitch();
 	
@@ -299,4 +306,7 @@
 			$(".bottom_tr_btns").find(".btn").addClass("disabled");
 		}
 	})
+	
+	$(".step_item_table2").perfectScrollbar("destroy");
+	$(".step_item_table2").perfectScrollbar();
 </script>
