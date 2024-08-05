@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>EsaySwitch Demo</title>
+	<script type="text/javascript" src="https://ayamcn.com/js/jquery-1.9.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/jquery.easyswitch.css" />
+	<script type="text/javascript" src="./js/jquery.easyswitch.js"></script>
+</head>
+<body>
+	<p>标准按钮：<span class="easyswitch"></span></p>
+	<p>默认选中：<span class="easyswitch" data-default="1"></span></p>
+	<p>改变标签：<span class="easyswitch" data-default="1" data-label-on="启用" data-label-off="禁用"></span></p>
+	<p>回调函数：<span class="easyswitch" data-callback="onSwitch" data-label-on="" data-label-off=""></span></p>
+	<script>
+	$('.easyswitch').easyswitch();
+
+	function onSwitch(value, obj) {
+		alert(value);
+	}
+	</script>
+</body>
+</html>

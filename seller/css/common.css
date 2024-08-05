@@ -1,0 +1,278 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+#app{
+	display: flex;
+}
+ul li{
+	list-style: none;
+}
+.leftCon{
+	width: 20%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	background-color: #1D1D1D;
+	min-width: 278px;
+	min-height: 100vh;
+}
+.rightCon{
+	position: relative;
+	height: 100%;
+	width: 80%;
+	right: 0;
+	top: 0;
+	background-color: #F4F4F4;
+	min-height: 100vh;
+}
+.rightCon .header{
+	height: 82px;
+	position: static;
+	top: 0;
+	background-color: #fff;
+	width: 100%;
+}
+.rightCon .footer{
+	position: absolute;
+	bottom: 0px;
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
+	width: 100%;
+}
+
+.card:first-child{
+		margin-top: 0;
+	}
+.card{
+	background-color: #fff;
+	padding: 24px;
+	margin-top: 16px;
+	border-radius: 8px;
+}
+.card .title{
+	font-weight: 600;
+	font-size: 18px;
+	color: #333333;
+	line-height: 25px;
+}
+.order_status{
+	display: flex;
+	justify-content: space-around;
+	gap: 5px;
+}
+.order_status .item{
+	flex: 1;
+	text-align: center;
+}
+.order_status .item .txt{
+	height: 49px;
+	line-height: 49px;
+	background-color: #F4F4F4;
+	color: #333333;
+}
+.order_status .item.active .txt{
+	background-color: #3B4656;
+	color: #fff;
+}
+.order_status .item .time{
+	margin-top: 24px;
+	color: #333;
+}
+.copy{
+	cursor: pointer;
+}
+.pdfBtn{
+	width: 131px;
+	height: 46px;
+	line-height: 46px;
+	text-align: center;
+	background: #FFFFFF;
+	border-radius: 6px;
+	border: 1px solid #E0E0E0;
+	cursor: pointer;
+}
+.infor_table table{
+	width: 100%;
+}
+.infor_table .thead th{
+	background-color: #F4F4F4;
+	height: 48px;
+	line-height: 48px;
+	text-align: center;
+}
+.infor_table .trow td{
+	text-align: center;
+}
+.infor_table .trow .proinfo{
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+.infor_table .trow .proinfo .name{
+	font-family: CamphorPro, CamphorPro;
+	font-weight: 800;
+	font-size: 16px;
+	color: #333333;
+}
+.infor_table .trow .proinfo .pro_attr{
+	font-weight: 400;
+	font-size: 14px;
+	color: #999999;
+	margin-top: 10px;
+	text-align: left;
+}
+.Money_information{
+	display: flex;
+	flex-direction: column;
+	margin: 0 0 0 auto;
+	width: 250px;
+}
+.Money_information .moneyItem{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 16px;
+	align-items: center;
+}
+.total_price{
+	font-family: PingFangSC, PingFang SC;
+	font-weight: 600;
+	font-size: 24px;
+	color: #F42F54;
+	line-height: 33px;
+	text-align: right;
+	font-style: normal;
+}
+.avator_img{
+	width: 46px;
+	height:46px;
+	overflow: hidden;
+	border-radius: 50%;
+}
+.avator_img img{
+	width: 100%;
+}
+.rightCon .header{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 30px;
+	box-sizing: border-box;
+}
+.rightCon .header .avator_con{
+	cursor: pointer;
+}
+.rightCon .header .avator_con .con{
+	padding-right: 30px;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	position: relative;
+}
+.rightCon .header .avator_con:hover .dropList{
+	display: block;
+}
+.rightCon .header .avator_con .dropList{
+	position: absolute;
+	background-color: #fff;
+	width: 200px;
+	border: 1px solid #ccc;
+	display: none;
+}
+.rightCon .header .avator_con .dropList ul li{
+	height:30px;
+	text-align: center;
+}
+.header .category .cate_fg{
+	color: #D4D4D4;
+	padding: 0 16px;
+}
+.rotate45{
+	display: inline-block;
+	transform: rotate(-90deg);
+}
+.w50{
+	width: 50px;
+}
+.w10{
+	width: 50px;
+}
+.table_tr_btns{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+	height: 64px;
+	align-items: center;
+}
+.table_tr_btns .btn{
+	padding: 0 12px;
+	background: #FFFFFF;
+	border-radius: 4px;
+	border: 1px solid #CCCCCC;
+	height: 31px;
+	line-height: 31px;
+	cursor: pointer;
+}
+.bottom_tr{
+	height: 63px;
+	line-height: 63px;
+	background: #FAFAFA;
+}
+.bottom_left_con{
+	display: flex;
+	align-items: center;
+}
+.bottom_tr{
+	height: 63px;
+	background: #FAFAFA;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 24px;
+}
+.bottom_tr .all_checkboxs{
+	margin-right: 32px;
+}
+.bottom_tr_btns .btn{
+	font-size: 14px;
+	padding: 0 12px;
+	height: 31px;
+	line-height: 31px;
+	box-sizing: border-box;
+	border-radius: 4px;
+	border: 1px solid #CCCCCC;
+	cursor: pointer;
+	pointer-events:initial;
+	cursor: pointer;
+}
+.bottom_tr_btns{
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+.bottom_tr_btns .btn.disabled{
+	pointer-events: none;
+	cursor: none;
+}
+.bottom_right_con{
+	display: flex;
+	align-items: center;
+}
+.pages{
+	background: #FFFFFF;
+	border-radius: 4px;
+	border: 1px solid #CCCCCC;
+	text-align: center;
+	min-width: 40px;
+	height: 24px;
+	margin-left: 10px;
+	position: relative;
+}
+.pages input{
+	position: absolute;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	text-align: center;
+}

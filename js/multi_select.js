@@ -47,7 +47,7 @@ function createSelectList(listData){
 	let ulStr = `<div class="multi"></div><ul class="ps-container" style="display: none;">`;
 	let listStr = "";
 	listData.forEach((item,index)=>{
-		listStr += `<li><a href="javascript:;" data-attribute_value_id="${item.attribute_value_id}" data-attribute_value_en="${item.attribute_value_en}" class="ftx-01">${item.attribute_value}(${item.attribute_value_en})</a></li>`;
+		listStr += `<li><a href="javascript:;" data-attribute_value_id="${item.attribute_value_id}" data-attribute_value_en="${item.attribute_value}" class="ftx-01">${item.attribute_value}(${item.attribute_value_en})</a></li>`;
 	})
 	return ulStr+listStr+"</ul></div>";
 }

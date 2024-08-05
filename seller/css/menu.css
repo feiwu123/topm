@@ -1,0 +1,75 @@
+.logoCon{
+	padding: 24px;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+.logoCon .logoImg{
+	width: 45px;
+	height: 45px;
+	border-radius: 8px;
+	overflow: hidden;
+}
+.logoCon .logoImg img{
+	width: 100%;
+}
+.seler-title div{
+	color: #fff;
+	font-family: PingFangSC, PingFang SC;
+	font-weight: 600;
+	font-size: 16px;
+}
+.seler-title h1{
+	font-weight: 400;
+	font-size: 10px;
+	color: #FFFFFF;
+	line-height: 14px;
+	margin-top: 4px;
+}
+
+.menuItem{
+	font-size: 16px;
+	cursor: pointer;
+}
+.menuItem .menutext{
+	padding: 0 24px;
+	height: 57px;
+	line-height: 57px;
+	display: flex;
+	color: #CACACA;
+	justify-content: space-between;
+	align-items: center;
+}
+.menuItem .menutext .menuleft .txt{
+	margin-left: 16px;
+}
+.menuItem .menutext .hasChild .iconfont{
+	font-size: 1px;
+}
+.menuItem.active{
+	border-bottom: 1px solid #2D2D2D;
+	border-top: 1px solid #2D2D2D;
+}
+.menuItem.active .menutext{
+	color: #fff;
+}
+.childMenu{
+	padding: 0 16px;
+}
+.childMenu .childMenuItem.act a{
+	background-color: #343434;
+	border-radius: 6px;
+	color: #fff;
+}
+.childMenu .childMenuItem:hover a{
+	background-color: #343434;
+	border-radius: 6px;
+	color: #fff;
+}
+.childMenu .childMenuItem a{
+	display: block;
+	padding: 0 0 0 44px;
+	height: 49px;
+	line-height: 49px;
+	color: #CACACA;
+}

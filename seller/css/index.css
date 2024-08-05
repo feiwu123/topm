@@ -1,0 +1,81 @@
+.btns{
+	display: flex;
+	gap: 24px;
+	align-items: center;
+}
+.btns .btn{
+	width: 98px;
+	height: 42px;
+	line-height: 42px;
+	border-radius: 8px;
+	color: #797979;
+	text-align: center;
+	cursor: pointer;
+}
+.btns .btn.act{
+	background: #1D1D1D;
+	color: #fff;
+}
+.operate_tips{
+	background: linear-gradient( 180deg, #e9eaf3 0%, #F5F5FF 50%);
+	border-radius: 8px;
+	border: 1px solid #DEE2FF;
+	border-style: dashed;
+	padding: 16px;
+}
+.operate_tips .operate_title{
+	font-family: PingFangSC, PingFang SC;
+	font-weight: 500;
+	font-size: 14px;
+	color: #010F66;
+}
+.operate_tips .operate_content{
+	margin-top: 14px;
+	color: #010F66;
+}
+.filterForm{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.filterForm .search_con{
+	width: 306px;
+	height: 38px;
+	background: #FFFFFF;
+	border-radius: 8px;
+	border: 1px solid #C3C3C3;
+	position: relative;
+	overflow: hidden;
+}
+.filterForm .search_con .searchInput{
+	outline: none;
+	border: none;
+	height: 100%;
+	width: 100%;
+	padding-left: 50px;
+}
+.filterForm .search_con .searchIcon{
+	position: absolute;
+	top: 10px;
+	left: 16px;
+}
+.table_btns{
+	display: flex;
+	align-items: center;
+	gap: 24px;
+}
+.table_btns .btn{
+	width: 161px;
+	height: 38px;
+	background: #FFFFFF;
+	border-radius: 6px;
+	border: 1px solid #CCCCCC;
+	line-height: 38px;
+	text-align: center;
+	color: #333333;
+	cursor: pointer;
+}
+.table_btns .btn.add{
+	background-color: #1D1D1D;
+	color: #fff;
+}
