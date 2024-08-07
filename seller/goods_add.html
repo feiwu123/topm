@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>商品添加编辑页面</title>
+		<link rel="stylesheet" type="text/css" href="./css/common.css" />
+		<link rel="stylesheet" type="text/css" href="./css/menu.css" />
+		<link rel="stylesheet" type="text/css" href="./css/index.css" />
+		<link rel="stylesheet" type="text/css" href="./css/goods.css" />
+		
+		<!-- 滚动条样式 -->
+		<link rel="stylesheet" type="text/css" href="https://ayamcn.com/js/perfect-scrollbar/perfect-scrollbar.min.css"/>
+		<!-- 引入字体文件 -->
+		<link rel="stylesheet" type="text/css" href="https://at.alicdn.com/t/c/font_4643688_s31x8xlzi6.css"/>
+	</head>
+	<body>
+		<div id="app">
+			<div class="leftCon">
+				<div class="logoCon">
+					<div class="logoImg">
+						<img src="https://ayamcn.com/seller/images/seller_logo.png" />
+					</div>
+					<div class="seler-title">
+						<div>商家后台</div>
+						<h1>ayamcn.com</h1>
+					</div>
+				</div>
+				<div class="meunuList">
+					<div class="menuItem">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-home-smile-2-line"></span>
+								<span class="txt">首页</span>
+							</div>
+						</div>
+					</div>
+					<div class="menuItem active">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-shangjia"></span>
+								<span class="txt">商品</span>
+							</div>
+							<div class="hasChild">
+								<span class="iconfont icon-a-lujing3"></span>
+							</div>
+						</div>
+						<div class="childMenu">
+							<div class="childMenuItem act">
+								<a>商品列表</a>
+							</div>
+							<div class="childMenuItem">
+								<a>商品批量修改</a>
+							</div>
+							<div class="childMenuItem">
+								<a>商品批量修改</a>
+							</div>
+						</div>
+					</div>
+					<div class="menuItem">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-file-list-2-line"></span>
+								<span class="txt">订单</span>
+							</div>
+							<div class="hasChild">
+								<span class="iconfont icon-a-lujing3"></span>
+							</div>
+						</div>
+					</div>
+					<div class="menuItem">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-baobiao"></span>
+								<span class="txt">报表</span>
+							</div>
+							<div class="hasChild">
+								<span class="iconfont icon-a-lujing3"></span>
+							</div>
+						</div>
+					</div>
+					<div class="menuItem">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-store-2-line"></span>
+								<span class="txt">门店</span>
+							</div>
+							<div class="hasChild">
+								<span class="iconfont icon-a-lujing3"></span>
+							</div>
+						</div>
+					</div>
+					<div class="menuItem">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-key-2-line"></span>
+								<span class="txt">权限</span>
+							</div>
+							<div class="hasChild">
+								<span class="iconfont icon-a-lujing3"></span>
+							</div>
+						</div>
+					</div>
+					<div class="menuItem">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-home-5-line"></span>
+								<span class="txt">商家</span>
+							</div>
+							<div class="hasChild">
+								<span class="iconfont icon-a-lujing3"></span>
+							</div>
+						</div>
+					</div>
+					<div class="menuItem">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-shangjia"></span>
+								<span class="txt">店铺</span>
+							</div>
+							<div class="hasChild">
+								<span class="iconfont icon-a-lujing3"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="rightCon">
+				<div class="header">
+					<div class="category">
+						<span class="cateTxt">商品</span>
+						<span class="cate_fg">/</span>
+						<span class="cateTxt">商品列表</span>
+						<span class="cate_fg">/</span>
+						<span class="cateTxt">添加新商品</span>
+					</div>
+					<div class="avator_con">
+						<div class="con">
+							<div class="avator_img">
+								<img src="https://ayamcn.com/seller/images/tx.png" />
+							</div>
+							<div>
+								Hi，Merida <span class="iconfont icon-ICON-xia"></span>
+							</div>
+						</div>
+						<div class="dropList">
+							<ul>
+								<li>退出</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="body_con" style="padding: 24px;">
+					<div class="card goodsInfo">
+						<div class="title">
+							基本信息
+						</div>
+						<div class="bodyInform">
+							<div class="elems">
+								<div class="label">
+									<span>Classification of goods</span>
+								</div>
+								<div class="formEle">
+									<div class="inputEle disabled">
+										<input type="text"  disabled/>
+										<div class="iconEdit">
+											<span class="iconfont icon-ICON-xiugai_bai"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="elems">
+								<div class="label">
+									<span>Name:(西班牙语)</span>
+									<div class="error_tips">
+										<span class="red">*</span>
+										<span class="red">商品名称不能为空</span>
+									</div>
+								</div>
+								<div class="formEle">
+									<div class="inputEle red-border">
+										<input type="text" name="goods_name" />
+									</div>
+								</div>
+								<div class="tips">
+									The length of the title is at least 1 characters, and the longest is 150 characters
+								</div>
+							</div>
+							<div class="elems">
+								<div class="label">
+									<span>NO.:</span>
+									<div class="error_tips hide">
+										<span class="red">*</span>
+										<span class="red">商品名称不能为空</span>
+									</div>
+								</div>
+								<div class="formEle">
+									<div class="inputEle red-border">
+										<input type="text" name="goods_number" />
+									</div>
+								</div>
+								<div class="tips">
+									The merchant number refers to the number of business management products, buyers are not visible can enter up to 20 characters, letters, numbers, Chinese support input, _, /, - and decimal point
+								</div>
+							</div>
+							<div class="elems">
+								<div class="label">
+									<span>Brief:(西班牙语)</span>
+									<div class="error_tips hide">
+										<span class="red">*</span>
+										<span class="red"></span>
+									</div>
+								</div>
+								<div class="formEle">
+									<div class="textareaEle">
+										<textarea name="brief" id="" cols="30" rows="10"></textarea>
+									</div>
+								</div>
+							</div>
+							<div class="elems">
+								<div class="label">
+									<span>供应信息:</span>
+									<div class="error_tips">
+										<span class="red">*</span>
+										<span class="red">（请根据实际情况填写属性，完整的属性信息有助于用户选购及履约，提升商品流量及转化，规避发货风险。）</span>
+									</div>
+								</div>
+								<div class="formEle">
+									<div class="information_groups">
+										<div class="infor1">
+											<label>重量(含包装),单位g</label>
+											<div class="inputEle">
+												<input name="goods_weight" />
+											</div>
+										</div>
+										<div class="infor1">
+											<label>长(最长边),单位cm</label>
+											<div class="inputEle">
+												<input name="goods_length" />
+											</div>
+										</div>
+										<div class="infor1">
+											<label>宽(次长边),单位cm</label>
+											<div class="inputEle">
+												<input name="goods_width" />
+											</div>
+										</div>
+										<div class="infor1">
+											<label>高(最短边),单位cm</label>
+											<div class="inputEle">
+												<input name="goods_height" />
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card goodsInfo">
+						<div class="title">
+							类目属性
+						</div>
+						<div class="bodyInform">
+							<div class="elems">
+								<div class="label">
+									<span>商品属性:</span>
+									<div class="error_tips">
+										<span class="red">*</span>
+										<span class="red">（请根据实际情况填写属性，完整的属性信息有助于用户选购及履约，提升商品流量及转化，规避发货风险。）</span>
+									</div>
+								</div>
+								<div class="formEle">
+									<div class="attr_groups">
+										<div class="attr_infor">
+											<label>类型:</label>
+											<div class="selectEle">
+												<div class="chosen_attr">
+													<div class="attr_txt">
+														<span class="txt">眉毛、眼线贴纸</span>
+														<span class="iconfont icon-guanbi"></span>
+													</div>
+													<div class="attr_txt">
+														<span class="txt">眉毛、眼线贴纸</span>
+														<span class="iconfont icon-guanbi"></span>
+													</div>
+													<div class="attr_txt">
+														<span class="txt">眉毛、眼线贴纸</span>
+														<span class="iconfont icon-guanbi"></span>
+													</div>
+												</div>
+												<div class="select_icon">
+													<span class="iconfont icon-ICON-xia"></span>
+												</div>	
+												<input name="goods_weight" type="hidden" />
+											</div>
+										</div>
+										<div class="attr_infor">
+											<label>材质:</label>
+											<div class="selectEle">
+												<div class="chosen_attr">
+													<div class="attr_txt">
+														<span class="txt">眉毛、眼线贴纸</span>
+														<span class="iconfont icon-guanbi"></span>
+													</div>
+													<div class="attr_txt">
+														<span class="txt">眉毛、眼线贴纸</span>
+														<span class="iconfont icon-guanbi"></span>
+													</div>
+													<div class="attr_txt">
+														<span class="txt">眉毛、眼线贴纸</span>
+														<span class="iconfont icon-guanbi"></span>
+													</div>
+												</div>
+												<div class="select_icon">
+													<span class="iconfont icon-ICON-xia"></span>
+												</div>	
+												<input name="goods_length" type="hidden" />
+											</div>
+										</div>
+										<div class="attr_infor">
+											<label>优点:</label>
+											<div class="selectEle">
+												<div class="chosen_attr">
+													<div class="attr_txt">
+														<span class="txt">眉毛、眼线贴纸</span>
+														<span class="iconfont icon-guanbi"></span>
+													</div>
+													<div class="attr_txt">
+														<span class="txt">眉毛、眼线贴纸</span>
+														<span class="iconfont icon-guanbi"></span>
+													</div>
+													<div class="attr_txt">
+														<span class="txt">眉毛、眼线贴纸</span>
+														<span class="iconfont icon-guanbi"></span>
+													</div>
+												</div>
+												<div class="select_icon">
+													<span class="iconfont icon-ICON-xia"></span>
+												</div>	
+												<input name="goods_width" type="hidden"  />
+											</div>
+										</div>
+										<div class="attr_infor">
+											<label>细化图案:</label>
+											<div class="selectEle">
+												<div class="chosen_attr">
+													<div class="attr_txt">
+														<span class="txt">眉毛、眼线贴纸</span>
+														<span class="iconfont icon-guanbi"></span>
+													</div>
+													<div class="attr_txt">
+														<span class="txt">眉毛、眼线贴纸</span>
+														<span class="iconfont icon-guanbi"></span>
+													</div>
+													<div class="attr_txt">
+														<span class="txt">眉毛、眼线贴纸</span>
+														<span class="iconfont icon-guanbi"></span>
+													</div>
+												</div>
+												<div class="select_icon">
+													<span class="iconfont icon-ICON-xia"></span>
+												</div>	
+												<input name="goods_height" type="hidden" />
+											</div>
+										</div>
+										<div class="attr_infor">
+											<label>使用身体部位:</label>
+											<div class="selectEle">
+												<div class="chosen_attr">
+													<div class="attr_txt">
+														<span class="txt">眉毛、眼线贴纸</span>
+														<span class="iconfont icon-guanbi"></span>
+													</div>
+													<div class="attr_txt">
+														<span class="txt">眉毛、眼线贴纸</span>
+														<span class="iconfont icon-guanbi"></span>
+													</div>
+													<div class="attr_txt">
+														<span class="txt">眉毛、眼线贴纸</span>
+														<span class="iconfont icon-guanbi"></span>
+													</div>
+												</div>
+												<div class="select_icon">
+													<span class="iconfont icon-ICON-xia"></span>
+												</div>	
+												<input name="goods_height" type="hidden" />
+											</div>
+										</div>
+										<div class="attr_infor">
+											<label>包含电池:</label>
+											<div class="selectEle">
+												<div class="chosen_attr">
+													<div class="attr_txt">
+														<span class="txt">眉毛、眼线贴纸</span>
+														<span class="iconfont icon-guanbi"></span>
+													</div>
+													<div class="attr_txt">
+														<span class="txt">眉毛、眼线贴纸</span>
+														<span class="iconfont icon-guanbi"></span>
+													</div>
+													<div class="attr_txt">
+														<span class="txt">眉毛、眼线贴纸</span>
+														<span class="iconfont icon-guanbi"></span>
+													</div>
+												</div>
+												<div class="select_icon">
+													<span class="iconfont icon-ICON-xia"></span>
+												</div>	
+												<input name="goods_height" type="hidden" />
+											</div>
+										</div>
+										<div class="attr_infor">
+											<label>数量:</label>
+											<div class="addLine">
+												<span class="iconfont icon-xinzeng"></span>
+												<span>添加新行</span>
+											</div>
+											<div class="exter_attr">
+												<div class="exter_attr_table">
+													<table tableborder="0">
+														<tr>
+															<th style="width: 40%;">单位</th>
+															<th style="width: 40%;">数量</th>
+															<th style="width: 20%;">操作</th>
+														</tr>
+														<tr>
+															<td>
+																<div class="selectEle">
+																	<div class="chosen_attr">
+																		<div class="attr_txt">
+																			<span class="txt">眉毛、眼线贴纸</span>
+																			<span class="iconfont icon-guanbi"></span>
+																		</div>
+																	</div>
+																	<div class="select_icon">
+																		<span class="iconfont icon-ICON-xia"></span>
+																	</div>	
+																	<input name="goods_exter_name" type="hidden" />
+																</div>
+															</td>
+															<td>
+																<div class="inputEle">
+																	<input name="exter_val" class="element_input" />
+																</div>
+															</td>
+															<td class="delete">
+																
+															</td>
+														</tr>
+														<tr>
+															<td>
+																<div class="selectEle">
+																	<div class="chosen_attr">
+																		<div class="attr_txt">
+																			<span class="txt">眉毛、眼线贴纸</span>
+																			<span class="iconfont icon-guanbi"></span>
+																		</div>
+																	</div>
+																	<div class="select_icon">
+																		<span class="iconfont icon-ICON-xia"></span>
+																	</div>	
+																	<input name="goods_exter_name" type="hidden" />
+																</div>
+															</td>
+															<td>
+																<div class="inputEle">
+																	<input name="exter_val" class="element_input" />
+																</div>
+															</td>
+															<td class="delete">
+																<span>delete</span>
+															</td>
+														</tr>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>	
+					</div>
+						
+						
+					<div class="card goodsInfo">
+						<div class="title">
+							规格及供应信息
+						</div>
+						<div class="bodyInform">
+							<div class="elems">
+								<div class="label">
+									<span>主规格:</span>
+									<div class="error_tips">
+										<span class="red">*</span>
+										<span class="red">（请根据实际情况填写属性，完整的属性信息有助于用户选购及履约，提升商品流量及转化，规避发货风险。）</span>
+									</div>
+								</div>
+								<div class="formEle">
+									<div class="attr_groups">
+										<div class="attr_infor main_attr_info">
+											<div class="addLine">
+												<span class="iconfont icon-xinzeng"></span>
+												<span>添加新行</span>
+											</div>
+											<div class="exter_attr">
+												<div class="exter_attr_table">
+													<table tableborder="0">
+														<tr>
+															<th style="width: 40%;">规格名称</th>
+															<th style="width: 40%;">内容</th>
+															<th style="width: 20%;">操作</th>
+														</tr>
+														<tr>
+															<td>
+																<div class="selectEle main_attr_select1">
+																	<div class="chosen_attr">
+																		<div class="attr_txt">
+																			<span class="txt">眉毛、眼线贴纸</span>
+																			<span class="iconfont icon-guanbi"></span>
+																		</div>
+																	</div>
+																	<div class="select_icon">
+																		<span class="iconfont icon-ICON-xia"></span>
+																	</div>	
+																	<input name="goods_exter_name" type="hidden" />
+																</div>
+															</td>
+															<td>
+																<div class="selectEle main_attr_select2">
+																	<div class="chosen_attr">
+																		<div class="attr_txt">
+																			<span class="txt">眉毛、眼线贴纸</span>
+																			<span class="iconfont icon-guanbi"></span>
+																		</div>
+																	</div>
+																	<div class="select_icon">
+																		<span class="iconfont icon-ICON-xia"></span>
+																	</div>	
+																	<input name="goods_exter_name" type="hidden" />
+																</div>
+															</td>
+															<td class="delete">
+																
+															</td>
+														</tr>
+														<tr>
+															<td>
+																<div class="selectEle main_attr_select1">
+																	<div class="chosen_attr">
+																		<div class="attr_txt">
+																			<span class="txt">眉毛、眼线贴纸</span>
+																			<span class="iconfont icon-guanbi"></span>
+																		</div>
+																	</div>
+																	<div class="select_icon">
+																		<span class="iconfont icon-ICON-xia"></span>
+																	</div>	
+																	<input name="goods_exter_name" type="hidden" />
+																</div>
+															</td>
+															<td>
+																<div class="selectEle main_attr_select2">
+																	<div class="chosen_attr">
+																		<div class="attr_txt">
+																			<span class="txt">眉毛、眼线贴纸</span>
+																			<span class="iconfont icon-guanbi"></span>
+																		</div>
+																	</div>
+																	<div class="select_icon">
+																		<span class="iconfont icon-ICON-xia"></span>
+																	</div>	
+																	<input name="goods_exter_name" type="hidden" />
+																</div>
+															</td>
+															<td class="delete">
+																<span>delete</span>
+															</td>
+														</tr>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>	
+							</div>
+							<div class="elems">
+								<div class="label">
+									<span>次规格:</span>
+									<div class="error_tips">
+									</div>
+								</div>
+								<div class="formEle">
+									<div class="attr_groups">
+										<div class="attr_infor main_attr_info">
+											<div class="addLine">
+												<span class="iconfont icon-xinzeng"></span>
+												<span>添加新行</span>
+											</div>
+											<div class="exter_attr">
+												<div class="exter_attr_table">
+													<table tableborder="0">
+														<tr>
+															<th style="width: 40%;">规格名称</th>
+															<th style="width: 40%;">内容</th>
+															<th style="width: 20%;">操作</th>
+														</tr>
+														<tr>
+															<td>
+																<div class="selectEle main_attr_select1">
+																	<div class="chosen_attr">
+																		<div class="attr_txt">
+																			<span class="txt">眉毛、眼线贴纸</span>
+																			<span class="iconfont icon-guanbi"></span>
+																		</div>
+																	</div>
+																	<div class="select_icon">
+																		<span class="iconfont icon-ICON-xia"></span>
+																	</div>	
+																	<input name="goods_exter_name" type="hidden" />
+																</div>
+															</td>
+															<td>
+																<div class="selectEle main_attr_select2">
+																	<div class="chosen_attr">
+																		<div class="attr_txt">
+																			<span class="txt">眉毛、眼线贴纸</span>
+																			<span class="iconfont icon-guanbi"></span>
+																		</div>
+																	</div>
+																	<div class="select_icon">
+																		<span class="iconfont icon-ICON-xia"></span>
+																	</div>	
+																	<input name="goods_exter_name" type="hidden" />
+																</div>
+															</td>
+															<td class="delete">
+																
+															</td>
+														</tr>
+														<tr>
+															<td>
+																<div class="selectEle main_attr_select1">
+																	<div class="chosen_attr">
+																		<div class="attr_txt">
+																			<span class="txt">眉毛、眼线贴纸</span>
+																			<span class="iconfont icon-guanbi"></span>
+																		</div>
+																	</div>
+																	<div class="select_icon">
+																		<span class="iconfont icon-ICON-xia"></span>
+																	</div>	
+																	<input name="goods_exter_name" type="hidden" />
+																</div>
+															</td>
+															<td>
+																<div class="selectEle main_attr_select2">
+																	<div class="chosen_attr">
+																		<div class="attr_txt">
+																			<span class="txt">眉毛、眼线贴纸</span>
+																			<span class="iconfont icon-guanbi"></span>
+																		</div>
+																	</div>
+																	<div class="select_icon">
+																		<span class="iconfont icon-ICON-xia"></span>
+																	</div>	
+																	<input name="goods_exter_name" type="hidden" />
+																</div>
+															</td>
+															<td class="delete">
+																<span>delete</span>
+															</td>
+														</tr>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>	
+							</div>
+							<div class="elems">
+								<div class="label">
+									<span>主规格图:</span>
+									<div class="error_tips">
+										<span class="red">*</span>
+									</div>
+								</div>
+								<div class="tips">
+									<div>1、细节图最多11张，宽高比例1:1,3:4,4:5,13:16 ，像素900px-2200px；方形图900px*900px-2200px*2200px； 色块图80px*80px</div>
+									<div>2、大小≤3MB，格式JPG/JPEG/PNG</div>
+								</div>
+								<div class="formEle main_attr_pic">
+									<div class="attr_groups">
+										<div class="attr_infor main_attr_info_pic">
+											<div class="exter_attr">
+												<div class="exter_attr_table">
+													<table tableborder="0">
+														<tr>
+															<th style="width: 15%;">插头(电压)</th>
+															<th style="width: 55%; text-align: left;">细节图<span class="red">*</span></th>
+															<th style="width: 15%;text-align: left;">方型图<span class="red">*</span></th>
+															<th style="width: 15%;text-align: left;">色块图</th>
+														</tr>
+														<tr>
+															<td>
+																<span>欧规C型插(220-240V)</span>
+																<span>SKC：</span>
+															</td>
+															<td>
+																<div class="attr_pic_groups">
+																	<div class="attr_pic_items">
+																		<img src="https://chobs.mistoremx.com/images/202407/thumb_img/0_thumb_G_1721437461704.jpg" />
+																		<div class="zhutu_icon">
+																			<span>主图</span>
+																		</div>
+																		<div class="delete_icon">
+																			<span class="iconfont icon-guanbi"></span>
+																		</div>
+																	</div>
+																	<div class="attr_pic_items no_pic">
+																		<span class="iconfont icon-xinzeng"></span>
+																	</div>
+																	<div class="attr_pic_items no_pic">
+																		<span class="iconfont icon-xinzeng"></span>
+																	</div>
+																	<div class="attr_pic_items no_pic">
+																		<span class="iconfont icon-xinzeng"></span>
+																	</div>
+																	<div class="attr_pic_items no_pic">
+																		<span class="iconfont icon-xinzeng"></span>
+																	</div>
+																	<div class="attr_pic_items no_pic">
+																		<span class="iconfont icon-xinzeng"></span>
+																	</div>
+																	<div class="attr_pic_items no_pic">
+																		<span class="iconfont icon-xinzeng"></span>
+																	</div>
+																	<div class="attr_pic_items no_pic">
+																		<span class="iconfont icon-xinzeng"></span>
+																	</div>
+																	<div class="attr_pic_items no_pic">
+																		<span class="iconfont icon-xinzeng"></span>
+																	</div>
+																	<div class="attr_pic_items no_pic">
+																		<span class="iconfont icon-xinzeng"></span>
+																	</div>
+																</div>
+															</td>
+															<td style="vertical-align: baseline;">
+																<div class="attr_pic_groups">
+																	<div class="attr_pic_items no_pic">
+																		<span class="iconfont icon-xinzeng"></span>
+																	</div>
+																</div>	
+															</td>
+															<td style="vertical-align: baseline;">
+																<div class="attr_pic_groups">
+																	<div class="attr_pic_items no_pic">
+																		<span class="iconfont icon-xinzeng"></span>
+																	</div>
+																</div>	
+															</td>
+														</tr>
+													
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>	
+							</div>
+							<div class="elems">
+								<div class="label">
+									<span>详情图:</span>
+								</div>
+								<div class="tips">
+									<div>要求上传3:4图片，像素大于900px图片为商城最佳展示效果，最多可支持10张</div>
+								</div>
+								<div class="formEle main_attr_pic">
+									<div class="attr_groups">
+										<div class="attr_infor main_attr_info_pic">
+											<div class="exter_attr">
+												<div class="exter_attr_table">
+													<table tableborder="0">
+														<tr>
+															<th style="width: 20%;">插头(电压)</th>
+															<th style="text-align: left;">详情图</th>
+														</tr>
+														<tr>
+															<td>
+																<span>欧规C型插(220-240V)</span>
+																<span>SKC：</span>
+															</td>
+															<td>
+																<div class="attr_pic_groups">
+																	<div class="attr_pic_items">
+																		<img src="https://chobs.mistoremx.com/images/202407/thumb_img/0_thumb_G_1721437461704.jpg" />
+																		<div class="zhutu_icon">
+																			<span>主图</span>
+																		</div>
+																		<div class="delete_icon">
+																			<span class="iconfont icon-guanbi"></span>
+																		</div>
+																	</div>
+																	<div class="attr_pic_items no_pic">
+																		<span class="iconfont icon-xinzeng"></span>
+																	</div>
+																	<div class="attr_pic_items no_pic">
+																		<span class="iconfont icon-xinzeng"></span>
+																	</div>
+																	<div class="attr_pic_items no_pic">
+																		<span class="iconfont icon-xinzeng"></span>
+																	</div>
+																	<div class="attr_pic_items no_pic">
+																		<span class="iconfont icon-xinzeng"></span>
+																	</div>
+																	<div class="attr_pic_items no_pic">
+																		<span class="iconfont icon-xinzeng"></span>
+																	</div>
+																	<div class="attr_pic_items no_pic">
+																		<span class="iconfont icon-xinzeng"></span>
+																	</div>
+																	<div class="attr_pic_items no_pic">
+																		<span class="iconfont icon-xinzeng"></span>
+																	</div>
+																	<div class="attr_pic_items no_pic">
+																		<span class="iconfont icon-xinzeng"></span>
+																	</div>
+																	<div class="attr_pic_items no_pic">
+																		<span class="iconfont icon-xinzeng"></span>
+																	</div>
+																</div>
+															</td>
+														</tr>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>	
+							</div>
+							<div class="elems">
+								<div class="label">
+									<span>供应信息:</span>
+								</div>
+								<div class="tips red">
+									<div>说明：含有两页以上请用批量上传功能</div>
+								</div>
+								<div class="upload_csv_con">
+									<div class="csv_btn btn">CSV bulk upload</div>
+									<div class="refresh_btn btn">Refresh</div>
+								</div>
+								<div class="formEle main_attr_pic">
+									<div class="attr_groups">
+										<div class="attr_infor main_attr_info_stock">
+											<div class="exter_attr">
+												<div class="exter_attr_table">
+													<table tableborder="0">
+														<tr>
+															<th style="width: 40%;text-align: left;">插头(电压)，尺寸</th>
+															<th style="width: 20%;text-align: left;">价格<span class="red">*</span></th>
+															<th style="width: 20%;text-align: left;">库存<span class="red">*</span></th>
+															<th style="width: 20%;text-align: left;">商品货号<span class="red">*</span></th>
+														</tr>
+														<tr>
+															<td>
+																<span>欧规C型插(220-240V)</span>
+															</td>
+															<td>
+																<input class="stockInput" />
+															</td>
+															<td>
+																<input class="stockInput"  />
+															</td>
+															<td>
+																<input class="stockInput"  />
+															</td>
+														</tr>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>	
+							</div>
+						</div>	
+					</div>		
+					<div class="submitBtns">
+						<div class="pre_step_btn step_btn">
+							Previous step
+						</div>
+						<div class="nex_step_btn step_btn">
+							Next step
+						</div>
+					</div>
+				</div>
+				<div class="footer">
+					<div>
+						 2005-2017 ECSHOP Copyright All Right Reserved.
+					</div>
+				</div>	
+			</div>
+		</div>
+	</body>
+</html>

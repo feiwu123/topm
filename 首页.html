@@ -581,8 +581,10 @@
 		</div>
 	</div>
 	
+
 	
 	<script type="text/javascript">
+		
 	function changenum(rec_id, diff, warehouse_id = '', area_id = '')
 	{
 		var cValue = $('#cart_value').val();
@@ -717,6 +719,7 @@
 			<img src="/images/loading.gif">
 		</div>
 	</div>
+	<input type="text" id="myInput" data-name="111" name="main_attr"/>
 	</body>
 </html>
 
@@ -726,6 +729,19 @@
 <script src="./js/common.js"></script>
 <script>
 	
+	$("input[name='main_attr']").on('change', function(event){
+		$("#myInput").data('name',456)
+		console.log($("#myInput").data());
+	    var prevValue = event.target.defaultValue;
+	    var currentValue = event.target.value;
+	    console.log('前的值: ' + prevValue);
+	    console.log('现在的值: ' + currentValue);
+		event.target.defaultValue = currentValue;
+		if(prevValue==''){
+			//说明一开始没有值
+		}
+	    // 在这里可以根据需要进行比较或其他逻辑处理
+	});	
 	$("#checkPackages").modal('hide');
 	
 </script>
