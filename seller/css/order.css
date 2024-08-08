@@ -1,0 +1,45 @@
+.pro_infor .formEle{
+	display: flex;
+	flex-wrap: wrap;
+	column-gap:60px;
+	row-gap: 16px;
+}
+.attr_groups{
+    background-color:#fff;
+	max-width: 100%;
+	width: 100%;
+	padding: 0;
+	justify-content: space-between;
+}
+.attr_groups .attr_infor{
+	width: calc(33% - 24px);
+}
+.formEle .inputEle{
+	width: 400px;
+}
+.order_search .selectEle{
+	width: 400px;
+}
+.submit_con{
+	margin: 74px;
+	display: flex;
+	justify-content: center;
+	gap: 32px;
+}
+.submit_con .btn{
+	width: 142px;
+	height: 38px;
+	background: #FFFFFF;
+	border-radius: 6px;
+	line-height: 38px;
+	text-align: center;
+	cursor: pointer;
+	padding: 0;
+}
+.submit_con .btn.reset_btn{
+	border: 1px solid #CCCCCC;
+}
+.submit_con .btn.search_btn{
+	background-color: #1D1D1D;
+	color: #fff;
+}

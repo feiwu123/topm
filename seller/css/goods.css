@@ -20,6 +20,7 @@
 .elems .label{
 	display: flex;
 	align-items: center;
+	color: #333;
 }
 .elems .tips{
 	font-weight: 400;
@@ -120,6 +121,7 @@
 	margin-top: 8px;
 	border-radius: 2px;
 	font-size: 14px;
+	box-sizing: border-box;
 }
 .selectEle .chosen_attr{
 	display: flex;
@@ -327,4 +329,26 @@
 .step_btn.nex_step_btn{
 	background-color: #1D1D1D;
 	color: #fff;
+}
+
+.upload_csv{
+	width: 491px;
+	height: 36px;
+	line-height: 36px;
+	padding: 0 16px;
+	background: #FFFFFF;
+	border-radius: 2px;
+	border: 1px solid #DCDEE0;
+	cursor: pointer;
+	border-style: dashed;
+}
+.csv_upanddown{
+	display: flex;
+	align-items: center;
+	gap: 17px;
+	margin-top: 12px;
+}
+.download_csv{
+	color: #165BD5;
+	cursor: pointer;
 }

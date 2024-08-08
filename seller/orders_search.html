@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>订单查询</title>
+	<link rel="stylesheet" type="text/css" href="./css/common.css" />
+	<link rel="stylesheet" type="text/css" href="./css/menu.css" />
+	<link rel="stylesheet" type="text/css" href="./css/index.css" />
+	<link rel="stylesheet" type="text/css" href="./css/goods.css" />
+	<link rel="stylesheet" type="text/css" href="./css/order.css" />
+	
+	<!-- switch样式 -->
+	<link rel="stylesheet" type="text/css" href="./css/jquery.easyswitch.css" />
+	<!-- 滚动条样式 -->
+	<link rel="stylesheet" type="text/css" href="https://ayamcn.com/js/perfect-scrollbar/perfect-scrollbar.min.css"/>
+	
+	<!-- 引入字体文件 -->
+	<link rel="stylesheet" type="text/css" href="https://at.alicdn.com/t/c/font_4643688_pw7h45gdkz.css"/>
+	<!-- 日期插件 -->
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="./bootstrap-datepicker/css/bootstrap-datepicker.css" />
+</head>
+<body>
+	<div id="app">
+		<div class="leftCon">
+			<div class="logoCon">
+				<div class="logoImg">
+					<img src="https://ayamcn.com/seller/images/seller_logo.png" />
+				</div>
+				<div class="seler-title">
+					<div>商家后台</div>
+					<h1>ayamcn.com</h1>
+				</div>
+			</div>
+			<div class="meunuList">
+				<div class="menuItem">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-home-smile-2-line"></span>
+							<span class="txt">首页</span>
+						</div>
+					</div>
+				</div>
+				<div class="menuItem active">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-shangjia"></span>
+							<span class="txt">商品</span>
+						</div>
+						<div class="hasChild">
+							<span class="iconfont icon-a-lujing3"></span>
+						</div>
+					</div>
+					<div class="childMenu">
+						<div class="childMenuItem act">
+							<a>商品列表</a>
+						</div>
+						<div class="childMenuItem">
+							<a>商品批量修改</a>
+						</div>
+						<div class="childMenuItem">
+							<a>商品批量修改</a>
+						</div>
+					</div>
+				</div>
+				<div class="menuItem">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-file-list-2-line"></span>
+							<span class="txt">订单</span>
+						</div>
+						<div class="hasChild">
+							<span class="iconfont icon-a-lujing3"></span>
+						</div>
+					</div>
+				</div>
+				<div class="menuItem">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-baobiao"></span>
+							<span class="txt">报表</span>
+						</div>
+						<div class="hasChild">
+							<span class="iconfont icon-a-lujing3"></span>
+						</div>
+					</div>
+				</div>
+				<div class="menuItem">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-store-2-line"></span>
+							<span class="txt">门店</span>
+						</div>
+						<div class="hasChild">
+							<span class="iconfont icon-a-lujing3"></span>
+						</div>
+					</div>
+				</div>
+				<div class="menuItem">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-key-2-line"></span>
+							<span class="txt">权限</span>
+						</div>
+						<div class="hasChild">
+							<span class="iconfont icon-a-lujing3"></span>
+						</div>
+					</div>
+				</div>
+				<div class="menuItem">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-home-5-line"></span>
+							<span class="txt">商家</span>
+						</div>
+						<div class="hasChild">
+							<span class="iconfont icon-a-lujing3"></span>
+						</div>
+					</div>
+				</div>
+				<div class="menuItem">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-shangjia"></span>
+							<span class="txt">店铺</span>
+						</div>
+						<div class="hasChild">
+							<span class="iconfont icon-a-lujing3"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="rightCon">
+			<div class="header">
+				<div class="category">
+					<span class="cateTxt">订单</span><span class="cate_fg">/</span><span class="cateTxt">订单查询</span>
+				</div>
+				<div class="avator_con">
+					<div class="con">
+						<div class="avator_img">
+							<img src="https://ayamcn.com/seller/images/tx.png" />
+						</div>
+						<div>
+							Hi，Merida <span class="iconfont icon-ICON-xia"></span>
+						</div>
+					</div>
+					<div class="dropList">
+						<ul>
+							<li>退出</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="body_con" style="padding: 24px;">
+				<div class="card btns">
+					<div class="btn">订单列表</div>
+					<div class="btn act">订单查询</div>
+				</div>
+				<form>
+				<div class="pro_infor order_search card" style="margin-top: 24px;">
+					<div class="formEle">
+						<div class="elems">
+							<div class="label">
+								<span>订单号：</span>
+								<div class="error_tips hide">
+									<span class="red">*</span>
+									<span class="red">商品名称不能为空</span>
+								</div>
+							</div>
+							<div class="formEle">
+								<div class="inputEle">
+									<input type="text" name="order_name">
+								</div>
+							</div>
+						</div>
+						<div class="elems">
+							<div class="label">
+								<span>电子邮件：</span>
+								<div class="error_tips hide">
+									<span class="red">*</span>
+									<span class="red">商品名称不能为空</span>
+								</div>
+							</div>
+							<div class="formEle">
+								<div class="inputEle">
+									<input type="text" name="order_name">
+								</div>
+							</div>
+						</div>
+						<div class="elems">
+							<div class="label">
+								<span>购货人：</span>
+								<div class="error_tips hide">
+									<span class="red">*</span>
+									<span class="red">商品名称不能为空</span>
+								</div>
+							</div>
+							<div class="formEle">
+								<div class="inputEle">
+									<input type="text" name="order_name">
+								</div>
+							</div>
+						</div>
+						<div class="elems">
+							<div class="label">
+								<span>收货人：</span>
+								<div class="error_tips hide">
+									<span class="red">*</span>
+									<span class="red">商品名称不能为空</span>
+								</div>
+							</div>
+							<div class="formEle">
+								<div class="inputEle">
+									<input type="text" name="order_name">
+								</div>
+							</div>
+						</div>
+						<div class="elems">
+							<div class="label">
+								<span>收获地址：</span>
+								<div class="error_tips hide">
+									<span class="red">*</span>
+									<span class="red">商品名称不能为空</span>
+								</div>
+							</div>
+							<div class="formEle">
+								<div class="inputEle">
+									<input type="text" name="order_name">
+								</div>
+							</div>
+						</div>
+						<div class="elems">
+							<div class="label">
+								<span>邮政编码：</span>
+								<div class="error_tips hide">
+									<span class="red">*</span>
+									<span class="red">商品名称不能为空</span>
+								</div>
+							</div>
+							<div class="formEle">
+								<div class="inputEle">
+									<input type="text" name="order_name">
+								</div>
+							</div>
+						</div>
+						<div class="elems">
+							<div class="label">
+								<span>电话号码：</span>
+								<div class="error_tips hide">
+									<span class="red">*</span>
+									<span class="red">商品名称不能为空</span>
+								</div>
+							</div>
+							<div class="formEle">
+								<div class="inputEle">
+									<input type="text" name="order_name">
+								</div>
+							</div>
+						</div>
+						<div class="elems">
+							<div class="label">
+								<span>手机号码：</span>
+								<div class="error_tips hide">
+									<span class="red">*</span>
+									<span class="red">商品名称不能为空</span>
+								</div>
+							</div>
+							<div class="formEle">
+								<div class="inputEle">
+									<input type="text" name="order_name">
+								</div>
+							</div>
+						</div>
+						<div class="elems">
+							<div class="label">
+								<span>下单时间：</span>
+								<div class="error_tips hide">
+									<span class="red">*</span>
+									<span class="red">商品名称不能为空</span>
+								</div>
+							</div>
+							<div class="formEle">
+								<div class="inputEle input-daterange">
+									<input type="text" class="form-control" value="2012-04-05" placeholder="起始时间">
+										<div class="input-group-addon">-</div>
+									<input type="text" class="form-control" value="2012-04-19" placeholder="结束时间">
+								</div>
+							</div>
+						</div>
+						<div class="elems">
+							<div class="label">
+								<span>确认订单时间：</span>
+								<div class="error_tips hide">
+									<span class="red">*</span>
+									<span class="red">商品名称不能为空</span>
+								</div>
+							</div>
+							<div class="formEle">
+								<div class="inputEle">
+									<div class="inputEle input-daterange">
+										<input type="text" class="form-control" value="2012-04-05" placeholder="起始时间">
+											<div class="input-group-addon">-</div>
+										<input type="text" class="form-control" value="2012-04-19" placeholder="结束时间">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="attr_infor">
+							<label>所在地区：</label>
+							<div class="selectEle">
+								<div class="chosen_attr">
+									<div class="attr_txt">
+										<span class="txt">眉毛、眼线贴纸</span>
+										<span class="iconfont icon-guanbi"></span>
+									</div>
+									<div class="attr_txt">
+										<span class="txt">眉毛、眼线贴纸</span>
+										<span class="iconfont icon-guanbi"></span>
+									</div>
+									<div class="attr_txt">
+										<span class="txt">眉毛、眼线贴纸</span>
+										<span class="iconfont icon-guanbi"></span>
+									</div>
+								</div>
+								<div class="select_icon">
+									<span class="iconfont icon-ICON-xia"></span>
+								</div>	
+								<input name="goods_length" type="hidden">
+							</div>
+						</div>
+						<div class="attr_infor">
+							<label>配送方式：</label>
+							<div class="selectEle">
+								<div class="chosen_attr">
+									<div class="attr_txt">
+										<span class="txt">眉毛、眼线贴纸</span>
+										<span class="iconfont icon-guanbi"></span>
+									</div>
+									<div class="attr_txt">
+										<span class="txt">眉毛、眼线贴纸</span>
+										<span class="iconfont icon-guanbi"></span>
+									</div>
+									<div class="attr_txt">
+										<span class="txt">眉毛、眼线贴纸</span>
+										<span class="iconfont icon-guanbi"></span>
+									</div>
+								</div>
+								<div class="select_icon">
+									<span class="iconfont icon-ICON-xia"></span>
+								</div>	
+								<input name="goods_length" type="hidden">
+							</div>
+						</div>
+						<div class="attr_infor">
+							<label>支付方式：</label>
+							<div class="selectEle">
+								<div class="chosen_attr">
+									<div class="attr_txt">
+										<span class="txt">眉毛、眼线贴纸</span>
+										<span class="iconfont icon-guanbi"></span>
+									</div>
+									<div class="attr_txt">
+										<span class="txt">眉毛、眼线贴纸</span>
+										<span class="iconfont icon-guanbi"></span>
+									</div>
+									<div class="attr_txt">
+										<span class="txt">眉毛、眼线贴纸</span>
+										<span class="iconfont icon-guanbi"></span>
+									</div>
+								</div>
+								<div class="select_icon">
+									<span class="iconfont icon-ICON-xia"></span>
+								</div>	
+								<input name="goods_length" type="hidden">
+							</div>
+						</div>
+						<div class="attr_infor">
+							<label>订单状态：</label>
+							<div class="selectEle">
+								<div class="chosen_attr">
+									<div class="attr_txt">
+										<span class="txt">眉毛、眼线贴纸</span>
+										<span class="iconfont icon-guanbi"></span>
+									</div>
+									<div class="attr_txt">
+										<span class="txt">眉毛、眼线贴纸</span>
+										<span class="iconfont icon-guanbi"></span>
+									</div>
+									<div class="attr_txt">
+										<span class="txt">眉毛、眼线贴纸</span>
+										<span class="iconfont icon-guanbi"></span>
+									</div>
+								</div>
+								<div class="select_icon">
+									<span class="iconfont icon-ICON-xia"></span>
+								</div>	
+								<input name="goods_length" type="hidden">
+							</div>
+						</div>
+						<div class="attr_infor">
+							<label>分类：</label>
+							<div class="selectEle">
+								<div class="chosen_attr">
+									<div class="attr_txt">
+										<span class="txt">眉毛、眼线贴纸</span>
+										<span class="iconfont icon-guanbi"></span>
+									</div>
+									<div class="attr_txt">
+										<span class="txt">眉毛、眼线贴纸</span>
+										<span class="iconfont icon-guanbi"></span>
+									</div>
+									<div class="attr_txt">
+										<span class="txt">眉毛、眼线贴纸</span>
+										<span class="iconfont icon-guanbi"></span>
+									</div>
+								</div>
+								<div class="select_icon">
+									<span class="iconfont icon-ICON-xia"></span>
+								</div>	
+								<input name="goods_length" type="hidden">
+							</div>
+						</div>
+						<div class="attr_infor">
+							<label>付款状态：</label>
+							<div class="selectEle">
+								<div class="chosen_attr">
+									<div class="attr_txt">
+										<span class="txt">眉毛、眼线贴纸</span>
+										<span class="iconfont icon-guanbi"></span>
+									</div>
+								</div>
+								<div class="select_icon">
+									<span class="iconfont icon-ICON-xia"></span>
+								</div>	
+								<input name="goods_length" type="hidden">
+							</div>
+						</div>
+						<div class="attr_infor">
+							<label>发货状态：</label>
+							<div class="selectEle">
+								<div class="chosen_attr">
+									<div class="attr_txt">
+										<span class="txt">眉毛、眼线贴纸</span>
+										<span class="iconfont icon-guanbi"></span>
+									</div>
+									<div class="attr_txt">
+										<span class="txt">眉毛、眼线贴纸</span>
+										<span class="iconfont icon-guanbi"></span>
+									</div>
+								</div>
+								<div class="select_icon">
+									<span class="iconfont icon-ICON-xia"></span>
+								</div>	
+								<input name="goods_length" type="hidden">
+							</div>
+						</div>
+					</div>
+					<div class="submit_con">
+						<div class="reset_btn btn">
+							重置
+						</div>
+						<div class="search_btn btn">
+							搜索
+						</div>
+					</div>
+				</div>
+				</form>
+			</div>
+			<div class="footer">
+				<div>
+					 2005-2017 ECSHOP Copyright All Right Reserved.
+				</div>
+			</div>
+		</div>
+	</div>	
+</body>
+</html>
+
+<script type="text/javascript" src="https://ayamcn.com/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="./bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js"></script>
+<script>
+	
+
+	//循环事件选择器
+	$('.input-daterange input').each(function() {
+	    $(this).datepicker('clearDates');
+	});
+</script>
