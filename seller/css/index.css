@@ -165,8 +165,27 @@
 	color: #fff;
 	cursor: pointer;
 }
-
 .filter_select{
+	position: relative;
+}
+.dropList{
+	position: absolute;
+	top: 38px;
+	left: 0;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	width: 100%;
+}
+.dropList ul li{
+	height: 38px;
+	line-height: 38px;
+	padding: 0 16px;
+	cursor: pointer;
+}
+.dropList ul li:hover{
+	background-color: #F4F4F4;
+}
+.filter_select .selectedVal{
 	height: 38px;
 	line-height: 38px;
 	background: #FFFFFF;
@@ -176,7 +195,7 @@
 	display: flex;
 	justify-content: space-between;
 	color: #999999;
-	max-width: 200px;
+	cursor: pointer;
 }
 .filter_select .default_txt{
 	color: #999999;
