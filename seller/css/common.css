@@ -8,6 +8,10 @@
 ul li{
 	list-style: none;
 }
+a{
+	color: #333;
+}
+
 .leftCon{
 	width: 20%;
 	left: 0;
@@ -270,6 +274,7 @@ ul li{
 	height: 24px;
 	margin-left: 10px;
 	position: relative;
+	overflow: hidden;
 }
 .pages input{
 	position: absolute;
@@ -277,4 +282,36 @@ ul li{
 	height: 100%;
 	width: 100%;
 	text-align: center;
+	outline: none;
+	border: 0px;
+}
+.pagenations{
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 0 16px;
+}
+.pagenations .pageItem{
+	min-width: 24px;
+	height: 24px;
+	background: #FFFFFF;
+	border-radius: 4px;
+	border: 1px solid #CCCCCC;
+	line-height: 24px;
+	color: #999999;
+	font-size: 14px;
+	text-align: center;
+	cursor: pointer;
+}
+.pagenations .pageItem.active{
+	background: #343434;
+	color: #fff;
+}
+.rotateLeft90{
+	display: inline-block;
+	transform: rotate(-90deg);
+}
+.rotateRight90{
+	display: inline-block;
+	transform: rotate(90deg);
 }

@@ -352,3 +352,62 @@
 	color: #165BD5;
 	cursor: pointer;
 }
+.attr_groups .multi_wu_select{
+    width: calc(50% - 12px);
+}
+.multi_wu_select .wuSelect{
+    display: flex;
+    background-color: #fff;
+    padding: 6px 8px;
+    min-height: 36px;
+    border: 1px solid #DCDEE0;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+    border-radius: 2px;
+    font-size: 14px;
+    box-sizing: border-box;
+    position: relative;
+}
+.multi_wu_select .wuSelect .multi{
+    display: flex;
+    min-height: 36px;
+    width: 100%;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.multi_wu_select .wuSelect .multi div{
+    background-color: #F4F4F4;
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    gap: 5px;
+    color: #737579;
+}
+.multi_wu_select .wuSelect .ps-container{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 100%;
+    z-index: 999;
+    height: 200px;
+    background-color: #fff;
+    overflow: hidden;
+    border: 1px solid #DCDEE0;
+}
+.multi_wu_select .wuSelect .ps-container li a{
+    color: #333;
+    line-height: 28px;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    padding: 0 8px;
+    margin-top: 5px;
+}
+.multi_wu_select .wuSelect .ps-container li a:hover{
+    background: #f4f4f4;
+}
+.multi_wu_select .wuSelect .ps-container li a.selected{
+    background: #f4f4f4;
+    color: #22cbdd;
+}
