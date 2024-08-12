@@ -168,6 +168,7 @@ a{
 }
 .rightCon .header .avator_con{
 	cursor: pointer;
+	position: relative;
 }
 .rightCon .header .avator_con .con{
 	padding-right: 30px;
@@ -207,8 +208,8 @@ a{
 .table_tr_btns{
 	display: flex;
 	flex-wrap: wrap;
-	gap: 16px;
-	height: 64px;
+	gap: 8px;
+	padding: 10px;
 	align-items: center;
 }
 .table_tr_btns .btn{
@@ -314,4 +315,7 @@ a{
 .rotateRight90{
 	display: inline-block;
 	transform: rotate(90deg);
+}
+.no-records{
+	padding: 20px;
 }
