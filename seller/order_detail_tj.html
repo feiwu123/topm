@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>订单缺货详情</title>
+		<link rel="stylesheet" type="text/css" href="./css/common.css" />
+		<link rel="stylesheet" type="text/css" href="./css/menu.css" />
+		<link rel="stylesheet" type="text/css" href="./css/index.css" />
+		<link rel="stylesheet" type="text/css" href="./css/goods.css" />
+		<link rel="stylesheet" type="text/css" href="./css/order.css" />
+
+		<!-- 滚动条样式 -->
+		<link rel="stylesheet" type="text/css"
+			href="https://ayamcn.com/js/perfect-scrollbar/perfect-scrollbar.min.css" />
+		<!-- 引入字体文件 -->
+		<link rel="stylesheet" type="text/css" href="https://at.alicdn.com/t/c/font_4643688_pw7h45gdkz.css" />
+		<!-- 日期插件 -->
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="./bootstrap-datepicker/css/bootstrap-datepicker.css" />
+	</head>
+	<body>
+		<div id="app">
+			<div class="leftCon">
+				<div class="logoCon">
+					<div class="logoImg">
+						<img src="https://ayamcn.com/seller/images/seller_logo.png" />
+					</div>
+					<div class="seler-title">
+						<div>商家后台</div>
+						<h1>ayamcn.com</h1>
+					</div>
+				</div>
+				<div class="meunuList">
+					<div class="menuItem">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-home-smile-2-line"></span>
+								<span class="txt">首页</span>
+							</div>
+						</div>
+					</div>
+					<div class="menuItem active">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-shangjia"></span>
+								<span class="txt">商品</span>
+							</div>
+							<div class="hasChild">
+								<span class="iconfont icon-a-lujing3"></span>
+							</div>
+						</div>
+						<div class="childMenu">
+							<div class="childMenuItem act">
+								<a>商品列表</a>
+							</div>
+							<div class="childMenuItem">
+								<a>商品批量修改</a>
+							</div>
+							<div class="childMenuItem">
+								<a>商品批量修改</a>
+							</div>
+						</div>
+					</div>
+					<div class="menuItem">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-file-list-2-line"></span>
+								<span class="txt">订单</span>
+							</div>
+							<div class="hasChild">
+								<span class="iconfont icon-a-lujing3"></span>
+							</div>
+						</div>
+					</div>
+					<div class="menuItem">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-baobiao"></span>
+								<span class="txt">报表</span>
+							</div>
+							<div class="hasChild">
+								<span class="iconfont icon-a-lujing3"></span>
+							</div>
+						</div>
+					</div>
+					<div class="menuItem">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-store-2-line"></span>
+								<span class="txt">门店</span>
+							</div>
+							<div class="hasChild">
+								<span class="iconfont icon-a-lujing3"></span>
+							</div>
+						</div>
+					</div>
+					<div class="menuItem">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-key-2-line"></span>
+								<span class="txt">权限</span>
+							</div>
+							<div class="hasChild">
+								<span class="iconfont icon-a-lujing3"></span>
+							</div>
+						</div>
+					</div>
+					<div class="menuItem">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-home-5-line"></span>
+								<span class="txt">商家</span>
+							</div>
+							<div class="hasChild">
+								<span class="iconfont icon-a-lujing3"></span>
+							</div>
+						</div>
+					</div>
+					<div class="menuItem">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-shangjia"></span>
+								<span class="txt">店铺</span>
+							</div>
+							<div class="hasChild">
+								<span class="iconfont icon-a-lujing3"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="rightCon">
+				<div class="header">
+					<div class="category">
+						<span class="cateTxt">商品</span>
+						<span class="cate_fg">/</span>
+						<span class="cateTxt">商品列表</span>
+						<span class="cate_fg">/</span>
+						<span class="cateTxt">添加新商品</span>
+					</div>
+					<div class="avator_con">
+						<div class="con">
+							<div class="avator_img">
+								<img src="https://ayamcn.com/seller/images/tx.png" />
+							</div>
+							<div>
+								Hi，Merida <span class="iconfont icon-ICON-xia"></span>
+							</div>
+						</div>
+						<div class="dropList">
+							<ul>
+								<li>退出</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="body_con" style="padding: 24px;">
+					<div class="order_summry">
+						<div class="order_sum_item">
+							<div class="name">有效订单总金额</div>
+							<div class="val">
+								<span class="pre_currency">$</span><span class="number">123456</span><span
+									class="last_currency">MXN</span>
+							</div>
+							<div class="img">
+								<img src="images/b_1.png" />
+							</div>
+						</div>
+						<div class="order_sum_item">
+							<div class="name">总点击数</div>
+							<div class="val">
+								<span class="number">123456</span>
+							</div>
+							<div class="img">
+								<img src="images/b_2.png" />
+							</div>
+						</div>
+						<div class="order_sum_item">
+							<div class="name">每千点击订单数</div>
+							<div class="val">
+								<span class="number">123456</span>
+							</div>
+							<div class="img">
+								<img src="images/b_3.png" />
+							</div>
+						</div>
+						<div class="order_sum_item">
+							<div class="name">每千点击购物额</div>
+							<div class="val">
+								<span class="number">123456</span>
+							</div>
+							<div class="img">
+								<img src="images/b_4.png" />
+							</div>
+						</div>
+					</div>
+					<div class="card filter_query">
+						<div class="time_query">
+							<div>时间筛选：</div>
+							<div class="inputEle input-daterange">
+								<div class="iconfont icon-guolvqi"></div>
+								<input type="text" class="form-control" value="2012-04-05" placeholder="起始时间">
+								<div>-</div>
+								<input type="text" class="form-control" value="2012-04-19" placeholder="结束时间">
+							</div>
+						</div>
+						<div class="table_btns">
+							<a class="sc-btn sc-blue-btn" href="goods.php?act=add">
+								<div class="btn download">
+									<span class="iconfont icon-ICON-xiazai"></span>
+									<span>订单统计报表下载</span>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="card goodsInfo">
+						<div class="lineChart">
+							<div class="wrapper-list">
+								<div id="order_main" style="height:378px;"></div>
+							</div>
+						</div>
+						<div class="lineChart">
+							<div id="order_main_price" style="height:378px;"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="https://ayamcn.com/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="./bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js"></script>
+<script type="text/javascript" src="https://ayamcn.com/js/echarts-all.js"></script>
+<script>
+	//循环事件选择器
+	$('.input-daterange input').each(function() {
+		$(this).datepicker('clearDates');
+	});
+	var order_data = {
+		"order": {
+			"title": {
+				"text": "Order quantity",
+				"subtext": ""
+			},
+			"series": [{
+				"name": "Order number",
+				"type": "line",
+				"itemStyle": {
+					"normal": {
+						"color": "#6cbd40",
+						"lineStyle": {
+							"color": "#6cbd40"
+						}
+					}
+				},
+				"data": [0, 0, 0, 0, 0, 0, 0],
+				"markPoint": {
+					"itemStyle": {
+						"normal": {
+							"color": "#6cbd40"
+						}
+					},
+					"data": [{
+						"type": "max",
+						"name": "max"
+					}, {
+						"type": "min",
+						"name": "min"
+					}]
+				}
+			}, {
+				"type": "force",
+				"name": "",
+				"draggable": false,
+				"nodes": {
+					"draggable": false
+				}
+			}],
+			"tooltip": {
+				"trigger": "axis",
+				"axisPointer": {
+					"lineStyle": {
+						"color": "#6cbd40"
+					}
+				}
+			},
+			"legend": {
+				"data": []
+			},
+			"toolbox": {
+				"show": true,
+				"orient": "vertical",
+				"x": "right",
+				"y": "60",
+				"feature": {
+					"magicType": {
+						"show": true,
+						"type": ["line", "bar"]
+					},
+					"saveAsImage": {
+						"show": true
+					}
+				}
+			},
+			"calculable": true,
+			"xAxis": {
+				"type": "category",
+				"boundaryGap": false,
+				"axisLine": {
+					"lineStyle": {
+						"color": "#ccc",
+						"width": 0
+					}
+				},
+				"data": ["08-06", "08-07", "08-08", "08-09", "08-10", "08-11", "08-12"]
+			},
+			"yAxis": {
+				"type": "value",
+				"axisLine": {
+					"lineStyle": {
+						"color": "#ccc",
+						"width": 0
+					}
+				},
+				"axisLabel": {
+					"formatter": ""
+				},
+				"formatter": "{value}\u4e2a"
+			},
+			"xy_file": []
+		},
+		"sale": {
+			"title": {
+				"text": "Sales volume",
+				"subtext": ""
+			},
+			"series": [{
+				"name": "Sales volume",
+				"type": "line",
+				"itemStyle": {
+					"normal": {
+						"color": "#6cbd40",
+						"lineStyle": {
+							"color": "#6cbd40"
+						}
+					}
+				},
+				"data": [0, 0, 0, 0, 0, 0, 0],
+				"markPoint": {
+					"itemStyle": {
+						"normal": {
+							"color": "#6cbd40"
+						}
+					},
+					"data": [{
+						"type": "max",
+						"name": "max"
+					}, {
+						"type": "min",
+						"name": "min"
+					}]
+				}
+			}, {
+				"type": "force",
+				"name": "",
+				"draggable": false,
+				"nodes": {
+					"draggable": false
+				}
+			}],
+			"tooltip": {
+				"trigger": "axis",
+				"axisPointer": {
+					"lineStyle": {
+						"color": "#6cbd40"
+					}
+				}
+			},
+			"legend": {
+				"data": []
+			},
+			"toolbox": {
+				"show": true,
+				"orient": "vertical",
+				"x": "right",
+				"y": "60",
+				"feature": {
+					"magicType": {
+						"show": true,
+						"type": ["line", "bar"]
+					},
+					"saveAsImage": {
+						"show": true
+					}
+				}
+			},
+			"calculable": true,
+			"xAxis": {
+				"type": "category",
+				"boundaryGap": false,
+				"axisLine": {
+					"lineStyle": {
+						"color": "#ccc",
+						"width": 0
+					}
+				},
+				"data": ["08-06", "08-07", "08-08", "08-09", "08-10", "08-11", "08-12"]
+			},
+			"yAxis": {
+				"type": "value",
+				"axisLine": {
+					"lineStyle": {
+						"color": "#ccc",
+						"width": 0
+					}
+				},
+				"axisLabel": {
+					"formatter": ""
+				},
+				"formatter": "{value}"
+			},
+			"xy_file": []
+		}
+	};
+	var sale_data = null;
+	var myChart_order = echarts.init(document.getElementById("order_main"));
+	var myChart_price = echarts.init(document.getElementById("order_main_price"));
+	var option_order = {
+		title: {
+			text: 'Order overview',
+			subtext: ''
+		},
+		tooltip: {
+			trigger: 'axis'
+		},
+		legend: {
+			data: ['confirmed', 'Deal done', "unconfirmed", "Invalid or canceled"]
+		},
+		toolbox: {
+			show: true,
+			feature: {
+				magicType: {
+					show: true,
+					type: ['line', 'bar']
+				},
+				restore: {
+					show: true
+				},
+				saveAsImage: {
+					show: true
+				}
+			}
+		},
+		calculable: true,
+		xAxis: [{
+			type: 'category',
+			data: order_data[0]
+		}],
+		yAxis: [{
+			type: 'value'
+		}],
+		series: [{
+				name: 'confirmed',
+				type: 'bar',
+				data: order_data[1],
+				markPoint: {
+					data: [{
+							type: 'max',
+							name: 'Maximum'
+						},
+						{
+							type: 'min',
+							name: 'Min'
+						}
+					]
+				},
+				markLine: {
+					data: [{
+						type: 'average',
+						name: 'average value'
+					}]
+				}
+			},
+			{
+				name: 'Deal done',
+				type: 'bar',
+				data: order_data[2],
+				markPoint: {
+					data: [{
+							type: 'max',
+							name: 'Maximum'
+						},
+						{
+							type: 'min',
+							name: 'Min'
+						}
+					]
+				},
+				markLine: {
+					data: [{
+						type: 'average',
+						name: 'average value'
+					}]
+				}
+			},
+			{
+				name: 'unconfirmed',
+				type: 'bar',
+				data: order_data[3],
+				markPoint: {
+					data: [{
+							type: 'max',
+							name: 'Maximum'
+						},
+						{
+							type: 'min',
+							name: 'Min'
+						}
+					]
+				},
+				markLine: {
+					data: [{
+						type: 'average',
+						name: 'average value'
+					}]
+				}
+			},
+			{
+				name: 'Invalid or canceled',
+				type: 'bar',
+				data: order_data[4],
+				markPoint: {
+					data: [{
+							type: 'max',
+							name: 'Maximum'
+						},
+						{
+							type: 'min',
+							name: 'Min'
+						}
+					]
+				},
+				markLine: {
+					data: [{
+						type: 'average',
+						name: 'average value'
+					}]
+				}
+			}
+		]
+	};
+
+	myChart_order.setOption(order_data['order']);
+	myChart_price.setOption(order_data['sale']);
+</script>

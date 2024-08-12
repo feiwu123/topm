@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>下级管理员</title>
+	<link rel="stylesheet" type="text/css" href="./css/common.css" />
+	<link rel="stylesheet" type="text/css" href="./css/menu.css" />
+	<link rel="stylesheet" type="text/css" href="./css/index.css" />
+	
+	<!-- switch样式 -->
+	<link rel="stylesheet" type="text/css" href="./css/jquery.easyswitch.css" />
+	<!-- 滚动条样式 -->
+	<link rel="stylesheet" type="text/css" href="https://ayamcn.com/js/perfect-scrollbar/perfect-scrollbar.min.css"/>
+	
+	<!-- 引入字体文件 -->
+	<link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/c/font_4643688_pw7h45gdkz.css"/>
+</head>
+<body>
+	<div id="app">
+		<div class="leftCon">
+			<div class="logoCon">
+				<div class="logoImg">
+					<img src="https://ayamcn.com/seller/images/seller_logo.png" />
+				</div>
+				<div class="seler-title">
+					<div>商家后台</div>
+					<h1>ayamcn.com</h1>
+				</div>
+			</div>
+			<div class="meunuList">
+				<div class="menuItem">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-home-smile-2-line"></span>
+							<span class="txt">首页</span>
+						</div>
+					</div>
+				</div>
+				<div class="menuItem active">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-shangjia"></span>
+							<span class="txt">商品</span>
+						</div>
+						<div class="hasChild">
+							<span class="iconfont icon-a-lujing3"></span>
+						</div>
+					</div>
+					<div class="childMenu">
+						<div class="childMenuItem act">
+							<a>商品列表</a>
+						</div>
+						<div class="childMenuItem">
+							<a>商品批量修改</a>
+						</div>
+						<div class="childMenuItem">
+							<a>商品批量修改</a>
+						</div>
+					</div>
+				</div>
+				<div class="menuItem">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-file-list-2-line"></span>
+							<span class="txt">订单</span>
+						</div>
+						<div class="hasChild">
+							<span class="iconfont icon-a-lujing3"></span>
+						</div>
+					</div>
+				</div>
+				<div class="menuItem">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-baobiao"></span>
+							<span class="txt">报表</span>
+						</div>
+						<div class="hasChild">
+							<span class="iconfont icon-a-lujing3"></span>
+						</div>
+					</div>
+				</div>
+				<div class="menuItem">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-store-2-line"></span>
+							<span class="txt">门店</span>
+						</div>
+						<div class="hasChild">
+							<span class="iconfont icon-a-lujing3"></span>
+						</div>
+					</div>
+				</div>
+				<div class="menuItem">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-key-2-line"></span>
+							<span class="txt">权限</span>
+						</div>
+						<div class="hasChild">
+							<span class="iconfont icon-a-lujing3"></span>
+						</div>
+					</div>
+				</div>
+				<div class="menuItem">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-home-5-line"></span>
+							<span class="txt">商家</span>
+						</div>
+						<div class="hasChild">
+							<span class="iconfont icon-a-lujing3"></span>
+						</div>
+					</div>
+				</div>
+				<div class="menuItem">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-shangjia"></span>
+							<span class="txt">店铺</span>
+						</div>
+						<div class="hasChild">
+							<span class="iconfont icon-a-lujing3"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="rightCon">
+			<div class="header">
+				<div class="category">
+					<span class="cateTxt">门店</span><span class="cate_fg">/</span><span class="cateTxt">门店管理</span>
+				</div>
+				<div class="avator_con">
+					<div class="con">
+						<div class="avator_img">
+							<img src="https://ayamcn.com/seller/images/tx.png" />
+						</div>
+						<div>
+							Hi，Merida <span class="iconfont icon-ICON-xia"></span>
+						</div>
+					</div>
+					<div class="dropList">
+						<ul>
+							<li>退出</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="body_con" style="padding: 24px;">
+				<div class="pro_infor card">
+					<div class="filter_con" >
+						<form class="filterForm">
+							<div style="display: flex;gap: 16px;align-items: center;">
+								<div class="search_con">
+									<div class="searchIcon">
+										<span class="iconfont icon-sousuo"></span>
+									</div>
+									<input class="searchInput" type="search" name="keywords" placeholder="门店名称" />
+								</div>
+							</div>	
+							<div class="table_btns">
+								<div class="btn">
+									<span class="iconfont icon-xinzeng"></span>
+									<span>添加管理员</span>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="infor_table" style="margin-top: 24px;">
+						<table>
+							<tr class="thead">
+								<th class="w50"><input type="checkbox" class="all_checkboxs"/></th>
+								<th>用户名</th>
+								<th>商人名称</th>
+								<th>邮箱地址</th>
+								<th>添加时间</th>
+								<th>最后登录时间</th>
+								<th>操作</th>
+							</tr>
+							<tr class="trow">
+								<td><input type="checkbox" /></td>
+								<td>Merida</td>
+								<td>Merida</td>
+								<td>9999@gmail.con</td>
+								<td>
+								   2024-10-22 22:00:11
+								</td>
+								<td>
+								   2024-10-22 22:00:11
+								</td>
+								<td class="table_tr_btns">
+									<div class="view btn">操作按钮</div>
+									<div class="delete btn">操作按钮</div>
+								</td>
+							</tr>
+							<tr class="trow">
+								<td><input type="checkbox" /></td>
+								<td>Merida</td>
+								<td>Merida</td>
+								<td>9999@gmail.con</td>
+								<td>
+								   2024-10-22 22:00:11
+								</td>
+								<td>
+								   2024-10-22 22:00:11
+								</td>
+								<td class="table_tr_btns">
+									<div class="view btn">操作按钮</div>
+									<div class="delete btn">操作按钮</div>
+								</td>
+							</tr>
+						</table>
+						<div class="bottom_tr">
+							<div class="bottom_left_con">
+								<input type="checkbox" class="all_checkboxs" value="" />
+								<div class="bottom_tr_btns">
+									<div class="btn disabled">delete</div>
+									<div class="btn disabled">Shelf</div>
+								</div>
+							</div>
+							<div class="bottom_right_con">
+								<div>共<span>5</span>Records,each page</div>
+								<div class="pages">
+									<input type="text" class="pagesInput" value="15" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer">
+				<div>
+					 2005-2017 ECSHOP Copyright All Right Reserved.
+				</div>
+			</div>
+		</div>
+	</div>	
+</body>
+</html>
+
+<script type="text/javascript" src="https://ayamcn.com/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="./js/jquery.easyswitch.js"></script>
+
+<script type="text/javascript" src="https://ayamcn.com/js/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script>
+	$('.easyswitch').easyswitch();
+	
+	//全选
+	$(".all_checkboxs").on("change",function(event){
+		console.log($(this).prop('checked'));
+		if($(this).prop('checked')){
+			$('table').find("input[type='checkbox']").prop('checked',true);
+			$(".bottom_tr_btns").find(".btn").removeClass("disabled");
+		}else{
+			$('table').find("input[type='checkbox']").prop('checked',false);
+			$(".bottom_tr_btns").find(".btn").addClass("disabled");
+		}
+	})
+	
+	$(".step_item_table2").perfectScrollbar("destroy");
+	$(".step_item_table2").perfectScrollbar();
+</script>
