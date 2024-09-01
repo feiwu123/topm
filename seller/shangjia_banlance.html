@@ -185,12 +185,31 @@
 					.elems .label{
 						font-size: 14px;
 					}
+					.balanceValue{
+						font-weight: 800;
+						font-size: 24px;
+						color: #F47677;
+					}
+					.pro_infor .formEle.payments{
+						column-gap: 24px;
+					}
+					.payments .payItem{
+						background: #FFFFFF;
+						border-radius: 2px;
+						border: 1px solid #DCDEE0;
+						display: inline-block;
+						padding: 8px 24px;
+						cursor: pointer;
+					}
 				</style>
+				<div class="card" style="margin-top: 24px;display: flex;align-items: center;">
+					<span>Current available balance：</span><span class="balanceValue">$00.00MXN</span>
+				</div>
 				<div class="pro_infor order_search card" style="margin-top: 24px;">
 					<div class="formEle">
 						<div class="elems">
 							<div class="label">
-								<span>Real name：</span>
+								<span>Recharge amount：</span>
 								<div class="error_tips">
 									<span class="red">*</span>
 								</div>
@@ -204,113 +223,43 @@
 								To ensure your account is safe, please fill in your own real name authentication information
 							</div>
 						</div>
+					</div>
+					<div class="formEle">
 						<div class="elems">
 							<div class="label">
-								<span>ID number：</span>
-								<div class="error_tips">
-									<span class="red">*</span>
-								</div>
+								<span>Recharge description：</span>
 							</div>
 							<div class="formEle">
-								<div class="inputEle">
-									<input type="text" name="order_name">
-								</div>
-							</div>
-						</div>
-						<div class="elems">
-							<div class="label">
-								<span>Positive ID：</span>
-								<div class="error_tips">
-									<span class="red">*</span>
-								</div>
-							</div>
-							<div class="formEle">
-								<div class="inputEle" style="border-style: dashed;">
-									<input type="file" id="file1" name="file1" style="display: none;">
-									<label for="file1" style="position: absolute;left:20px;width: 100%;cursor: pointer;">
-										<span class="iconfont icon-shangchuan1"></span>
-										<span>Upload</span>
-									</label>
-								</div>
-							</div>
-						</div>
-						<div class="elems">
-							<div class="label">
-								<span>Negative ID card：</span>
-								<div class="error_tips">
-									<span class="red">*</span>
-								</div>
-							</div>
-							<div class="formEle">
-								<div class="inputEle" style="border-style: dashed;">
-									<input type="file" id="file2" name="file2" style="display: none;">
-									<label for="file2" style="position: absolute;left:20px;width: 100%;cursor: pointer;">
-										<span class="iconfont icon-shangchuan1"></span>
-										<span>Upload</span>
-									</label>
-								</div>
-							</div>
-						</div>
-						<div class="elems">
-							<div class="label">
-								<span>Bank：</span>
-								<div class="error_tips">
-									<span class="red">*</span>
-								</div>
-							</div>
-							<div class="formEle">
-								<div class="inputEle">
-									<input type="text" name="order_name">
-								</div>
-							</div>
-						</div>
-						<div class="elems">
-							<div class="label">
-								<span>Bank card number：</span>
-								<div class="error_tips">
-									<span class="red">*</span>
-								</div>
-							</div>
-							<div class="formEle">
-								<div class="inputEle">
-									<input type="text" name="order_name">
-								</div>
-							</div>
-						</div>
-						<div class="elems">
-							<div class="label">
-								<span>Phone number：</span>
-								<div class="error_tips">
-									<span class="red">*</span>
-								</div>
-							</div>
-							<div class="formEle">
-								<div class="inputEle">
-									<input type="text" name="order_name">
-								</div>
-							</div>
-							<div class="tips">
-								Please fill in the card's cell phone number reserved at the bank and verify that the card is genuine to you
-							</div>
-						</div>
-						<div class="elems">
-							<div class="label">
-								<span>SMS authentication code：</span>
-								<div class="error_tips">
-									<span class="red">*</span>
-								</div>
-							</div>
-							<div class="formEle">
-								<div class="inputEle">
-									<input type="text" name="order_name">
-									<span class="getCode">
-										获取验证码
-									</span>
+								<div class="textareaEle">
+									<textarea class="textarea" name="goods_brief" cols="40" rows="3"></textarea>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="submit_con">
+					<div class="formEle">
+						<div class="elems">
+							<div class="label">
+								<span>Payment method：</span>
+								<div class="error_tips">
+									<span class="red">*</span>
+								</div>
+							</div>
+							<div class="formEle payments">
+								<span class="payItem">coppel</span>
+								<span class="payItem">DiDiPay</span>
+								<span class="payItem">DiDiPay (hasta 10％ off)</span>
+								<span class="payItem">payZIP</span>
+								<span class="payItem">Efectivo</span>
+								<span class="payItem">SPEI</span>
+								<span class="payItem">Tarjeta</span>
+								<span class="payItem">aplazo</span>
+								<span class="payItem">kueskipay</span>
+								<span class="payItem">mercado pago</span>
+								<span class="payItem">Paypal</span>
+							</div>
+						</div>
+					</div>
+					<div class="submit_con" style="justify-content: flex-start;margin-left: 0;">
 						<div class="reset_btn btn">
 							重置
 						</div>
