@@ -156,6 +156,7 @@
 	border-radius: 4px;
 	color: #737579;
 	cursor: pointer;
+	display: inline-block;
 }
 .exter_attr{
 	background-color: #fff;
@@ -176,6 +177,10 @@
 .exter_attr_table table .selectEle{
 	padding: 0 8px;
 	margin-top: 0;
+}
+.selectEle .removeItem{
+	color: #165BD5;
+	cursor: pointer;
 }
 .exter_attr_table table .selectEle .attr_txt{
 	height: 30px;
@@ -358,16 +363,20 @@
 .multi_wu_select .wuSelect{
     display: flex;
     background-color: #fff;
-    padding: 6px 8px;
+    padding: 0px 8px;
     min-height: 36px;
     border: 1px solid #DCDEE0;
     justify-content: space-between;
     align-items: center;
     margin-top: 8px;
+    margin-bottom: 8px;
     border-radius: 2px;
     font-size: 14px;
     box-sizing: border-box;
     position: relative;
+}
+.exter_attr_table tr td{
+	padding: 0 8px;
 }
 .multi_wu_select .wuSelect .multi{
     display: flex;

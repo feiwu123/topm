@@ -804,7 +804,14 @@
 																		<span class="iconfont icon-xinzeng"></span>
 																	</div>
 																	<div class="attr_pic_items no_pic">
-																		<span class="iconfont icon-xinzeng"></span>
+																		<img src="https://ayamcn.com/seller/images/seller_logo.png" />
+		
+																		<div class="delete_icon">
+																			<span class="iconfont icon-guanbi"></span>
+																		</div>
+																	</div>
+																	<div class="attr_pic_items no_pic">
+																		<img src="https://chobs.mistoremx.com/images/202407/thumb_img/0_thumb_G_1721437461704.jpg" />
 																	</div>
 																	<div class="attr_pic_items no_pic">
 																		<span class="iconfont icon-xinzeng"></span>
@@ -813,10 +820,11 @@
 																		<span class="iconfont icon-xinzeng"></span>
 																	</div>
 																	<div class="attr_pic_items no_pic">
-																		<span class="iconfont icon-xinzeng"></span>
-																	</div>
-																	<div class="attr_pic_items no_pic">
-																		<span class="iconfont icon-xinzeng"></span>
+																		<img src="https://ayamcn.com/seller/images/seller_logo.png" />
+																				
+																		<div class="delete_icon">
+																			<span class="iconfont icon-guanbi"></span>
+																		</div>
 																	</div>
 																	<div class="attr_pic_items no_pic">
 																		<span class="iconfont icon-xinzeng"></span>
@@ -901,3 +909,30 @@
 		</div>
 	</body>
 </html>
+<script type="text/javascript" src="https://ayamcn.com/js/jquery-1.9.1.min.js"></script>
+<script>
+	$(document).on("click",".attr_pic_groups .delete_icon",function(event){
+		//判断是否是主图
+		var that = this;
+		var is_main_pic = $(that).siblings(".zhutu_icon");
+		if(is_main_pic.length>0){
+			//如果是主图 查询后面的子集是否有图片 有的话把图片放在主图位置
+			console.log($(that).parent(".attr_pic_items").siblings());
+			var siblingsEle = $(that).parent(".attr_pic_items").siblings();
+			for(let i=0;i<siblingsEle.length;i++){
+				// 判断是否有图，有图就替换主图
+				if(siblingsEle.eq(i).find('img').length>0){
+					$(siblingsEle).eq(i).append(`<div class="zhutu_icon"><span>主图</span></div>`);
+					$(that).parents(".attr_pic_groups").append(`<div class="uploadItem attr_pic_items xijie no_pic uploadItem_2_140" data-id="140"><span class="iconfont icon-xinzeng"></span></div>`);
+					$(that).parent(".attr_pic_items").replaceWith(siblingsEle.eq(i).get(0));
+					break;
+				}else{
+					
+				}
+			}	
+		}else{
+			//如果不是主图 就直接删除
+			$(that).parent(".attr_pic_items").replaceWith(`<div class="uploadItem attr_pic_items xijie no_pic uploadItem_2_140" data-id="140"><span class="iconfont icon-xinzeng"></span></div>`);
+		}
+	})
+</script>
