@@ -185,14 +185,18 @@
 					.elems .label{
 						font-size: 14px;
 					}
+					.elems.error .inputEle{
+						border: 1px solid var(--error-color);;
+					}
 				</style>
 				<div class="pro_infor order_search card" style="margin-top: 24px;">
 					<div class="formEle">
-						<div class="elems">
+						<div class="elems error">
 							<div class="label">
 								<span>Real name：</span>
 								<div class="error_tips">
 									<span class="red">*</span>
+									<span class="red">错误信息</span>
 								</div>
 							</div>
 							<div class="formEle">
