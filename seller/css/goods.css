@@ -25,8 +25,8 @@
 .elems .tips{
 	font-weight: 400;
 	font-size: 14px;
-	color: #9FA0A1;
 	margin-top: 14px;
+	color: #9FA0A1;
 }
 .formEle .inputEle{
 	max-width: 491px;
@@ -68,13 +68,16 @@
 	background-color: transparent;
 	outline: none;
 }
+input:disabled{
+	color: #C9CACC;
+}
 .formEle .inputEle .iconEdit{
 	margin-right: 16px;
 	color: #2364D7;
 	font-weight: bold;
 }
 .red{
-	color: var(--error-color);
+	color: var(--error-color)!important;
 }
 .red-border{
 	border:1px solid var(--error-color)!important;
@@ -419,4 +422,52 @@
 .multi_wu_select .wuSelect .ps-container li a.selected{
     background: #f4f4f4;
     color: #22cbdd;
+}
+
+.radio-groups .radio_item{
+	margin-top: 16px;
+}
+.radio-groups .radio_item label{
+	margin-left: 8px;
+}
+.select_baoxian_date{
+	margin-top: 8px;
+	display: flex;
+	align-items: center;
+}
+.select_baoxian_date .baoxian_date{
+	line-height: 30px;
+	background: #FFFFFF;
+	border-radius: 2px;
+	border: 1px solid #DCDEE0;
+	box-sizing: border-box;
+	margin-left: 22px;
+	width: 114px;
+}
+.select_baoxian_date .baoxian_date input{
+	border: 0;
+	outline: none;
+	width: 100%;
+	height: 100%;
+	padding: 0 16px;
+	box-sizing: border-box;
+	color: #DCDEE0;
+}
+ input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.select_baoxian_date .prepend{
+	line-height: 30px;
+	background: #FFFFFF;
+	border-radius: 2px;
+	border: 1px solid #DCDEE0;
+	width: 102px;
+	display: flex;
+	align-items: center;
+	gap:10px;
+	justify-content: center;
+}
+.select_baoxian_date .prepend .iconfont{
+	color: #DCDEE0;
 }
