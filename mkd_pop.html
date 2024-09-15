@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<link rel="stylesheet" href="https://ayamcn.com/css/flow/0628/jquery.mCustomScrollbar.min.css">
+		<link rel="stylesheet" type="text/css" href="./seller/css/jquery.easyswitch.css" />
+	</head>
+	<body>
+		<div>
+			<button id="mkdShareBtn">美客多分享</button>
+		</div>
+<style>
+input[type=number] {
+	-moz-appearance:textfield;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+.mkd-popup{
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	width: 100%;
+	z-index: 999;
+}
+.mkd-popup .bgCon{
+	background-color: #000;
+	opacity: 0.5;
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	display: none;
+}
+.mkd-popup.popup .bgCon {
+    display: block;
+}
+.mkd-popup .carCon{
+	width: 78%;
+	background-color: #fff;
+	position: absolute;
+	top: 0;
+	right: 0px;
+	height: 100vh;
+	padding: 3rem;
+	transform: translateX(101%);
+	visibility: hidden;
+	overflow: hidden;
+}
+.mkd-popup.popup  .carCon{
+	transform: translateX(0px);
+	visibility: visible;
+	transition: all 300ms;
+}
+.mkd-popup .topCon{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.mkd-popup .topCon .title{
+	font-size: 1.6rem;
+	font-family: PingFangSC-Semibold, PingFang SC;
+	font-weight: 600;
+	color: #333333;
+	line-height: 2.2rem;
+}
+.mkd-popup .carCon .topCon .deleteIcon{
+	width: 2rem;
+	height: 2rem;
+	cursor: pointer;
+}
+#mkdShareCon{
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 4rem;
+	gap:3rem;
+}
+#mkdShareCon .mkdShareRightCon{
+	width: 576px;
+}
+#mkdShareCon .calcuPrice{
+	background: #F8F8F8;
+	border-radius: 8px;
+	padding: 1.5rem 2rem;
+	box-sizing: border-box;
+}
+#mkdShareCon .calcuPrice .title{
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	font-weight: bold;
+}
+.mkd_libre .icons{
+	font-weight: bold;
+	font-size: 16px;
+	color: #333333;
+	padding: 4px 8px;
+	background-color: #FFE600;
+	border-radius: 6px;
+}
+.mkd_shops{
+	margin-top: 24px;
+}
+.mkd_shops .icons{
+	font-weight: bold;
+	font-size: 16px;
+	color: #fff;
+	padding: 4px 8px;
+	background-color: #E72F8A;
+	border-radius: 6px;
+}
+.mkdShareRightCon .detail{
+	margin-top: 14px;
+}
+.mkdShareRightCon .priceItem{
+	line-height: min(53px,3rem);
+	border-bottom: 1px solid #E2E2E2;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.mkdShareRightCon .priceItem .val{
+	font-weight: 400;
+	font-size: 16px;
+	color: #333333;
+}
+.mkdShareRightCon .priceItem .val.hasVal{
+	font-weight: 600;
+	font-size: 16px;
+	color: #333333;
+}
+.mkdShareLeftCon{
+	flex: 1;
+	height: 80vh;
+}
+.mkdShareLeftCon .step{
+	margin-bottom: 24px;
+}
+.step .title{
+	font-weight: 600;
+	font-size: 16px;
+	color: #333333;
+}
+.step .stepName{
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #E2E2E2;
+	font-weight: 600;
+	font-size: 14px;
+	color: #999999;
+}
+.step_mkd_details{
+	padding: 0 24px 24px 24px;
+}
+.step_mkd_details .step_btns{
+	display: flex;
+	justify-content: end;
+	align-items: center;
+	margin-top: 24px;
+	gap: 10px;
+}
+.step_mkd_details .step_btns .btn{
+	width: 160px;
+	height: 56px;
+	border-radius: 8px;
+	text-align: center;
+	line-height: 56px;
+	cursor: pointer;
+}
+.step_mkd_details .step_btns .nextBtn{
+	background: #3B4656;
+	color: #fff;
+	cursor: pointer;
+}
+.step_mkd_details .mkd_title{
+	margin-top: 24px;
+}
+.step_mkd_details .mkd_title .title {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-weight: bold;
+}
+.priceInput{
+	width: 300px;
+	height: 47px;
+	background: #F8F8F8;
+	position: relative;
+}
+.priceInput span{
+	position: absolute;
+	top: 14px;
+	left: 24px;
+}
+.priceInput input{
+	background-color: transparent;
+	width: 100%;
+	height: 100%;
+	outline: none;
+	border: 0px;
+	padding-left: 50px;
+	font-size: 18px;
+	font-weight: bold;
+}
+.vincular{
+	display: flex;
+	align-items: center;
+	gap: 24px;
+	margin-top: 24px;
+}
+
+.vincular .selects{
+	width: 120px;
+	height: 46px;
+	background: #F8F8F8;
+	position: relative;
+}
+.vincular .selects .iconfont{
+	position: absolute;
+	top: 16px;
+	right: 16px;
+}
+.mkd-detail-item-con{
+	min-height: 0px;
+	border-bottom: 1px solid #E2E2E2;
+	margin-top: 24px;
+	border-radius: 8px;
+	height: 0px;
+	overflow: hidden;
+}
+.mkd-detail-item-con.step2_open{
+	padding: 16px;
+	border: 1px solid #E2E2E2;
+	height: fit-content;
+}
+.mkd-detail-item-con .item-title{
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-weight: bold;
+}
+.mkd-detail-item-con .item-title .tips{
+	font-size: 15px;
+	color: #3483FA;
+	font-weight: 400;
+}
+.mkd-detail-second-con{
+	display: flex;
+	padding: 16px;
+	background: #F8F8F8;
+	border-radius: 8px;
+	gap: 16px;
+	margin-top: 16px;
+}
+.mkd-detail-second-con .second-desc{
+	margin-top: 8px;
+	font-size: 14px;
+	color: #999999;
+}
+.second-title .tips{
+	font-weight: 400;
+	font-size: 14px;
+	color: #05A550;
+	display: inline-block;
+	margin-left: 16px;
+}
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+	background-color:#333;
+}
+.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar{
+	background-color:#333;
+}
+.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar{
+	background-color:#333;
+}
+.hide{
+	display: none;
+}
+</style>		
+<div class="mkd-popup" id="mkdShare">
+	<div class="bgCon"></div>
+	<div class="carCon">
+		<div class="topCon">
+			<div class="title">美客多一件代发</div>
+			<div class="deleteIcon">
+				<img src="https://ayamcn.com/images/hzp2/delete.svg">
+			</div>
+		</div>
+		<div id="mkdShareCon">
+			<div class="mkdShareLeftCon">
+				<div class="step_1 step">
+					<div class="title">步骤一：Precio</div>
+					<div class="stepName">
+						Indica a cuánto quieres vender el producto.
+					</div>
+				</div>
+				<div class="step_2 step hide">
+					<div class="title">步骤二：Precio</div>
+					<div class="stepName">
+						Indica a cuánto quieres vender el producto.
+					</div>
+				</div>
+				<div class="step_mkd_details">
+					<div class="mkd_detail_con">
+						<div class="mkd-detail-item preciosSelect">
+							<div class="vincular precios">
+								<span class="easyswitch" data-callback="onSwitch" data-default="1"></span>
+								<span>Vincular precios</span>
+								<div class="selects">
+									<span class="iconfont">
+										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12px" height="12px" viewBox="0 0 12 12" version="1.1">
+										   <path d="M5,5.5 C4.86103053,5.5 4.72786635,5.44514219 4.63059001,5.34779204 L0.147836802,0.862300773 C-0.0521299113,0.662239228 -0.0488144667,0.341082337 0.155208359,0.144998495 C0.359213555,-0.0510680406 0.686718797,-0.0478512826 0.886650233,0.152227552 L5,4.26808574 L9.11334324,0.152227552 C9.31327467,-0.0478685887 9.64074464,-0.0511372313 9.84478511,0.144998495 C10.0488256,0.341099627 10.0521234,0.662239228 9.85215667,0.862300773 L5.36940344,5.34779204 C5.2721271,5.44514219 5.13898057,5.5 5,5.5 Z" id="路径"/>
+										</svg>
+									</span>
+								</div>
+							</div>
+							<div class="mkd-detail-item-con">
+							</div>
+						</div>
+						<div class="mkd-detail-item shopDetail">
+							<div class="mkd_libre mkd_title">
+								<div class="title">
+									<span class="icons">ML</span>
+									<span class="name">Mecrado Libre</span>
+									<div class="priceInput">
+										<span>$</span>
+										<input type="number" name="" />
+									</div>
+								</div>
+							</div>
+							<div class="mkd-detail-item-con">
+								<div class="item-title">
+									<div style="width: 22px;height: 22px;">
+										<img src="images/gou.png" width="22" height="22"/>
+									</div>
+									<div>
+										Mercado Envíos
+									</div>
+									<div class="tips">
+										¿Cómo funciona？
+									</div>	
+								</div>
+								<div class="mkd-detail-second-con">
+									<div class="radio-groups">
+									</div>
+									<div class="second-content">
+										<div class="second-title">
+											Con envío gratis para el comprador
+											<Span class="tips">¡Cubrimos el 40% por tu reputación!</Span>
+										</div>
+										<div class="second-desc">
+											Pagas $186 por envío a cualquier destino.
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="mkd-detail-item shopDetail">
+							<div class="mkd_shops mkd_title">
+								<div class="title">
+									<span class="icons">ML</span>
+									<span class="name">Mecrado Shops</span>
+									<div class="priceInput">
+										<span>$</span>
+										<input type="number" name="" />
+									</div>
+								</div>
+							</div>
+							<div class="mkd-detail-item-con">
+								<div class="item-title">
+									<div>
+										<img src="images/gou.png" width="22" height="22"/>
+									</div>
+									<div>
+										Mercado Envíos
+									</div>
+									<div class="tips">
+										¿Cómo funciona？
+									</div>	
+								</div>
+								<div class="mkd-detail-second-con">
+									<div class="radio-groups">
+										<input type="radio" name="mkd_radio" checked/>
+									</div>
+									<div class="second-content">
+										<div class="second-title">
+											Con envío gratis para el comprador
+										</div>
+										<div class="second-desc">
+											Pagas $168 por envío.Si te compran más de un producto,calcularemos el costo de envío según lo que haya en el paquete.
+										</div>
+									</div>
+								</div>
+								<div class="mkd-detail-second-con">
+									<div class="radio-groups">
+										<input type="radio" name="mkd_radio" />
+									</div>
+									<div class="second-content">
+										<div class="second-title">
+											No ofrecer envío gratis
+										</div>
+										<div class="second-desc">
+											El comprador deberá hacerse cargo del costo del envío.
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="step_btns" data-stepindex="1">
+						<div class="prevBtn btn">
+							清空
+						</div>
+						<div class="nextBtn btn">
+							下一步
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mkdShareRightCon">
+				<div class="mkd_libre calcuPrice">
+					<div class="title">
+						<span class="icons">ML</span>
+						<span class="name">Mecrado Libre</span>
+					</div>
+					<div class="detail">
+						<div class="priceItem">
+							<span class="txt">Precio por publicaci</span>
+							<span class="val">-</span>
+						</div>
+						<div class="priceItem">
+							<span class="txt">Cargo por venta</span>
+							<span class="val">-</span>
+						</div>
+						<div class="priceItem">
+							<span class="txt">Envío por Mercado Envíos</span>
+							<span class="val">-</span>
+						</div>
+						<div class="priceItem">
+							<span class="txt">Impuestos</span>
+							<span class="val hasVal">$0.00</span>
+						</div>
+						<div class="priceItem">
+							<span class="txt">Reclibirás por cada venta</span>
+							<span class="val hasVal">$0.00</span>
+						</div>
+					</div>
+				</div>
+				<div class="mkd_shops calcuPrice">
+					<div class="title">
+						<span class="icons">ML</span>
+						<span class="name">Mecrado Shops</span>
+					</div>
+					<div class="detail">
+						<div class="priceItem">
+							<span class="txt">Precio por publicaci</span>
+							<span class="val">-</span>
+						</div>
+						<div class="priceItem">
+							<span class="txt">Cargo por venta</span>
+							<span class="val">-</span>
+						</div>
+						<div class="priceItem">
+							<span class="txt">Envío por Mercado Envíos</span>
+							<span class="val">-</span>
+						</div>
+						<div class="priceItem">
+							<span class="txt">Impuestos</span>
+							<span class="val hasVal">$0.00</span>
+						</div>
+						<div class="priceItem">
+							<span class="txt">Reclibirás por cada venta</span>
+							<span class="val hasVal">$0.00</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	</body>
+</html>
+<script type="text/javascript" src="https://ayamcn.com/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="https://ayamcn.com/js/flow/0629/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="./seller/js/jquery.easyswitch.js"></script>
+<script>
+/****************************jq仿select带返回函数 start*******************************/
+jQuery.divselect = function(divselectid,inputselectid,fn) {
+	var obj = "",
+		txt = "",
+		input = "",
+		cite = "",
+		val = 0;
+	
+	$(document).on('click',divselectid+" .cite",function(event){
+		event.stopImmediatePropagation();
+		
+		obj = $(this).parents(divselectid).find("ul");
+		
+		$(".imitate_select").find("ul").hide();
+
+		if(obj.css("display")=="none"){
+			obj.css("display","block");
+		}else{
+			obj.css("display","none");
+		}
+		
+		obj.perfectScrollbar("destroy");
+		obj.perfectScrollbar();
+	});
+	
+	$(document).on("click",divselectid+" ul li a",function(event){
+		event.stopImmediatePropagation();
+		
+		obj = $(this).parents(divselectid);
+		input = obj.find(inputselectid);
+		txt = $(this).text();
+		val = $(this).data("value");
+		
+		cite = obj.find(".cite");
+		
+		if(cite.find("span").length > 0){
+			cite.find("span").html(txt);
+		}else{
+			cite.html(txt);
+		}
+		
+		obj.find("ul").hide();
+		
+		input.val(val);
+		
+		if(fn){
+			fn($(this));
+		}		
+	});
+	
+	$(document).on("click",function(){
+		$(divselectid+" ul").hide();
+	});
+};
+
+/* jq仿select下拉 默认值赋值 */
+function reset_select(obj){
+	$(obj).find('.imitate_select').each(function(){
+		var sel_this = $(this);
+		var val = sel_this.children('input[type=hidden]').val();
+		sel_this.find('a').each(function(){
+			if($(this).attr('data-value') == val){
+				sel_this.children('.cite').html($(this).html());
+			}
+		})
+	});
+}
+/****************************jq仿select带返回函数 end*********************************/	
+</script>
+<script>
+var stepNumber = 1;	
+$(".mkdShareLeftCon").mCustomScrollbar();
+
+$("#mkdShareBtn").on("click",function(){
+	$(".mkd-popup").addClass("popup");
+	
+	
+})
+$('.easyswitch').easyswitch();
+
+function onSwitch(value, obj) {
+}
+
+$(document).on("click",".step_btns .prevBtn",function(){
+	var that = this;
+	if(stepNumber==2){
+		stepNumber = stepNumber-1;
+		$(".step_2").addClass("hide");
+		$(that).html("清空").siblings(".nextBtn").html("下一步");
+		$(".preciosSelect").removeClass('hide');
+		$(".shopDetail").find(".mkd_title .priceInput").removeClass('hide');
+		$(".shopDetail").find(".mkd-detail-item-con").removeClass('step2_open');
+	}else{
+		//清空数据
+		
+	}
+})
+$(document).on("click",".step_btns .nextBtn",function(){
+	var that = this;
+	if(stepNumber==1){
+		stepNumber = stepNumber+1;
+		$(".step_2").removeClass("hide");
+		$(that).html("确认").siblings(".prevBtn").html("上一步");
+		$(".preciosSelect").addClass('hide');
+		$(".shopDetail").find(".mkd_title .priceInput").addClass('hide');
+		$(".shopDetail").find(".mkd-detail-item-con").addClass('step2_open');
+	}else{
+		//确认提交
+		//ajax提交信息
+	}
+})
+</script>
