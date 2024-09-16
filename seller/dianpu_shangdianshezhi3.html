@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>商店设置</title>
+	<link rel="stylesheet" type="text/css" href="./css/common.css" />
+	<link rel="stylesheet" type="text/css" href="./css/menu.css" />
+	<link rel="stylesheet" type="text/css" href="./css/index.css" />
+	<link rel="stylesheet" type="text/css" href="./css/goods.css" />
+	<link rel="stylesheet" type="text/css" href="./css/order.css" />
+	
+	<!-- switch样式 -->
+	<link rel="stylesheet" type="text/css" href="./css/jquery.easyswitch.css" />
+	<!-- 滚动条样式 -->
+	<link rel="stylesheet" type="text/css" href="https://ayamcn.com/js/perfect-scrollbar/perfect-scrollbar.min.css"/>
+	
+	<!-- 引入字体文件 -->
+	<link rel="stylesheet" type="text/css" href="https://at.alicdn.com/t/c/font_4643688_pw7h45gdkz.css"/>
+	<!-- 日期插件 -->
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="./bootstrap-datepicker/css/bootstrap-datepicker.css" />
+</head>
+<body>
+	<div id="app">
+		<div class="leftCon">
+			<div class="logoCon">
+				<div class="logoImg">
+					<img src="https://ayamcn.com/seller/images/seller_logo.png" />
+				</div>
+				<div class="seler-title">
+					<div>商家后台</div>
+					<h1>ayamcn.com</h1>
+				</div>
+			</div>
+			<div class="meunuList">
+				<div class="menuItem">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-home-smile-2-line"></span>
+							<span class="txt">首页</span>
+						</div>
+					</div>
+				</div>
+				<div class="menuItem active">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-shangjia"></span>
+							<span class="txt">商品</span>
+						</div>
+						<div class="hasChild">
+							<span class="iconfont icon-a-lujing3"></span>
+						</div>
+					</div>
+					<div class="childMenu">
+						<div class="childMenuItem act">
+							<a>商品列表</a>
+						</div>
+						<div class="childMenuItem">
+							<a>商品批量修改</a>
+						</div>
+						<div class="childMenuItem">
+							<a>商品批量修改</a>
+						</div>
+					</div>
+				</div>
+				<div class="menuItem">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-file-list-2-line"></span>
+							<span class="txt">订单</span>
+						</div>
+						<div class="hasChild">
+							<span class="iconfont icon-a-lujing3"></span>
+						</div>
+					</div>
+				</div>
+				<div class="menuItem">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-baobiao"></span>
+							<span class="txt">报表</span>
+						</div>
+						<div class="hasChild">
+							<span class="iconfont icon-a-lujing3"></span>
+						</div>
+					</div>
+				</div>
+				<div class="menuItem">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-store-2-line"></span>
+							<span class="txt">门店</span>
+						</div>
+						<div class="hasChild">
+							<span class="iconfont icon-a-lujing3"></span>
+						</div>
+					</div>
+				</div>
+				<div class="menuItem">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-key-2-line"></span>
+							<span class="txt">权限</span>
+						</div>
+						<div class="hasChild">
+							<span class="iconfont icon-a-lujing3"></span>
+						</div>
+					</div>
+				</div>
+				<div class="menuItem">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-home-5-line"></span>
+							<span class="txt">商家</span>
+						</div>
+						<div class="hasChild">
+							<span class="iconfont icon-a-lujing3"></span>
+						</div>
+					</div>
+				</div>
+				<div class="menuItem">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-shangjia"></span>
+							<span class="txt">店铺</span>
+						</div>
+						<div class="hasChild">
+							<span class="iconfont icon-a-lujing3"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="rightCon">
+			<div class="header">
+				<div class="category">
+					<span class="cateTxt">店铺</span><span class="cate_fg">/</span><span class="cateTxt">商店设置</span>
+				</div>
+				<div class="avator_con">
+					<div class="con">
+						<div class="avator_img">
+							<img src="https://ayamcn.com/seller/images/tx.png" />
+						</div>
+						<div>
+							Hi，Merida <span class="iconfont icon-ICON-xia"></span>
+						</div>
+					</div>
+					<div class="dropList">
+						<ul>
+							<li>退出</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="body_con" style="padding: 24px;">
+				<div class="card btns">
+					<div class="btn">Essential information</div>
+					<div class="btn">Picture settings</div>
+					<div class="btn act">Customer service third party settings</div>
+				</div>
+				<form>
+				<style>
+					.formEle .inputEle {
+						max-width: 600px;
+						width: 600px;
+					}
+					.formEle .elems{
+						width: 600px;
+					}
+					.order_search .selectEle{
+						width: 600px;
+					}
+					.getCode{
+						width: 120px;
+						text-align: center;
+						cursor: pointer;
+						color: #165BD5;
+					}
+					.elems .label{
+						font-size: 14px;
+					}
+					.elems.error .inputEle,.elems.error .textareaEle{
+						border: 1px solid var(--error-color);;
+					}
+					.inputEle select{
+						width: 100%;
+						height: 100%;
+						border: 0;
+						outline: none;
+					}
+					.radio-groups label{
+						font-weight: 400;
+					}
+				</style>
+				<div class="pro_infor order_search card" style="margin-top: 24px;">
+					<div class="formEle">
+						<div class="elems error">
+							<div class="label">
+								<span>Customer service QQ number：</span>
+								<div class="error_tips">
+								</div>
+							</div>
+							<div class="formEle">
+								<div class="textareaEle" style="max-width: 600px;width: 100%;">
+									<textarea class="textarea" name="topup_note" cols="40" rows="3"></textarea>
+								</div>
+							</div>
+							<div class="tips">
+								The QQ service name and number please use "|" separated (e.g. customer service 1|123456), if you have multiple customer service QQ number, please wrap.
+							</div>
+						</div>
+						<div class="elems">
+							<div class="label">
+								<span>Taobao wanted：</span>
+								<div class="error_tips">
+								</div>
+							</div>
+							<div class="formEle">
+								<div class="textareaEle" style="max-width: 600px;width: 100%;">
+									<textarea class="textarea" name="topup_note" cols="40" rows="3"></textarea>
+								</div>
+							</div>
+							<div class="tips">
+								The WW service name and number please use "|" separated (e.g. customer service 1|123456), if you have multiple customer service WW number, please wrap.
+							</div>
+						</div>
+						<div class="elems">
+							<div class="label">
+								<span>Online customer service account:</span>
+								<div class="error_tips">
+	<!-- 								<span class="red">*</span>
+									<span class="red">错误信息</span> -->
+								</div>
+							</div>
+							<div class="formEle">
+								<div class="inputEle">
+									<input type="text" name="order_name">
+								</div>
+							</div>
+							<div class="tips">
+								In Taobao open platformHas opened cloud Wang customer service account.
+							</div>
+						</div>
+						<div class="elems">
+							<div class="label">
+								<span>Online customer service appkey:</span>
+								<div class="error_tips">
+									<!-- <span class="red">*</span> -->
+								</div>
+							</div>
+							<div class="formEle">
+								<div class="inputEle">
+									<input type="text" name="order_name">
+								</div>
+							</div>
+							<div class="tips">
+								In the Taobao open platform to create an application (radio, wireless), you can get appkey.
+							</div>
+						</div>
+						<div class="elems">
+							<div class="label">
+								<span>Online customer service secretkey:</span>
+								<div class="error_tips">
+									<!-- <span class="red">*</span> -->
+								</div>
+							</div>
+							<div class="formEle">
+								<div class="inputEle">
+									<input type="text" name="order_name">
+								</div>
+							</div>
+							<div class="tips">
+								In the Taobao open platform to create an application (radio, wireless), you can get secretkey.
+							</div>
+						</div>
+						<div class="elems">
+							<div class="label">
+								<span>Online customer service Avatar LOGO:</span>
+								<div class="error_tips">
+									<!-- <span class="red">*</span> -->
+								</div>
+							</div>
+							<div class="formEle">
+								<div class="inputEle">
+									<input type="text" name="order_name" >
+								</div>
+							</div>
+							<div class="tips">
+								Paste the URL directly (recommended 40 x 40), do not fill that uses the default avatar.
+							</div>
+						</div>
+						<div class="elems">
+							<div class="label">
+								<span>Online customer service welcome information:</span>
+								<div class="error_tips">
+									<!-- <span class="red">*</span> -->
+								</div>
+							</div>
+							<div class="formEle">
+								<div class="inputEle">
+									<input type="text" name="order_name" >
+								</div>
+							</div>
+							<div class="tips">
+								A welcome message sent to the user.
+							</div>
+						</div>
+						<div class="elems">
+							<div class="label">
+								<span>Customer service:</span>
+								<div class="error_tips">
+									<!-- <span class="red">*</span> -->
+								</div>
+							</div>
+							<div class="formEle">
+								<div class="inputEle">
+									<input type="text" name="order_name" >
+								</div>
+							</div>
+							<div class="tips">
+								This feature is for use only on mobile phones (WAP)
+							</div>
+						</div>
+						<div class="elems">
+							<div class="label">
+								<span>customer service telephone numbers：</span>
+								<div class="error_tips">
+									<!-- <span class="red">*</span> -->
+								</div>
+							</div>
+							<div class="formEle">
+								<div class="inputEle">
+									<input type="text" name="order_name" >
+								</div>
+							</div>
+							<div class="tips">
+								Store contact customer service number
+							</div>
+						</div>
+						<div class="elems">
+							<div class="label">
+								<span>Customer service style：</span>
+								<div class="error_tips">
+									<!-- <span class="red">*</span> -->
+								</div>
+							</div>
+							<div class="formEle">
+								<div class="radio-groups" style="width:100%;display:flex;align-items: center;gap:50px;">
+									<div class="radioItem">
+										<input type="radio" id="shopName1" name="shopName">
+										<label for="shopName1">QQ customer service</label>
+									</div>
+									<div class="radioItem">
+										<input type="radio" id="shopName2" name="shopName" checked>
+										<label for="shopName2">Wangwang customer service</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="elems">
+							<div class="label">
+								<span>Default store page header LOGO：</span>
+								<div class="error_tips">
+								</div>
+							</div>
+							<div class="formEle">
+								<div class="inputEle">
+									<input type="text" name="order_name">
+								</div>
+							</div>
+							<div class="tips">
+								In Speed dataApply for an account.
+							</div>
+						</div>
+						<div class="elems">
+							<div class="label">
+								<span>Scan code appsecret (speed data):</span>
+								<div class="error_tips">
+								</div>
+							</div>
+							<div class="formEle">
+								<div class="inputEle">
+									<input type="text" name="order_name">
+								</div>
+							</div>
+						</div>
+						<div class="elems">
+							<div class="label">
+								<span>Express delivery method:</span>
+								<div class="error_tips">
+									<!-- <span class="red">*</span> -->
+								</div>
+							</div>
+							<div class="formEle">
+								<div class="radio-groups" style="width:100%;display:flex;align-items: center;gap:50px;">
+									<div class="radioItem">
+										<input type="radio" id="express1" name="express">
+										<label for="express1">system default</label>
+									</div>
+									<div class="radioItem">
+										<input type="radio" id="express2" name="express" checked>
+										<label for="express2">Express bird</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="elems">
+							<div class="label">
+								<span>Express Single Printer (Express Bird):</span>
+								<div class="error_tips">
+								</div>
+							</div>
+							<div class="formEle">
+								<div class="inputEle">
+									<input type="text" name="order_name">
+								</div>
+							</div>
+						</div>
+						<div class="elems">
+							<div class="label">
+								<span>Approval Status:</span>
+								<div class="error_tips">
+									<!-- <span class="red">*</span> -->
+								</div>
+							</div>
+							<div class="formEle">
+								<div class="inputEle disabled">
+									<input type="text" name="order_name" value='Not audited' disabled>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="submit_con">
+						<div class="reset_btn btn">
+							重置
+						</div>
+						<div class="search_btn btn">
+							保存
+						</div>
+					</div>
+				</div>
+				</form>
+			</div>
+			<div class="footer">
+				<div>
+					 2005-2017 ECSHOP Copyright All Right Reserved.
+				</div>
+			</div>
+		</div>
+	</div>	
+</body>
+</html>
+
+<script type="text/javascript" src="https://ayamcn.com/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="./bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js"></script>
+<script>
+	
+
+	//循环事件选择器
+	$('.input-daterange input').each(function() {
+	    $(this).datepicker({
+			format: 'yyyy-mm-dd',
+		});
+	});
+</script>
