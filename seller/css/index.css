@@ -125,6 +125,7 @@
 .tempcate_column .list{
 	overflow: hidden;
 	height: 416px;
+	position: relative;
 }
 .tempcate_column .listItem{
 	display: flex;

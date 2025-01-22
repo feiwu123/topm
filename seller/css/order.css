@@ -72,6 +72,9 @@
 .order_summry .order_sum_item .val{
 	margin-top: 16px;
 }
+.order_summry .order_sum_item img{
+	width: 100%;
+}
 .pre_currency,.last_currency{
 	font-size: 14px;
 	color: #333;
@@ -88,7 +91,18 @@
 .filter_query .time_query{
 	display: flex;
 	align-items: center;
+	gap: 10px;
 }
+.filter_query .time_query input[type='submit']{
+	height: 38px;
+	padding: 0 8px;
+	background: #1D1D1D;
+	color: #fff;
+	border-radius: 8px;
+	border: 0px;
+	outline: none;
+}
+
 .time_query .inputEle{
 	display: flex;
 	align-items: center;
