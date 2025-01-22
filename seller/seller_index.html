@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>首页</title>
+		<link rel="stylesheet" type="text/css" href="./css/common.css" />
+		<link rel="stylesheet" type="text/css" href="./css/menu.css" />
+		<link rel="stylesheet" type="text/css" href="./css/index.css" />
+		<link rel="stylesheet" type="text/css" href="./css/goods.css" />
+		<link rel="stylesheet" type="text/css" href="./css/order.css" />
+
+		<!-- 滚动条样式 -->
+		<link rel="stylesheet" type="text/css"
+			href="https://ayamcn.com/js/perfect-scrollbar/perfect-scrollbar.min.css" />
+		<!-- 引入字体文件 -->
+		<link rel="stylesheet" type="text/css" href="https://at.alicdn.com/t/c/font_4643688_kl63fem66fj.css" />
+	</head>
+	<style>
+		.lineChart .wrapper-list,.lineChart #order_main_price{
+			margin-top: 10px;
+		}
+		.lineChart .name{
+			font-weight: bold;
+		}
+		.total_message_show{
+			display: flex;
+			gap: 16px;
+			width: 100%;
+			margin-top: 24px;
+		}
+		.userInfor_total{
+			width: calc(50% - 8px);
+		}
+		.total_message_show .flex-2{
+			display: flex;
+			justify-content: space-between;
+			gap: 16px;
+			width: 50%;
+		}
+		.total_message_show .flex-2 .card{
+			margin-top: 0;
+			flex: 1;
+		}
+		.total_message_show .name_con{
+			display: flex;
+			justify-content: space-between;
+		}
+		.total_message_show .name_con .name{
+			color: #333333;
+			font-size: 16px;
+			font-weight: bold;
+		}
+		.total_message_show .name_con .unit{
+			color: #999;
+			font-size: 14px;
+		}
+		.user_num_group{
+			display: flex;
+			justify-content: space-around;
+			margin-top: 32px;
+		}
+		.user_num_group .user_num_item{
+			text-align: center;
+		}
+		.user_num_group .user_num_item .tit{
+			font-weight: bold;
+			font-size: 48px;
+			color: #333333;
+		}
+		.user_num_group .user_num_item .val{
+			font-size: 14px;
+			margin-top: 5px;
+			color: #333333;
+		}
+		.zysj_line{
+			display: flex;
+			justify-content: space-between;
+			margin-top: 32px;
+		}
+		.zysj_line .tit .tit_name{
+			display: inline-block;
+			margin-left: 20px;
+		}
+		.zysj_line .tit{
+			display: flex;
+		}
+		.zysj_line .tit .small_icon{
+			width: 6px;
+			height: 20px;
+			background: #F47677;
+			border-radius: 6px;
+		}
+		.zysj_line .tit .small_icon.blue{
+			background: #6AB6F5;
+		}
+		.card .name{
+			font-weight: bold;
+		}
+		.oter_infor_con{
+			display: grid;
+			justify-content: space-between;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+		}
+		.other_infor_item{
+			display: flex;
+			justify-content: space-between;
+			flex: 1;
+			padding: 24px;
+			box-sizing: border-box;
+		}
+		.other_infor_item{
+			border-right: 1px solid #F0F0F0;
+			border-bottom: 1px solid #F0F0F0;
+		}
+		.other_infor_item:nth-child(4n){
+			border-right: 0;
+		}
+		.other_infor_item.nobottom{
+			border-bottom: 0;
+		}
+		.other_infor_item .txt{
+			font-weight: 400;
+			font-size: 14px;
+			color: #999999;
+		}
+		.other_infor_item .icon_img{
+			width: 48px;
+			height: 48px;
+			background: #F4F4F4;
+			border-radius: 8px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.other_infor_item .val{
+			font-weight: bold;
+			font-size: 24px;
+			color: #333333;
+			margin-top: 20px;
+		}
+		.showmessage .content{
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+			justify-content: space-between;
+		}
+		.itemItem .tit{
+			font-weight: 400;
+			font-size: 14px;
+			color: #999999;
+			margin-top: 32px;
+		}
+		.itemItem .val{
+			font-size: 14px;
+			color: #333333;
+			margin-top: 16px;
+		}
+		.system_information{
+			width: 100%;
+		}
+		.system_information.expand{
+			width: fit-content;
+		}
+		.system_information.expand .content{
+			display: none;
+		}
+		
+	</style>
+	<body>
+		<div id="app">
+			<div class="leftCon">
+				<div class="logoCon">
+					<div class="logoImg">
+						<img src="https://ayamcn.com/seller/images/seller_logo.png" />
+					</div>
+					<div class="seler-title">
+						<div>商家后台</div>
+						<h1>ayamcn.com</h1>
+					</div>
+				</div>
+				<div class="meunuList">
+					<div class="menuItem">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-home-smile-2-line"></span>
+								<span class="txt">首页</span>
+							</div>
+						</div>
+					</div>
+					<div class="menuItem active">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-shangjia"></span>
+								<span class="txt">商品</span>
+							</div>
+							<div class="hasChild">
+								<span class="iconfont icon-a-lujing3"></span>
+							</div>
+						</div>
+						<div class="childMenu">
+							<div class="childMenuItem act">
+								<a>商品列表</a>
+							</div>
+							<div class="childMenuItem">
+								<a>商品批量修改</a>
+							</div>
+							<div class="childMenuItem">
+								<a>商品批量修改</a>
+							</div>
+						</div>
+					</div>
+					<div class="menuItem">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-file-list-2-line"></span>
+								<span class="txt">订单</span>
+							</div>
+							<div class="hasChild">
+								<span class="iconfont icon-a-lujing3"></span>
+							</div>
+						</div>
+					</div>
+					<div class="menuItem">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-baobiao"></span>
+								<span class="txt">报表</span>
+							</div>
+							<div class="hasChild">
+								<span class="iconfont icon-a-lujing3"></span>
+							</div>
+						</div>
+					</div>
+					<div class="menuItem">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-store-2-line"></span>
+								<span class="txt">门店</span>
+							</div>
+							<div class="hasChild">
+								<span class="iconfont icon-a-lujing3"></span>
+							</div>
+						</div>
+					</div>
+					<div class="menuItem">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-key-2-line"></span>
+								<span class="txt">权限</span>
+							</div>
+							<div class="hasChild">
+								<span class="iconfont icon-a-lujing3"></span>
+							</div>
+						</div>
+					</div>
+					<div class="menuItem">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-home-5-line"></span>
+								<span class="txt">商家</span>
+							</div>
+							<div class="hasChild">
+								<span class="iconfont icon-a-lujing3"></span>
+							</div>
+						</div>
+					</div>
+					<div class="menuItem">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-shangjia"></span>
+								<span class="txt">店铺</span>
+							</div>
+							<div class="hasChild">
+								<span class="iconfont icon-a-lujing3"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="rightCon">
+				<div class="header">
+					<div class="category">
+						<span class="cateTxt">首页</span>
+					</div>
+					<div class="avator_con">
+						<div class="con">
+							<div class="avator_img">
+								<img src="https://ayamcn.com/seller/images/tx.png" />
+							</div>
+							<div>
+								Hi，Merida <span class="iconfont icon-ICON-xia"></span>
+							</div>
+						</div>
+						<div class="dropList">
+							<ul>
+								<li>退出</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="body_con" style="padding: 24px;">
+					<div class="order_summry">
+						<div class="order_sum_item">
+							<div class="name">今日总销售额</div>
+							<div class="val">
+								<span class="pre_currency">$</span><span class="number">123456</span><span
+									class="last_currency">MXN</span>
+							</div>
+							<div class="img">
+								<img src="images/b_1.png" />
+							</div>
+						</div>
+						<div class="order_sum_item">
+							<div class="name">今日订单总数</div>
+							<div class="val">
+								<span class="number">123456</span>
+							</div>
+							<div class="img">
+								<img src="images/b_2.png" />
+							</div>
+						</div>
+						<div class="order_sum_item">
+							<div class="name">今日评论数</div>
+							<div class="val">
+								<span class="number">123456</span>
+							</div>
+							<div class="img">
+								<img src="images/b_3.png" />
+							</div>
+						</div>
+						<div class="order_sum_item">
+							<div class="name">商店数量</div>
+							<div class="val">
+								<span class="number">123456</span>
+							</div>
+							<div class="img">
+								<img src="images/b_4.png" />
+							</div>
+						</div>
+					</div>
+					<div class="total_message_show">
+						<div class="userInfor_total">
+							<div class="card">
+								<div class="name_con">
+									<div class="name">会员信息</div>
+									<div class="unit">单位：个</div>
+								</div>
+								<div class="user_num_group">
+									<div class="user_num_item">
+										<div class="tit">0</div>
+										<div class="val">今日新增</div>
+									</div>
+									<div class="user_num_item">
+										<div class="tit">0</div>
+										<div class="val">昨日新增</div>
+									</div>
+									<div class="user_num_item">
+										<div class="tit">0</div>
+										<div class="val">本月新增</div>
+									</div>
+									<div class="user_num_item">
+										<div class="tit">0</div>
+										<div class="val">总会员数</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="flex-2">
+							<div class="card">
+								<div class="name_con">
+									<div class="name">会员信息</div>
+									<div class="unit">单位：个</div>
+								</div>
+								<div class="zysj card_row">
+									<div class="zysj_line">
+										<div class="tit">
+											<span class="small_icon red"></span>
+											<span class="tit_name">实体商品</span>
+										</div>
+										<div class="val">
+											100
+										</div>
+									</div>
+									<div class="zysj_line">
+										<div class="tit">
+											<span class="small_icon blue"></span>
+											<span class="tit_name">虚拟商品</span>
+										</div>
+										<div class="val">
+											100
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card">
+								<div class="name_con">
+									<div class="name">会员信息</div>
+									<div class="unit">单位：个</div>
+								</div>
+								<div class="sjsp card_row">
+									<div class="zysj_line">
+										<div class="tit">
+											<span class="small_icon red"></span>
+											<span class="tit_name">实体商品</span>
+										</div>
+										<div class="val">
+											100
+										</div>
+									</div>
+									<div class="zysj_line">
+										<div class="tit">
+											<span class="small_icon blue"></span>
+											<span class="tit_name">虚拟商品</span>
+										</div>
+										<div class="val">
+											100
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card other_infor">
+						<div class="name">其他数据</div>
+						<div class="oter_infor_con">
+							<div class="other_infor_item">
+								<div class="data_num">
+									<div class="txt">
+										Unconfirmed orders
+									</div>
+									<div class="val">
+										0
+									</div>
+								</div>
+								<div class="icon_img">
+									<span class="iconfont icon-a-Unconfirmedorders"></span>
+								</div>
+							</div>
+							<div class="other_infor_item">
+								<div class="data_num">
+									<div class="txt">
+										Unpaid orders
+									</div>
+									<div class="val">
+										0
+									</div>
+								</div>
+								<div class="icon_img">
+									<span class="iconfont"></span>
+								</div>
+							</div>
+							<div class="other_infor_item">
+								<div class="data_num">
+									<div class="txt">
+										Not shipping orders
+									</div>
+									<div class="val">
+										0
+									</div>
+								</div>
+								<div class="icon_img">
+									<span class="iconfont"></span>
+								</div>
+							</div>
+							<div class="other_infor_item">
+								<div class="data_num">
+									<div class="txt">
+										Finished orders
+									</div>
+									<div class="val">
+										0
+									</div>
+								</div>
+								<div class="icon_img">
+									<span class="iconfont"></span>
+								</div>
+							</div>
+							<div class="other_infor_item nobottom">
+								<div class="data_num">
+									<div class="txt">
+										Booking [New]
+									</div>
+									<div class="val">
+										0
+									</div>
+								</div>
+								<div class="icon_img">
+									<span class="iconfont"></span>
+								</div>
+							</div>
+							<div class="other_infor_item nobottom">
+								<div class="data_num">
+									<div class="txt">
+										Parts delivery order
+									</div>
+									<div class="val">
+										0
+									</div>
+								</div>
+								<div class="icon_img">
+									<span class="iconfont"></span>
+								</div>
+							</div>
+							<div class="other_infor_item nobottom">
+								<div class="data_num">
+									<div class="txt">
+										Refund application
+									</div>
+									<div class="val">
+										0
+									</div>
+								</div>
+								<div class="icon_img">
+									<span class="iconfont"></span>
+								</div>
+							</div>
+						
+						</div>
+					</div>
+					<div class="card goodsInfo">
+						<div class="lineChart">
+							<div class="name">订单数量</div>
+							<div class="wrapper-list">
+								<div id="order_main" style="height:378px;"></div>
+							</div>
+						</div>
+						<div class="lineChart">
+							<div class="name">销量</div>
+							<div id="order_main_price" style="height:378px;"></div>
+						</div>
+					</div>
+					<div class="card mall_management showmessage">
+						<div class="name">
+							Mall management
+						</div>
+						<div class="content">
+							<div class="itemItem">
+								<div class="tit">
+									Mall home page
+								</div>
+								<div class="val">
+									https://ayamcn.com/
+								</div>
+							</div>
+							<div class="itemItem">
+								<div class="tit">
+									Platform
+								</div>
+								<div class="val">
+									https://ayamcn.com/
+								</div>
+							</div>
+							<div class="itemItem">
+								<div class="tit">
+									background
+								</div>
+								<div class="val">
+								</div>
+							</div>
+							<div class="itemItem">
+								<div class="tit">
+									Merchant
+								</div>
+								<div class="val">
+								</div>
+							</div>
+							<div class="itemItem">
+								<div class="tit">
+									background
+								</div>
+								<div class="val">
+								</div>
+							</div>
+							<div class="itemItem">
+								<div class="tit">
+									Store backstage
+								</div>
+								<div class="val">
+								</div>
+							</div>
+							<div class="itemItem">
+								<div class="tit">
+									WAP home page
+								</div>
+								<div class="val">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card customer_service showmessage">
+						<div class="name">
+							Mall management
+						</div>
+						<div class="content">
+							<div class="itemItem">
+								<div class="tit">
+									Customer service
+								</div>
+								<div class="val">
+									4001-021-758
+								</div>
+							</div>
+							<div class="itemItem">
+								<div class="tit">
+									call
+								</div>
+								<div class="val">
+								</div>
+							</div>
+							<div class="itemItem">
+								<div class="tit">
+									Customer service
+								</div>
+								<div class="val">
+									800007167
+								</div>
+							</div>
+							<div class="itemItem">
+								<div class="tit">
+									QQ
+								</div>
+								<div class="val">
+									
+								</div>
+							</div>
+							<div class="itemItem">
+								<div class="tit">
+									Question
+								</div>
+								<div class="val">
+									http://wenda.ecmoban
+								</div>
+							</div>
+							<div class="itemItem">
+								<div class="tit">
+									answering
+								</div>
+								<div class="val">
+								</div>
+							</div>
+							<div class="itemItem">
+								<div class="tit">
+									Official website
+								</div>
+								<div class="val">
+									http://www.ecmoban.c
+								</div>
+							</div>
+							<div class="itemItem">
+								<div class="tit">
+									Big business
+								</div>
+								<div class="val">
+									http://www.dscmall.c
+								</div>
+							</div>
+							<div class="itemItem">
+								<div class="tit">
+									creation official
+								</div>
+								<div class="val">
+								</div>
+							</div>
+							<div class="itemItem">
+								<div class="tit">
+									website
+								</div>
+								<div class="val">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card system_information showmessage expand">
+						<div style="display: flex;gap: 16px;">
+							<div class="name">
+								Mall management
+							</div>
+							<div class="expand_icon" style="cursor: pointer;">
+								<span class="iconfont icon-zhankai"></span>
+							</div>
+						</div>
+						<div class="content">
+							<div class="itemItem">
+								<div class="tit">
+									Server operate syste
+								</div>
+								<div class="val">
+									Linux (172.29.16.73)
+								</div>
+							</div>
+							<div class="itemItem">
+								<div class="tit">
+									PHP version
+								</div>
+								<div class="val">
+									5.6.40
+								</div>
+							</div>
+							<div class="itemItem">
+								<div class="tit">
+									Safe mode
+								</div>
+								<div class="val">
+									No
+								</div>
+							</div>
+							<div class="itemItem">
+								<div class="tit">
+									Socket enabled
+								</div>
+								<div class="val">
+									Yes
+								</div>
+							</div>
+							<div class="itemItem">
+								<div class="tit">
+									GD version
+								</div>
+								<div class="val">
+									N/A
+								</div>
+							</div>
+							<div class="itemItem">
+								<div class="tit">
+									IP database version
+								</div>
+								<div class="val">
+									20071024
+								</div>
+							</div>
+							<div class="itemItem">
+								<div class="tit">
+									Program version
+								</div>
+								<div class="val">
+									v2.5.3 RELEASE 20180
+								</div>
+							</div>
+							<div class="itemItem">
+								<div class="tit">
+									Coding
+								</div>
+								<div class="val">
+									UTF-8
+								</div>
+							</div>
+							<div class="itemItem">
+								<div class="tit">
+									Web server
+								</div>
+								<div class="val">
+									nginx/1.24.0
+								</div>
+							</div>
+							<div class="itemItem">
+								<div class="tit">
+									Safe mode GID
+								</div>
+								<div class="val">
+									No
+								</div>
+							</div>
+							<div class="itemItem">
+								<div class="tit">
+									Timezone
+								</div>
+								<div class="val">
+									America/Mexico_City
+								</div>
+							</div>
+							<div class="itemItem">
+								<div class="tit">
+									Zlib support
+								</div>
+								<div class="val">
+									Yes
+								</div>
+							</div>
+							<div class="itemItem">
+								<div class="tit">
+									Limit size of upload
+								</div>
+								<div class="val">
+									50M
+								</div>
+							</div>
+							<div class="itemItem">
+								<div class="tit">
+									Install date
+								</div>
+								<div class="val">
+									2020-06-10
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="https://ayamcn.com/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="https://ayamcn.com/js/echarts-all.js"></script>
+<script>
+	//循环事件选择器
+	$('.input-daterange input').each(function() {
+		$(this).datepicker('clearDates');
+	});
+	var order_data = {
+		"order": {
+			"title": {
+				"text": "Order quantity",
+				"subtext": ""
+			},
+			"series": [{
+				"name": "Order number",
+				"type": "line",
+				"itemStyle": {
+					"normal": {
+						"color": "#6cbd40",
+						"lineStyle": {
+							"color": "#6cbd40"
+						}
+					}
+				},
+				"data": [0, 0, 0, 0, 0, 0, 0],
+				"markPoint": {
+					"itemStyle": {
+						"normal": {
+							"color": "#6cbd40"
+						}
+					},
+					"data": [{
+						"type": "max",
+						"name": "max"
+					}, {
+						"type": "min",
+						"name": "min"
+					}]
+				}
+			}, {
+				"type": "force",
+				"name": "",
+				"draggable": false,
+				"nodes": {
+					"draggable": false
+				}
+			}],
+			"tooltip": {
+				"trigger": "axis",
+				"axisPointer": {
+					"lineStyle": {
+						"color": "#6cbd40"
+					}
+				}
+			},
+			"legend": {
+				"data": []
+			},
+			"toolbox": {
+				"show": true,
+				"orient": "vertical",
+				"x": "right",
+				"y": "60",
+				"feature": {
+					"magicType": {
+						"show": true,
+						"type": ["line", "bar"]
+					},
+					"saveAsImage": {
+						"show": true
+					}
+				}
+			},
+			"calculable": true,
+			"xAxis": {
+				"type": "category",
+				"boundaryGap": false,
+				"axisLine": {
+					"lineStyle": {
+						"color": "#ccc",
+						"width": 0
+					}
+				},
+				"data": ["08-06", "08-07", "08-08", "08-09", "08-10", "08-11", "08-12"]
+			},
+			"yAxis": {
+				"type": "value",
+				"axisLine": {
+					"lineStyle": {
+						"color": "#ccc",
+						"width": 0
+					}
+				},
+				"axisLabel": {
+					"formatter": ""
+				},
+				"formatter": "{value}\u4e2a"
+			},
+			"xy_file": []
+		},
+		"sale": {
+			"title": {
+				"text": "Sales volume",
+				"subtext": ""
+			},
+			"series": [{
+				"name": "Sales volume",
+				"type": "line",
+				"itemStyle": {
+					"normal": {
+						"color": "#6cbd40",
+						"lineStyle": {
+							"color": "#6cbd40"
+						}
+					}
+				},
+				"data": [0, 0, 0, 0, 0, 0, 0],
+				"markPoint": {
+					"itemStyle": {
+						"normal": {
+							"color": "#6cbd40"
+						}
+					},
+					"data": [{
+						"type": "max",
+						"name": "max"
+					}, {
+						"type": "min",
+						"name": "min"
+					}]
+				}
+			}, {
+				"type": "force",
+				"name": "",
+				"draggable": false,
+				"nodes": {
+					"draggable": false
+				}
+			}],
+			"tooltip": {
+				"trigger": "axis",
+				"axisPointer": {
+					"lineStyle": {
+						"color": "#6cbd40"
+					}
+				}
+			},
+			"legend": {
+				"data": []
+			},
+			"toolbox": {
+				"show": true,
+				"orient": "vertical",
+				"x": "right",
+				"y": "60",
+				"feature": {
+					"magicType": {
+						"show": true,
+						"type": ["line", "bar"]
+					},
+					"saveAsImage": {
+						"show": true
+					}
+				}
+			},
+			"calculable": true,
+			"xAxis": {
+				"type": "category",
+				"boundaryGap": false,
+				"axisLine": {
+					"lineStyle": {
+						"color": "#ccc",
+						"width": 0
+					}
+				},
+				"data": ["08-06", "08-07", "08-08", "08-09", "08-10", "08-11", "08-12"]
+			},
+			"yAxis": {
+				"type": "value",
+				"axisLine": {
+					"lineStyle": {
+						"color": "#ccc",
+						"width": 0
+					}
+				},
+				"axisLabel": {
+					"formatter": ""
+				},
+				"formatter": "{value}"
+			},
+			"xy_file": []
+		}
+	};
+	var sale_data = null;
+	var myChart_order = echarts.init(document.getElementById("order_main"));
+	var myChart_price = echarts.init(document.getElementById("order_main_price"));
+	var option_order = {
+		title: {
+			text: 'Order overview',
+			subtext: ''
+		},
+		tooltip: {
+			trigger: 'axis'
+		},
+		legend: {
+			data: ['confirmed', 'Deal done', "unconfirmed", "Invalid or canceled"]
+		},
+		toolbox: {
+			show: true,
+			feature: {
+				magicType: {
+					show: true,
+					type: ['line', 'bar']
+				},
+				restore: {
+					show: true
+				},
+				saveAsImage: {
+					show: true
+				}
+			}
+		},
+		calculable: true,
+		xAxis: [{
+			type: 'category',
+			data: order_data[0]
+		}],
+		yAxis: [{
+			type: 'value'
+		}],
+		series: [{
+				name: 'confirmed',
+				type: 'bar',
+				data: order_data[1],
+				markPoint: {
+					data: [{
+							type: 'max',
+							name: 'Maximum'
+						},
+						{
+							type: 'min',
+							name: 'Min'
+						}
+					]
+				},
+				markLine: {
+					data: [{
+						type: 'average',
+						name: 'average value'
+					}]
+				}
+			},
+			{
+				name: 'Deal done',
+				type: 'bar',
+				data: order_data[2],
+				markPoint: {
+					data: [{
+							type: 'max',
+							name: 'Maximum'
+						},
+						{
+							type: 'min',
+							name: 'Min'
+						}
+					]
+				},
+				markLine: {
+					data: [{
+						type: 'average',
+						name: 'average value'
+					}]
+				}
+			},
+			{
+				name: 'unconfirmed',
+				type: 'bar',
+				data: order_data[3],
+				markPoint: {
+					data: [{
+							type: 'max',
+							name: 'Maximum'
+						},
+						{
+							type: 'min',
+							name: 'Min'
+						}
+					]
+				},
+				markLine: {
+					data: [{
+						type: 'average',
+						name: 'average value'
+					}]
+				}
+			},
+			{
+				name: 'Invalid or canceled',
+				type: 'bar',
+				data: order_data[4],
+				markPoint: {
+					data: [{
+							type: 'max',
+							name: 'Maximum'
+						},
+						{
+							type: 'min',
+							name: 'Min'
+						}
+					]
+				},
+				markLine: {
+					data: [{
+						type: 'average',
+						name: 'average value'
+					}]
+				}
+			}
+		]
+	};
+
+	myChart_order.setOption(order_data['order']);
+	myChart_price.setOption(order_data['sale']);
+	
+	
+	
+	$(".expand_icon").on("click",function(e){
+		var that = $(this);
+		if(that.find(".iconfont").hasClass("icon-zhankai")){
+			that.find(".iconfont").removeClass("icon-zhankai").addClass('icon-helong');
+			that.parents(".system_information").removeClass('expand');
+		}else{
+			that.find(".iconfont").removeClass("icon-helong").addClass('icon-zhankai');
+			that.parents(".system_information").addClass('expand');
+		}
+	})
+</script>

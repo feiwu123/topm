@@ -297,84 +297,9 @@
 								</div>
 								<div class="formEle tiktokAttrs">
 									<div id="attrgroups">
-										<div class="attrItem">
-											<div class="attrName">
-												类型
-											</div>
-											<div class="attrVal">
-												<input type="text" />
-											</div>
-										</div>
-										<div class="attrItem">
-											<div class="attrName">
-												类型
-											</div>
-											<div class="attrVal">
-												<div class="attr_select_val"></div>
-												<div class="icons"><span class="iconfont icon-ICON-xia"></span></div>
-												<div class="attrVal_dropList">
-													<ul>
-														<li>
-															<input type="radio" name="attr1"  id="radio_1"/>
-															<label for="radio_1">这里是忽长忽短的类型文案</label>
-														</li>
-														<li>
-															<input type="radio" name="attr1" value="" id="radio_2"/>
-															<label for="radio_2">这里是忽长忽短的类型文案</label>
-														</li>
-														<li>
-															<input type="radio" name="attr1"  id="radio_3"/>
-															<label for="radio_3">这里是忽长忽短的类型文案</label>
-														</li>
-														<li>
-															<input type="radio" name="attr1" value="" id="radio_4"/>
-															<label for="radio_4">这里是忽长忽短的类型文案</label>
-														</li>
-													</ul>
-													<div class="zdy_attr">
-														<div class="inputEle">
-															<input type="text" class="zdy_attr_val"/>
-														</div>
-														<div class="enter_attr_btn">Add</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="attrItem">
-											<div class="attrName">
-												类型
-											</div>
-											<div class="attrVal">
-												<div class="attr_select_val"></div>
-												<div class="icons"><span class="iconfont icon-ICON-xia"></span></div>
-												<div class="attrVal_dropList">
-													<ul>
-														<li>
-															<input type="checkbox" name="attr1"  id="checkbox_1"/>
-															<label for="checkbox_1">这里是忽长忽短的类型文案</label>
-														</li>
-														<li>
-															<input type="checkbox" name="attr1" value="" id="checkbox_2"/>
-															<label for="checkbox_2">这里是忽长忽短的类型文案</label>
-														</li>
-														<li>
-															<input type="checkbox" name="attr1"  id="checkbox_3"/>
-															<label for="checkbox_3">这里是忽长忽短的类型文案</label>
-														</li>
-														<li>
-															<input type="checkbox" name="attr1" value="" id="checkbox_4"/>
-															<label for="checkbox_4">这里是忽长忽短的类型文案</label>
-														</li>
-													</ul>
-													<div class="zdy_attr">
-														<div class="inputEle">
-															<input type="text" class="zdy_attr_val"/>
-														</div>
-														<div class="enter_attr_btn">Add</div>
-													</div>
-												</div>
-											</div>
-										</div>
+										
+										
+										
 									</div>
 								</div>
 							</div>	
@@ -405,6 +330,7 @@
 </html>
 <script src="https://ayamcn.com/seller/js/jquery.min.js"></script>
 <script src="https://ayamcn.com/js/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="js/wu_tiktok_attr.js"></script>
 <script>
 	$(document).on("click",".imageItem .delete_img",function(event){
 		$(this).parent(".imageItem").remove();
@@ -434,5 +360,21 @@
 			selectBrand.find(".dropList").fadeOut();
 		}
 		//$(".selectBrand .dropList").hide();
+	});
+	
+	
+	//属性展示
+	$.ajax({
+	  url: 'attr.json',
+	  dataType: 'json',
+	  success: function(jsonData) {
+	    // 在success回调中可以访问返回的JSON数据
+		
+		 $.multiTiktokSelect("#attrgroups",jsonData.data.attributes);
+	  },
+	  error: function(xhr, status, error) {
+	    // 当请求发生错误时的处理代码
+	    console.log(error);
+	  }
 	});
 </script>

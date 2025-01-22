@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>viewer查看器</title>
+	<link rel="stylesheet" href="https://unpkg.com/viewerjs/dist/viewer.css" crossorigin="anonymous">
+</head>
+<body>
+	<div>
+		<div>
+		  <img id="image" src="https://img.ltwebstatic.com/images3_spmp/2024/09/28/0f/1727470683bee9e44fbae0ea313feaab858338ab45_square.jpg" alt="图片">
+		</div>
+		
+		<div>
+		  <ul id="images">
+		    <li><img src="https://img.ltwebstatic.com/images3_spmp/2024/09/28/f2/1727470277451078f6b34821cc04098b6863940e2e_square.jpg" alt="图片 1"></li>
+		    <li><img src="https://img.ltwebstatic.com/images3_spmp/2024/09/28/8f/17274671002a8d17b2c3a87f6a9f847eed3e8b9f97_square.jpg" alt="图片 2"></li>
+		    <li><img src="https://img.ltwebstatic.com/images3_spmp/2024/09/28/9e/1727456771b166f74f57d9beeebd3154ad40acd4bc_square.jpg" alt="图片 3"></li>
+		  </ul>
+		</div>
+	</div>
+</body>
+</html>
+<script src="https://ayamcn.com/js/jquery-1.9.1.min.js"></script>
+<script src="viewer.js" crossorigin="anonymous"></script>
+<script src="jquery-viewer.min.js" crossorigin="anonymous"></script>
+<script>
+	var $image = $('#images');
+	
+	var view_options = {
+		inline:false,//inline模式
+		button:true,//显示右上角的关闭按钮
+		navbar:true,//显示缩略图
+		title:false,//显示当前图片的标题（现实 alt 属性及图片尺寸）
+		toolbar:true,//显示工具栏
+		tooltip:false,//显示缩放百分比
+		movable:false,//图片是否可移动
+		zoomable:false,//图片是否可缩放
+		rotatable:false,//图片是否可旋转
+		scalable:false,//图片是否可翻转
+		transition:true,//使用 CSS3 过度
+		fullscreen:false,//播放时是否全屏
+		
+	}
+	$image.viewer(view_options);
+	
+	// $image.viewer({
+	//   inline: true,
+	//   viewed: function() {
+	//     $image.viewer('zoomTo', 1);
+	//   }
+	// });
+	
+	// Get the Viewer.js instance after initialized
+	//var viewer = $image.data('viewer');
+	
+	// View a list of images
+	//$('#images').viewer();
+</script>

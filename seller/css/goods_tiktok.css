@@ -448,7 +448,7 @@
 }
 #attrgroups .attrVal{
 	width: 100%;
-	height: 36px;
+	min-height: 36px;
 	background: #FFFFFF;
 	border-radius: 2px;
 	border: 1px solid #DCDEE0;
@@ -463,13 +463,12 @@
 #attrgroups .attrVal .icons{
 	color: #DCDEE0;
 }
-#attrgroups .attrVal input[type="text"]{
+#attrgroups .attrVal .attr_val_input{
 	width: 100%;
 	height: 100%;
 	background-color: transparent;
 	outline: none;
 	border: 0;
-	padding: 0 16px;
 }
 #attrgroups .attrVal .attrVal_dropList{
 	position: absolute;
@@ -482,7 +481,14 @@
 	padding: 16px;
     box-sizing: border-box;
 	border: 1px solid #DCDEE0;
+	display: none;
 }
+#attrgroups .attrVal .attrVal_dropList ul{
+	max-height: 200px;
+	overflow: hidden;
+	position: relative;
+}
+
 .attrVal_dropList li{
 	display: flex;
 	align-items: center;
@@ -498,6 +504,7 @@
 	overflow: hidden; /* 隐藏溢出的内容 */
 	text-overflow: ellipsis; /* 多行时显示省略号 */
 	white-space: normal; /* 使用正常的白空格处理方式，允许换行 */
+	flex: 1;
 }
 .zdy_attr{
 	display: flex;
@@ -515,5 +522,22 @@
 	border-radius: 2px;
 	color: #fff;
 	text-align: center;
+	cursor: pointer;
+}
+.multi_select{
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+.multi_select .selected_val{
+	display: flex;
+	align-items: center;
+	background: #F4F4F4;
+	color: #737579;
+	gap: 8px;
+	padding: 0 4px;
+}
+.multi_select .icon-guanbi{
+	font-size: 10px;
 	cursor: pointer;
 }

@@ -46,8 +46,98 @@
 						<!-- <img class="logoImg" src=""/> -->
 					</div>
 				</div>
+				<style>
+					.languages{
+						position: relative;
+						width: 128px;
+						height: 40px;
+						background: #F6F6F6;
+						border-radius: 20px;
+						line-height: 40px;
+						font-size: 14px;
+					}
+					.languages .language_selected{
+						display: flex;
+						justify-content: space-around;
+						align-items: center;
+						cursor: pointer;
+					}
+					.language_selected:after{
+						content: "";
+						position: absolute;
+						height: 15px;
+						width: 100%;
+						bottom: -15px;
+					}
+					.language_selected_item{
+						display: flex;
+						align-items: center;
+						gap: 6px;
+					}
+					.languages .language_select_menus{
+						position: absolute;
+						width: 100%;
+						background: #F6F6F6;
+						border-radius: 8px;
+						margin-top: 14px;
+						display: none;
+					}
+					.language_select_menus li{
+						height: 40px;
+						line-height: 40px;
+					}
+					.language_select_menus li .select_menus_item{
+						display: flex;
+						gap: 6px;
+						align-items: center;
+						padding: 0 16px;
+						cursor: pointer;
+					}
+					.languages:hover .language_select_menus{
+						display: block;
+					}
+				</style>
 				<div class="userCenterCon">
 					<div class="userIconsgroups">
+						<div class="languages">
+							<div class="language_selected">
+								<div class="language_selected_item">
+									<span>语言:</span>
+									<img src="./images/guoqi/es.png" />
+								</div>
+								<div class="dropDown_icon">
+									<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+									    <g id="效果图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+									        <g id="余额" transform="translate(-1474, -47)" fill="#000000" fill-rule="nonzero">
+									            <g id="编组-2" transform="translate(1374, 32)">
+									                <g id="ICON/下_12×12_未选择" transform="translate(100, 15)">
+									                    <g id="下拉" transform="translate(1, 3.25)">
+									                        <path d="M5,5.5 C4.86103053,5.5 4.72786635,5.44514219 4.63059001,5.34779204 L0.147836802,0.862300773 C-0.0521299113,0.662239228 -0.0488144667,0.341082337 0.155208359,0.144998495 C0.359213555,-0.0510680406 0.686718797,-0.0478512826 0.886650233,0.152227552 L5,4.26808574 L9.11334324,0.152227552 C9.31327467,-0.0478685887 9.64074464,-0.0511372313 9.84478511,0.144998495 C10.0488256,0.341099627 10.0521234,0.662239228 9.85215667,0.862300773 L5.36940344,5.34779204 C5.2721271,5.44514219 5.13898057,5.5 5,5.5 Z" id="路径"></path>
+									                    </g>
+									                </g>
+									            </g>
+									        </g>
+									    </g>
+									</svg>
+								</div>
+							</div>
+							<div class="language_select_menus">
+								<ul>
+									<li>
+										<div class="select_menus_item">
+											<span>语言:</span>
+											<img src="./images/guoqi/es.png" />
+										</div>
+									</li>
+									<li>
+										<div class="select_menus_item">
+											<span>语言:</span>
+											<img src="./images/guoqi/zh.png" />
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
 						<div class="userIcon shopCar" id="shopCar">
 							<img src="./images/icons/shop_icon.svg" />
 						</div>

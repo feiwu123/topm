@@ -280,6 +280,10 @@ input[type=number]::-webkit-outer-spin-button {
 .hide{
 	display: none;
 }
+
+.lineThrough{
+	text-decoration: line-through;
+}
 </style>		
 <div class="mkd-popup" id="mkdShare">
 	<div class="bgCon"></div>
@@ -430,7 +434,12 @@ input[type=number]::-webkit-outer-spin-button {
 					<div class="detail">
 						<div class="priceItem">
 							<span class="txt">Precio por publicaci</span>
-							<span class="val">-</span>
+							<span class="val">
+								<dl>
+									<dd class="lineThrough">123</dd>
+									<dd>456</dd>
+								</dl>
+							</span>
 						</div>
 						<div class="priceItem">
 							<span class="txt">Cargo por venta</span>
