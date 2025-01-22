@@ -1,0 +1,249 @@
+{
+  "code": 0,
+  "data": {
+    "attributes": [
+      {
+        "id": "100898",
+        "is_customizable": true,
+        "is_multiple_selection": true,
+        "is_requried": false,
+        "name": "Feriado/ocasión",
+        "type": "PRODUCT_PROPERTY",
+        "values": [
+          {
+            "id": "1004734",
+            "name": "Día del Niño"
+          },
+          {
+            "id": "1003609",
+            "name": "Navidad"
+          },
+          {
+            "id": "1004739",
+            "name": "Nyepi"
+          },
+          {
+            "id": "1004737",
+            "name": "Festival de Medio Otoño"
+          },
+          {
+            "id": "1004736",
+            "name": "Pascua"
+          },
+          {
+            "id": "1004740",
+            "name": "Rambu Solo"
+          },
+          {
+            "id": "1004742",
+            "name": "Día de Acción de Gracias"
+          },
+          {
+            "id": "1004735",
+            "name": "Año Nuevo Chino"
+          },
+          {
+            "id": "1004743",
+            "name": "Día de San Valentín"
+          },
+          {
+            "id": "1004738",
+            "name": "Año Nuevo"
+          },
+          {
+            "id": "1004741",
+            "name": "Songkran"
+          }
+        ]
+      },
+      {
+        "id": "100000",
+        "is_customizable": true,
+        "is_multiple_selection": true,
+        "is_requried": true,
+        "name": "Color",
+        "type": "SALES_PROPERTY"
+      },
+      {
+        "id": "100392",
+        "is_customizable": true,
+        "is_multiple_selection": true,
+        "is_requried": false,
+        "name": "Ocasión",
+        "type": "PRODUCT_PROPERTY",
+        "values": [
+          {
+            "id": "1001122",
+            "name": "Negocios"
+          },
+          {
+            "id": "1004277",
+            "name": "Fogata"
+          },
+          {
+            "id": "1004276",
+            "name": "Fiesta de nacimiento"
+          },
+          {
+            "id": "1001123",
+            "name": "Boda"
+          },
+          {
+            "id": "1002665",
+            "name": "Fiesta"
+          },
+          {
+            "id": "1004278",
+            "name": "Ceremonia"
+          },
+          {
+            "id": "1001533",
+            "name": "Cumpleaños"
+          },
+          {
+            "id": "1004280",
+            "name": "Fiesta de inauguración de la casa"
+          },
+          {
+            "id": "1001531",
+            "name": "Aniversario"
+          },
+          {
+            "id": "1004281",
+            "name": "Víspera de Año Nuevo"
+          }
+        ]
+      },
+      {
+        "id": "100347",
+        "is_customizable": true,
+        "is_multiple_selection": false,
+        "is_requried": false,
+        "name": "Cantidad por paquete",
+        "type": "PRODUCT_PROPERTY",
+        "values": [
+          {
+            "id": "1000355",
+            "name": "7"
+          },
+          {
+            "id": "1000347",
+            "name": "4"
+          },
+          {
+            "id": "1001201",
+            "name": "11"
+          },
+          {
+            "id": "1000638",
+            "name": "6"
+          },
+          {
+            "id": "1000258",
+            "name": "3"
+          },
+          {
+            "id": "1000357",
+            "name": "10"
+          },
+          {
+            "id": "1000639",
+            "name": "8"
+          },
+          {
+            "id": "1000256",
+            "name": "1"
+          },
+          {
+            "id": "1000257",
+            "name": "2"
+          },
+          {
+            "id": "1000356",
+            "name": "9"
+          },
+          {
+            "id": "1000354",
+            "name": "5"
+          },
+          {
+            "id": "1001202",
+            "name": "12"
+          }
+        ]
+      },
+      {
+        "id": "100701",
+        "is_customizable": true,
+        "is_multiple_selection": true,
+        "is_requried": false,
+        "name": "Material",
+        "type": "PRODUCT_PROPERTY",
+        "values": [
+          {
+            "id": "1001399",
+            "name": "Jade"
+          },
+          {
+            "id": "1000012",
+            "name": "PVC"
+          },
+          {
+            "id": "1000006",
+            "name": "Acero inoxidable"
+          },
+          {
+            "id": "1000030",
+            "name": "Aluminio"
+          },
+          {
+            "id": "1000014",
+            "name": "Acrílico"
+          },
+          {
+            "id": "1000607",
+            "name": "Cerámica"
+          },
+          {
+            "id": "1000017",
+            "name": "Vidrio"
+          },
+          {
+            "id": "1000007",
+            "name": "Polipropileno"
+          },
+          {
+            "id": "1000016",
+            "name": "Caucho"
+          },
+          {
+            "id": "1004217",
+            "name": "Mineral"
+          },
+          {
+            "id": "1000009",
+            "name": "ABS"
+          },
+          {
+            "id": "1000020",
+            "name": "Piedra"
+          },
+          {
+            "id": "1000008",
+            "name": "Madera"
+          },
+          {
+            "id": "1000022",
+            "name": "Silicona"
+          },
+          {
+            "id": "1000034",
+            "name": "Metal"
+          }
+        ]
+      }
+    ]
+  },
+  "message": "Success",
+  "request_id": "20250118085556E9D73172BCB7BC0D0E63"
+}
