@@ -166,6 +166,8 @@ function selectAttenEvent(divselectid,type){
 		event.stopImmediatePropagation();
 		$(this).find(".attrVal_dropList").show();
 		$(divselectid).siblings().find(".attrVal_dropList").hide();
+		var topOffset = $(divselectid+' .attrVal').height() + 6;
+		$(divselectid+' .attrVal_dropList').css('top',topOffset+'px');
 	})
 	
 	$(document).on("click",divselectid+' .attrVal ul li',function(event){

@@ -6,6 +6,8 @@
 		<link rel="stylesheet" type="text/css" href="./css/common.css" />
 		<link rel="stylesheet" type="text/css" href="./css/menu.css" />
 		<link rel="stylesheet" type="text/css" href="./css/index.css" />
+		<link rel="stylesheet" type="text/css" href="https://ayamcn.com/includes/kindeditor/themes/default/default.css" />
+			<link rel="stylesheet" type="text/css" href="./css/jquery.easyswitch.css" />
 		<link rel="stylesheet" type="text/css" href="./css/goods_tiktok.css" />
 		
 		<!-- 滚动条样式 -->
@@ -297,19 +299,275 @@
 								</div>
 								<div class="formEle tiktokAttrs">
 									<div id="attrgroups">
-										
-										
-										
+						
 									</div>
 								</div>
-							</div>	
-						
+							</div>
 						</div>
 					</div>
 					
-						
-						
-						
+					<div class="card goodsInfo">
+						<div class="title">
+							Product Details
+						</div>
+						<div class="bodyInform">
+							<div class="elems">
+								<div class="label">
+									<span>Product name</span>
+									<div class="error_tips">
+										<span class="red">*</span>
+									</div>
+								</div>
+								<div class="tips">
+									Incluye una descripción de al menos 100 caracteres y agrega imágenes para ayudar a los clientes a decidirse. 
+								</div>
+								<div class="formEle">
+									<textarea id="editor_id" name="content" style="width:700px;height:300px;">
+									&lt;strong&gt;HTML内容&lt;/strong&gt;
+									</textarea>
+								</div>
+								<div class="tips">
+								</div>
+							</div>
+							<div class="elems">
+								<div class="label">
+									<span>Video</span>
+									<div class="error_tips">
+										<span class="red"></span>
+									</div>
+								</div>
+								<div class="formEle">
+									<div class="uploadVideo uploadImgs">
+										<div class="uploadIcon">
+											<span class="iconfont icon-shangchuan1"></span>
+										</div>
+										<div class="uploadTxt">
+											Upload
+										</div>
+										<input id="uploadVideo" type="file" class="upload_files"/>
+									</div>
+								</div>
+								<div class="tips">
+									La relación de aspecto del video debe ser de entre 9:16 y 16:9. Tamano máximo del archivo: 100 MB.
+								</div>
+							</div>
+						</div>	
+					</div>
+					
+					<div class="card goodsInfo">
+						<div class="title">
+							Sale Information
+						</div>
+						<div class="bodyInform">
+							<div class="elems">
+								<div class="label" style="gap:16px;">
+									<span>Product name</span>
+									<div class="error_tips">
+										<span class="easyswitch" data-callback="onSwitch" data-label-on="" data-label-off=""></span>
+									</div>
+								</div>
+								<div class="tips">
+									Add up to 3 product variations for different sizes, colors, materials, or more.
+								</div>
+							</div>
+							<div class="elems">
+								<div class="label">
+									<span>Price & Stock</span>
+									<div class="error_tips">
+										<span class="red">*</span>
+									</div>
+								</div>
+								<div class="formEle">
+									<div class="stockEle">
+										<div class="stock_ele">
+											<div class="stockItem">
+												<label class="stockName">Product identifier code </label>
+												<div class="stockInput stockSelect">
+													<div class="pre" style="display: flex;align-items: center;gap: 4px;">
+														<select>
+															<option>GTIN</option>
+															<option>EAN</option>
+															<option>EAN</option>
+															<option>ISBN</option>
+														</select>
+													</div>
+													<div class="center">
+														<input type="text" class="stockeleInput" name="stockCode"/>
+													</div>
+													<div class="last"></div>
+												</div>
+											</div>
+											<div class="stockItem">
+												<label class="stockName">Retail price <span class="red">*</span></label>
+												<div class="stockInput stockSelect">
+													<div class="pre">
+														<span class="curency" style="padding-left:8px;">$</span>
+													</div>
+													<div class="center">
+														<input type="text" class="stockeleInput" name="stockName"/>
+													</div>
+													<div class="last"></div>
+												</div>
+											</div>
+											<div class="stockItem">
+												<label class="stockName">Quantity <span class="red">*</span></label>
+												<div class="stockInput stockSelect">
+													<div class="pre">
+													</div>
+													<div class="center">
+														<input type="text" class="stockeleInput" name="stockQuantity"/>
+													</div>
+													<div class="last"></div>
+												</div>
+											</div>
+											<div class="stockItem">
+												<label class="stockName">Seller SKU</label>
+												<div class="stockInput stockSelect">
+													<div class="pre">
+													</div>
+													<div class="center">
+														<input type="text" class="stockeleInput" name="stockSKU"/>
+													</div>
+													<div class="last"></div>
+												</div>
+											</div>
+											<div class="stockItem">
+												<label class="stockName">仓库发货</label>
+												<div class="stockInput stockSelect">
+													<div class="pre">
+													</div>
+													<div class="center">
+														<select type="text" class="stockeleInput" name="stockFact">
+															<option>Sandbox I Local Sales warehouse</option>
+														</select>	
+													</div>
+													<div class="last"></div>
+												</div>
+											</div>
+										</div>	
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>		
+					
+					<div class="card goodsInfo">
+						<div class="title">
+							Product compliance
+						</div>
+						<div class="bodyInform">
+							<div class="elems">
+								<div class="label" style="gap:16px;">
+									<span>User manual</span>
+									<div class="error_tips">
+										<div class="policyFiles" style="font-size: 14px;color: #9FA0A1;">(<span class="policyFileNum">1</span>/<span class="policyFileLimit">10</span>)</div>
+									</div>
+								</div>
+								<div class="formEle">
+									<div class="uploadVideo uploadImgs">
+										<div class="uploadIcon">
+											<span class="iconfont icon-shangchuan1"></span>
+										</div>
+										<div class="uploadTxt">
+											Upload
+										</div>
+										<input id="uploadPolicyFiles" type="file" class="upload_files"/>
+									</div>
+								</div>
+								<div class="tips">
+									Upload a user manual or instructions in the official local language. Where there are multiple items sold as a part of a bundle, please clearly indicate which specific product the certification pertains to in the uploaded file or image
+								</div>
+							</div>
+							<div class="elems">
+								<div class="label" style="gap:16px;">
+									<span>Warranty Policy</span>
+									<div class="error_tips">
+									</div>
+								</div>
+								<div class="formEle">
+									<div class="uploadVideo uploadImgs">
+										<div class="uploadIcon">
+											<span class="iconfont icon-shangchuan1"></span>
+										</div>
+										<div class="uploadTxt">
+											Upload
+										</div>
+										<input id="uploadWarrantyFiles" type="file" class="upload_files"/>
+									</div>
+								</div>
+								<div class="tips">
+									Please enter a valid warranty policy
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="card goodsInfo">
+						<div class="title">
+							Shipping
+						</div>
+						<div class="bodyInform">
+							<div class="elems">
+								<div class="label" style="gap:16px;">
+									<span>Package weight</span>
+									<div class="error_tips">
+										<span class="red">*</span>
+									</div>
+								</div>
+								<div class="formEle">
+									<div class="packageWeight">
+										<div class="formInput" style="max-width: 491px;">
+											<div class="pre">
+												<select class="unit">
+													<option value="kilo">Kilograms（kg）</option>
+												</select>
+											</div>
+											<div class="center">
+												<input name="weight" class="formInpueEle" />
+											</div>
+											<div class="last"></div>
+										</div>
+									</div>
+								</div>
+								<div class="tips">
+								</div>
+							</div>
+							<div class="elems">
+								<div class="label" style="gap:16px;">
+									<span>Package Dimensions</span>
+									<div class="error_tips">
+										<span class="red">*</span>
+									</div>
+								</div>
+								<div class="formEle">
+									<div class="dimensions">
+										<div class="dimensionItem">
+											<label class="dimensionName">长(最长边),单位cm</label>
+											<div class="dimensionValue">
+												<input type="text" name="productLength" />
+											</div>
+										</div>
+										<div class="dimensionItem">
+											<label class="dimensionName">宽(次长边),单位cm</label>
+											<div class="dimensionValue">
+												<input type="text" name="productWidth" />
+											</div>
+										</div>
+										<div class="dimensionItem">
+											<label class="dimensionName">高(最短边),单位cm</label>
+											<div class="dimensionValue">
+												<input type="text" name="productHeight" />
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="tips">
+									Ensure the box weight and dimensions are accurate as they will be used to calculate the shipping fees and shipping method.
+								</div>
+							</div>
+						</div>	
+					</div>
+							
 				</div>
 				<div class="submitBtns">
 					<div class="pre_step_btn step_btn">
@@ -330,8 +588,16 @@
 </html>
 <script src="https://ayamcn.com/seller/js/jquery.min.js"></script>
 <script src="https://ayamcn.com/js/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="https://ayamcn.com/includes/kindeditor/kindeditor-all-min.js"></script>
+<script type="text/javascript" src="./js/jquery.easyswitch.js"></script>
 <script src="js/wu_tiktok_attr.js"></script>
 <script>
+	$('.easyswitch').easyswitch();
+	
+	function onSwitch(value, obj) {
+		alert(value);
+	}
+	
 	$(document).on("click",".imageItem .delete_img",function(event){
 		$(this).parent(".imageItem").remove();
 	})
@@ -376,5 +642,10 @@
 	    // 当请求发生错误时的处理代码
 	    console.log(error);
 	  }
+	});
+	
+	
+	KindEditor.ready(function(K) {
+		window.editor = K.create('#editor_id');
 	});
 </script>
