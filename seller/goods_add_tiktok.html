@@ -272,18 +272,42 @@
 									<div class="inputEle selectEle" id="selectBrand">
 										<div class="default_val">xiaomi</div>
 										<div class="icons"><span class="iconfont icon-ICON-xia"></span></div>
-										<div class="dropList" style="display: none;">
-											<ul>
-												<li>xiaomi</li>
-												<li>huawei</li>
-												<li>apple</li>
-												<li>xiaomi</li>
-												<li>huawei</li>
-												<li>apple</li>
-												<li>xiaomi</li>
-												<li>huawei</li>
-												<li>apple</li>
+										<div class="dropList brandDroplist" style="display: none;">
+											<div class="brandSearch">
+												<input type="text" name="searchBrand" placeholder="Search" />
+												<span class="iconfont icon-sousuo"></span>
+											</div>
+											<ul style="margin-top: 16px;">
+												<li>
+													<input type="radio" name="brandName"  id="brand_1" value="xiaomi" />
+													<label for="brand_1">xiaomi</label>
+												</li>
+												<li><input type="radio" name="brandName"  id="brand_2" value="apple" />
+													<label for="brand_2">apple</label></li>
+												<li><input type="radio" name="brandName"  id="brand_3" value="huawei" />
+													<label for="brand_3">huawei</label></li>
+												<li><input type="radio" name="brandName"  id="brand_4" value="sangxin" />
+													<label for="brand_4">sangxin</label></li>
 											</ul>
+											<div class="fgx" style="height: 1px;border-top: 1px solid #DCDFE6;margin-top: 9px;margin-bottom: 9px;"></div>
+											<div class="zdy_brand">
+												¿No encuentras tu marca?<span class="add_new_brand">Agrega una nueva marca</span> o <span class="empty_brand"> selecciona “Sin marca”</span>
+											</div>
+											<div class="zdy_brand_con" style="display: none;">
+												<div class="zdy_brand_title">Agrega una nueva marca</div>
+												<div class="zdy_brand_contion">
+													<div class="zdy_brand_txt">
+														Otros vendedores podrán usar cualquier marca que agregues puede ser utilizada por otros vendedores. Antes de agregar una marca, asegúrate de que acate las reglas del nombre de las marcas.
+													</div>
+													<div class="zdy_brand_enter">
+														<div class="zdy_brand_input">
+															<input name="zdy_brand_name" type="text">
+														</div>
+														<div class="brand_cancel brand_btn">Cancelar</div>
+														<div class="brand_ensure brand_btn">Agregar</div>
+													</div>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -464,6 +488,26 @@
 									</div>
 								</div>
 								<div class="formEle">
+									<div class="fileList">
+										<div class="uploadfileItem">
+											<div class="uploadVideo uploadImgs">
+												<div class="uploadIcon">
+													<span class="iconfont icon-shangchuan1"></span>
+												</div>
+												<div class="uploadTxt">
+													文件名
+												</div>
+											</div>	
+											<div class="uploadFileBtns">
+												<div class="deleteFile">
+													删除
+												</div>
+												<div class="viewFile">
+													查看
+												</div>
+											</div>
+										</div>
+									</div>
 									<div class="uploadVideo uploadImgs">
 										<div class="uploadIcon">
 											<span class="iconfont icon-shangchuan1"></span>
@@ -485,6 +529,26 @@
 									</div>
 								</div>
 								<div class="formEle">
+									<div class="fileList">
+										<div class="uploadfileItem">
+											<div class="uploadVideo uploadImgs">
+												<div class="uploadIcon">
+													<span class="iconfont icon-shangchuan1"></span>
+												</div>
+												<div class="uploadTxt">
+													文件名
+												</div>
+											</div>	
+											<div class="uploadFileBtns">
+												<div class="deleteFile">
+													删除
+												</div>
+												<div class="viewFile">
+													查看
+												</div>
+											</div>
+										</div>
+									</div>
 									<div class="uploadVideo uploadImgs">
 										<div class="uploadIcon">
 											<span class="iconfont icon-shangchuan1"></span>
@@ -604,16 +668,18 @@
 	
 	let selectBrand = $("#selectBrand");
 	selectBrand.on("click",function(e){
-		$(this).find(".dropList").fadeIn();
-		$(this).find(".dropList ul").perfectScrollbar("destroy");
-		$(this).find(".dropList ul").perfectScrollbar();
+		$(this).find(".brandDroplist").fadeIn();
+		$(this).find(".brandDroplist ul").perfectScrollbar("destroy");
+		$(this).find(".brandDroplist ul").perfectScrollbar();
 	})
 	
 	$(document).on("click","#selectBrand ul li",function(event){
 		event.stopImmediatePropagation();
 		const brandVal = $(this).html();
-		$(this).parents("#selectBrand").find(".default_val").html(brandVal);
-		$(this).parents(".dropList").fadeOut();
+		let selectVal = $(this).find('input[type=radio]:checked').prop('value');
+		selectBrand.find(".default_val").html(selectVal);
+		
+		//$(this).parents(".brandDroplist").fadeOut();
 		
 	})
 	
@@ -623,10 +689,38 @@
 		// console.log(selectBrand.has(target).length);
 		// console.log(target.parent().is(selectBrand));
 		if(!selectBrand.has(target).length){
-			selectBrand.find(".dropList").fadeOut();
+			selectBrand.find(".brandDroplist").fadeOut();
 		}
 		//$(".selectBrand .dropList").hide();
 	});
+	//自定义品牌
+	$(document).on("click",".add_new_brand",function(event){
+		$(this).parents(".zdy_brand").hide();
+		$(this).parent().siblings('.zdy_brand_con').show();
+	})
+	//没有品牌  
+	$(document).on("click",".empty_brand",function(event){
+		selectBrand.find(".default_val").html('Sin marca');
+		selectBrand.find("ul li input[type='radio']").prop('checked',false);
+		$(this).parents('.brandDroplist').fadeOut();
+	})
+	//取消品牌
+	$(document).on("click",".brand_cancel",function(){
+		$(this).parents(".zdy_brand_con").hide();
+		$(this).parents('.zdy_brand_con').siblings(".zdy_brand").show();
+	})
+	//自定义品牌
+	$(document).on("click",".brand_ensure",function(){
+		var zdy_name = $("input[name='zdy_brand_name']").val();
+		if(zdy_name.length>0){
+			selectBrand.find(".default_val").html(zdy_name);
+			selectBrand.find(".brandDroplist").fadeOut();
+			selectBrand.find("ul li input[type='radio']").prop('checked',false);
+			$("input[name='zdy_brand_name']").val('');
+		}else{
+			
+		}
+	})
 	
 	
 	//属性展示
