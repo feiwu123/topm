@@ -757,3 +757,177 @@
 	font-size: 14px;
 	color: #F42F54;
 }
+
+
+
+/* 商品售价属性 */
+.sale_attr_list .sal_attr_item .isImages{
+	display: none;
+}
+.sale_attr_list .sal_attr_item:first-child .isImages{
+	display: block;
+}
+.sale_attrs{
+	max-width: 1038px;
+	background: #F7F8FA;
+	border-radius: 2px;
+	padding: 16px;
+	margin-bottom: 24px;
+}
+.sale_attrs .sale_attr_title{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.sale_attrs .isImages label{
+	font-size: 14px;
+	color: #333333;
+	margin-left: 4px;
+}
+.sale_attrs .sale_attr_value{
+	margin-top: 24px;
+}
+.sale_attrs .sale_attr_val{
+	margin-bottom: 16px;
+	margin-top: 8px;
+}
+.sale_attrs .sale_attr_value .sale_attr_val_item{
+	display: flex;
+	gap: 8px;
+	align-items: flex-start;
+	margin-top: 16px;
+}
+.sale_attrs .sale_attr_value .sale_attr_val_item:last-child .delete_sale_attr{
+	visibility: hidden;
+}
+.sale_attr_val_item .option_val{
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	flex: 1;
+}
+.sale_attr_val_item .option_val .sale_attr_input{
+	height: 36px;
+	line-height: 36px;
+	background: #FFFFFF;
+	border-radius: 2px;
+	border: 1px solid #DCDEE0;
+	width: 100%;
+}
+.sale_attr_val_item .option_val .delete_sale_attr{
+	color: #165BD5;
+	font-size: 14px;
+	cursor: pointer;
+	width: 30px;
+}
+.sale_attr_val_item .option_val .sale_attr_input input{
+	background: transparent;
+	width: 100%;
+	height: 100%;
+	border: 0;
+	outline: none;
+	padding: 0 16px;
+	box-sizing: border-box;
+}
+.sale_attr_val_item .sale_attr_image{
+	width: 80px;
+	height: 80px;
+	background: #FFFFFF;
+	border-radius: 4px;
+	border: 1px dashed #DCDEE0;
+	line-height: 80px;
+	text-align: center;
+	color: #DCDEE0;
+	cursor: pointer;
+	position: relative;
+}
+.sale_attr_val_item .sale_attr_image .sale_attr_file{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 80px;
+	height: 80px;
+	opacity: 0;
+	cursor: pointer;
+}
+.confirmSaleAttr{
+	height: 36px;
+	line-height: 36px;
+	background: #343434;
+	border-radius: 2px;
+	padding: 0 18px;
+	box-sizing: border-box;
+	color:#fff;
+	cursor: pointer;
+	max-width: 80px;
+}
+.sale_attr_elem .sale_attr_name{
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	margin-top: 8px;
+}
+.sale_attr_elem .sale_attr_name .sale_attr_select{
+	flex: 1;
+	align-items: center;
+	height: 36px;
+	background: #FFFFFF;
+	border-radius: 2px;
+	border: 1px solid #DCDEE0;
+}
+.sale_attr_elem .sale_attr_name .sale_attr_select select{
+	width: 100%;
+	height: 100%;
+	outline: none;
+	border: 0;
+	padding: 0 16px;
+	box-sizing: border-box;
+}
+.sale_attr_elem .sale_attr_name .delete_sale_attr{
+	font-size: 14px;
+	color: #165BD5;
+	cursor: pointer;
+}
+
+.sale_attr_chosen .title{
+	display: flex;
+	justify-content: space-between;
+	font-size: 14px;
+}
+.sale_attr_chosen .title .edit{
+	cursor: pointer;
+}
+.sale_attr_chosen .sale_attr_value_chosen{
+	display: flex;
+	gap: 16px;
+	flex-wrap: wrap;
+	align-items: center;
+	margin-top: 12px;
+	font-size: 14px;
+}
+.sale_attr_chosen .sale_attr_value_chosen .attr_value{
+	height: 24px;
+	line-height: 24px;
+	background: #FFFFFF;
+	padding: 0 8px;
+	color: #737579;
+}
+
+.add_sale_attr_item{
+	height: 33px;
+	background: #FFFFFF;
+	border-radius: 4px;
+	border: 1px solid #CCCCCC;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	max-width: 135px;
+	justify-content: center;
+	font-size: 12px;
+	color: #737579;
+	margin-top: 24px;
+	cursor: pointer;
+}
+.saleAttrStore{
+	margin-top: 24px;
+}
