@@ -487,9 +487,17 @@
 												</div>
 												<div class="sale_attr_name">
 													<div class="sale_attr_select">
-														<select id="" >
-															<option>Colors</option>
-														</select>
+														<div class="sale_attr_input">
+															<input class="default_val" data-saleattrid="123" value=""/>
+															<span class="iconfont icon-ICON-xia"></span>
+														</div>
+														<div class="dropList sale_attr_select_list">
+															<ul>
+																<li class="sale_attr_select_item" data-attrid="123" data-val="color">color</li>
+																<li class="sale_attr_select_item" data-attrid="1234" data-val="color2">color2</li>
+																<li class="sale_attr_select_item" data-attrid="12345" data-val="color3">color3</li>
+															</ul>
+														</div>	
 													</div>
 													<div class="delete_sale_attr">
 														删除
@@ -862,6 +870,26 @@
 		//$(this).parents(".brandDroplist").fadeOut();
 		
 	})
+	//下拉销售属性
+	$(document).on("click",".sale_attr_select",function(event){
+		event.stopImmediatePropagation();
+		var that = this;
+		$(that).find(".sale_attr_select_list").show();
+		$(that).find("input.default_val").focus();
+		
+		$(document).on("click",function(event){
+			 $(that).find(".sale_attr_select_list").hide();
+		});
+	})
+	
+	$(document).on("click",".sale_attr_select_list .sale_attr_select_item",function(event){
+		var attr_id = $(this).data('attrid');
+		var attr_val = $(this).data('val');
+		$(this).parents('.sale_attr_select').find('.default_val').val(attr_val);
+		$(this).parents('.sale_attr_select').find('.default_val').data('saleattrid',attr_id);
+	})
+	
+	
 	
 	$(document).on("click",function(event){
 		// const target = $(event.target);

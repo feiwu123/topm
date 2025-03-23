@@ -382,6 +382,155 @@
 							<img src=""/>
 						</div>
 					</div>
+					
+					<style>
+					.qrcodeCon{
+						display: flex;
+						align-items: center;
+						gap: 32px;
+						margin-top: 24px;
+						flex-wrap: wrap;
+					}
+					.qrcodeCon .qrcodeConItem{
+						background: #F4F4F4;
+						border-radius: 8px;
+						flex: 1;
+						padding: 24px;
+						height: 256px;
+						box-sizing: border-box;
+						position: relative;
+					}
+					.qrcodeCon .qrcodeConItem .payStatus{
+						position: absolute;
+						top: 0;
+						left:0;
+						background: rgba(0,0,0,0.8);
+						border-radius: 8px;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						width: 100%;
+						height: 100%;
+						flex-direction: column;
+						color: #fff;
+					}
+					.qrcodeConItem .title{
+						font-weight: 600;
+						font-size: 18px;
+						color: #333333;
+					}
+					.qrcodeConItem .title .tip{
+						font-size: 14px;
+						color: #999999;
+						margin-left: 10px;
+					}
+					.scan_qrcode{
+						margin-top: 24px;
+						display: flex;
+						gap: 24px;
+						align-items: flex-end;
+					}
+					.scan_qrcode .qrcodeImg{
+						background: #f00;
+					}
+					.scan_qrcode .payMoney .unit{
+						font-size: 18px;
+						color: #F42F54;
+					}
+					.scan_qrcode .payMoney .wxinMoney{
+						font-size: 38px;
+						color: #F42F54;
+					}
+					.exchangeCon{
+						margin-top: 28px;
+						display: flex;
+						gap: 24px;
+						justify-content: center;
+					}
+					.exchangeCon .exchangeMoney{
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+					}
+					.exchangeCon .exchangeMoney .value{
+						font-weight: 600;
+						font-size: 28px;
+						color: #333333;
+					}
+					.exchangeCon .exchangeMoney .unit{
+						font-size: 14px;
+					}
+					.exchangeCon .exchangeMoney  .contryCon{
+						display: flex;
+						gap: 8px;
+						margin-top: 16px;
+						text-transform: uppercase;
+						color: #999;
+						font-weight: bold;
+					}
+					.exchangeCon .exchangeMoney  .contryCon .contryImg{
+						width: 28px;
+						height: 28px;
+						border-radius: 50%;
+						overflow: hidden;
+					}
+					.exchangeCon .exchangeMoney  .contryCon .contryImg img{
+						object-fit: 1 / 1;
+					}
+					.exchangeCon .exchangeMoney  .contryCon  .contryTxt{
+						width: 77px;
+					}
+					</style>
+					<div class="qrcodeCon">
+						<div class="qrcodeConItem">
+							<div class="title"><span>扫码支付</span><span class="tip">使用微信APP扫码完成支付</span></div>
+							<div class="scan_qrcode">
+								<div class="qrcodeImg"  id="qrcodeImage" style="width: 150px;height: 150px;">
+
+								</div>
+								<div class="payMoney">
+									<div class="payTitle" style="font-size: 16px;color: #333333;">支付金额</div>
+									<div><span class="unit">$</span><span class="wxinMoney">10000</span><span class="unit">MXN</span></div>
+								</div>
+							</div>
+							<div class="payStatus">
+								<img src="images/paySuccess.png" width="120" height="123"/>
+								<div class="payTxt" style="margin-top: 27px;font-weight: 600;font-size: 16px;">
+									充值成功
+								</div>
+							</div>
+						</div>
+						<div class="qrcodeConItem">
+							<div class="title"><span>汇率</span></div>
+							<div class="exchangeCon">
+								<div class="mexiconMoney exchangeMoney">
+									<div class="value">10000 <span class="unit">MXN</span></div>
+									<div class="contryCon">
+										<div class="contryImg">
+											<img src="./images/mexico.png" />
+										</div>
+										<div class="contryTxt">
+											mexicano
+										</div>
+									</div>
+								</div>
+								<div class="exchangeIcon">
+									<img src="images/exchange.png" width="61px" height="61px"/>
+								</div>
+								<div class="chinaMoney exchangeMoney">
+									<div class="value">3582 <span class="unit">CNY</span></div>
+									<div class="contryCon">
+										<div class="contryImg">
+											<img src="./images/china.png" />
+										</div>
+										<div class="contryTxt">
+											CHINA
+										</div>
+									</div>	
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>	
 				
 				<div class="recharge rowCon">
@@ -409,6 +558,18 @@
 <script type="text/javascript" src="https://ayamcn.com/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="https://ayamcn.com/js/index/0708/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://ayamcn.com/js/flow/0629/jquery.mCustomScrollbar.concat.min.js"></script>
-<script type="text/javascript" src="https://ayamcn.com/js/index/0708/common.js?d=1"></script>	    
+<script type="text/javascript" src="https://ayamcn.com/js/index/0708/common.js?d=1"></script>
+ <script type="text/javascript" src="./js/qrcode.min.js"></script>
 	
 </body></html>
+<script>
+	$("#qrcodeImage").qrcode({
+　　	render: "canvas",//渲染方式可选择canvas或table，默认是canvas，canvas方式还支持右键图片下载
+　　　　width: 159,//宽度 .建议宽度和高度保持一致，否则不容易被识别
+　　　　height:159,//高度
+　　　　text: "http://www.baidu.com",//设置二维码保存的文本内容
+　　　　background: "#ffffff",//背景颜色
+　　　　foreground: "#000000",//前景颜色
+　　　　　　　　　　//src:"image/logo.jpg"//配置logo图片
+　　　　});
+</script>

@@ -964,3 +964,27 @@
 	gap: 8px;
 	align-items: center;
 }
+
+
+.sale_attr_elem .sale_attr_name .sale_attr_select{
+	position: relative;
+}
+.sale_attr_select .sale_attr_input{
+	display: flex;
+	align-items: center;
+	height: 100%;
+	padding: 0 16px;
+}
+.sale_attr_select .sale_attr_input .icon-ICON-xia{
+	color: #DCDEE0;
+}
+.sale_attr_select .default_val{
+	outline: none;
+	border: 0;
+	height: 100%;
+	width: 100%;
+}
+.sale_attr_select_list{
+	z-index: 99;
+	display: none;
+}
