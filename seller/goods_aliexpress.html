@@ -199,21 +199,15 @@
 							</div>
 							<div class="elems">
 								<div class="label">
-									<span>类目选择</span>
+									<span>产品关键词</span>
 									<div class="error_tips">
 										<span class="red">*</span>
 									</div>
 								</div>
 								<div class="formEle" style="display: flex;align-items: center;gap: 16px;">
-									<div class="inputEle disabled" style="flex: 1;">
-										<input type="text" name="goods_number" disabled/>
-									</div>
-									<div class="select_cates">
-										选择类目
+									<div class="inputEle" style="flex: 1;">
+										<input type="text" name="goods_number"/>
 									</div>	
-								</div>
-								<div class="tips">
-									产品关键词对买家隐藏，但允许买家在搜索时显示您的产品，不超过384个字符，包含15个或更多关键词将使您的产品平均获得60%的曝光率。
 								</div>
 							</div>
 							<div class="elems">
@@ -398,4 +392,81 @@
 	KindEditor.ready(function(K) {
 		window.editor = K.create('#editor_id');
 	});
+	
+	//属性展示
+	$.ajax({
+	  url: 'ali_attr.json',
+	  dataType: 'json',
+	  success: function(jsonData) {
+	    // 在success回调中可以访问返回的JSON数据
+		
+		 //$.multiTiktokSelect("#attrgroups",jsonData.data.attributes);
+		 console.log(xmlToJson($.parseXML(jsonData.result.data)));
+	  },
+	  error: function(xhr, status, error) {
+	    // 当请求发生错误时的处理代码
+	    console.log(error);
+	  }
+	});
+	
+	
+	function xmlToJson(xml) {
+	  var obj = {};
+	
+	  if (xml.nodeType == 1) { 
+	    if (xml.attributes.length > 0) {
+	      obj["@attributes"] = {};
+	      for (var j = 0; j < xml.attributes.length; j++) {
+	        var attribute = xml.attributes.item(j);
+	        obj["@attributes"][attribute.nodeName] = attribute.nodeValue;
+	      }
+	    }
+	  } else if (xml.nodeType == 3) {
+	    obj = xml.nodeValue;
+	  }
+	
+	  if (xml.hasChildNodes()) {
+	    for (var i = 0; i < xml.childNodes.length; i++) {
+	      var item = xml.childNodes.item(i);
+	      var nodeName = item.nodeName;
+	      if (typeof (obj[nodeName]) == "undefined") {
+	        obj[nodeName] = xmlToJson(item);
+	      } else {
+	        if (typeof (obj[nodeName].push) == "undefined") {
+	          var old = obj[nodeName];
+	          obj[nodeName] = [];
+	          obj[nodeName].push(old);
+	        }
+	        obj[nodeName].push(xmlToJson(item));
+	      }
+	    }
+	  }
+	  return obj;
+	}
+	
+	function jsonToXml(json) {
+	  var xml = '';
+	
+	  for (var key in json) {
+	    if (json.hasOwnProperty(key)) {
+	      if (typeof json[key] === 'object') {
+	        xml += '<' + key;
+	        if (json[key]['@attributes']) {
+	          for (var attrKey in json[key]['@attributes']) {
+	            if (json[key]['@attributes'].hasOwnProperty(attrKey)) {
+	              xml += ' ' + attrKey + '="' + json[key]['@attributes'][attrKey] + '"';
+	            }
+	          }
+	        }
+	        xml += '>';
+	        xml += jsonToXml(json[key]);
+	        xml += '</' + key + '>';
+	      } else {
+	        xml += '<' + key + '>' + json[key] + '</' + key + '>';
+	      }
+	    }
+	  }
+	
+	  return xml;
+	}
 </script>
