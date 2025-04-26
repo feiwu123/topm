@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<title>商品添加编辑页面</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" type="text/css" href="./css/common.css" />
+<link rel="stylesheet" type="text/css" href="./css/menu.css" />
+<link rel="stylesheet" type="text/css" href="./css/index.css" />
+<link rel="stylesheet" type="text/css" href="https://ayamcn.com/includes/kindeditor/themes/default/default.css" />
+<link rel="stylesheet" type="text/css" href="./css/jquery.easyswitch.css" />
+<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="./css/aliExpress.css" />
+
+<!-- 滚动条样式 -->
+<link rel="stylesheet" type="text/css" href="https://ayamcn.com/js/perfect-scrollbar/perfect-scrollbar.min.css"/>
+<!-- 引入字体文件 -->
+<link rel="stylesheet" type="text/css" href="https://at.alicdn.com/t/c/font_4643688_kl63fem66fj.css"/>
+</head>
+<body>
+	<div id="app">
+		<div class="leftCon">
+			<div class="logoCon">
+				<div class="logoImg">
+					<img src="https://ayamcn.com/seller/images/seller_logo.png" />
+				</div>
+				<div class="seler-title">
+					<div>商家后台</div>
+					<h1>ayamcn.com</h1>
+				</div>
+			</div>
+			<div class="meunuList">
+				<div class="menuItem">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-home-smile-2-line"></span>
+							<span class="txt">首页</span>
+						</div>
+					</div>
+				</div>
+				<div class="menuItem active">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-shangjia"></span>
+							<span class="txt">商品</span>
+						</div>
+						<div class="hasChild">
+							<span class="iconfont icon-a-lujing3"></span>
+						</div>
+					</div>
+					<div class="childMenu">
+						<div class="childMenuItem act">
+							<a>商品列表</a>
+						</div>
+						<div class="childMenuItem">
+							<a>商品批量修改</a>
+						</div>
+						<div class="childMenuItem">
+							<a>商品批量修改</a>
+						</div>
+					</div>
+				</div>
+				<div class="menuItem">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-file-list-2-line"></span>
+							<span class="txt">订单</span>
+						</div>
+						<div class="hasChild">
+							<span class="iconfont icon-a-lujing3"></span>
+						</div>
+					</div>
+				</div>
+				<div class="menuItem">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-baobiao"></span>
+							<span class="txt">报表</span>
+						</div>
+						<div class="hasChild">
+							<span class="iconfont icon-a-lujing3"></span>
+						</div>
+					</div>
+				</div>
+				<div class="menuItem">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-store-2-line"></span>
+							<span class="txt">门店</span>
+						</div>
+						<div class="hasChild">
+							<span class="iconfont icon-a-lujing3"></span>
+						</div>
+					</div>
+				</div>
+				<div class="menuItem">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-key-2-line"></span>
+							<span class="txt">权限</span>
+						</div>
+						<div class="hasChild">
+							<span class="iconfont icon-a-lujing3"></span>
+						</div>
+					</div>
+				</div>
+				<div class="menuItem">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-home-5-line"></span>
+							<span class="txt">商家</span>
+						</div>
+						<div class="hasChild">
+							<span class="iconfont icon-a-lujing3"></span>
+						</div>
+					</div>
+				</div>
+				<div class="menuItem">
+					<div class="menutext">
+						<div class="menuleft">
+							<span class="iconfont icon-shangjia"></span>
+							<span class="txt">店铺</span>
+						</div>
+						<div class="hasChild">
+							<span class="iconfont icon-a-lujing3"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="rightCon">
+			<div class="header">
+				<div class="category">
+					<span class="cateTxt">商品</span>
+					<span class="cate_fg">/</span>
+					<span class="cateTxt">商品列表</span>
+					<span class="cate_fg">/</span>
+					<span class="cateTxt">添加新商品</span>
+				</div>
+				<div class="avator_con">
+					<div class="con">
+						<div class="avator_img">
+							<img src="https://ayamcn.com/seller/images/tx.png" />
+						</div>
+						<div>
+							Hi，Merida <span class="iconfont icon-ICON-xia"></span>
+						</div>
+					</div>
+					<div class="dropList">
+						<ul>
+							<li>退出</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="body_con" style="padding: 24px;display: flex;gap: 24px;">
+				<div class="editProduct">
+					<div class="card goodsInfo">
+						<div class="title">
+							Basic information
+						</div>
+						<div class="bodyInform">
+							<div class="elems">
+								<div class="label">
+									<span>Product name:</span>
+									<div class="error_tips">
+										<span class="red">*</span>
+										<span class="red"></span>
+									</div>
+								</div>
+								<div class="formEle">
+									<div class="inputEle ">
+										<input type="text" name="goods_name" />
+									</div>
+								</div>
+								<div class="tips">
+									仅输入英文字符和数字，例如产品名称、类型、型号、特征、认证等，不超过128个字符
+								</div>
+							</div>
+							<div class="elems">
+								<div class="label">
+									<span>类目选择</span>
+									<div class="error_tips">
+										<span class="red">*</span>
+									</div>
+								</div>
+								<div class="formEle" style="display: flex;align-items: center;gap: 16px;">
+									<div class="inputEle disabled" style="flex: 1;">
+										<input type="text" name="goods_number" disabled/>
+									</div>
+									<div class="select_cates">
+										选择类目
+									</div>	
+								</div>
+								<div class="tips">
+									
+								</div>
+							</div>
+							<div class="elems">
+								<div class="label">
+									<span>类目选择</span>
+									<div class="error_tips">
+										<span class="red">*</span>
+									</div>
+								</div>
+								<div class="formEle" style="display: flex;align-items: center;gap: 16px;">
+									<div class="inputEle disabled" style="flex: 1;">
+										<input type="text" name="goods_number" disabled/>
+									</div>
+									<div class="select_cates">
+										选择类目
+									</div>	
+								</div>
+								<div class="tips">
+									产品关键词对买家隐藏，但允许买家在搜索时显示您的产品，不超过384个字符，包含15个或更多关键词将使您的产品平均获得60%的曝光率。
+								</div>
+							</div>
+							<div class="elems">
+								<div class="label">
+									<span>产品图片</span>
+									<div class="error_tips">
+										<span class="red">*</span>
+									</div>
+								</div>
+								<div class="formEle">
+									<div class="uploadContain">
+										<div class="uploadImgs">
+											<div class="upload_icon"><span class="iconfont icon-shangchuan1"></span></div>
+											<div class="upload_txt">JPEG、JPG或PNG，至少640×640像素（最大5MB）最多上传6张图片</div>
+											<input type="file" class="upload_files"/>
+										</div>
+										<div class="showImgs">
+											<div class="imageList">
+												<div class="imageItem">
+													<img src="https://img.ltwebstatic.com/images3_spmp/2024/12/11/ba/1733885311dc1c297e329a06d387d17d918700e86c_square.jpg" />
+													<div class="main_img">主图</div>
+													<div class="delete_img"><span class="iconfont icon-guanbi"></span></div>
+												</div>
+												<div class="imageItem">
+													<img src="https://img.ltwebstatic.com/images3_spmp/2024/12/11/ba/1733885311dc1c297e329a06d387d17d918700e86c_square.jpg" />
+													<div class="main_img">主图</div>
+													<div class="delete_img"><span class="iconfont icon-guanbi"></span></div>
+												</div>
+												<div class="imageItem">
+													<img src="https://img.ltwebstatic.com/images3_spmp/2024/12/11/ba/1733885311dc1c297e329a06d387d17d918700e86c_square.jpg" />
+													<div class="main_img">主图</div>
+													<div class="delete_img"><span class="iconfont icon-guanbi"></span></div>
+												</div>
+												<div class="imageItem">
+													<img src="https://img.ltwebstatic.com/images3_spmp/2024/12/11/ba/1733885311dc1c297e329a06d387d17d918700e86c_square.jpg" />
+													<div class="main_img">主图</div>
+													<div class="delete_img"><span class="iconfont icon-guanbi"></span></div>
+												</div>
+												<div class="imageItem">
+													<img src="https://img.ltwebstatic.com/images3_spmp/2024/12/11/ba/1733885311dc1c297e329a06d387d17d918700e86c_square.jpg" />
+													<div class="main_img">主图</div>
+													<div class="delete_img"><span class="iconfont icon-guanbi"></span></div>
+												</div>
+												<div class="imageItem">
+													<img src="https://img.ltwebstatic.com/images3_spmp/2024/12/11/ba/1733885311dc1c297e329a06d387d17d918700e86c_square.jpg" />
+													<div class="main_img">主图</div>
+													<div class="delete_img"><span class="iconfont icon-guanbi"></span></div>
+												</div>
+												
+											</div>
+										</div>
+									</div>	
+								</div>
+							</div>	
+							<div class="elems">
+								<div class="label">
+									<span>产品描述</span>
+									<div class="error_tips">
+										<span class="red">*</span>
+									</div>
+								</div>
+								<div class="formEle">
+									<textarea id="editor_id" name="content" style="width:100%;max-width:1038px:314px;">
+									&lt;strong&gt;HTML内容&lt;/strong&gt;
+									</textarea>
+								</div>
+								<div class="tips">
+								</div>
+							</div>
+							<div class="elems">
+								<div class="label">
+									<span>产品组</span>
+									<div class="error_tips">
+										<span class="red">*</span>
+									</div>
+								</div>
+								<div class="formEle">
+									<div class="multi_select">
+										<div class="sale_attr_input">
+											<input class="default_val" data-saleattrid="123" value=""/>
+											<span class="iconfont icon-ICON-xia selectIcon"></span>
+										</div>
+										<div class="productGroupsList hide">
+											<div class="productGroups">
+												<div class="first_group_elem groupEle">
+													<ul>
+														<li class="productGroup_item cur" data-attrid="123" data-val="color">
+															<span>群组1</span><span class="iconfont icon-ICON-xia"></span> 
+														</li>
+														<li class="productGroup_item" data-attrid="1234" data-val="color2">
+															<span>群组2</span><span class="iconfont icon-ICON-xia"></span> 
+														</li>
+														<li class="productGroup_item" data-attrid="12345" data-val="color3">
+															<span>群组3</span><span class="iconfont icon-ICON-xia"></span> 
+														</li>
+													</ul>
+												</div>
+												<div class="second_group_elem groupEle">
+													<ul>
+														<li class="productGroup_item" data-attrid="123" data-val="color">
+															<span>群组1</span>
+														</li>
+														<li class="productGroup_item" data-attrid="1234" data-val="color2">
+															<span>群组2</span>
+														</li>
+														<li class="productGroup_item" data-attrid="12345" data-val="color3">
+															<span>群组3</span>
+														</li>
+													</ul>
+												</div>
+											</div>
+											<div class="addProductGroup">
+												<div class="addProductGroupBtn">
+													<span class="iconfont icon-xinzeng"></span>
+													<span>添加群组</span>
+												</div>
+											</div>
+										</div>	
+									</div>
+								</div>
+								<div class="tips">
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+				<div id="calcuteScore" class="row">
+					<div class="scoreTitle">产品信息评分</div>
+					<div class="scoreElem">
+						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="254px" height="131px" viewBox="0 0 254 131" version="1.1">
+							<g id="总后台" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+								<g id="circleRound" transform="translate(-1596, -176)" stroke="#F4F4F4" stroke-width="8">
+									<path d="M1846,303 C1846,235.068976 1790.93102,180 1723,180 C1655.06898,180 1600,235.068976 1600,303" id="路径"/>
+								</g>
+							</g>
+						</svg>
+						<svg class="animationCircle" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="254px" height="131px" viewBox="0 0 254 131" version="1.1">
+							<g id="总后台" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+								<g id="" transform="translate(-1596, -176)" stroke="#F4F4F4" stroke-width="8">
+									<path id="animatedPath" d="M1846,303 C1846,235.068976 1790.93102,180 1723,180 C1655.06898,180 1600,235.068976 1600,303" id="路径" stroke="#F00" />
+								</g>
+							</g>
+						</svg>
+						<div class="score">
+							<span style="font-weight: 800;font-size: 28px;color: #333333">0.0</span>
+						</div>
+						<div class="startScore">
+							<span>0</span>
+						</div>
+						<div class="endScore">
+							<span>5.0</span>
+						</div>
+					</div>
+					<div class="calcScoreBtn">
+						计算分数
+					</div>
+					<div class="scoreTips">
+						填写完列表信息并上传主照片后，检查您的产品信息分数 (PIS)。
+					</div>
+				</div>
+			</div>
+			
+		</div>	
+		
+		
+		
+	</div>	
+</body>
+</html>
+<script type="text/javascript" src="https://ayamcn.com/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+<script src="https://ayamcn.com/js/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="https://ayamcn.com/includes/kindeditor/kindeditor-all-min.js"></script>
+
+<script>
+	$(".calcScoreBtn").on("click",function(){
+		const score = -(Math.random()*400);
+		$("#animatedPath").css('strokeDashoffset',score);
+	})
+	
+	KindEditor.ready(function(K) {
+		window.editor = K.create('#editor_id');
+	});
+</script>

@@ -12,6 +12,8 @@
 		<link rel="stylesheet" href="https://ayamcn.com/css/user/0707/user.css">
 		<link rel="stylesheet" href="https://ayamcn.com/css/index/0708/paganition.css">
 		
+		
+		
 		<title>用户中心_TOPM</title>
 		<meta name="facebook-domain-verification" content="4dfym18tcu2qzz0tpo7z1gtk6oq03t">
 <script>
@@ -619,7 +621,7 @@
 <div class="modal fade" id="popmsg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="padding-right: 17px;">
 	<div class="modal-dialog" role="document">
 		<div class="closeBtn" data-dismiss="modal" aria-label="Close" style="position: absolute;right: 24px;top:24px; cursor: pointer;z-index: 1;">
-			<img src="/images/icons/close-line.svg" style="width: 18px;height: 18px;">
+			<img src="https://ayamcn.com/images/hzp2/delete.svg" style="width: 18px;height: 18px;">
 		</div>
 		<div class="modal-content">
 			<div class="modal-body row">
@@ -637,11 +639,77 @@
 </div>
 
 
+<style>
+#liAbilityPop 	.msg_title{
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+}
+#liAbilityPop .msg_text{
+	font-size: 16px;
+}
+#liAbilityPop .msg_btns{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 16px;
+	margin:10px;
+}
+#liAbilityPop .msg_btns .msg_btn{
+	width: 113px;
+	height: 46px;
+	line-height: 46px;
+	border-radius: 8px;
+	text-align: center;
+	cursor: pointer;
+}
+#liAbilityPop .msg_btns .ok{
+	color: #fff;
+	background-color: #3B4656;
+}
+#abilityAccept::before{
+	position: absolute;
+	top: 0px;
+}
+#abilityAccept::after{
+	position: absolute;
+	top: 5px;
+}
+</style>
+<div class="modal fade" id="liAbilityPop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="padding-right: 17px;" aria-hidden="true" data-backdrop="static">
+	<div class="modal-dialog" role="document">
+		<div class="closeBtn" data-dismiss="modal" aria-label="Close" style="position: absolute;right: 24px;top:24px; cursor: pointer;z-index: 1;">
+			<img src="https://ayamcn.com/images/hzp2/delete.svg" style="width: 18px;height: 18px;">
+		</div>
+		<div class="modal-content">
+			<div class="modal-body row">
+				<div class="msg_title">免责声明</div>
+				<div class="msg_text">
+					<p>尊敬的用户：</p>
+<p style="text-indent: 32px;margin-top: 10px;">近期，TikTok（TK）平台的政策出现调整，部分商品上架到至 TK 商店存在被封禁的风险。本平台仅提供禁售类目外的所有产品，提供产品均为白牌，保证货品全部合规，但不保证 TikTok 政策变动出现不合格产品。若因上架货品不符合 TikTok 平台政策，导致货品被下架，平台不承担相关责任，并希望您联系我们下架相关产品。请您在转发货品至TK前，深入研究并严格遵守 TikTok 平台的各项规定，确保货品完全符合平台要求。
+感谢您的理解与配合！</p>
+						<p style="text-align: right;">TOPM</p>
+						<p style="text-align: right;">2025.4.7</p>
+				</div>
+				<div style="display: flex;align-items: center;gap: 10px;margin-top: 10px;justify-content: center;">
+					<input type="checkbox" id="abilityAccept" /><label for="abilityAccept">7天内不再提示</label>
+				</div>
+				<div class="msg_btns">
+					<div class="ok msg_btn">接受</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
 
 <script type="text/javascript" src="https://ayamcn.com/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="https://ayamcn.com/js/index/0708/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://ayamcn.com/js/flow/0629/jquery.mCustomScrollbar.concat.min.js"></script>
-<script type="text/javascript" src="https://ayamcn.com/js/index/0708/common.js?d=1"></script>	    
+<script type="text/javascript" src="https://ayamcn.com/js/index/0708/common.js?d=1"></script>
+
+<script type="text/javascript" src="./js/jquery.cookie.js"></script>
 	
 </body></html>
 <script>
@@ -689,8 +757,19 @@
 		})	
 		$("#popmsg").modal();
 	}
-	pop_msg(()=>{
-		$("#popmsg .msg_text").html('最多只能绑定十个账号');
-	});
-
+	// pop_msg(()=>{
+	// 	$("#popmsg .msg_text").html('最多只能绑定十个账号');
+	// });
+	
+	$("#liAbilityPop").on("click",".msg_btns .ok",function(){
+		var is_selected = $("#abilityAccept").prop("checked");
+		if(is_selected){
+			var expiryTime = new Date(new Date().getTime() +  10 * 1000);
+			$.cookie("liAbilityAccept",true,{ expires: expiryTime });
+		}
+		$("#liAbilityPop").modal("hide");		
+	})
+	if(!$.cookie("liAbilityAccept")){
+		$("#liAbilityPop").modal();	
+	}
 </script>
