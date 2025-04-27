@@ -603,14 +603,13 @@
 }
 
 #attrgroups{
-	background: #F7F8FA;
 	border-radius: 2px;
-	padding: 16px;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 16px;
 	max-width: 1038px;
 }
+
 #attrgroups .attrVal{
 	width: 100%;
 	min-height: 36px;
@@ -652,6 +651,26 @@
 	max-height: 200px;
 	overflow: hidden;
 	position: relative;
+	margin-top: 16px;
+	margin-bottom: 0;
+}
+#attrgroups .searchOption{
+	height: 36px;
+	background: #FFFFFF;
+	border-radius: 2px;
+	border: 1px solid #DCDEE0;
+	overflow: hidden;
+}
+#attrgroups .searchOption .inputKeywords{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 16px;
+}
+#attrgroups .searchOption .inputKeywords input{
+	outline: none;
+	border: 0;
+	height: 36px;
 }
 
 .attrVal_dropList li{
@@ -670,6 +689,7 @@
 	text-overflow: ellipsis; /* 多行时显示省略号 */
 	white-space: normal; /* 使用正常的白空格处理方式，允许换行 */
 	flex: 1;
+	margin-bottom: 0px;
 }
 .zdy_attr{
 	display: flex;
@@ -1141,4 +1161,81 @@
 .addProductGroup .addProductGroupBtn{
 	cursor: pointer;
 	width: fit-content;
+}
+.expandBtn.down .iconfont{
+	transform: rotate(0deg);
+	display: inline-block;
+}
+.expandBtn.up .iconfont{
+	transform: rotate(180deg);
+	display: inline-block;
+}
+.editGroup .iconfont.up{
+	transform: rotate(180deg);
+}
+.more_product_attr_list{
+	margin-top: 12px;
+}
+.more_product_attr_list .listItem{
+	display: flex;
+	align-items: center;
+	margin-bottom: 12px;
+}
+.more_product_attr_list .listItem .elesInput{
+	height: 36px;
+	background: #FFFFFF;
+	border: 1px solid #DCDEE0;
+	overflow: hidden;
+	max-width: 390px;
+	width: 100%;
+}
+.more_product_attr_list .listItem .elesInput:first-child{
+	border-radius: 2px 0px 0px 2px;
+}
+.more_product_attr_list .listItem .elesInput:nth-child(2n){
+	border-radius: 0px 2px 2px 0px;
+}
+.more_product_attr_list .listItem .elesInput input{
+	outline: none;
+	border: 0px;
+	padding: 0 16px;
+	height: 36px;
+}
+.more_product_attr_list .listItem .editGroup{
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-left: 8px;
+}
+.more_product_attr_list .listItem .editGroup .deleteZdyAttr{
+	font-weight: 400;
+	font-size: 14px;
+	color: #165BD5;
+	margin-left: 8px;
+	cursor: pointer;
+	width: 30px;
+}
+.more_product_attr_list .listItem .editGroup .iconfont{
+	cursor: pointer;
+}
+.more_product_attr_list .listItem:first-child .editGroup .up{
+	pointer-events: none;
+	color: #999999;
+	cursor:initial;
+}
+.more_product_attr_list .listItem:last-child .editGroup .down{
+	pointer-events: none;
+	color: #999999;
+	cursor:initial;
+}
+.addZdyAttr{
+	cursor: pointer;
+	width: fit-content;
+	padding: 0 16px;
+	height: 33px;
+	line-height: 33px;
+	border-radius: 4px;
+	border: 1px solid #CCCCCC;
+	color: #737579;
+	margin-top: 16px;
 }

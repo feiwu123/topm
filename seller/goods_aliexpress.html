@@ -334,6 +334,43 @@
 							
 						</div>
 					</div>
+					
+					<div class="card goodsInfo">
+						<div class="title">
+							产品属性
+						</div>
+						<div class="bodyInform">
+							<div class="elems product_attrs">
+								<div id="attrgroups">
+														
+								</div>
+								<div class="more_product_attrs" style="margin-top: 16px;">
+									<div class="title">更多属性</div>
+									<div class="more_product_attr_list">
+										<div class="listItem">
+											<div class="attr_name elesInput">
+												<input name="zdyName[]" class="zdyName" type="text" placeholder="输入名称"/>
+											</div>
+											<div class="attr_value elesInput">
+												<input name="zdyName[]" class="zdyVal" type="text" placeholder="输入值"/>
+											</div>
+											<div class="editGroup">
+												<div class="iconfont icon-ICON-xia up"></div>
+												<div class="iconfont icon-ICON-xia down"></div>
+												<div class="deleteZdyAttr">删除</div>
+											</div>
+										</div>
+									</div>
+									<div class="addZdyAttr">
+										<span class="iconfont icon-xinzeng"></span><span>添加自定义属性</span>
+									</div>
+								</div>
+								<div class="expandBtn down" style="width: fit-content;cursor: pointer;margin-top: 24px;">
+									<span>扩张</span><span class="iconfont icon-ICON-xia"></span>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 				<div id="calcuteScore" class="row">
 					<div class="scoreTitle">产品信息评分</div>
@@ -382,7 +419,7 @@
 <script type="text/javascript" src="./js/bootstrap.min.js"></script>
 <script src="https://ayamcn.com/js/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 <script src="https://ayamcn.com/includes/kindeditor/kindeditor-all-min.js"></script>
-
+<script src="js/wu_ali_attr.js"></script>
 <script>
 	$(".calcScoreBtn").on("click",function(){
 		const score = -(Math.random()*400);
@@ -393,6 +430,8 @@
 		window.editor = K.create('#editor_id');
 	});
 	
+	var aliJSONData = {};
+	var productAttrs;
 	//属性展示
 	$.ajax({
 	  url: 'ali_attr.json',
@@ -401,7 +440,15 @@
 	    // 在success回调中可以访问返回的JSON数据
 		
 		 //$.multiTiktokSelect("#attrgroups",jsonData.data.attributes);
+		 aliJSONData = xmlToJson($.parseXML(jsonData.result.data));
 		 console.log(xmlToJson($.parseXML(jsonData.result.data)));
+		 aliJSONData.itemSchema.field.forEach((item,index)=>{
+			 //商品属性
+			 if(item['@attributes']['name'] == 'Product feature'){
+				productAttrs = item; 
+			 }
+		 })
+		 $.multialiSelect("#attrgroups",productAttrs);
 	  },
 	  error: function(xhr, status, error) {
 	    // 当请求发生错误时的处理代码
@@ -469,4 +516,52 @@
 	
 	  return xml;
 	}
+	
+//展开收缩属性	
+	$(".expandBtn").on("click",function(){
+		const that = this;
+		const isDown = $(that).hasClass('down');
+		if(isDown){
+			$(that).removeClass('down').addClass('up');
+		}else{
+			$(that).removeClass('up').addClass('down');
+		}
+	})
+	
+//添加自定义属性
+	$(document).on("click",".addZdyAttr",function(){
+		const template = `<div class="listItem">
+							<div class="attr_name elesInput">
+								<input name="zdyName[]" class="zdyName" type="text" placeholder="输入名称"/>
+							</div>
+							<div class="attr_value elesInput">
+								<input name="zdyName[]" class="zdyVal" type="text" placeholder="输入值"/>
+							</div>
+							<div class="editGroup">
+								<div class="iconfont icon-ICON-xia up"></div>
+								<div class="iconfont icon-ICON-xia down"></div>
+								<div class="deleteZdyAttr">删除</div>
+							</div>
+						</div>`;
+		$(".more_product_attr_list").append(template);				
+	})
+//删除自定义属性
+	$(document).on("click",".more_product_attr_list .deleteZdyAttr",function(){
+		var that = this;
+		$(that).parents(".listItem").remove();
+	})
+//移动自定义属性
+	$(document).on("click",".more_product_attr_list .listItem .editGroup .iconfont",function(){
+		var that = this;
+		var isDown = $(this).hasClass('down');
+		var originEle = $(that).parents(".listItem");
+		//向下移动
+		if(isDown){
+			var target = originEle.next(); 
+			originEle.insertAfter(target);	 
+		}else{
+			var target = originEle.prev();
+			originEle.insertBefore(target);
+		}
+	})
 </script>
