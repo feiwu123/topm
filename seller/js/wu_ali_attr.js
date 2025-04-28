@@ -42,7 +42,7 @@ function createInputEle(data,attrIndex){
 	var attr_name = data['@attributes']['name'];
 	var attr_id = data['@attributes']['id'];
 	var attr_type = data['@attributes']['type'];
-	var {is_requried,maxLength} = checkRule(data['rules']['rule']);
+	var {is_requried,maxLength} = checkRule(data['rules']?data['rules']['rule']:'');
 	var require_html = '';
 	if(is_requried){
 		require_html = '<span class="required red">*</span>';
@@ -62,7 +62,7 @@ function createRadioEle(data){
 	var attr_name = data['@attributes']['name'];
 	var attr_id = data['@attributes']['id'];
 	var attr_type = data['@attributes']['type'];
-	var {is_requried,maxLength} = checkRule(data['rules']['rule']);
+	var {is_requried,maxLength} = checkRule(data['rules']?data['rules']['rule']:'');
 	var zdy_html = '';
 	var require_html = '';
 	
@@ -173,7 +173,7 @@ function createCheckboxEle(data){
 	var attr_name = data['@attributes']['name'];
 	var attr_id = data['@attributes']['id'];
 	var attr_type = data['@attributes']['type'];
-	var {is_requried,maxLength} = checkRule(data['rules']['rule']);
+	var {is_requried,maxLength} = checkRule(data['rules']?data['rules']['rule']:'');
 	var zdy_html = '';
 	var require_html = '';
 	
@@ -302,6 +302,9 @@ function generateMultiSelect(divselectid){
 
 function checkRule(ruleObj){
 	var is_requried = false,maxLength;
+	if(ruleObj==""){
+		return {is_requried};
+	}
 	if(Array.isArray(ruleObj)){
 		ruleObj.forEach((item,index)=>{
 			if(item['@attributes']['name']=="requiredRule" && item['@attributes']['value'] == "true"){
