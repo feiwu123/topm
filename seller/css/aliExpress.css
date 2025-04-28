@@ -611,7 +611,7 @@
 	border: 1px solid #343434;
 }
 
-#attrgroups{
+.attrgroups{
 	border-radius: 2px;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -619,7 +619,7 @@
 	max-width: 1038px;
 }
 
-#attrgroups .attrVal{
+.attrgroups .attrVal{
 	width: 100%;
 	min-height: 36px;
 	background: #FFFFFF;
@@ -633,17 +633,17 @@
 	position: relative;
 	padding: 0 16px;
 }
-#attrgroups .attrVal .icons{
+.attrgroups .attrVal .icons{
 	color: #DCDEE0;
 }
-#attrgroups .attrVal .attr_val_input{
+.attrgroups .attrVal .attr_val_input{
 	width: 100%;
 	height: 100%;
 	background-color: transparent;
 	outline: none;
 	border: 0;
 }
-#attrgroups .attrVal .attrVal_dropList{
+.attrgroups .attrVal .attrVal_dropList{
 	position: absolute;
 	width: 100%;
 	height: fit-content;
@@ -656,27 +656,27 @@
 	border: 1px solid #DCDEE0;
 	display: none;
 }
-#attrgroups .attrVal .attrVal_dropList ul{
+.attrgroups .attrVal .attrVal_dropList ul{
 	max-height: 200px;
 	overflow: hidden;
 	position: relative;
 	margin-top: 16px;
 	margin-bottom: 0;
 }
-#attrgroups .searchOption{
+.attrgroups .searchOption{
 	height: 36px;
 	background: #FFFFFF;
 	border-radius: 2px;
 	border: 1px solid #DCDEE0;
 	overflow: hidden;
 }
-#attrgroups .searchOption .inputKeywords{
+.attrgroups .searchOption .inputKeywords{
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	padding: 0 16px;
 }
-#attrgroups .searchOption .inputKeywords input{
+.attrgroups .searchOption .inputKeywords input{
 	outline: none;
 	border: 0;
 	height: 36px;

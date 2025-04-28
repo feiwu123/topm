@@ -1,7 +1,6 @@
 //动态生成属性
 jQuery.multialiSelect = function(divselectid,data) {
-	var productAttrs = data;
-	var attr_data = productAttrs.fields.field;
+	var attr_data = data;
 	var attribute_mode=null;
 	var group_attr_elem='';
 	$(divselectid).html('');//清空数据
@@ -17,13 +16,14 @@ jQuery.multialiSelect = function(divselectid,data) {
 				group_attr_elem = group_attr_elem + createRadioEle(item);
 				break;
 				//多选
-				case "multiInput":
+				case "multiCheck":
 				group_attr_elem = group_attr_elem + createCheckboxEle(item);
 				break
 				case "input":
 				group_attr_elem = group_attr_elem + createInputEle(item,index);
 				break;
 				default:
+				group_attr_elem = group_attr_elem + createInputEle(item,index);
 				break;
 			}
 		})
@@ -329,4 +329,65 @@ function checkRule(ruleObj){
 		}
 	}
 	return {is_requried,maxLength}
+}
+
+
+function xmlToJson(xml) {
+  var obj = {};
+
+  if (xml.nodeType == 1) { 
+	if (xml.attributes.length > 0) {
+	  obj["@attributes"] = {};
+	  for (var j = 0; j < xml.attributes.length; j++) {
+		var attribute = xml.attributes.item(j);
+		obj["@attributes"][attribute.nodeName] = attribute.nodeValue;
+	  }
+	}
+  } else if (xml.nodeType == 3) {
+	obj = xml.nodeValue;
+  }
+
+  if (xml.hasChildNodes()) {
+	for (var i = 0; i < xml.childNodes.length; i++) {
+	  var item = xml.childNodes.item(i);
+	  var nodeName = item.nodeName;
+	  if (typeof (obj[nodeName]) == "undefined") {
+		obj[nodeName] = xmlToJson(item);
+	  } else {
+		if (typeof (obj[nodeName].push) == "undefined") {
+		  var old = obj[nodeName];
+		  obj[nodeName] = [];
+		  obj[nodeName].push(old);
+		}
+		obj[nodeName].push(xmlToJson(item));
+	  }
+	}
+  }
+  return obj;
+}
+
+function jsonToXml(json) {
+  var xml = '';
+
+  for (var key in json) {
+	if (json.hasOwnProperty(key)) {
+	  if (typeof json[key] === 'object') {
+		xml += '<' + key;
+		if (json[key]['@attributes']) {
+		  for (var attrKey in json[key]['@attributes']) {
+			if (json[key]['@attributes'].hasOwnProperty(attrKey)) {
+			  xml += ' ' + attrKey + '="' + json[key]['@attributes'][attrKey] + '"';
+			}
+		  }
+		}
+		xml += '>';
+		xml += jsonToXml(json[key]);
+		xml += '</' + key + '>';
+	  } else {
+		xml += '<' + key + '>' + json[key] + '</' + key + '>';
+	  }
+	}
+  }
+
+  return xml;
 }
