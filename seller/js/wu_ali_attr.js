@@ -44,9 +44,6 @@ function createInputEle(data,attrIndex){
 	var attr_type = data['@attributes']['type'];
 	var {is_requried,maxLength} = checkRule(data['rules']['rule']);
 	var require_html = '';
-	
-	console.log(is_requried);
-	console.log(maxLength);
 	if(is_requried){
 		require_html = '<span class="required red">*</span>';
 	}
@@ -74,11 +71,12 @@ function createRadioEle(data){
 		require_html = '<span class="required red">*</span>';
 	}
 	var radio_list = '';
-	data['options']['option'].forEach((item,index)=>{
+	var dropDownList = data['options']['option'];
+	dropDownList.forEach((item,index)=>{
 		const displayName = item['@attributes']['displayName'];
 		const displayValue = item['@attributes']['value'];	
 		radio_list += `<li>
-						<input type="radio" name="${displayName}"  id="radio_${displayValue}" value="${displayName}" ${is_requried?'required':''}/>
+						<input type="radio" name="radio_${attr_id}"  id="radio_${displayValue}" value="${displayName}" />
 						<label for="radio_${displayValue}">${displayName}</label>
 					</li>`;
 	})
@@ -93,8 +91,8 @@ function createRadioEle(data){
 	// }
 	var search_ele = `<div class="searchOption">
 						<div class="inputKeywords">
-							<input type="text" placeholder="Search" />
-							<span class="iconfont icon-sousuo"></span>
+							<input type="text" placeholder="Search" class="selectKeyword"/>
+							<span class="iconfont icon-sousuo searchBtn"></span>
 						</div>
 					</div>`;
 	
@@ -117,8 +115,60 @@ function createRadioEle(data){
 					</div>`;
 					
 	selectAttenEvent("#attrItem_"+attr_id,1);
+	//给搜索绑定搜索事件
+	bindSearch("#attrItem_"+attr_id,dropDownList);
 	return 	template1;
 }
+
+//给商品下拉属性添加搜索
+function bindSearch(divselectid,data){
+	$(document).on("click",divselectid+' .searchBtn',function(e){
+		selectData();
+		console.log(23);
+	});
+	$(document).on("blur",divselectid+' .selectKeyword',(e)=>{selectData()});
+	$(document).on("keydown",divselectid+' .selectKeyword',(e)=>{
+		 if (event.key === 'Enter' || event.keyCode === 13) {
+		        // 执行你的代码
+				selectData()
+		    }
+	});
+	function selectData(){
+		var keywords = $(divselectid).find(".selectKeyword").val();
+		var attr_id = divselectid.split("_")[1];
+		var patterList = "";
+		var number = 0;
+		var regex = new RegExp(keywords, "i"); // "i" 标志表示不区分大小写，根据你的需要选择是否添加
+		//如果搜索是空白字符串，就直接返回
+		if(/^\s*$/.test(keywords)){
+			data.forEach((item,index)=>{
+				const displayName = item['@attributes']['displayName'];
+				const displayValue = item['@attributes']['value'];
+				patterList += `<li>
+								<input type="radio" name="radio_${attr_id}"  id="radio_${displayValue}" value="${displayName}" />
+								<label for="radio_${displayValue}">${displayName}</label>
+							</li>`;
+				number = number +1;				
+			})
+		}else{
+			data.forEach((item,index)=>{
+				const displayName = item['@attributes']['displayName'];
+				const displayValue = item['@attributes']['value'];
+				if(regex.test(displayName)){
+					patterList += `<li>
+									<input type="radio" name="radio_${attr_id}"  id="radio_${displayValue}" value="${displayName}" />
+									<label for="radio_${displayValue}">${displayName}</label>
+								</li>`;
+					number = number +1;			
+				}			
+			})	
+		}
+		$(divselectid).find(".attrVal_dropList ul").html(patterList);
+		$(divselectid).find(".attrVal_dropList ul").perfectScrollbar("destroy");
+		$(divselectid).find(".attrVal_dropList ul").perfectScrollbar();
+	}
+}
+
 function createCheckboxEle(data){
 	var attr_name = data['@attributes']['name'];
 	var attr_id = data['@attributes']['id'];
@@ -132,9 +182,11 @@ function createCheckboxEle(data){
 	}
 	var checkbox_list = '';
 	data['options']['option'].forEach((item,index)=>{
+		const displayName = item['@attributes']['displayName'];
+		const displayValue = item['@attributes']['value'];	
 		checkbox_list += `<li>
-						<input type="checkbox" name="attr_${attr_id}"  id="checkbox_${item.id}" data-attrid="${item.id}" value="${item.name}" ${is_requried?'required':''}/>
-						<label for="checkbox_${item.id}">${item.name}</label>
+						<input type="checkbox" name="attr_${attr_id}"  id="checkbox_${displayValue}" data-attrid="${displayValue}" value="${displayName}" />
+						<label for="checkbox_${displayValue}">${displayName}</label>
 					</li>`;
 	})
 	var zdy_ele = '';
@@ -146,6 +198,13 @@ function createCheckboxEle(data){
 	// 					<div class="enter_attr_btn">Add</div>
 	// 				</div>`;
 	// }
+	
+	var search_ele = `<div class="searchOption">
+						<div class="inputKeywords">
+							<input type="text" placeholder="Search" class="selectKeyword"/>
+							<span class="iconfont icon-sousuo searchBtn"></span>
+						</div>
+					</div>`;
 	var template1 = `<div class="attrItem" id="attrItem_${attr_id}">
 						<div class="attrName">
 							${attr_name}${require_html}
@@ -156,6 +215,7 @@ function createCheckboxEle(data){
 							</div>
 							<div class="icons"><span class="iconfont icon-ICON-xia"></span></div>
 							<div class="attrVal_dropList">
+							    ${search_ele}
 								<ul>
 									${checkbox_list}
 								</ul>
@@ -163,7 +223,7 @@ function createCheckboxEle(data){
 							</div>
 						</div>
 					</div>`;
-	selectAttenEvent("#attrItem_"+attr_id,2);				
+	selectAttenEvent("#attrItem_"+attr_id,2);			
 	return 	template1;
 }
 
@@ -234,9 +294,9 @@ function generateMultiSelect(divselectid){
 	var select_html = '';
 	$(divselectid+' .attrVal_dropList input[type="checkbox"]:checked').each(function() {
 	  const attr_id = $(this).data('attrid');	
-	  select_html += `<div class="selected_val tiktok_multi"><span>${$(this).val()}</span><span class="iconfont icon-guanbi" data-attrid="${attr_id}" ></span></div>`;
+	  select_html += `<div class="selected_val ali_multi"><span>${$(this).val()}</span><span class="iconfont icon-guanbi" data-attrid="${attr_id}" ></span></div>`;
 	});
-	$(divselectid).find('.attr_select_val .tiktok_multi').remove();
+	$(divselectid).find('.attr_select_val .ali_multi').remove();
 	$(divselectid).find('.attr_select_val').prepend(select_html);
 }
 

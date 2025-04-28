@@ -188,6 +188,15 @@
 .attr_groups .attr_infor{
 	width: calc(50% - 12px);
 }
+.attr_groups .attr_group_item input[type='radio']{
+	margin: 0;
+	padding: 0;
+}
+.attr_groups .attr_group_item label{
+	margin: 0;
+	padding: 0;
+	font-weight: 400;
+}
 .selectEle{
 	display: flex;
 	background-color: #fff;
@@ -714,7 +723,7 @@
 	gap: 8px;
 	flex-wrap: wrap;
 }
-.multi_select .selected_val{
+.multi_select .selected_val,.sale_attr_input .selected_val{
 	display: flex;
 	align-items: center;
 	background: #F4F4F4;
@@ -722,7 +731,7 @@
 	gap: 8px;
 	padding: 0 4px;
 }
-.multi_select .icon-guanbi{
+.multi_select .icon-guanbi,.sale_attr_input .icon-guanbi{
 	font-size: 10px;
 	cursor: pointer;
 }
@@ -808,13 +817,11 @@
 	padding: 0 8px;
 }
 .dimensions{
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	gap: 24px;
 	background: #F7F8FA;
 	border-radius: 2px;
 	padding: 16px 24px;
 	max-width: 792px;
+	margin-top: 24px;
 }
 .dimensions .dimensionValue{
 	background: #FFFFFF;
@@ -867,9 +874,7 @@
 }
 .sale_attrs{
 	max-width: 1038px;
-	background: #F7F8FA;
 	border-radius: 2px;
-	padding: 16px;
 	margin-bottom: 24px;
 }
 .sale_attrs .sale_attr_title{
@@ -881,9 +886,6 @@
 	font-size: 14px;
 	color: #333333;
 	margin-left: 4px;
-}
-.sale_attrs .sale_attr_value{
-	margin-top: 24px;
 }
 .sale_attrs .sale_attr_val{
 	margin-bottom: 16px;
@@ -949,15 +951,17 @@
 	cursor: pointer;
 }
 .confirmSaleAttr{
-	height: 36px;
-	line-height: 36px;
-	background: #343434;
-	border-radius: 2px;
-	padding: 0 18px;
+	width: 100%;
+	height: 33px;
+	background: #FFFFFF;
+	border-radius: 4px;
+	border: 1px solid #CCCCCC;
+	line-height: 33px;
 	box-sizing: border-box;
-	color:#fff;
+	color:#737579;
 	cursor: pointer;
-	max-width: 80px;
+	max-width: 96px;
+	text-align: center;
 }
 .sale_attr_elem .sale_attr_name{
 	display: flex;
@@ -972,6 +976,14 @@
 	background: #FFFFFF;
 	border-radius: 2px;
 	border: 1px solid #DCDEE0;
+	max-width: 491px;
+	width: 100%;
+}
+.sale_attr_elem .sale_attr_name .sale_attr_select .attr_select_val{
+	flex: 1;
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap;
 }
 .sale_attr_elem .sale_attr_name .sale_attr_select select{
 	width: 100%;
@@ -986,7 +998,63 @@
 	color: #165BD5;
 	cursor: pointer;
 }
-
+.sale_attr_elem .groupsItem{
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	margin-top: 7px;
+}
+.sale_attr_elem .groupsItem label{
+	font-weight: 400;
+	margin-left: 4px;
+}
+.sale_attr_elem .groupsItem input[type='checkbox']{
+	margin: 0;
+	padding: 0;
+}
+.sale_attr_elem .groupVal{
+	display: flex;
+	align-items: center;
+	gap: 14px;
+}
+.sale_attr_elem .groupVal .groupValItem{
+	display: flex;
+	align-items: center;
+}
+.sale_attr_elem .groupVal .groupValItem:after{
+	content: "+";
+	margin-left: 14px;
+	color: #737579;
+}
+.sale_attr_elem .groupVal .groupValItem:last-child:after{
+	content: '';
+}
+.sale_attr_elem .groupVal .groupValItem .groupValInput{
+	width: 90px;
+	height: 30px;
+	background: #fff;
+	border-radius: 2px;
+	border: 1px solid #DCDEE0;
+	outline: none;
+	padding: 0 8px;
+}
+.sale_attr_elem .groupsItem .unitText{
+	font-weight: 400;
+	font-size: 14px;
+	color: #737579;
+}
+.sale_attr_elem .groupVal .groupValItem .unit{
+	min-width: 50px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	background: #fff;
+	border-radius: 2px;
+	border: 1px solid #DCDEE0;
+	outline: none;
+	display: block;
+	color: #737579;
+}
 .sale_attr_chosen .title{
 	display: flex;
 	justify-content: space-between;
@@ -1041,11 +1109,47 @@
 	box-sizing: border-box;
 	margin-top: 16px;
 }
-.saleAttrTable .row{
+.saleAttrTable .tableRow{
 	display: grid;
-	grid-template-columns: 17% 15% 13% 13% 15% 1fr;
+	grid-template-columns: 35% 35% 1fr;
 	gap: 16px;
 	align-items: center;
+	border-bottom:1px solid #F0F0F0;
+}
+.saleAttrTable .tableRow .colspan{
+	display: flex;
+	align-items: center;
+	justify-content: start;
+}
+.saleAttrTable .tableRow .colspan .min_num,.saleAttrTable .tableRow .colspan .per_price{
+	width: 140px;
+	height: 30px;
+	background: #FFFFFF;
+	border-radius: 2px;
+	border: 1px solid #DCDEE0;
+	padding: 0 10px;
+	outline: none;
+}
+.saleAttrTable .tableRow .colspan .min_per_price{
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+.saleAttrTable .tableRow .colspan .min_num,.saleAttrTable .tableRow .colspan .perPrice{
+	font-size: 14px;
+	color: #737579;
+}
+.saleAttrTable .tableRow .prevewer{
+	font-size: 14px;
+	color: #737579;
+	display: flex;
+	justify-content: space-between;
+}
+.saleAttrTable .tableRow .colspan .min_num .delete_stock_line{
+	margin-right: 24px;
+}
+.saleAttrTable .tableRow:last-child{
+	border-bottom:none;
 }
 .saleAttrTable .tableHead{
 	background-color: #fff;
@@ -1238,4 +1342,13 @@
 	border: 1px solid #CCCCCC;
 	color: #737579;
 	margin-top: 16px;
+}
+.addNewTableRow{
+	margin-top: 16px;
+	display: flex;
+	gap: 16px;
+	align-items: center;
+}
+.addNewTableRow .tips{
+	margin: 0;
 }
