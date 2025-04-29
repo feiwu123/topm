@@ -6,7 +6,6 @@ jQuery.multialiSelect = function(divselectid,data) {
 	$(divselectid).html('');//清空数据
 	if(Array.isArray([]) && attr_data.length>0){
 		attr_data.forEach((item,index)=>{
-			console.log(item);
 			//如果存在这个值就说明是下拉
 			attribute_mode = item['@attributes']['type'];
 
@@ -114,14 +113,14 @@ function createRadioEle(data){
 						</div>
 					</div>`;
 					
-	selectAttenEvent("#attrItem_"+attr_id,1);
 	//给搜索绑定搜索事件
-	bindSearch("#attrItem_"+attr_id,dropDownList);
+	bindSearch1("#attrItem_"+attr_id,dropDownList);
+	selectAttenEvent("#attrItem_"+attr_id,1);
 	return 	template1;
 }
 
-//给商品下拉属性添加搜索
-function bindSearch(divselectid,data){
+//给商品下拉属性添加搜索 单选
+function bindSearch1(divselectid,data){
 	$(document).on("click",divselectid+' .searchBtn',function(e){
 		selectData();
 		console.log(23);
@@ -166,6 +165,56 @@ function bindSearch(divselectid,data){
 		$(divselectid).find(".attrVal_dropList ul").html(patterList);
 		$(divselectid).find(".attrVal_dropList ul").perfectScrollbar("destroy");
 		$(divselectid).find(".attrVal_dropList ul").perfectScrollbar();
+		selectAttenEvent("#attrItem_"+attr_id,1);
+	}
+}
+
+//给商品下拉属性添加搜索 多选
+function bindSearch2(divselectid,data){
+	$(document).on("click",divselectid+' .searchBtn',function(e){
+		selectData();
+	});
+	$(document).on("blur",divselectid+' .selectKeyword',(e)=>{selectData()});
+	$(document).on("keydown",divselectid+' .selectKeyword',(e)=>{
+		 if (event.key === 'Enter' || event.keyCode === 13) {
+		        // 执行你的代码
+				selectData()
+		    }
+	});
+	function selectData(){
+		var keywords = $(divselectid).find(".selectKeyword").val();
+		var attr_id = divselectid.split("_")[1];
+		var patterList = "";
+		var number = 0;
+		var regex = new RegExp(keywords, "i"); // "i" 标志表示不区分大小写，根据你的需要选择是否添加
+		//如果搜索是空白字符串，就直接返回
+		if(/^\s*$/.test(keywords)){
+			data.forEach((item,index)=>{
+				const displayName = item['@attributes']['displayName'];
+				const displayValue = item['@attributes']['value'];
+				patterList += `<li>
+						<input type="checkbox" name="attr_${attr_id}"  id="checkbox_${displayValue}" data-attrid="${displayValue}" value="${displayName}" />
+						<label for="checkbox_${displayValue}">${displayName}</label>
+					</li>`;
+				number = number +1;				
+			})
+		}else{
+			data.forEach((item,index)=>{
+				const displayName = item['@attributes']['displayName'];
+				const displayValue = item['@attributes']['value'];
+				if(regex.test(displayName)){
+					patterList += `<li>
+						<input type="checkbox" name="attr_${attr_id}"  id="checkbox_${displayValue}" data-attrid="${displayValue}" value="${displayName}" />
+						<label for="checkbox_${displayValue}">${displayName}</label>
+					</li>`;
+					number = number +1;			
+				}			
+			})	
+		}
+		$(divselectid).find(".attrVal_dropList ul").html(patterList);
+		$(divselectid).find(".attrVal_dropList ul").perfectScrollbar("destroy");
+		$(divselectid).find(".attrVal_dropList ul").perfectScrollbar();
+		selectAttenEvent("#attrItem_"+attr_id,2);
 	}
 }
 
@@ -181,7 +230,8 @@ function createCheckboxEle(data){
 		require_html = '<span class="required red">*</span>';
 	}
 	var checkbox_list = '';
-	data['options']['option'].forEach((item,index)=>{
+	var dropDownList = data['options']['option'];
+	dropDownList.forEach((item,index)=>{
 		const displayName = item['@attributes']['displayName'];
 		const displayValue = item['@attributes']['value'];	
 		checkbox_list += `<li>
@@ -223,7 +273,8 @@ function createCheckboxEle(data){
 							</div>
 						</div>
 					</div>`;
-	selectAttenEvent("#attrItem_"+attr_id,2);			
+	selectAttenEvent("#attrItem_"+attr_id,2);
+	bindSearch2("#attrItem_"+attr_id,dropDownList);
 	return 	template1;
 }
 

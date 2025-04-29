@@ -156,6 +156,7 @@
 			</div>
 			
 			<div>
+
 				<div class="body_con" style="padding: 24px;display: flex;gap: 24px;">
 					<div class="editProduct">
 						<div class="card goodsInfo">
@@ -382,7 +383,7 @@
 						<div class="title">
 							定价和选项
 						</div>
-						<div class="bodyInform sale_attrs">
+						<div class="bodyInform sale_attrs" id="sale_attrs_content">
 							<div class="elems">
 								<div class="sale_attr_elem" id="sale_attr_1">
 									<div class="sale_attr_title">
@@ -432,9 +433,23 @@
 												
 											</div>
 										</div>
-										<div class="option_val">
-											<div class="sale_attr_input">
-												<input type="text" name="" value="" placeholder="Ingresa una opción">
+										<div class="option_val attrgroups">
+											<div class="sale_attr_select">
+												<div class="attrVal">
+													<div class="attr_select_val">
+													</div>
+													<div class="icons"><span class="iconfont icon-ICON-xia"></span></div>
+													<div class="attrVal_dropList" style="display: block; top: 40px;">
+														<ul>
+															<li value="000" tabindex="-1" role="menuitem" class="next-menu-item">
+																<div class="item-block">
+																	<div class="block-inner" role="div-color" style="height: 10px; width: 10px; background:#000;"></div>
+																</div>
+																<div class="item-value" role="color-text">黑色</div>
+															</li>
+														</ul>	
+													</div>
+												</div>
 											</div>
 											<div class="delete_sale_attr">
 												删除
@@ -810,6 +825,7 @@
 						Next step
 					</div>
 				</div>
+
 			</div>
 		</div>	
 		
@@ -833,10 +849,10 @@
 	});
 	
 	var aliJSONData = {};
-	var productmustAttrs=[],productAttrs=[];
+	var productmustAttrs=[],productAttrs=[],saleAttrs=[];
 	//属性展示
 	$.ajax({
-	  url: 'ali_attr.json',
+	  url: 'ali_attr1.json',
 	  dataType: 'json',
 	  success: function(jsonData) {
 	    // 在success回调中可以访问返回的JSON数据
@@ -872,11 +888,15 @@
 						productAttrs.push(attrItem);
 					}
 				}) 
-				console.log(item);
+			 }
+			 //销售属性
+			 if(item['@attributes']['name'] == "Sales Property"){
+				saleAttrs = item; 
 			 }
 		 })
 		 $.multialiSelect("#product_attrgroups_must",productmustAttrs);
 		 $.multialiSelect("#product_attrgroups",productAttrs);
+		 $.multialiSaleProps("#sale_attrs_content",saleAttrs);
 	  },
 	  error: function(xhr, status, error) {
 	    // 当请求发生错误时的处理代码
@@ -892,12 +912,12 @@
 		const isDown = $(that).hasClass('down');
 		if(isDown){
 			$(that).removeClass('down').addClass('up');
-			$("#product_attrgroups").hide();
-			$(".more_product_attrs").hide();
-		}else{
-			$(that).removeClass('up').addClass('down');
 			$("#product_attrgroups").show();
 			$(".more_product_attrs").show();
+		}else{
+			$(that).removeClass('up').addClass('down');
+			$("#product_attrgroups").hide();
+			$(".more_product_attrs").hide();
 		}
 	})
 	
@@ -951,19 +971,5 @@
 		});
 	})
 	
-	$(document).on("click",'#sale_attr_1 .attrVal ul li',function(event){
-		event.stopImmediatePropagation();
-		generateMultiSelect("#sale_attr_1");
-		var topOffset = $('#sale_attr_1 .attrVal').height() + 6;
-		$('#sale_attr_1 .attrVal_dropList').css('top',topOffset+'px');
-		$(this).find(".attrVal_dropList").show();
-	})
-	//取消多选的属性
-	$(document).on("click",'#sale_attr_1 .attrVal .attr_select_val .icon-guanbi',function(event){
-		event.stopImmediatePropagation();
-		var attr_val_id = $(this).data('attrid');
-		var chebox_id = "#checkbox_"+attr_val_id;
-		$(this).parent('.selected_val').remove();
-		$(chebox_id).prop('checked',false);
-	})
 </script>
+<script src="js/wu_ali_saleattr.js"></script>

@@ -897,6 +897,13 @@
 	align-items: flex-start;
 	margin-top: 16px;
 }
+.sale_attrs .sale_attr_value .sale_attr_select{
+	flex: 1;
+}
+.attrVal_dropList li:hover{
+	background-color: #ddd;
+	cursor: pointer;
+}
 .sale_attrs .sale_attr_value .sale_attr_val_item:last-child .delete_sale_attr{
 	visibility: hidden;
 }
@@ -1191,11 +1198,8 @@
 	display: none;
 }
 .multi_select{
-	width: 491px;
-	height: 36px;
 	background: #FFFFFF;
 	border-radius: 2px;
-	border: 1px solid #DCDEE0;
 	position: relative;
 }
 .multi_select .sale_attr_input{
