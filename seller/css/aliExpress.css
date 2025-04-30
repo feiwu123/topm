@@ -904,7 +904,7 @@
 	background-color: #ddd;
 	cursor: pointer;
 }
-.sale_attrs .sale_attr_value .sale_attr_val_item:last-child .delete_sale_attr{
+.sale_attrs .sale_attr_value .sale_attr_val_item:first-child .delete_sale_attr{
 	visibility: hidden;
 }
 .sale_attr_val_item .option_val{
