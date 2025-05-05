@@ -690,6 +690,9 @@
 	gap: 8px;
 	font-size: 14px;
 }
+.attrVal_dropList li.curr{
+	background-color: #ddd;
+}
 .attrVal_dropList li label{
 	display: -webkit-box; /* 作为弹性伸缩盒子模型显示 */
 	-webkit-line-clamp: 1; /* 限制在3行 */
@@ -1109,6 +1112,7 @@
 	height: 30px;
 	line-height: 30px;
 	cursor: pointer;
+	min-width: 30px;
 }
 .saleAttrTable{
 	background-color: #F7F8FA;
@@ -1141,6 +1145,7 @@
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
+	align-items: center;
 }
 .saleAttrTable .tableRow .colspan .min_num,.saleAttrTable .tableRow .colspan .perPrice{
 	font-size: 14px;
@@ -1167,7 +1172,10 @@
 .saleAttrTable .tableTr{
 	padding: 8px 0px 8px 24px;
 	font-size: 14px;
-} 
+}
+.saleAttrTable .tableTr:first-child .delete_stock_line{
+	display: none;
+}
 .saleAttrTable .tableTr .caozuo{
 	display: flex;
 	gap: 8px;
@@ -1355,4 +1363,8 @@
 }
 .addNewTableRow .tips{
 	margin: 0;
+}
+.product_group{
+	border: 1px solid #DCDEE0;
+	min-height: 36px
 }

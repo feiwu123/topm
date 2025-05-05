@@ -265,15 +265,109 @@
 				}
 			})
 		</script> -->
+<style>
+.right_head{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex: 1;
+}
+.filter_groups{
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}	
+.filter_groups 	.filter_item{
+	padding: 0 12px;
+	height: 32px;
+	background: #F6F6F6;
+	border-radius: 3px;
+	font-size: 14px;
+	line-height: 32px;
+	cursor: pointer;
+	stroke: #fff;
+}
+.filter_groups 	.filter_item.cur{
+	height: 32px;
+	background: #3B4656;
+	border-radius: 3px;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	line-height: 0;
+	gap: 4px;
+}
+.filter_groups 	.filter_item.down .filter_icons .downIcon svg path{
+	stroke: #fff;
+}
+.filter_groups 	.filter_item.down .filter_icons .upIcon svg path{
+	stroke: #999;
+}
+.filter_groups 	.filter_item.up .filter_icons .downIcon svg path{
+	stroke: #999;
+}
+.filter_groups 	.filter_item.up .filter_icons .upIcon svg path{
+	stroke: #fff;
+}
+.updateTime{
+	font-family: CamphorPro, CamphorPro;
+	font-weight: 400;
+	font-size: 14px;
+	color: #999999;
+}
+.inventary{
+	font-family: CamphorPro, CamphorPro;
+	font-weight: 400;
+	font-size: 14px;
+	color: #999999
+}
+</style>		
 		<div class="productCon container">
 			<div class="productTitle">
-				<div class="name" style="display: flex;align-items: center;gap:10px;">商品列表
+				<div class="name" style="display: flex;align-items: center;gap:10px;width: 382px;">商品列表
 					<div style="display: flex;align-items: center;gap:8px;">
 						<input type="checkbox" name="changeSource" id="changeSource"/>
 						<label for="changeSource" style="font-size: 20px;font-weight: 400;cursor: pointer;">切换TIKTOK SHOP</label>
 					</div>
 				</div>
-				<div class="totoalResult"><span class="total">108</span> 搜索结果</div>
+				<div class="right_head">
+					<div class="filter_groups">
+						<div class="filter_item">新品</div>
+						<div class="filter_item cur down">库存<div class="filter_icons"><div class="upIcon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="8px" height="8px" viewBox="0 0 8 8" version="1.1">
+    <g id="效果图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页" transform="translate(-748, -281)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="大标题" transform="translate(260, 272)">
+                <g id="编组" transform="translate(442, 1)">
+                    <g id="ICON/下_12×12_未选择" transform="translate(50, 12) scale(1, -1) translate(-50, -12)translate(46, 8)">
+                        <g id="下拉" transform="translate(0.6667, 2.1667)">
+                            <path d="M3.33333115,3.66666667 C3.24068702,3.66666667 3.1519109,3.63009479 3.08706001,3.56519469 L0.0985578679,0.574867182 C-0.0347532742,0.441492819 -0.0325429778,0.227388225 0.103472239,0.0966656635 C0.239475703,-0.0340453604 0.457812531,-0.0319008551 0.591100155,0.101485035 L3.33333115,2.8453905 L6.07556216,0.101485035 C6.20884978,-0.0319123925 6.42716309,-0.0340914875 6.56319007,0.0966656635 C6.69921706,0.227399751 6.70141559,0.441492819 6.56810445,0.574867182 L3.57960229,3.56519469 C3.5147514,3.63009479 3.42598705,3.66666667 3.33333115,3.66666667 Z" id="路径"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg></div>
+<div class="downIcon">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="8px" height="8px" viewBox="0 0 8 8" version="1.1">
+    <g id="效果图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页" transform="translate(-748, -289)" fill="#999999" fill-rule="nonzero">
+            <g id="大标题" transform="translate(260, 272)">
+                <g id="编组" transform="translate(442, 1)">
+                    <g id="ICON/下_12×12_未选择" transform="translate(46, 16)">
+                        <g id="下拉" transform="translate(0.6667, 2.1667)">
+                            <path d="M3.33333115,3.66666667 C3.24068702,3.66666667 3.1519109,3.63009479 3.08706001,3.56519469 L0.0985578679,0.574867182 C-0.0347532742,0.441492819 -0.0325429778,0.227388225 0.103472239,0.0966656635 C0.239475703,-0.0340453604 0.457812531,-0.0319008551 0.591100155,0.101485035 L3.33333115,2.8453905 L6.07556216,0.101485035 C6.20884978,-0.0319123925 6.42716309,-0.0340914875 6.56319007,0.0966656635 C6.69921706,0.227399751 6.70141559,0.441492819 6.56810445,0.574867182 L3.57960229,3.56519469 C3.5147514,3.63009479 3.42598705,3.66666667 3.33333115,3.66666667 Z" id="路径"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg></div>
+</div></div>
+					</div>			
+					<div class="totoalResult"><span class="total">108</span> 搜索结果</div>
+				</div>
 			</div>
 			<div class="productContent">
 				<div class="menuList">
@@ -366,8 +460,14 @@
 						<div class="guige">
 							12GB+512GB	
 						</div>
+						<div class="updateTime">
+							Tiempo en estante:2025-10-21
+						</div>
 						<div class="price">
 							$99.00
+						</div>
+						<div class="inventary">
+							inventario:99999
 						</div>
 					</div>
 					<div class="productItem">
