@@ -608,12 +608,248 @@
 											</div>
 										</div>
 									</div>
+								
 								</div>
-							</div>	
+							</div>
+							<div class="elems">
+								<div class="label">
+									<span>商品 SKU:</span>
+									<div class="error_tips" style="font-size: 14px;color: #999999;">
+										<span style="margin-left: 8px;">供货价是结算给商家的实际金额——即标准、非促销条件下的订单完成后您将收到的款项。</span>
+										<span class="red">查看影响供货价的因素</span><span class="iconfont icon-ICON-xia turnRight"></span>
+									</div>
+								</div>
+								<div class="btn_SKU_groups">
+									<div class="delete_SKU">删除所选SKU</div>
+									<div class="delete_SKU">取消删除所选内容</div>
+								</div>
+								<div class="formEle" style="background: #F7F8FA;border-radius: 2px;padding: 12px;margin-top: 24px;">
+									<div class="sku_table exter_attr_table">
+										<table>
+											<colgroup>
+												<col style="width: 36px;">
+												<col style="width: 140px;">
+												<col style="width: 200px;">
+												<col style="width: 170px;">
+												<col style="width: 150px;">
+												<col style="width: 250px;">
+												<col style="width: 240px;">
+												<col style="width: 280px;">
+												<col style="width: 250px;">
+												<col style="width: 120px;">
+												<col style="width: 250px;">
+												<col style="width: 260px;">
+												<col style="width: 120px;">
+											</colgroup>
+											<thead class="tableHead">
+												<tr class="tableRow">
+													<th class="td"><input type="checkbox" id="all_sku_checkboxes"/></th>
+													<th class="td">颜色</th>
+													<th class="td">SKU编码</th>
+													<th class="td">图片<span class="red">*</span></th>
+													<th class="td">自发货库存<span class="red">*</span></th>
+													<th class="td">供货价<span class="red">*</span></th>
+													<th class="td">参考划线价</th>
+													<th class="td">SKU类型</th>
+													<th class="td">包装清单</th>
+													<th class="td">重量<span class="red">*</span></th>
+													<th class="td">体积<span class="red">*</span></th>
+													<th class="td">	外部商品编码</th>
+													<th class="td">操作</th>
+												</tr>	
+											</thead>
+											<tbody class="tableBody">
+												<tr class="tableRow" >
+													<td class="td" style="display: none;"><input type="checkbox" id="sku_items_1"/></td>
+													<td class="td red" colspan="2">
+														批量应用至已选择的 0 件SKU
+													</td>
+													<td class="td">
+														<div class="eleInput inputEle">
+															<input type="text" class="materalValue"/>
+														</div>
+													</td>
+													<td class="td">
+														
+													</td>
+													<td class="td">
+														<div class="eleInput inputEle">
+															<input type="text" class="materalValue"/>
+														</div>
+													</td>
+													<td class="td">
+														<div class="eleInput inputEle">
+															<span>MX$</span>
+															<input type="text" class="materalName" />
+														</div>
+													</td>
+													<td class="td">
+														<div class="eleInput inputEle">
+															<span class="rate">MX$</span>
+															<input type="text" class="materalValue"/>
+														</div>
+													</td>
+													<td class="td">
+														<div class="selectEle">
+															<div class="chosen_attr">
+																<div class="attr_txt">
+																	<span class="txt">眉毛、眼线贴纸</span>
+																	<span class="iconfont icon-guanbi"></span>
+																</div>
+															</div>
+															<div class="select_icon">
+																<span class="iconfont icon-ICON-xia"></span>
+															</div>	
+															<input name="goods_exter_name" type="hidden">
+														</div>
+													</td>
+													<td class="td">
+														<div class="add_package_list">
+															<span class="iconfont icon-xinzeng"></span><span>添加</span>
+														</div>
+													</td>
+													<td class="td">
+														<div class="eleInput inputEle">
+															<input type="text" class="materalName" />
+															<span class="rate">g</span>
+														</div>
+													</td>
+													<td class="td">
+														<div class="eleInput inputEle">
+															<input type="text" class="materalValue"/>
+														</div>
+													</td>
+													<td class="td">
+														<div class="eleInput inputEle">
+															<select class="select_options">
+																<option>123</option>
+																<option>123</option>
+																<option>123</option>
+															</select>
+															<input type="text" class="materalName" />
+														</div>
+													</td>
+													<td class="td">
+														<span class="applySet">应用</span>
+													</td>
+												</tr>
+												<tr class="tableRow" >
+													<td class="td"><input type="checkbox" id="sku_items_1"/></td>
+													<td class="td">
+														 color
+													</td>
+													<td class="td">
+														<div class="add_sku_images">
+															<div style="display: flex;gap: 16px;align-items: center;">
+																<div class="attr_pic_items no_pic">
+																	<span class="iconfont icon-xinzeng"></span>
+																</div>
+																<div class="upload_tips">
+																	<div><span class="sku_image_num">0</span> 图片</div>
+																	<div class="add_sku_pic">添加</div>
+																</div>
+															</div>
+														</div>
+													</td>
+													<td class="td">
+														<div class="eleInput inputEle">
+															<input type="text" class="materalName" />
+														</div>
+													</td>
+													<td class="td">
+														<div class="eleInput inputEle">
+															<input type="text" class="materalValue"/>
+														</div>
+													</td>
+													<td class="td">
+														<div class="eleInput inputEle">
+															<span>MX$</span>
+															<input type="text" class="materalName" />
+														</div>
+													</td>
+													<td class="td">
+														<div class="eleInput inputEle">
+															<span class="rate">MX$</span>
+															<input type="text" class="materalValue"/>
+														</div>
+													</td>
+													<td class="td">
+														<div class="selectEle">
+															<div class="chosen_attr">
+																<div class="attr_txt">
+																	<span class="txt">眉毛、眼线贴纸</span>
+																	<span class="iconfont icon-guanbi"></span>
+																</div>
+															</div>
+															<div class="select_icon">
+																<span class="iconfont icon-ICON-xia"></span>
+															</div>	
+															<input name="goods_exter_name" type="hidden">
+														</div>
+													</td>
+													<td class="td">
+														<div class="add_package_list">
+															<span class="iconfont icon-xinzeng"></span><span>添加</span>
+														</div>
+													</td>
+													<td class="td">
+														<div class="eleInput inputEle">
+															<input type="text" class="materalName" />
+															<span class="rate">g</span>
+														</div>
+													</td>
+													<td class="td">
+														<div class="eleInput inputEle">
+															<input type="text" class="materalValue"/>
+														</div>
+													</td>
+													<td class="td">
+														<div class="eleInput inputEle">
+															<select class="select_options">
+																<option>123</option>
+																<option>123</option>
+																<option>123</option>
+															</select>
+															<input type="text" class="materalName" />
+														</div>
+													</td>
+													<td class="td">
+														<span class="deleteSku">删除</span>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="sku_tips">
+									<input type="checkbox" id="accept_sku_rules" checked/>
+									<label for="accept_sku_rules">在此，本人许可并授权系统对我的商品进行自动零售价调整，最终零售价不高于在自动零售价调整页面中指定的零售价上限。本人对此完全知悉、理解并认可。具体零售价以C端页面实时展示为准。</label>
+								</div>
+							</div>
+							<div class="elems">
+								<div class="label">
+									<span>商品视频:</span>
+									<div class="error_tips" >
+									</div>
+								</div>
+								<div class="formEle">
+									<div style="display: flex;gap: 16px;">
+										<div class="attr_pic_items no_pic">
+											<span class="iconfont icon-xinzeng"></span>
+										</div>
+										<div class="upload_tips">
+											<div>详情视频将显示在商品详情的顶部。</div>
+											<div>上传视频，最大大小为 500 MB，长度不超过 180 秒，最低分辨率为 720 P。</div>
+										</div>
+									</div>	
+									<div class="tips">
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>		
 					
-					<div class="card goodsInfo">
+					<div class="card goodsInfo safeAndRule">
 						<div class="title">
 							安全与合规
 						</div>
@@ -647,7 +883,7 @@
 								<div class="formEle">
 									<div class="inputEle selectEle" id="selectCountry">
 										<div class="default_val">China</div>
-										<div class="icons"><span class="iconfont icon-ICON-xia"></span></div>
+										<div class="icons"><span class="iconfont icon-ICON-xia select_icons"></span></div>
 										<div class="dropList brandDroplist" style="display: none;">
 											<div class="brandSearch">
 												<input type="text" name="searchBrand" placeholder="Search">
@@ -696,7 +932,12 @@
 							</div>
 						</div>
 					</div>	
-				</div>	
+				</div>
+				
+				<div class="submitBtns">
+					<div class="preStep">Previous step</div>
+					<div class="nextStep">Next step</div>
+				</div>
 			</div>	
 		</div>
 	</body>
