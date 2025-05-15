@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>temu商品添加编辑页面</title>
+		<link rel="stylesheet" type="text/css" href="./css/common.css" />
+		<link rel="stylesheet" type="text/css" href="./css/menu.css" />
+		<link rel="stylesheet" type="text/css" href="./css/index.css" />
+		<link rel="stylesheet" type="text/css" href="./css/goods_temu.css" />
+		
+		<!-- 滚动条样式 -->
+		<link rel="stylesheet" type="text/css" href="https://ayamcn.com/js/perfect-scrollbar/perfect-scrollbar.min.css"/>
+		<!-- 引入字体文件 -->
+		<link rel="stylesheet" type="text/css" href="https://at.alicdn.com/t/c/font_4643688_kl63fem66fj.css"/>
+	</head>
+	<body>
+		<div id="app">
+			<div class="leftCon">
+				<div class="logoCon">
+					<div class="logoImg">
+						<img src="https://ayamcn.com/seller/images/seller_logo.png" />
+					</div>
+					<div class="seler-title">
+						<div>商家后台</div>
+						<h1>ayamcn.com</h1>
+					</div>
+				</div>
+				<div class="meunuList">
+					<div class="menuItem">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-home-smile-2-line"></span>
+								<span class="txt">首页</span>
+							</div>
+						</div>
+					</div>
+					<div class="menuItem active">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-shangjia"></span>
+								<span class="txt">商品</span>
+							</div>
+							<div class="hasChild">
+								<span class="iconfont icon-a-lujing3"></span>
+							</div>
+						</div>
+						<div class="childMenu">
+							<div class="childMenuItem act">
+								<a>商品列表</a>
+							</div>
+							<div class="childMenuItem">
+								<a>商品批量修改</a>
+							</div>
+							<div class="childMenuItem">
+								<a>商品批量修改</a>
+							</div>
+						</div>
+					</div>
+					<div class="menuItem">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-file-list-2-line"></span>
+								<span class="txt">订单</span>
+							</div>
+							<div class="hasChild">
+								<span class="iconfont icon-a-lujing3"></span>
+							</div>
+						</div>
+					</div>
+					<div class="menuItem">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-baobiao"></span>
+								<span class="txt">报表</span>
+							</div>
+							<div class="hasChild">
+								<span class="iconfont icon-a-lujing3"></span>
+							</div>
+						</div>
+					</div>
+					<div class="menuItem">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-store-2-line"></span>
+								<span class="txt">门店</span>
+							</div>
+							<div class="hasChild">
+								<span class="iconfont icon-a-lujing3"></span>
+							</div>
+						</div>
+					</div>
+					<div class="menuItem">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-key-2-line"></span>
+								<span class="txt">权限</span>
+							</div>
+							<div class="hasChild">
+								<span class="iconfont icon-a-lujing3"></span>
+							</div>
+						</div>
+					</div>
+					<div class="menuItem">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-home-5-line"></span>
+								<span class="txt">商家</span>
+							</div>
+							<div class="hasChild">
+								<span class="iconfont icon-a-lujing3"></span>
+							</div>
+						</div>
+					</div>
+					<div class="menuItem">
+						<div class="menutext">
+							<div class="menuleft">
+								<span class="iconfont icon-shangjia"></span>
+								<span class="txt">店铺</span>
+							</div>
+							<div class="hasChild">
+								<span class="iconfont icon-a-lujing3"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="rightCon">
+				<div class="header">
+					<div class="category">
+						<span class="cateTxt">商品</span>
+						<span class="cate_fg">/</span>
+						<span class="cateTxt">商品列表</span>
+						<span class="cate_fg">/</span>
+						<span class="cateTxt">添加新商品</span>
+					</div>
+					<div class="avator_con">
+						<div class="con">
+							<div class="avator_img">
+								<img src="https://ayamcn.com/seller/images/tx.png" />
+							</div>
+							<div>
+								Hi，Merida <span class="iconfont icon-ICON-xia"></span>
+							</div>
+						</div>
+						<div class="dropList">
+							<ul>
+								<li>退出</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="body_con" style="padding: 24px;">
+					<div class="card goodsInfo">
+						<div class="title">
+							商品类目和名称
+						</div>
+						<div class="bodyInform">
+							<div class="elems">
+								<div class="label">
+									<span>商品名称</span>
+									<div class="error_tips">
+										<span class="red">*</span>
+									</div>
+								</div>
+								<div class="formEle">
+									<div style="display: flex;align-items: center;gap: 16px;">
+										<div class="inputEle " style="flex: 1;">
+											<input type="text"  maxlength="500"/>
+										</div>
+										<div class="getrecommendCates">
+											获取推荐类目
+										</div>
+									</div>
+									<div class="tips">
+										商品名称不超过500个字符，清晰简洁的名称更有助于吸引顾客的注意力。
+									</div>
+								</div>
+							</div>
+							<div class="elems">
+								<div class="label">
+									<span>类目选择</span>
+									<div class="error_tips">
+										<span class="red">*</span>
+										<span class="red"></span>
+									</div>
+								</div>
+								<div class="formEle">
+									<div style="display: flex;align-items: center;gap: 16px;">
+										<div class="inputEle" style="flex: 1;">
+											<input type="text" name="goods_number" />
+										</div>
+										<div class="choseCates">
+											选择类目
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="card goodsInfo goodsmiaosu">
+						<div class="title">
+							商品描述
+						</div>
+						<div class="bodyInform">
+							<div class="elems">
+								<div class="label">
+									<span>商品标识:</span>
+									<div class="error_tips">
+										<span class="red"></span>
+									</div>
+								</div>
+								<div class="formEle">
+									<div class="attr_groups">
+										<div class="attr_infor">
+											<label>商品名称</label>
+											<div class="formEle">
+												<div style="display: flex;align-items: center;gap: 16px;">
+													<div class="inputEle " style="flex: 1;">
+														<input type="text" >
+													</div>
+												</div>
+												<div class="tips">
+												</div>
+											</div>
+											
+										</div>
+										<div class="attr_infor">
+											<label>商品类目</label>
+											<div class="formEle">
+												<div style="display: flex;align-items: center;gap: 16px;">
+													<div class="inputEle disabled" style="flex: 1;">
+														<input type="text" disabled>
+													</div>
+												</div>
+												<div class="tips">
+												</div>
+											</div>
+										</div>
+										<div class="attr_infor">
+											<label>商标</label>
+											<div class="formEle">
+												<div style="display: flex;align-items: center;gap: 16px;">
+													<div class="selectEle">
+														<div class="chosen_attr">
+															<div class="attr_txt">
+																<span class="txt">眉毛、眼线贴纸</span>
+																<span class="iconfont icon-guanbi"></span>
+															</div>
+														</div>
+														<div class="select_icon">
+															<span class="iconfont icon-ICON-xia"></span>
+														</div>	
+														<input name="goods_weight" type="hidden">
+													</div>
+													<div class="addTrademarkCertificate">
+														添加商标证书
+													</div>
+												</div>
+												<div class="tips">
+													输入商标将有助于 Temu 准确地进行价格评估，并帮助用户搜索产品。
+												</div>
+											</div>
+										</div>
+										<div class="attr_infor" style="margin-top: 16px;">
+											<label>包装规格（每单位）</label>
+											<div class="formEle">
+												<div style="display: flex;align-items: center;gap: 8px;">
+													<input type="checkbox" name="is_dingzhi_product" id="is_dingzhi_pro"/>
+													<label for="is_dingzhi_pro">这是一个定制商品</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>	
+							</div>
+						</div>	
+						<div class="bodyInform" style="border: 0;margin: 0;">
+							<div class="elems">
+								<div class="label">
+									<span>商品描述:</span>
+									<div class="error_tips">
+										<span class="red"></span>
+									</div>
+								</div>
+								<div class="formEle">
+									<div class="attr_groups">
+										<div class="attr_infor">
+											<label>商品描述</label>
+											<div class="formEle">
+												<div style="display: flex;align-items: center;gap: 16px;">
+													<div class="inputEle textareaEle" style="flex: 1;">
+														<textarea type="text" id="product_detail"></textarea>
+													</div>
+												</div>
+												<div class="tips">
+													商品描述应详细阐述产品的特点和用途，该内容将展示在商品详情里。
+												</div>
+											</div>
+											
+										</div>
+										<div class="attr_infor">
+											<label>要点</label>
+											<div class="formEle">
+												<div style="display: flex;align-items: center;gap: 16px;">
+													<div class="inputEle textareaEle" style="flex: 1;">
+														<textarea type="text" id="product_detail_important"></textarea>
+													</div>
+												</div>
+												<div class="tips">
+													要点应突出产品的特点和优势，每个要点应保持简短。
+												</div>
+												<div class="add_product_td">
+													添加要点
+												</div>
+											</div>
+										</div>
+										<div class="attr_infor" style="margin-top: 16px;">
+											<label>详情视频</label>
+											<div class="formEle">
+												<div style="display: flex;gap: 16px;">
+													<div class="attr_pic_items no_pic">
+														<span class="iconfont icon-xinzeng"></span>
+													</div>
+													<div class="upload_tips">
+														<div>详情视频将显示在商品详情的顶部。</div>
+														<div>上传视频，最大大小为 500 MB，长度不超过 180 秒，最低分辨率为 720 P。</div>
+													</div>
+												</div>	
+												<div class="tips">
+												</div>
+											</div>
+										</div>
+										<div class="attr_infor" style="margin-top: 16px;">
+											<label>详情图片</label>
+											<div class="formEle">
+												<div style="display: flex;gap: 16px;">
+													<div class="attr_pic_items no_pic">
+														<span class="iconfont icon-xinzeng"></span>
+													</div>
+													<div class="upload_tips">
+														<div>详情视频将显示在商品详情的顶部。</div>
+														<div>上传视频，最大大小为 500 MB，长度不超过 180 秒，最低分辨率为 720 P。</div>
+													</div>
+												</div>	
+												<div class="tips">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>	
+							</div>
+						</div>
+					</div>
+						
+					<div class="card goodsInfo goods_props">
+						<div class="title">
+							商品详情
+						</div>
+						<div class="bodyInform">
+							<div id="attrgroups">
+								<div class="attrItem">
+									<div class="attrName">
+									护理说明<span class="red">*</span>
+									</div>
+									<div class="attrVal">
+										<div class="attr_select_val multi_select">
+										</div>
+										<div class="icons"><span class="iconfont icon-ICON-xia"></span></div>
+										<div class="attrVal_dropList" style="display: none; top: 40px;">
+											<ul>
+												<li>
+													<input type="checkbox" name="attr_100898" id="checkbox_1004734" data-attrid="1004734" value="Día del Niño">
+													<label for="checkbox_1004734">Día del Niño</label>
+												</li>
+												<li>
+													<input type="checkbox" name="attr_100898" id="checkbox_1003609" data-attrid="1003609" value="Navidad">
+													<label for="checkbox_1003609">Navidad</label>
+												</li>
+												<li>
+													<input type="checkbox" name="attr_100898" id="checkbox_1004739" data-attrid="1004739" value="Nyepi">
+													<label for="checkbox_1004739">Nyepi</label>
+												</li>
+												<li>
+													<input type="checkbox" name="attr_100898" id="checkbox_1004737" data-attrid="1004737" value="Festival de Medio Otoño">
+													<label for="checkbox_1004737">Festival de Medio Otoño</label>
+												</li>
+												<li>
+													<input type="checkbox" name="attr_100898" id="checkbox_1004736" data-attrid="1004736" value="Pascua">
+													<label for="checkbox_1004736">Pascua</label>
+												</li>
+												<li>
+													<input type="checkbox" name="attr_100898" id="checkbox_1004740" data-attrid="1004740" value="Rambu Solo">
+													<label for="checkbox_1004740">Rambu Solo</label>
+												</li>
+												<li>
+													<input type="checkbox" name="attr_100898" id="checkbox_1004742" data-attrid="1004742" value="Día de Acción de Gracias">
+													<label for="checkbox_1004742">Día de Acción de Gracias</label>
+												</li>
+												<li>
+													<input type="checkbox" name="attr_100898" id="checkbox_1004735" data-attrid="1004735" value="Año Nuevo Chino">
+													<label for="checkbox_1004735">Año Nuevo Chino</label>
+												</li>
+												<li>
+													<input type="checkbox" name="attr_100898" id="checkbox_1004743" data-attrid="1004743" value="Día de San Valentín">
+													<label for="checkbox_1004743">Día de San Valentín</label>
+												</li>
+												<li>
+													<input type="checkbox" name="attr_100898" id="checkbox_1004738" data-attrid="1004738" value="Año Nuevo">
+													<label for="checkbox_1004738">Año Nuevo</label>
+												</li>
+												<li>
+													<input type="checkbox" name="attr_100898" id="checkbox_1004741" data-attrid="1004741" value="Songkran">
+													<label for="checkbox_1004741">Songkran</label>
+												</li>
+											</ul>
+											<div class="zdy_attr">
+												<div class="inputEle">
+													<input type="text" class="zdy_attr_val" name="attr_100898" autocomplete="off">
+												</div>
+												<div class="enter_attr_btn">Add</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="attrItem" >
+									<div class="attrName">
+										四季<span class="red">*</span>
+									</div>
+									<div class="attrVal">
+										<div class="attr_select_val multi_select">
+										</div>
+										<div class="icons"><span class="iconfont icon-ICON-xia"></span></div>
+										<div class="attrVal_dropList" style="display: none; top: 40px;">
+										</div>	
+									</div>	
+								</div>
+								<div class="attrItem" >
+									<div class="attrName">
+										封面材质<span class="red">*</span>
+									</div>
+									<div class="materal_table">
+										<div class="tableHead">
+											<div class="tableRow">
+												<div class="td">材料</div>
+												<div class="td">成分占比</div>
+												<div class="td">操作</div>
+											</div>	
+										</div>
+										<div class="tableBody">
+											<div class="noData">
+												暂无数据
+											</div>
+											<div class="tableRow" style="display: none;">
+												<div class="td">
+													<div class="eleInput">
+														<input type="text" class="materalName inputEle" />
+													</div>
+												</div>
+												<div class="td">
+													<div class="eleInput">
+														<input type="text" class="materalValue inputEle"/>
+														<span class="rate">%</span>
+													</div>
+												</div>
+												<div class="td">
+													<span class="deleteMateral">删除</span>
+												</div>
+											</div>
+										</div>
+										<div class="tableFoot">
+											<div class="addMateral">
+												<span class="iconfont icon-xinzeng"></span>
+												<span>添加材料</span>
+											</div>
+											<div class="zongji">
+												<span>总计 </span><span>0%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="attrItem" >
+									<div class="attrName">
+										内衬材质<span class="red">*</span>
+									</div>
+									<div class="materal_table">
+										<div class="tableHead">
+											<div class="tableRow">
+												<div class="td">材料</div>
+												<div class="td">成分占比</div>
+												<div class="td">操作</div>
+											</div>	
+										</div>
+										<div class="tableBody">
+											<div class="noData" style="display: none;">
+												暂无数据
+											</div>
+											<div class="tableRow" >
+												<div class="td">
+													<div class="eleInput">
+														<input type="text" class="materalName inputEle" />
+													</div>
+												</div>
+												<div class="td">
+													<div class="eleInput">
+														<input type="text" class="materalValue inputEle"/>
+														<span class="rate">%</span>
+													</div>
+												</div>
+												<div class="td">
+													<span class="deleteMateral">删除</span>
+												</div>
+											</div>
+										</div>
+										<div class="tableFoot">
+											<div class="addMateral">
+												<span class="iconfont icon-xinzeng"></span>
+												<span>添加材料</span>
+											</div>
+											<div class="zongji">
+												<span>总计 </span><span>0%</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>	
+					</div>		
+					
+					<div class="card goodsInfo goods_sale_props">
+						<div class="title">
+							变体
+						</div>
+						<div class="bodyInform">
+							<div class="elems">
+								<div class="label">
+									<span>变体</span>
+									<div class="error_tips">
+										<span class="red"></span>
+									</div>
+								</div>
+								<div class="formEle">
+									<div class="sale_props_list">
+										<div class="select_sale_props">
+											<div class="title">变体类型</div>
+											<div class="sale_props_content">
+												<div class="sale_props_item">
+													<input type="checkbox" id="sale_prop_1"/>
+													<label for="sale_prop_1">颜色</label>
+												</div>
+												<div class="sale_props_item">
+													<input type="checkbox" id="sale_prop_2"/>
+													<label for="sale_prop_2">尺寸</label>
+												</div>
+												<div class="sale_props_item">
+													<input type="checkbox" id="sale_prop_3"/>
+													<label for="sale_prop_3">风格</label>
+												</div>
+												<div class="sale_props_item">
+													<input type="checkbox" id="sale_prop_4"/>
+													<label for="sale_prop_4">材质</label>
+												</div>
+												<div class="sale_props_item">
+													<input type="checkbox" id="sale_prop_5"/>
+													<label for="sale_prop_5">口味</label>
+												</div>
+												<div class="sale_props_item">
+													<input type="checkbox" id="sale_prop_6"/>
+													<label for="sale_prop_6">适用人群</label>
+												</div>
+												<div class="sale_props_item">
+													<input type="checkbox" id="sale_prop_7"/>
+													<label for="sale_prop_7">容量</label>
+												</div>
+												<div class="sale_props_item">
+													<input type="checkbox" id="sale_prop_8"/>
+													<label for="sale_prop_8">成分</label>
+												</div>
+												<div class="sale_props_item">
+													<input type="checkbox" id="sale_prop_9"/>
+													<label for="sale_prop_9">重量</label>
+												</div>
+												<div class="sale_props_item">
+													<input type="checkbox" id="sale_prop_10"/>
+													<label for="sale_prop_10">品类</label>
+												</div>
+											</div>
+										</div>	
+										<div class="salePropsList">
+											<div class="salePropsItem">
+												<label class="chosen_sale_props">
+													颜色
+												</label>
+												<div class="chosen_sale_val">
+													<div class="chosen_sale_val_input">
+														<input type="text" placeholder="输入"/>
+													</div>
+													<div class="add_sale_val">
+														添加
+													</div>
+												</div>
+												<div class="chosen_sale_show">
+													<div>规格:</div>
+													<div class="chosen_sale_show_list">
+														<div class="chosen_sale_attr">红色<span class="iconfont icon-guanbi"></span></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>	
+						</div>
+					</div>		
+					
+					<div class="card goodsInfo">
+						<div class="title">
+							安全与合规
+						</div>
+						<div class="bodyInform">
+							<div class="elems">
+								<div class="label">
+									<span>商品说明书:</span>
+									<div class="error_tips">
+										<span class="red"></span>
+									</div>
+								</div>
+								<div class="formEle">
+									<div class="uploadVideo uploadImgs">
+										<div class="uploadIcon">
+											<span class="iconfont icon-shangchuan1"></span>
+										</div>
+										<div class="uploadTxt">
+											Upload
+										</div>
+										<input id="uploadVideo" type="file" class="upload_files">
+									</div>
+								</div>	
+							</div>
+							<div class="elems">
+								<div class="label">
+									<span>原产国/原产地:</span>
+									<div class="error_tips">
+										<span class="red">*</span>
+									</div>
+								</div>
+								<div class="formEle">
+									<div class="inputEle selectEle" id="selectCountry">
+										<div class="default_val">China</div>
+										<div class="icons"><span class="iconfont icon-ICON-xia"></span></div>
+										<div class="dropList brandDroplist" style="display: none;">
+											<div class="brandSearch">
+												<input type="text" name="searchBrand" placeholder="Search">
+												<span class="iconfont icon-sousuo"></span>
+											</div>
+											<ul style="margin-top: 16px;">
+												<li>
+													<input type="radio" name="brandName" id="brand_1" value="xiaomi">
+													<label for="brand_1">xiaomi</label>
+												</li>
+												<li><input type="radio" name="brandName" id="brand_2" value="apple">
+													<label for="brand_2">apple</label></li>
+												<li><input type="radio" name="brandName" id="brand_3" value="huawei">
+													<label for="brand_3">huawei</label></li>
+												<li><input type="radio" name="brandName" id="brand_4" value="sangxin">
+													<label for="brand_4">sangxin</label></li>
+											</ul>
+											<div class="fgx" style="height: 1px;border-top: 1px solid #DCDFE6;margin-top: 9px;margin-bottom: 9px;"></div>
+											<div class="zdy_brand">
+												¿No encuentras tu marca?<span class="add_new_brand">Agrega una nueva marca</span> o <span class="empty_brand"> selecciona “Sin marca”</span>
+											</div>
+											<div class="zdy_brand_con" style="display: none;">
+												<div class="zdy_brand_title">Agrega una nueva marca</div>
+												<div class="zdy_brand_contion">
+													<div class="zdy_brand_txt">
+														Otros vendedores podrán usar cualquier marca que agregues puede ser utilizada por otros vendedores. Antes de agregar una marca, asegúrate de que acate las reglas del nombre de las marcas.
+													</div>
+													<div class="zdy_brand_enter">
+														<div class="zdy_brand_input">
+															<input name="zdy_brand_name" type="text">
+														</div>
+														<div class="brand_cancel brand_btn">Cancelar</div>
+														<div class="brand_ensure brand_btn">Agregar</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="red" style="font-size: 14px;color: #F47677;margin-top: 12px;">
+										根据商品申报的制造商或其他商品信息推荐
+									</div>
+									<div style="font-size: 14px;color: #9FA0A1;margin-top: 8px;">
+										如果商品是完全在一个国家/地区生产或制造的，则该国家/地区通常即为此商品的原产国/原产地。如果商品的生产或制造涉及多个国家/地区，那么原产国/原产地通常是商品最后发生“实质性转变”的地方。
+									</div>
+								</div>	
+							</div>
+						</div>
+					</div>	
+				</div>	
+			</div>	
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="https://ayamcn.com/js/jquery-1.9.1.min.js"></script>
+<script>
+	//属性展示
+	$.ajax({
+	  url: 'temuprops.json',
+	  dataType: 'json',
+	  success: function(jsonData) {
+	    // 在success回调中可以访问返回的JSON数据
+		
+		console.log(jsonData);
+	  },
+	  error: function(xhr, status, error) {
+	    // 当请求发生错误时的处理代码
+	    console.log(error);
+	  }
+	});
+</script>
+

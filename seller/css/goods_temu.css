@@ -102,30 +102,29 @@ input:disabled{
 .attr_groups{
 	display: flex;
 	flex-wrap: wrap;
-	gap: 24px;
 	background-color: #F7F8FA;
 	padding: 16px;
 	margin-top: 13px;
-	padding-bottom: 54px;
-	max-width: 1038px;
+	padding-bottom: 24px;
+	max-width: 763px;
 	box-sizing: border-box;
 }
 .attr_groups .attr_infor{
-	width: calc(50% - 12px);
+	width: 100%;
 }
 .selectEle{
 	display: flex;
 	background-color: #fff;
-	padding: 6px 8px;
-	min-height:36px;
+	padding: 3px 8px;
+	max-height:36px;
 	border-radius: 2px;
 	border: 1px solid #DCDEE0;
 	justify-content: space-between;
 	align-items: center;
-	margin-top: 8px;
 	border-radius: 2px;
 	font-size: 14px;
 	box-sizing: border-box;
+	flex: 1;
 }
 .selectEle .chosen_attr{
 	display: flex;
@@ -471,4 +470,371 @@ input::-webkit-inner-spin-button {
 }
 .select_baoxian_date .prepend .iconfont{
 	color: #DCDEE0;
+}
+.getrecommendCates,.choseCates{
+	font-size: 14px;
+	color: #165BD5;
+	line-height: 20px;
+	cursor: pointer;
+}
+.goodsmiaosu .formEle .inputEle{
+	width: 100%;
+	max-width: 100%;
+	background-color: #fff;
+}
+.goodsmiaosu .formEle .inputEle.disabled{
+	background-color: #F7F8FA;
+}
+.goodsmiaosu .attr_infor label{
+	font-weight: 400;
+	font-size: 14px;
+	color: #333333;
+}
+.addTrademarkCertificate{
+	width: 224px;
+	height: 36px;
+	background: #FFFFFF;
+	border-radius: 2px;
+	border: 1px solid #DCDEE0;
+	font-size: 14px;
+	color: #737579;
+	text-align: center;
+	line-height: 36px;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+.add_product_td{
+	width: 224px;
+	height: 36px;
+	background: #FFFFFF;
+	border-radius: 2px;
+	border: 1px solid #DCDEE0;
+	text-align: center;
+	line-height: 36px;
+	font-size: 14px;
+	color: #737579;
+	margin-top: 12px;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+.goodsmiaosu .attr_pic_items{
+	width: 108px;
+	height: 108px;
+}
+.goodsmiaosu .upload_tips{
+	font-size: 14px;
+	color: #9FA0A1;
+	display: flex;
+	flex-direction: column;
+	row-gap: 8px;
+}
+#attrgroups{
+	border-radius: 2px;
+	display: grid;
+	max-width: 1038px;
+}
+#attrgroups .attrItem{
+	margin-top: 24px;
+}
+#attrgroups .attrVal{
+	width: 100%;
+	min-height: 36px;
+	background: #FFFFFF;
+	border-radius: 2px;
+	border: 1px solid #DCDEE0;
+	box-sizing: border-box;
+	margin-top: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+	padding: 0 16px;
+}
+#attrgroups .attrVal .icons{
+	color: #DCDEE0;
+}
+#attrgroups .attrVal .attr_val_input{
+	width: 100%;
+	height: 100%;
+	background-color: transparent;
+	outline: none;
+	border: 0;
+}
+#attrgroups .attrVal .attrVal_dropList{
+	position: absolute;
+	width: 100%;
+	height: fit-content;
+	background-color: #fff;
+	z-index: 99;
+	top: 40px;
+	left: 0;
+	padding: 16px;
+    box-sizing: border-box;
+	border: 1px solid #DCDEE0;
+	display: none;
+}
+#attrgroups .attrVal .attrVal_dropList ul{
+	max-height: 200px;
+	overflow: hidden;
+	position: relative;
+}
+
+.attrVal_dropList li{
+	display: flex;
+	align-items: center;
+	height: 32px;
+	line-height: 32px;
+	gap: 8px;
+	font-size: 14px;
+}
+.attrVal_dropList li label{
+	display: -webkit-box; /* 作为弹性伸缩盒子模型显示 */
+	-webkit-line-clamp: 1; /* 限制在3行 */
+	-webkit-box-orient: vertical; /* 垂直排列盒子 */
+	overflow: hidden; /* 隐藏溢出的内容 */
+	text-overflow: ellipsis; /* 多行时显示省略号 */
+	white-space: normal; /* 使用正常的白空格处理方式，允许换行 */
+	flex: 1;
+}
+.zdy_attr{
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+.zdy_attr .inputEle{
+	flex: 1;
+}
+.zdy_attr .enter_attr_btn{
+	width: 85px;
+	height: 36px;
+	line-height: 36px;
+	background: #343434;
+	border-radius: 2px;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+}
+.multi_select{
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+.multi_select .selected_val{
+	display: flex;
+	align-items: center;
+	background: #F4F4F4;
+	color: #737579;
+	gap: 8px;
+	padding: 0 4px;
+}
+.multi_select .icon-guanbi{
+	font-size: 10px;
+	cursor: pointer;
+}
+.materal_table{
+	background: #F7F8FA;
+	border-radius: 2px;
+	max-width: 763px;
+	width: 100%;
+	padding: 12px;
+	box-sizing: border-box;
+	margin-top: 9px;
+}
+.materal_table .tableHead{
+	background-color: #fff;
+	max-width: 739px;
+	width: 100%;
+	height: 36px;
+	line-height: 36px;
+}
+.materal_table .tableHead .tableRow{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	font-size: 14px;
+	color: #737579;
+}
+.materal_table .tableHead .tableRow .td,.materal_table .tableBody .tableRow .td{
+	padding: 0 24px;
+}
+.materal_table .tableBody {
+	border-bottom: 1px solid #F0F0F0;
+}
+.materal_table .tableBody .noData{
+	min-height: 62px;
+	text-align: center;
+	font-size: 14px;
+	color: #737579;
+	line-height: 62px;
+	height: 62;
+}
+.materal_table .tableBody .tableRow{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	font-size: 14px;
+	padding: 16px 0;
+}
+.materal_table .tableBody .tableRow .eleInput{
+	width: 140px;
+	height: 30px;
+	background: #FFFFFF;
+	border-radius: 2px;
+	border: 1px solid #DCDEE0;
+	display: inline-flex;
+	align-items: center;
+	padding: 0 8px;
+}
+.materal_table .tableBody .tableRow .eleInput input{
+	background: transparent;
+	width: 100%;
+	flex: 1;
+	outline: none;
+	border: 0;
+}
+.materal_table .tableBody .tableRow .rate{
+	font-size: 14px;
+	color: #737579;
+}
+.materal_table .tableBody .tableRow .deleteMateral{
+	font-size: 14px;
+	color: #165BD5;
+	height: 30px;
+	line-height: 30px;
+	cursor: pointer;
+}
+.materal_table .tableFoot{
+	margin-top: 24px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	align-items: center;
+} 
+.materal_table .tableFoot .addMateral{
+	width: 96px;
+	height: 33px;
+	background: #FFFFFF;
+	border-radius: 4px;
+	border: 1px solid #CCCCCC;
+	line-height: 33px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #737579;
+	cursor: pointer;
+	margin-left: 24px;
+}
+.materal_table .tableFoot .zongji{
+	font-size: 12px;
+	color: #737579;
+	margin-left: 32px;
+}
+.uploadImgs .upload_icon{
+	color: #616468;
+}
+.uploadImgs .upload_txt{
+	font-size: 14px;
+	color: #616468;
+}
+.uploadImgs .upload_files{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	cursor: pointer;
+}
+.uploadVideo{
+	max-width: 491px;
+	height: 36px;
+	line-height: 36px;
+	background: #FFFFFF;
+	border-radius: 2px;
+	border: 1px dashed #DCDEE0;
+	position: relative;
+	box-sizing: border-box;
+	display: flex;
+	gap: 4px;
+	font-size: 14px;
+	padding: 0 16px;
+	cursor: pointer;
+}
+.sale_props_list{
+	max-width: 763px;
+	width: 100%;
+	background: #F7F8FA;
+	border-radius: 2px;
+	padding: 16px;
+	color: #333333;
+}
+.sale_props_list .select_sale_props .sale_props_content{
+	margin-top: 16px;
+	display: flex;
+	column-gap: 48px;
+	row-gap: 16px;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.sale_props_list .select_sale_props .sale_props_content .sale_props_item{
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+.salePropsList .salePropsItem{
+	margin-top: 8px;
+}
+.salePropsList .chosen_sale_val{
+	display: flex;
+	align-items: center;
+	margin-top: 8px;
+	gap: 14px;
+}
+.salePropsList .chosen_sale_val .chosen_sale_val_input{
+	height: 36px;
+	background: #FFFFFF;
+	border-radius: 2px;
+	border: 1px solid #DCDEE0;
+	flex: 1;
+	line-height: 36px;
+	box-sizing: border-box;
+}
+.salePropsList .chosen_sale_val .add_sale_val{
+	width: 224px;
+	height: 36px;
+	background: #FFFFFF;
+	border-radius: 2px;
+	border: 1px solid #DCDEE0;
+	text-align: center;
+	line-height: 36px;
+	cursor: pointer;
+}
+.salePropsList .chosen_sale_val .chosen_sale_val_input input{
+	background: transparent;
+	border: 0;
+	outline: none;
+	padding: 0 12px;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+}
+.salePropsList .chosen_sale_show{
+	margin-top: 14px;
+	font-size: 14px;
+	color: #9FA0A1;
+	display: flex;
+	gap: 4px;
+}
+.salePropsList .chosen_sale_show_list{
+	display: flex;
+	align-items: center;
+}
+.salePropsList .chosen_sale_show_list .chosen_sale_attr{
+	background-color: #fff;
+	height: 24px;
+	padding: 0 4px;
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+.salePropsList .chosen_sale_show_list .chosen_sale_attr .icon-guanbi{
+	font-size: 8px;
+	cursor: pointer;
 }
