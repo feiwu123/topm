@@ -643,8 +643,6 @@ input::-webkit-inner-spin-button {
 	background-color: #fff;
 	max-width: 739px;
 	width: 100%;
-	height: 36px;
-	line-height: 36px;
 }
 .materal_table .tableHead .tableRow{
 	display: grid;
@@ -681,6 +679,7 @@ input::-webkit-inner-spin-button {
 	display: inline-flex;
 	align-items: center;
 	padding: 0 8px;
+	box-sizing: border-box;
 }
 .materal_table .tableBody .tableRow .eleInput input{
 	background: transparent;
@@ -688,6 +687,9 @@ input::-webkit-inner-spin-button {
 	flex: 1;
 	outline: none;
 	border: 0;
+}
+#attrgroups .materal_table .attrVal .attrVal_dropList{
+	top: 30px;
 }
 .materal_table .tableBody .tableRow .rate{
 	font-size: 14px;
@@ -982,4 +984,10 @@ table {
 	font-size: 14px;
 	color: #165BD5;
 	cursor: pointer;
+}
+
+.materal_table .attrVal{
+	margin-top: 0!important;
+	min-height: 30px!important;
+	height: 30px;
 }

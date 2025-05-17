@@ -358,7 +358,7 @@
 							商品详情
 						</div>
 						<div class="bodyInform">
-							<div id="attrgroups">
+							<!-- <div id="attrgroups">
 								<div class="attrItem">
 									<div class="attrName">
 									护理说明<span class="red">*</span>
@@ -523,7 +523,12 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							
+							
+							</div> -->
+							<div id="attrgroups">
+								
+							</div>	
 						</div>	
 					</div>		
 					
@@ -943,15 +948,21 @@
 	</body>
 </html>
 <script type="text/javascript" src="https://ayamcn.com/js/jquery-1.9.1.min.js"></script>
+<script src="https://ayamcn.com/js/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="js/wu_temu_attr.js"></script>
 <script>
 	//属性展示
+	var inputMaxSpecNum,singleSpecValueNum;
+	var materals = {};
+	
 	$.ajax({
-	  url: 'temuprops.json',
+	  url: 'temuprops2.json',
 	  dataType: 'json',
 	  success: function(jsonData) {
 	    // 在success回调中可以访问返回的JSON数据
-		
-		console.log(jsonData);
+		inputMaxSpecNum = jsonData.inputMaxSpecNum;
+		singleSpecValueNum = jsonData.singleSpecValueNum;
+		$.multiTemuSelect("#attrgroups",jsonData.templateInfo);
 	  },
 	  error: function(xhr, status, error) {
 	    // 当请求发生错误时的处理代码
@@ -959,4 +970,5 @@
 	  }
 	});
 </script>
+
 
