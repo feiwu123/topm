@@ -15,7 +15,7 @@ jQuery.multiTemuSelect = function(divselectid,data) {
 				}else{
 					attribute_mode = "radio";
 				}
-			}else{
+			}else if(item.controlType==16){
 				attribute_mode = 'selection'
 			}
 			switch (attribute_mode){
@@ -115,36 +115,39 @@ function createSelect(data){
 									</div>
 								</div>`;
 	
-	var rowTemplate = `<div class="tableRow">
-						<div class="td">
-							<div class="attrVal">
-								<div class="attr_select_val">
-								</div>
-								<div class="icons"><span class="iconfont icon-ICON-xia"></span></div>
-								<div class="attrVal_dropList">
-									<ul>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="td">
-							<div class="eleInput">
-								<input type="number" class="materalValue inputEle"/>
-								<span class="rate">${value_unit}</span>
-							</div>
-						</div>
-						<div class="td">
-							<span class="deleteMateral">删除</span>
-						</div>
-					</div>`;
 	var id = "#attrItem_"+attr_id;
 	materals["attrItem_"+attr_id] = {valeus:choseValue,selectVals:[]};//暂时存储选中的下拉
 	$(document).on("click",id+" .addMateral",function(){
 		var lineNum = $(id).find(".tableBody .tableRow").length;
+		var timeStr = new Date().getTime();
+		var rowTemplate = `<div class="tableRow" id="materal_${timeStr}">
+							<div class="td">
+								<div class="attrVal">
+									<div class="attr_select_val">
+									</div>
+									<div class="icons"><span class="iconfont icon-ICON-xia"></span></div>
+									<div class="attrVal_dropList">
+										<ul>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="td">
+								<div class="eleInput">
+									<input type="number" class="materalValue inputEle"/>
+									<span class="rate">${value_unit}</span>
+								</div>
+							</div>
+							<div class="td">
+								<span class="deleteMateral">删除</span>
+							</div>
+						</div>`;
 		if(lineNum == choseNumber){
 			return;
 		}
-		$(id).find(".tableBody .noData").remove();
+		if($(id).find(".tableBody .noData").length==1){
+			$(id).find(".tableBody .noData").remove();
+		}
 		$(id).find(".tableBody").append(rowTemplate);
 	})
 	
@@ -153,8 +156,12 @@ function createSelect(data){
 }
 //删除
 $(document).on("click",".tableBody .deleteMateral",function(){
-	var idName = $(this).parents('.attrItem').props("id");
-	
+	var idName = $(this).parents('.attrItem').prop("id");
+	var mater_attr_id = $(this).parents(".tableRow").find(".attr_select_val span").data("id");
+	var selectedIndex = materals[idName].selectVals.indexOf(mater_attr_id);
+	if(selectedIndex>-1){
+		materals[idName].selectVals.splice(selectedIndex,1);
+	}
 	$(this).parents(".tableRow").remove();
 })
 
@@ -170,16 +177,20 @@ function createMateralDropList(id){
 			materals[ele_id].selectVals.splice(selectedIndex,1);
 		}
 		var values = materals[ele_id].valeus.filter((item,index)=>{
-			return materals[ele_id].selectVals.indexOf(item)>-1?false:true;
+			return materals[ele_id].selectVals.indexOf(item.vid)>-1?false:true;
 		})
 		console.log(values);
+		console.log(materals[ele_id]);
 		values.forEach((item,index)=>{
 			radio_list += `<li>
 							<input type="radio" name="attr_${timeStr}_${id}"  id="radio_${item.vid}" data-attrid="${item.vid}" value="${item.value}" ${item.vid==selected_id?'checked':''}/>
 							<label for="radio_${item.vid}">${item.value}</label>
 						</li>`;
 		})
-		$(this).find(".attrVal_dropList ul").html(radio_list);	
+		console.log(ele_id)
+		$(this).find(".attrVal_dropList ul").html(radio_list);
+		$(this).find(".attrVal_dropList ul").perfectScrollbar("destroy");
+		$(this).find(".attrVal_dropList ul").perfectScrollbar();
 		$(this).find(".attrVal_dropList").show();
 		$(this).parents(".tableRow").siblings().find(".attrVal_dropList").hide();
 	})
@@ -192,8 +203,9 @@ function createMateralDropList(id){
 			materals[ele_id].selectVals.push(select_id);
 		}
 		var selectedVal = `<span data-id='${select_id}'>${select_name}</span>`;
-		$(this).parents(".attrVal").find('.attr_select_val').html(selectedVal);
-		$(this).parents(".attrVal_dropList").hide();
+		console.log($(ele_id).find('.attr_select_val').html(selectedVal));
+		$(this).find('.attr_select_val').html(selectedVal);
+		$(this).find(".attrVal_dropList").hide();
 	})
 	
 	$(document).on("click",function(event){
