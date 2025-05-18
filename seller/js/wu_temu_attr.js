@@ -167,6 +167,7 @@ $(document).on("click",".tableBody .deleteMateral",function(){
 
 function createMateralDropList(id){
 	var ele_id = "attrItem_"+id;
+	console.log(ele_id);
 	$(document).on("click","#"+ele_id+" .attrVal",function(event){
 		event.stopImmediatePropagation();
 		var radio_list = '';
@@ -183,8 +184,8 @@ function createMateralDropList(id){
 		console.log(materals[ele_id]);
 		values.forEach((item,index)=>{
 			radio_list += `<li>
-							<input type="radio" name="attr_${timeStr}_${id}"  id="radio_${item.vid}" data-attrid="${item.vid}" value="${item.value}" ${item.vid==selected_id?'checked':''}/>
-							<label for="radio_${item.vid}">${item.value}</label>
+							<input type="radio" name="attr_${timeStr}_${id}"  data-attrid="${item.vid}" value="${item.value}" ${item.vid==selected_id?'checked':''}/>
+							<label>${item.value}</label>
 						</li>`;
 		})
 		console.log(ele_id)
@@ -198,14 +199,16 @@ function createMateralDropList(id){
 	$(document).on("click","#"+ele_id+" .attrVal ul li",function(event){
 		event.stopImmediatePropagation();
 		var select_id = $(this).find("input[type='radio']").data("attrid");
+		$(this).find("input[type='radio']").prop("checked",true);
+		$(this).siblings("li").find("input[type='radio']").prop("checked",false);
 		var select_name = $(this).find("input[type='radio']").val();
+		console.log(select_name);
 		if(materals[ele_id].selectVals.indexOf(select_id)==-1){
 			materals[ele_id].selectVals.push(select_id);
 		}
 		var selectedVal = `<span data-id='${select_id}'>${select_name}</span>`;
-		console.log($(ele_id).find('.attr_select_val').html(selectedVal));
-		$(this).find('.attr_select_val').html(selectedVal);
-		$(this).find(".attrVal_dropList").hide();
+		$(this).parents(".attrVal").find('.attr_select_val').html(selectedVal);
+		$(this).parents(".attrVal_dropList").hide();
 	})
 	
 	$(document).on("click",function(event){
