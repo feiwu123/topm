@@ -301,11 +301,12 @@
 										</div>
 										<div class="attr_infor">
 											<label>要点</label>
-											<div class="formEle">
-												<div style="display: flex;align-items: center;gap: 16px;">
+											<div class="formEle" id="productImport" style="display: flex;flex-direction: column;gap: 16px;">
+												<div class="mainProducttd" >
 													<div class="inputEle textareaEle" style="flex: 1;">
 														<textarea type="text" id="product_detail_important"></textarea>
 													</div>
+													<span class="cancelYaodian">删除</span>
 												</div>
 												<div class="tips">
 													要点应突出产品的特点和优势，每个要点应保持简短。
@@ -931,6 +932,18 @@
 	    console.log(error);
 	  }
 	});
+	
+	//添加要点
+	$(".add_product_td").on("click",function(){
+		
+		var template1 = `<div class="mainProducttd" >
+							<div class="inputEle textareaEle" style="flex: 1;">
+								<textarea type="text" id="product_detail_important" maxlength="700"></textarea>
+							</div>
+							<span class="cancelYaodian">删除</span>
+						</div>`;
+		$("#productImport").prepend(template1);
+	})
 </script>
 
 
