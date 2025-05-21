@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>弹窗</title>
+		<link rel="stylesheet" href="https://topm.tech/css/index/0308/bootstrap.min.css">
+	</head>
+	<style>
+	#refundProduct{
+		position: fixed;
+		top: 0px;
+		right: 0px;
+		width: 100%;
+		z-index: 999;
+	}
+	#refundProduct .bgCon{
+		background-color: #000;
+		opacity: 0.5;
+		width: 100%;
+		height: 100vh;
+		position: absolute;
+		display: none;
+	}
+	#refundProduct.popup .bgCon{
+		display: block;
+	}
+	#refundProduct .carCon{
+		width: 44%;
+		background-color: #fff;
+		position: absolute;
+		top: 0;
+		right: 0px;
+		height: 100vh;
+		padding: 3rem;
+		transform: translateX(101%);
+		visibility: hidden;
+		overflow: hidden;
+	}
+	#refundProduct.popup .carCon{
+		transform: translateX(0px);
+		visibility: visible;
+		transition: all 300ms;
+	}
+	#refundProduct 	.carCon .topCon{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	#refundProduct 	.contain_info{
+		margin-top: 32px;
+	}
+	#refundProduct 	.contain_info .refundProduct{
+		margin-top: 15px;
+		height: 47px;
+		background: #F8F8F8;
+		border: 1px solid #DCDEE0;
+		line-height: 47px;
+		font-weight: bold;
+		font-size: 15px;
+		color: #C9CACC;
+		padding: 0 16px;
+		white-space: nowrap; /* 防止文本换行 */
+		overflow: hidden; /* 隐藏溢出的内容 */
+		text-overflow: ellipsis; /* 显示省略号来代表被隐藏的文本 */
+	}
+	#refundProduct 	.contain_info .title{
+		font-family: PingFangSC, PingFang SC;
+		font-weight: 600;
+		font-size: 15px;
+		color: #333333;
+	}
+	#refundProduct .deleteIcon{
+		width: 32px;
+		height: 32px;
+	}
+	#refundProduct .selectOptions{
+		height: 47px;
+		background: #F8F8F8;
+		outline: none;
+		width: 100%;
+		border: 0;
+		padding: 0 16px;
+		margin-top: 16px;
+	}
+	#refundProduct .confirmUpload{
+		width: 264px;
+		text-align: center;
+		height: 70px;
+		line-height: 70px;
+		background: #3B4656;
+		border-radius: 8px;
+		color: #fff;
+		cursor: pointer;
+		margin-top: 20px;
+	}
+	#refundProduct .imgList{
+		position: relative;
+	}
+	#refundProduct .imgList .noImg{
+		margin-top: 15px;
+		width: 160px;
+		height: 160px;
+		background: #FFFFFF;
+		border: 2px solid #DCDEE0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	#refundProduct .imgList .uploadImg{
+		position: absolute;
+		left: 0;
+		width: 160px;
+		height: 160px;
+		top:0;
+		opacity: 0;
+		border: 0;
+		outline: none;
+		z-index: 1;
+		cursor: pointer;
+	}
+	#refundProduct .uploadImgList{
+		position: absolute;
+		left: 0;
+		width: 160px;
+		height: 160px;
+		top:0;
+		overflow: hidden;
+		z-index: 2;
+	}
+	#refundProduct .uploadImgList img{
+		width: 100%;
+		object-fit: cover;
+	}
+	#refundProduct .uploadImgList .closeIcon{
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		top: 0;
+		right: 0;
+		cursor: pointer;
+	}
+	</style>
+	<body>
+		
+		<div class="refund" id="refundProduct">
+			<div class="bgCon"></div>
+			<div class="carCon">
+				<div class="topCon">
+					<div class="title" style="font-weight: 600;font-size: 24px;color: #333333;">退换货申请</div>
+					<div class="deleteIcon">
+						<img src="https://topm.tech/images/hzp2/delete.svg">
+					</div>
+				</div>
+				<div class="contain_info">
+					<div>
+						<div class="title">退换货商品名</div>
+						<div class="refundProduct">
+							Xiaomi 14 Ultra 徕卡光学 Summilux 镜头，第三代骁龙®8移动平台，Xiaomi 14…
+						</div>
+					</div>
+					<div style="margin-top: 32px;">
+						<div class="title"><span style="font-weight: 500;font-size: 15px;color: #F42F54;">*</span>选择售后类型</div>
+						<div>
+							<select class="selectOptions">
+								<option>退货</option>
+								<option>换货</option>
+							</select>
+						</div>
+					</div>
+					<div style="margin-top: 32px;">
+						<div class="title"><span style="font-weight: 500;font-size: 15px;color: #F42F54;">*</span>上传图片</div>
+						<div class="imgList">
+							<div class="noImg">
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30px" height="30px" viewBox="0 0 30 30" version="1.1">
+									<g id="退换货-催发货" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+										<g id="弹窗_退换货" transform="translate(-1315, -452)">
+											<g id="弹窗" transform="translate(1194, 0)">
+												<g id="姓" transform="translate(56, 351)">
+													<g id="编组" transform="translate(0, 36)">
+														<g id="ICON/新增" transform="translate(65, 65)">
+															<rect id="矩形" x="0" y="0" width="30" height="30"/>
+															<polygon id="路径" fill="#969799" fill-rule="nonzero" points="13.5714286 13.5714286 13.5714286 5 16.4285714 5 16.4285714 13.5714286 25 13.5714286 25 16.4285714 16.4285714 16.4285714 16.4285714 25 13.5714286 25 13.5714286 16.4285714 5 16.4285714 5 13.5714286"/>
+														</g>
+													</g>
+												</g>
+											</g>
+										</g>
+									</g>
+								</svg>
+							</div>
+							<input type="file" class="uploadImg"/>
+							<div class="uploadImgList">
+								<img src="https://img.ltwebstatic.com/v4/j/spmp/2025/05/09/29/17467869136ed1b42eb90c45cb2660e683e4c0fd9c_square.jpg"/>
+								<div class="closeIcon">
+									<img src="https://topm.tech/images/hzp2/delete.svg">
+								</div> 
+							</div>
+						</div>
+					</div>
+					<div style="display:flex;align-items:center;gap:10px;justify-content:end;">
+						<div class="confirmUpload" >Confirmar carga</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+		
+<style>
+#refundMsg .title{
+	text-align: right;
+	display: flex;
+	justify-content: end;
+}	
+#refundMsg .title .closeIcon{
+	width: 32px;
+	height: 32px;
+}
+#refundMsg .msg{
+	text-align: center;
+	font-weight: 600;
+	font-size: 18px;
+	color: #333333;
+	line-height: 25px;
+}
+#refundMsg .msg_icon{
+	width: 120px;
+	height: 120px;
+	margin: 20px auto;
+	text-align: center;
+}
+#refundMsg .msg .state{
+	font-size: 15px;
+	color: #999999;
+	margin-top: 10px;
+}
+#refundMsg .trunMsgBtn{
+	width: 262px;
+	height: 61px;
+	line-height: 61px;
+	text-align: center;
+	background: #3B4656;
+	border-radius: 6px;
+	margin-top: 40px;
+	color: #fff;
+	margin-left: auto;
+	margin-right: auto;
+	cursor: pointer;
+}
+</style>
+		<div class="modal fade" id="refundMsg" tabindex="-1" role="dialog" aria-labelledby="checkPackagesLabel" aria-hidden="true">
+		    <div class="modal-dialog" role="document">
+		        <div class="modal-content">
+		          <div class="modal-body">
+					<div class="title">
+							<div class="closeIcon">
+								<img src="https://topm.tech/images/hzp2/delete.svg">
+							</div>  
+					</div>
+					<div class="msg_icon">
+						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="120px" height="120px" viewBox="0 0 120 120" version="1.1">
+						    <title>搜索</title>
+						    <g id="退换货-催发货" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+						        <g id="弹窗_申请提交成功" transform="translate(-901, -345)">
+						            <g id="编组-2" transform="translate(586, 289)">
+						                <g id="搜索" transform="translate(315, 56)">
+						                    <g id="ICON" transform="translate(15, 15)">
+						                        <circle id="椭圆形" fill="#F42F54" cx="45" cy="45" r="45"/>
+						                        <g id="打勾" transform="translate(23, 23)" fill="#FFFFFF" fill-rule="nonzero">
+						                            <g transform="translate(3.6667, 10.0833)" id="路径">
+						                                <path d="M32.1654526,0.701511255 L12.9956955,18.1026274 L4.51039334,10.2718848 C4.04139558,9.82765359 3.37207987,9.5696948 2.66591865,9.56101184 C1.95975744,9.55232887 1.28176687,9.79372117 0.797538128,10.2262315 C-0.244658527,11.1582754 -0.268208222,12.6056304 0.743273321,13.5613253 L11.0992833,23.1196848 C11.1045219,23.1257348 11.1113679,23.1306715 11.1192756,23.1341017 C11.118141,23.1404736 11.118141,23.1469522 11.1192756,23.1533241 C11.2895971,23.2911384 11.4818347,23.4083932 11.6904841,23.5017309 C11.7818868,23.5592826 11.8772547,23.6122367 11.9760884,23.660316 C12.2894851,23.7755025 12.6279952,23.8344247 12.9699911,23.8333333 C13.3076032,23.8333333 13.6417744,23.7762579 13.9524697,23.6651217 C14.0512279,23.6169396 14.1465888,23.5639894 14.238074,23.5065365 C14.447547,23.4182765 14.6400933,23.3040733 14.8092825,23.167741 C14.8142566,23.1623522 14.8200135,23.1575089 14.8264187,23.1533241 C14.831013,23.1455802 14.8378977,23.1389606 14.846411,23.1341017 L35.9097243,4.0221882 C36.9276742,3.07164501 36.9177726,1.62530705 35.8868759,0.684691618 C35.4076956,0.245459642 34.7303785,-0.0031722588 34.0217386,0 C33.3130987,0.00323339044 32.6389959,0.257973274 32.1654526,0.701511255 L32.1654526,0.701511255 Z"/>
+						                            </g>
+						                        </g>
+						                    </g>
+						                </g>
+						            </g>
+						        </g>
+						    </g>
+						</svg>
+					</div>
+		            <div class="msg">
+		                <div>退换货申请提交成功</div>
+						<div class="state">请等待平台审核</div>
+		            </div>
+		            <div class="trunMsgBtn">
+		                confirmación
+		            </div>
+		          </div>
+		        </div>
+		    </div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="https://topm.tech/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="https://topm.tech/js/index/0708/bootstrap.min.js"></script>
+<script>
+	$("#refundProduct").addClass("popup");
+	$("#refundProduct").on("click",".deleteIcon",()=>{
+		$("#refundProduct").removeClass("popup");
+	})
+	$("#refundProduct").on("click",".uploadImgList .closeIcon",function(){
+		$(this).parents(".uploadImgList").remove();
+	})
+	
+	$(document).on("click",".confirmUpload",function(){
+		$("#refundProduct").removeClass("popup");
+		$("#refundMsg").modal();
+	})
+	
+	$("#refundMsg").on("click",".closeIcon",function(){
+		$("#refundMsg").modal("hide");
+	})
+	$("#refundMsg").on("click",".trunMsgBtn",function(){
+		$("#refundMsg").modal("hide");
+	})
+</script>
