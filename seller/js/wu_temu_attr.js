@@ -1,4 +1,4 @@
-//动态生成属性
+//动态生成商品属性
 jQuery.multiTemuSelect = function(divselectid,data) {
 	var attr_data = data;
 	var attribute_mode=null;
@@ -167,28 +167,28 @@ $(document).on("click",".tableBody .deleteMateral",function(){
 
 function createMateralDropList(id){
 	var ele_id = "attrItem_"+id;
-	console.log(ele_id);
 	$(document).on("click","#"+ele_id+" .attrVal",function(event){
 		event.stopImmediatePropagation();
 		var radio_list = '';
 		var timeStr = new Date().getTime();
 		var selected_id = $(this).find(".attr_select_val span").data("id");
-		var selectedIndex = materals[ele_id].selectVals.indexOf(selected_id);
-		if(selectedIndex>-1){
-			materals[ele_id].selectVals.splice(selectedIndex,1);
+		var tempArr = JSON.parse(JSON.stringify(materals[ele_id].selectVals));
+		if(selected_id){
+			var selectedIndex = tempArr.indexOf(selected_id);
+			if(selectedIndex>-1){
+				tempArr.splice(selectedIndex,1);
+			}
 		}
 		var values = materals[ele_id].valeus.filter((item,index)=>{
-			return materals[ele_id].selectVals.indexOf(item.vid)>-1?false:true;
+			return tempArr.indexOf(item.vid)>-1?false:true;
 		})
-		console.log(values);
-		console.log(materals[ele_id]);
+		
 		values.forEach((item,index)=>{
 			radio_list += `<li>
 							<input type="radio" name="attr_${timeStr}_${id}"  data-attrid="${item.vid}" value="${item.value}" ${item.vid==selected_id?'checked':''}/>
 							<label>${item.value}</label>
 						</li>`;
 		})
-		console.log(ele_id)
 		$(this).find(".attrVal_dropList ul").html(radio_list);
 		$(this).find(".attrVal_dropList ul").perfectScrollbar("destroy");
 		$(this).find(".attrVal_dropList ul").perfectScrollbar();
@@ -199,16 +199,40 @@ function createMateralDropList(id){
 	$(document).on("click","#"+ele_id+" .attrVal ul li",function(event){
 		event.stopImmediatePropagation();
 		var select_id = $(this).find("input[type='radio']").data("attrid");
+		var oldSelectId = $(this).parents(".attrVal").find(".attr_select_val span").data("id");
+		//如果存在这个id就先找出来，删除掉
+		if(oldSelectId && oldSelectId != select_id && materals[ele_id].selectVals.indexOf(oldSelectId)>-1){
+			console.log(materals[ele_id].selectVals.indexOf(oldSelectId));
+			materals[ele_id].selectVals.splice(materals[ele_id].selectVals.indexOf(oldSelectId),1);
+		}
 		$(this).find("input[type='radio']").prop("checked",true);
 		$(this).siblings("li").find("input[type='radio']").prop("checked",false);
 		var select_name = $(this).find("input[type='radio']").val();
-		console.log(select_name);
 		if(materals[ele_id].selectVals.indexOf(select_id)==-1){
 			materals[ele_id].selectVals.push(select_id);
 		}
+		console.log(materals);
 		var selectedVal = `<span data-id='${select_id}'>${select_name}</span>`;
 		$(this).parents(".attrVal").find('.attr_select_val').html(selectedVal);
 		$(this).parents(".attrVal_dropList").hide();
+	})
+	
+	//计算所有百分比加起来等于100%
+	$(document).on("blur","#"+ele_id+" .materalValue",function(event){
+		var percentage = parseInt($(this).val())?parseInt($(this).val()):0;
+		var totalPercentage = 0;
+		$(this).parents(".tableRow").siblings(".tableRow").find(".materalValue").each((index,item)=>{
+			var tNum = parseInt($(item).val())?parseInt($(item).val()):0
+			totalPercentage = totalPercentage + tNum;
+		})
+		if(totalPercentage+percentage>100){
+			$(this).val('');
+			$(this).parent().addClass('red-border');
+		}else{
+			totalPercentage = totalPercentage+percentage;
+			$(this).parent().removeClass('red-border');
+		}
+		$(this).parents("#"+ele_id).find(".zongji span").eq(1).html(totalPercentage+'%');
 	})
 	
 	$(document).on("click",function(event){
@@ -392,3 +416,20 @@ function generateMultiSelect(divselectid){
 	$(divselectid).find('.attr_select_val').prepend(select_html);
 }
 
+
+jQuery.multiTemuSale = function(divselectid,data) {
+	if(Array.isArray(data)){
+		var templateStr = "";
+		data.forEach((item)=>{
+			var tempId = item.parentSpecId;
+			var name = item.parentSpecName;
+			templateStr += `<div class="sale_props_item">
+								<input type="checkbox" id="sale_prop_${tempId}"/>
+								<label for="sale_prop_${tempId}">${name}</label>
+							</div>`;
+		})
+		$(divselectid).html(templateStr);
+	}else{
+		console.log("数据传入不是数组！")	
+	}
+}

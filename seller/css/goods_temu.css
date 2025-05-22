@@ -991,3 +991,15 @@ table {
 	min-height: 30px!important;
 	height: 30px;
 }
+#productImport .cancelYaodian{
+	    font-size: 14px;
+	    color: #165BD5;
+	    height: 30px;
+	    line-height: 30px;
+	    cursor: pointer;
+}
+.mainProducttd{
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}

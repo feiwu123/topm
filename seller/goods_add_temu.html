@@ -301,11 +301,12 @@
 										</div>
 										<div class="attr_infor">
 											<label>要点</label>
-											<div class="formEle">
-												<div style="display: flex;align-items: center;gap: 16px;">
+											<div class="formEle" id="productImport" style="display: flex;flex-direction: column;gap: 16px;">
+												<div class="mainProducttd" >
 													<div class="inputEle textareaEle" style="flex: 1;">
 														<textarea type="text" id="product_detail_important"></textarea>
 													</div>
+													<span class="cancelYaodian">删除</span>
 												</div>
 												<div class="tips">
 													要点应突出产品的特点和优势，每个要点应保持简短。
@@ -548,47 +549,8 @@
 									<div class="sale_props_list">
 										<div class="select_sale_props">
 											<div class="title">变体类型</div>
-											<div class="sale_props_content">
-												<div class="sale_props_item">
-													<input type="checkbox" id="sale_prop_1"/>
-													<label for="sale_prop_1">颜色</label>
-												</div>
-												<div class="sale_props_item">
-													<input type="checkbox" id="sale_prop_2"/>
-													<label for="sale_prop_2">尺寸</label>
-												</div>
-												<div class="sale_props_item">
-													<input type="checkbox" id="sale_prop_3"/>
-													<label for="sale_prop_3">风格</label>
-												</div>
-												<div class="sale_props_item">
-													<input type="checkbox" id="sale_prop_4"/>
-													<label for="sale_prop_4">材质</label>
-												</div>
-												<div class="sale_props_item">
-													<input type="checkbox" id="sale_prop_5"/>
-													<label for="sale_prop_5">口味</label>
-												</div>
-												<div class="sale_props_item">
-													<input type="checkbox" id="sale_prop_6"/>
-													<label for="sale_prop_6">适用人群</label>
-												</div>
-												<div class="sale_props_item">
-													<input type="checkbox" id="sale_prop_7"/>
-													<label for="sale_prop_7">容量</label>
-												</div>
-												<div class="sale_props_item">
-													<input type="checkbox" id="sale_prop_8"/>
-													<label for="sale_prop_8">成分</label>
-												</div>
-												<div class="sale_props_item">
-													<input type="checkbox" id="sale_prop_9"/>
-													<label for="sale_prop_9">重量</label>
-												</div>
-												<div class="sale_props_item">
-													<input type="checkbox" id="sale_prop_10"/>
-													<label for="sale_prop_10">品类</label>
-												</div>
+											<div class="sale_props_content" id="temu_sale_props">
+												
 											</div>
 										</div>	
 										<div class="salePropsList">
@@ -963,12 +925,25 @@
 		inputMaxSpecNum = jsonData.inputMaxSpecNum;
 		singleSpecValueNum = jsonData.singleSpecValueNum;
 		$.multiTemuSelect("#attrgroups",jsonData.templateInfo);
+		$.multiTemuSale("#temu_sale_props",jsonData.userInputParentSpecList);
 	  },
 	  error: function(xhr, status, error) {
 	    // 当请求发生错误时的处理代码
 	    console.log(error);
 	  }
 	});
+	
+	//添加要点
+	$(".add_product_td").on("click",function(){
+		
+		var template1 = `<div class="mainProducttd" >
+							<div class="inputEle textareaEle" style="flex: 1;">
+								<textarea type="text" id="product_detail_important" maxlength="700"></textarea>
+							</div>
+							<span class="cancelYaodian">删除</span>
+						</div>`;
+		$("#productImport").prepend(template1);
+	})
 </script>
 
 
