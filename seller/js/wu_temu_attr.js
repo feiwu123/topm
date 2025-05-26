@@ -56,16 +56,40 @@ function createInputEle(data){
 	if(is_requried){
 		require_html = '<span class="required red">*</span>';
 	}
+	var unit_list = "";
+	var unit_ele = "";
+	if(Array.isArray(data.valueUnitList) && data.valueUnitList.length>0){
+		data.valueUnitList.forEach((item,index)=>{
+			unit_list += `<li>
+							<input type="radio" name="unit_${attr_id}"  id="unit_${attr_id}_${item.valueUnitId}" data-unitid="${item.valueUnitId}" value="${item.valueUnit}" ${is_requried?'required':''}/>
+							<label for="unit_${attr_id}_${item.valueUnitId}">${item.valueUnit}</label>
+						</li>`;	
+		})
+		unit_ele = `<div class="valueUnit">
+						<div class="attr_select_val">
+						</div>
+						<div class="icons"><span class="iconfont icon-ICON-xia"></span></div>
+						<div class="attrVal_dropList">
+							<ul>
+								${unit_list}
+							</ul>
+						</div>
+					</div>`;
+	}
 	var template1 = `<div class="attrItem" id="attrItem_${attr_id}" data-required="${is_requried}">
 						<div class="attrName">
 							${attr_name}${require_html}
 						</div>
-						<div class="attrVal" data-name="${attr_name}">
-							<input type="text" class="attr_val_input" name="attr_val_${attr_id}" ${is_requried?'required':''} data-maxValue="${data.maxValue}" data-minValue="${data.minValue}"/>
+						<div style="display:flex;gap:10px;">
+							<div class="attrVal" data-name="${attr_name}">
+								<input type="text" class="attr_val_input" name="attr_val_${attr_id}" ${is_requried?'required':''} data-maxValue="${data.maxValue}" data-minValue="${data.minValue}"/>
+							</div>
+							${unit_ele}
 						</div>
 						<div class="red error_tips"></div>
 					</div>`;
-	inputAttenEvent("#attrItem_"+attr_id);				
+	inputAttenEvent("#attrItem_"+attr_id);	
+	bindUnitEvent("#attrItem_"+attr_id);		
 	return 	template1;			
 }
 
@@ -257,33 +281,53 @@ function createRadioEle(data){
 						<label for="radio_${item.vid}">${item.value}</label>
 					</li>`;
 	})
-	var zdy_ele = '';
-
+	var unit_list = '';
+	var unit_ele = "";
+	if(Array.isArray(data.valueUnitList) && data.valueUnitList.length>0){
+		data.valueUnitList.forEach((item,index)=>{
+			unit_list += `<li>
+							<input type="radio" name="unit_${attr_id}"  id="unit_${attr_id}_${item.valueUnitId}" data-unitid="${item.valueUnitId}" value="${item.valueUnit}" ${is_requried?'required':''}/>
+							<label for="unit_${attr_id}_${item.valueUnitId}">${item.valueUnit}</label>
+						</li>`;	
+		})
+		unit_ele = `<div class="valueUnit">
+						<div class="attr_select_val">
+						</div>
+						<div class="icons"><span class="iconfont icon-ICON-xia"></span></div>
+						<div class="attrVal_dropList">
+							<ul>
+								${unit_list}
+							</ul>
+						</div>
+					</div>`;
+	}
 	var template1 = `<div class="attrItem" id="attrItem_${attr_id}" data-required="${is_requried}">
 						<div class="attrName">
 							${attr_name}${require_html}
 						</div>
-						<div class="attrVal">
-							<div class="attr_select_val">
+						<div style="display:flex;gap:10px;">
+							<div class="attrVal">
+								<div class="attr_select_val">
+								</div>
+								<div class="icons"><span class="iconfont icon-ICON-xia"></span></div>
+								<div class="attrVal_dropList">
+									<ul>
+										${radio_list}
+									</ul>
+								</div>
 							</div>
-							<div class="icons"><span class="iconfont icon-ICON-xia"></span></div>
-							<div class="attrVal_dropList">
-								<ul>
-									${radio_list}
-								</ul>
-								${zdy_html}
-							</div>
+							${unit_ele}
 						</div>
 					</div>`;
 					
 	selectAttenEvent("#attrItem_"+attr_id,1);
+	bindUnitEvent("#attrItem_"+attr_id);
 	return 	template1;
 }
 function createCheckboxEle(data){
 	var attr_name = data.name;
 	var attr_id = data.refPid;
 	var attr_type = data.control_type;
-	var zdy_html = '';
 	var is_requried = data.is_requried;
 	var require_html = '';
 	if(is_requried){
@@ -296,24 +340,46 @@ function createCheckboxEle(data){
 						<label for="checkbox_${item.vid}">${item.value}</label>
 					</li>`;
 	})
+	var unit_list = "";
+	var unit_ele = "";
+	if(Array.isArray(data.valueUnitList) && data.valueUnitList.length>0){
+		data.valueUnitList.forEach((item,index)=>{
+			unit_list += `<li>
+							<input type="radio" name="unit_${attr_id}"  id="unit_${attr_id}_${item.valueUnitId}" data-unitid="${item.valueUnitId}" value="${item.valueUnit}" ${is_requried?'required':''}/>
+							<label for="unit_${attr_id}_${item.valueUnitId}">${item.valueUnit}</label>
+						</li>`;	
+		})
+		unit_ele = `<div class="valueUnit">
+						<div class="attr_select_val">
+						</div>
+						<div class="icons"><span class="iconfont icon-ICON-xia"></span></div>
+						<div class="attrVal_dropList">
+							<ul>
+								${unit_list}
+							</ul>
+						</div>
+					</div>`;
+	}
 	var template1 = `<div class="attrItem" id="attrItem_${attr_id}" data-required="${is_requried}">
 						<div class="attrName">
 							${attr_name}${require_html}
 						</div>
-						<div class="attrVal">
-							<div class="attr_select_val multi_select">
-								
+						<div style="display:flex;gap:10px;">
+							<div class="attrVal">
+								<div class="attr_select_val multi_select">	
+								</div>
+								<div class="icons"><span class="iconfont icon-ICON-xia"></span></div>
+								<div class="attrVal_dropList">
+									<ul>
+										${checkbox_list}
+									</ul>
+								</div>
 							</div>
-							<div class="icons"><span class="iconfont icon-ICON-xia"></span></div>
-							<div class="attrVal_dropList">
-								<ul>
-									${checkbox_list}
-								</ul>
-								${zdy_html}
-							</div>
-						</div>
+							${unit_ele}
+						</div>	
 					</div>`;
-	selectAttenEvent("#attrItem_"+attr_id,2);				
+	selectAttenEvent("#attrItem_"+attr_id,2);
+	bindUnitEvent("#attrItem_"+attr_id);
 	return 	template1;
 }
 
@@ -398,6 +464,27 @@ function selectAttenEvent(divselectid,type){
 		var chebox_id = "#checkbox_"+attr_val_id;
 		$(this).parent('.selected_val').remove();
 		$(chebox_id).prop('checked',false);
+	})
+	
+	$(document).on("click",function(event){
+		 $(divselectid+" .attrVal_dropList").hide();
+	});
+}
+//绑定下拉单位
+function bindUnitEvent(divselectid){
+	$(document).on("click",divselectid+' .valueUnit',function(event){
+		event.stopImmediatePropagation();
+		$(this).find(".attrVal_dropList").show();
+		$(divselectid).siblings().find(".attrVal_dropList").hide();
+		var topOffset = $(divselectid+' .valueUnit').height() + 6;
+		$(divselectid+' .valueUnit .attrVal_dropList').css('top',topOffset+'px');
+	})
+	
+	$(document).on("click",divselectid+' .valueUnit ul li',function(event){
+		event.stopImmediatePropagation();
+		let selectVal = $(divselectid+'  .valueUnit .attrVal_dropList input[type=radio]:checked').prop('value');
+		$(divselectid+' .valueUnit .attr_select_val').html(selectVal);
+		$(divselectid+" .valueUnit .attrVal_dropList").hide();
 	})
 	
 	$(document).on("click",function(event){

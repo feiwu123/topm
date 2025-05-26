@@ -1003,3 +1003,55 @@ table {
 	align-items: center;
 	gap: 16px;
 }
+
+
+/* temu单位 */
+.attrItem .valueUnit{
+	width: 200px;
+	height: 36px;
+	background: #FFFFFF;
+	border-radius: 2px;
+	border: 1px solid #DCDEE0;
+	box-sizing: border-box;
+	margin-top: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+	padding: 0 16px;
+}
+.attrItem .valueUnit .icons{
+	color: #DCDEE0;
+}
+.attrItem .valueUnit .attrVal_dropList {
+    position: absolute;
+    width: 100%;
+    height: fit-content;
+    background-color: #fff;
+    z-index: 99;
+    top: 40px;
+    left: 0;
+    padding: 16px;
+    box-sizing: border-box;
+    border: 1px solid #DCDEE0;
+    display: none;
+}
+.attrItem .valueUnit .attrVal_dropList  ul {
+    max-height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.cubeBox{
+	display: flex;
+	gap: 5px;
+	flex-direction: column;
+}
+.cubeBox .cubeNum input{
+	border: 1px solid #DCDEE0;
+	padding: 0 8px;
+	outline: none;
+	margin-right: 5px;
+	margin-left: 5px;
+	width: 150px;
+}

@@ -685,8 +685,16 @@
 														</div>
 													</td>
 													<td class="td">
-														<div class="eleInput inputEle">
-															<input type="text" class="materalValue"/>
+														<div class="cubeBox" >
+															<div class="cubeNum cubeBox_length">
+																<span>长</span><input type="number" class="cubeNumval" /><span>cm</span>
+															</div>
+															<div class="cubeNum cubeBox_width">
+																<span>宽</span><input type="number" class="cubeNumval"  /><span>cm</span>
+															</div>
+															<div class="cubeNum cubeBox_height">
+																<span>高</span><input type="number" class="cubeNumval" /><span>cm</span>
+															</div>
 														</div>
 													</td>
 													<td class="td">
@@ -1123,7 +1131,7 @@
 		$("#productImport").prepend(template1);
 	})
 	
-	$("#popAddSKUimages").modal();
+	//$("#popAddSKUimages").modal();
 	$(document).on("click","#popAddSKUimages .icon-guanbi",function(){
 		$(this).parent(".hasimg").remove();
 	})
