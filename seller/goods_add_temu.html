@@ -8,6 +8,9 @@
 		<link rel="stylesheet" type="text/css" href="./css/index.css" />
 		<link rel="stylesheet" type="text/css" href="./css/goods_temu.css" />
 		
+		<link rel="stylesheet" type="text/css" href="https://topm.tech/css/index/0308/bootstrap.min.css" />
+		
+		
 		<!-- 滚动条样式 -->
 		<link rel="stylesheet" type="text/css" href="https://ayamcn.com/js/perfect-scrollbar/perfect-scrollbar.min.css"/>
 		<!-- 引入字体文件 -->
@@ -682,8 +685,16 @@
 														</div>
 													</td>
 													<td class="td">
-														<div class="eleInput inputEle">
-															<input type="text" class="materalValue"/>
+														<div class="cubeBox" >
+															<div class="cubeNum cubeBox_length">
+																<span>长</span><input type="number" class="cubeNumval" /><span>cm</span>
+															</div>
+															<div class="cubeNum cubeBox_width">
+																<span>宽</span><input type="number" class="cubeNumval"  /><span>cm</span>
+															</div>
+															<div class="cubeNum cubeBox_height">
+																<span>高</span><input type="number" class="cubeNumval" /><span>cm</span>
+															</div>
 														</div>
 													</td>
 													<td class="td">
@@ -907,10 +918,185 @@
 				</div>
 			</div>	
 		</div>
+		
+		
+		<!-- 添加SKU图片 -->
+<style>
+#popAddSKUimages .modal-dialog{
+	width: 900px;
+	transform: translate(0, 10vh);
+}
+#popAddSKUimages .modal-body{
+	padding: 32px 24px 40px 24px;
+}
+#popAddSKUimages .title{
+	font-weight: 600;
+	font-size: 18px;
+	color: #333333;
+}
+#popAddSKUimages .tips{
+	margin-top: 12px;
+}
+#popAddSKUimages .imagesList{
+	margin-top: 12px;
+	display: flex;
+	gap: 24px;
+	flex-wrap: wrap;
+}
+#popAddSKUimages .imagesList .imageSKUitem{
+	width: 120px;
+	height: 120px;
+	border-radius: 6px;
+	border: 2px solid #DCDEE0;
+	border-style: dotted;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#popAddSKUimages .imagesList .imageSKUitem .icon-xinzeng{
+	font-size: 30px;
+	color: #969799;
+}
+#popAddSKUimages .imagesList .uploadSKUImg{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	z-index: 2;
+	cursor: pointer;
+}
+#popAddSKUimages .imagesList .imageSKUitem .hasimg{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9;
+}
+#popAddSKUimages .imagesList .imageSKUitem .hasimg img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+#popAddSKUimages .imagesList .imageSKUitem .hasimg .icon-guanbi{
+	position: absolute;
+	top: 0;
+	right: 0;
+	cursor: pointer;
+}
+#popAddSKUimages .msg_btns{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 40px;
+	gap: 24px;
+}
+#popAddSKUimages .msg_btns .msg_btn{
+	width: 106px;
+	height: 38px;
+	background: #FFFFFF;
+	border-radius: 6px;
+	border: 1px solid #CCCCCC;
+	text-align: center;
+	line-height: 38px;
+	font-size: 14px;
+	color: #333333;
+	cursor: pointer;
+}
+#popAddSKUimages .msg_btns .msg_btn.ok{
+	background-color: #1D1D1D;
+	color: #fff;
+}
+</style>
+<div class="modal fade" id="popAddSKUimages" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+	<div class="modal-dialog" role="document">
+		<div class="closeBtn" data-dismiss="modal" aria-label="Close" style="position: absolute;right: 24px;top:24px; cursor: pointer;z-index: 1;">
+			<img src="https://topm.tech/images/hzp2/delete.svg" style="width: 18px;height: 18px;">
+		</div>
+		<div class="modal-content">
+			<div class="modal-body">
+				<div class="uploadList">
+					<div class="uploadCon">
+						<div class="title">
+							上传 SKU 图片
+						</div>
+						<div class="tips">
+							上传图片大小不超过3MB，宽高比为3:4，宽度≥1340px，高度≥1785px。上传1-10张图片。您可以在上传后重新调整图片顺序。您可以选择并 一次上传多张图片 并在上传后调整顺序。
+						</div>
+					</div>
+					<div class="uploadCon" style="margin-top: 24px;">
+						<div class="title">
+							SKU 图片<span class="red">*</span>
+						</div>
+						<div class="tips">
+							提供更多 SKU 图片，例如主图、不同尺寸、不同场景、不同角度的商品图片。请确保所有上传的图片均符合我们的指南，因为不符合指南的图片可能会导致产品无法列出和/或访问首先。
+						</div>
+					</div>
+					<div class="imagesList">
+						<div class="imageSKUitem no_pic">
+							<span class="iconfont icon-xinzeng"></span>
+							<input type="file" class="uploadSKUImg" name="skuImage1"/>
+							<div class="hasimg">
+								<span class="delete iconfont icon-guanbi"></span>
+								<img src="https://img.kwcdn.com/local-goods-image-g/201365d3339/a4c50bbb-9100-48e8-8472-490f9f1ca20d_1080x1080.png" />
+							</div>
+						</div>
+						<div class="imageSKUitem no_pic">
+							<span class="iconfont icon-xinzeng"></span>
+							<input type="file" class="uploadSKUImg" name="skuImage2"/>
+						</div>
+						<div class="imageSKUitem no_pic">
+							<span class="iconfont icon-xinzeng"></span>
+							<input type="file" class="uploadSKUImg" name="skuImage3"/>
+						</div>
+						<div class="imageSKUitem no_pic">
+							<span class="iconfont icon-xinzeng"></span>
+							<input type="file" class="uploadSKUImg" name="skuImage4"/>
+						</div>
+						<div class="imageSKUitem no_pic">
+							<span class="iconfont icon-xinzeng"></span>
+							<input type="file" class="uploadSKUImg" name="skuImage5"/>
+						</div>
+						<div class="imageSKUitem no_pic">
+							<span class="iconfont icon-xinzeng"></span>
+							<input type="file" class="uploadSKUImg" name="skuImage6"/>
+						</div>
+						<div class="imageSKUitem no_pic">
+							<span class="iconfont icon-xinzeng"></span>
+							<input type="file" class="uploadSKUImg" name="skuImage7"/>
+						</div>
+						<div class="imageSKUitem no_pic">
+							<span class="iconfont icon-xinzeng"></span>
+							<input type="file" class="uploadSKUImg" name="skuImage8"/>
+						</div>
+						<div class="imageSKUitem no_pic">
+							<span class="iconfont icon-xinzeng"></span>
+							<input type="file" class="uploadSKUImg" name="skuImage9"/>
+						</div>
+						<div class="imageSKUitem no_pic">
+							<span class="iconfont icon-xinzeng"></span>
+							<input type="file" class="uploadSKUImg" name="skuImage10"/>
+						</div>
+					</div>
+				</div>
+				<div class="msg_btns">
+					<div class="cancel msg_btn" data-dismiss="modal" aria-label="Close" data-dismiss="modal" aria-label="Close">取消</div>
+					<div class="ok msg_btn"> 确认</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+		
 	</body>
 </html>
 <script type="text/javascript" src="https://ayamcn.com/js/jquery-1.9.1.min.js"></script>
 <script src="https://ayamcn.com/js/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+
+<script src="https://topm.tech/js/index/0708/bootstrap.min.js"></script>
 <script src="js/wu_temu_attr.js"></script>
 <script>
 	//属性展示
@@ -943,6 +1129,11 @@
 							<span class="cancelYaodian">删除</span>
 						</div>`;
 		$("#productImport").prepend(template1);
+	})
+	
+	//$("#popAddSKUimages").modal();
+	$(document).on("click","#popAddSKUimages .icon-guanbi",function(){
+		$(this).parent(".hasimg").remove();
 	})
 </script>
 
