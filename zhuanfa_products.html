@@ -12,17 +12,11 @@
 		<link rel="stylesheet" href="https://ayamcn.com/css/user/0707/user.css">
 		<link rel="stylesheet" href="https://ayamcn.com/css/index/0708/paganition.css">
 		
-		<title>用户中心_TOPM</title>
+		
+		<title>转发商品列表</title>
 		<meta name="facebook-domain-verification" content="4dfym18tcu2qzz0tpo7z1gtk6oq03t">
-<script>
-    function loadScript(a){
-        var b=document.getElementsByTagName("head")[0],c=document.createElement("script");
-            c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)
-    }
-    loadScript(function(){
-        beTracker.t({hash:"7ced7523b237663ea3b0650f2c6907a3"})}
-    );
-</script><script type="text/javascript" src="https://tracker.metricool.com/resources/be.js"></script>	</head>
+
+</head>
 
 	<body>
 		<div class="app row user_con">
@@ -32,6 +26,8 @@
 <link rel="stylesheet" href="https://ayamcn.com/css/index/0708/shoppingCar.css">
 <link rel="stylesheet" href="https://ayamcn.com/css/index/0708/common/user.css">
 <link rel="stylesheet" href="https://ayamcn.com/css/common/toast.css">
+
+		<link rel="stylesheet" href="https://topm.tech/css/index/0708/category.css?d=2"/>
 <script>
  function resizeFont() {
 			//获取屏幕宽度
@@ -179,42 +175,16 @@
 <style>
 .memberList{
 	background-color: #fff;
-	padding: 24px;
+	padding: 24px 18px;
 	border-radius: 8px;
 	margin-top: 16px;
 }
-.memberList .thead{
-	padding: 0 24px;
-	background-color: #F4F4F4;
+.memberList .productList{
+	margin-top: 0;
+	gap: 12px;
 }
-.memberList .thead .cell{
-	height: 52px;
-	line-height: 52px;
-	font-size: 14px;
-	color: #333333;
-}
-.tbody .trow{
-	padding: 0 24px;
-	background-color: #fff;
-}
-.tbody .trow .cell{
-	height: 70px;
-	display: inline-flex;
-	align-items: center;
-	font-size: 14px;
-	border-bottom: 1px solid #EDEDED;
-}
-.tbody .trow .cell.caozuo{
-	display: flex;
-	justify-content: space-around;
-}
-.tbody .trow .unbind{
-	color: #165BD5;
-	cursor: pointer;
-}
-.tbody .trow .renew{
-	color: #F42F54;
-	cursor: pointer;
+.memberList .productList .productItem{
+	width: 225px;
 }
 .member_types{
 	width: 100%;
@@ -240,96 +210,127 @@
 	background-color: #3B4656;
 	color: #fff;
 }
-.memberImg{
-	width: 100%;
-}
-.memberImg img{
-	width: 100%;
-	aspect-ratio: 1052 / 90;
-}
-.memberTips{
-	height: 54px;
-	background: rgba(22,91,213,0.05);
-	border-radius: 8px;
-	border: 1px solid #165BD5;
-	display: flex;
-	align-items: center;
-	gap: 8px;
-	color: #165BD5;
-	margin-top: 16px;
-	padding: 0 24px;
-}
-.memberList_title{
-	display: flex;
-	justify-content: space-between;
-}
-.memberList_title .title{
-	font-weight: 400;
-	font-size: 20px;
-	color: #333333;
-}
-.memberList_title .bind_member{
-	height: 45px;
-	background: #FFFFFF;
-	border-radius: 4px;
-	border: 1px solid #D5D5D5;
-	line-height: 45px;
-	padding: 0 16px;
-	cursor: pointer;
-	color: #333333;
-	cursor: pointer;
-}
-.memberList .table{
-	margin-top: 24px;
-}
+
 </style>				
 				<div class="info_con col-lg-9 col-md-9" style="display: ;">
 					<div class="member_types">
-						<div class="member_type_btn all active">全部</div>
-						<div class="member_type_btn zyin">shein自营账号</div>
-						<div class="member_type_btn btg">shein半托管账号</div>
-						<div class="member_type_btn mkd">mkd账号</div>
+						<div class="member_type_btn all active">所有商品</div>
+						<div class="member_type_btn shein">shein</div>
+						<div class="member_type_btn tiktok">TIKTOK</div>
+						<div class="member_type_btn temu">TEMU</div>
 					</div>
 					<div class="memberList">
-						<div class="memberList_title">
-							<div class="title">店铺绑定列表</div>
-							<div class="bind_member">绑定新店铺</div>
-						</div>
-						<div class="table">
-						  <div class="row thead">
-						    <div class="cell col-lg-3 col-md-3 col-sm-3">自营账号昵称</div>
-						    <div class="cell col-lg-2 col-md-2 col-sm-2">平台</div>
-							<div class="cell col-lg-2 col-md-2 col-sm-2">绑定时间</div>
-							<div class="cell col-lg-2 col-md-2 col-sm-2">开通时间</div>
-							<div class="cell col-lg-2 col-md-2 col-sm-2">到期时间</div>
-							<div class="cell col-lg-1 col-md-1 col-sm-1">操作</div>
-						  </div>
-						  <div class="row tbody">
-							<div class="trow">
-								<div class="cell col-lg-3 col-md-3 col-sm-3">Neshcire Aheb轻奢男装</div>
-								<div class="cell col-lg-2 col-md-2 col-sm-2">shein自营账号</div>
-								<div class="cell col-lg-2 col-md-2 col-sm-2 flex-column"><span>2023-10-21 </br> 10:00:00</span></div>
-								<div class="cell col-lg-2 col-md-2 col-sm-2 flex-column"><span>2023-10-21 </br> 10:00:00</span></div>
-								<div class="cell col-lg-2 col-md-2 col-sm-2 flex-column"><span>2023-10-21 </br> 10:00:00</span></div>
-								<div class="cell col-lg-1 col-md-1 col-sm-1 caozuo">
-									<span class="unbind">解绑</span>
-									<span class="renew"><a>续费</a></span>
-								</div>
-							</div>
-							<div class="trow">
-								<div class="cell col-lg-3 col-md-3 col-sm-3">Neshcire Aheb轻奢男装</div>
-								<div class="cell col-lg-2 col-md-2 col-sm-2">shein自营账号</div>
-								<div class="cell col-lg-2 col-md-2 col-sm-2 flex-column"><span>2023-10-21 </br> 10:00:00</span></div>
-								<div class="cell col-lg-2 col-md-2 col-sm-2 flex-column"><span>2023-10-21 </br> 10:00:00</span></div>
-								<div class="cell col-lg-2 col-md-2 col-sm-2 flex-column"><span>2023-10-21 </br> 10:00:00</span></div>
-								<div class="cell col-lg-1 col-md-1 col-sm-1 caozuo">
-									<span class="unbind">解绑</span>
-									<span class="renew"><a>续费</a></span>
-								</div>
-							</div>
+						<div class="productList">
+						    <div class="productItem">
+								<a href="goods.php?id=12009" title="Cargador Tipo C To Tipo C 20W Carga Rápida Con Cable C A C" target="_blank">
+									<div class="productItem_img">
+										<div class="isInsure">
+											<img src="https://topm.tech/images/shield-check-fill.svg" />
+											<div class="showInsureTxt">
+												该商品有供应商保险
+											</div>
+										</div>
+										<img src="https://img.ltwebstatic.com/v4/j/spmp/2025/06/14/90/17498719296d122bc0f85e8b69391e5ac112b9302e_square.jpg" alt="Cargador Tipo C To Tipo C 20W Carga Rápida Con Cable C A C" title="Cargador Tipo C To Tipo C 20W Carga Rápida Con Cable C A C">
+									</div>
+									<div class="productName">Cargador Tipo C To Tipo C 20W Carga Rápida Con Cable C A C</div>
+									
+									<div class="price">
+										$ 70.25 MXN
+									</div>
 
-						  </div>
+								</a>
+							</div>
+							<div class="productItem">
+								<a href="goods.php?id=11941" title="1 Talco infantil en polvo 100g" target="_blank">
+									<div class="productItem_img">
+										<img src="https://img.ltwebstatic.com/v4/j/spmp/2025/06/14/72/1749831539b0c4a65bef20b97ef8a632e375279e93_square.jpg" alt="1 Talco infantil en polvo 100g" title="1 Talco infantil en polvo 100g">
+									</div>
+									<div class="productName">1 Talco infantil en polvo 100g</div>
+									<div class="price">
+										$ 35.00 MXN
+									</div>
+								</a>
+							</div>
+							<div class="productItem">
+								<a href="goods.php?id=11940" title="2 bolsitas transparentes colgantes perfumados" target="_blank">
+									<div class="productItem_img">
+										<img src="https://img.ltwebstatic.com/v4/j/spmp/2025/06/14/d7/1749831435b15684586b3fb74853823ace51c58a6b_square.jpg" alt="2 bolsitas transparentes colgantes perfumados" title="2 bolsitas transparentes colgantes perfumados">
+									</div>
+									<div class="productName">2 bolsitas transparentes colgantes perfumados</div>
+									<div class="price">
+										$ 33.00 MXN
+									</div>
+								</a>
+							</div>
+							<div class="productItem">
+								<a href="goods.php?id=11939" title="2 colgantes perfumados con bolsas de colores" target="_blank">
+									<div class="productItem_img">
+										<img src="https://img.ltwebstatic.com/v4/j/spmp/2025/06/14/ef/1749831218fc6405d19ef90a066a0c40e81223a947_square.jpg" alt="2 colgantes perfumados con bolsas de colores" title="2 colgantes perfumados con bolsas de colores">
+									</div>
+									<div class="productName">2 colgantes perfumados con bolsas de colores</div>
+									<div class="price">
+										$ 33.00 MXN
+									</div>
+								</a>
+							</div>
+							<div class="productItem">
+								<a href="goods.php?id=11741" title="1 protector solar 100ml" target="_blank">
+									<div class="productItem_img">
+										<img src="https://img.ltwebstatic.com/v4/j/spmp/2025/06/13/41/1749771554e7241901112d5f459601942e35b2edc3_square.jpg" alt="1 protector solar 100ml" title="1 protector solar 100ml">
+									</div>
+									<div class="productName">1 protector solar 100ml</div>
+									<div class="price">
+										$ 39.00 MXN
+									</div>
+								</a>
+							</div>
+							<div class="productItem">
+								<a href="goods.php?id=11740" title="1 crema para sudor caliente 50g" target="_blank">
+									<div class="productItem_img">
+										<img src="https://img.ltwebstatic.com/v4/j/spmp/2025/06/13/22/1749771464af4cb3c06ad9e016cff24d6b028f8070_square.jpg" alt="1 crema para sudor caliente 50g" title="1 crema para sudor caliente 50g">
+									</div>
+									<div class="productName">1 crema para sudor caliente 50g</div>
+									<div class="price">
+										$ 42.00 MXN
+									</div>
+								</a>
+							</div>
+							<div class="productItem">
+								<a href="goods.php?id=11730" title="1 tinte para el cabello morado brillante" target="_blank">
+									<div class="productItem_img">
+										<img src="https://img.ltwebstatic.com/v4/j/spmp/2025/06/13/6a/1749770191f30dd79022f636031d4db0aa23ee4c05_square.jpg" alt="1 tinte para el cabello morado brillante" title="1 tinte para el cabello morado brillante">
+									</div>
+									<div class="productName">1 tinte para el cabello morado brillante</div>
+									<div class="price">
+										$ 47.00 MXN
+									</div>
+								</a>
+							</div>
+							<div class="productItem">
+								<a href="goods.php?id=11729" title="1 tinte para el cabello, rojo uva" target="_blank">
+									<div class="productItem_img">
+										<img src="https://img.ltwebstatic.com/v4/j/spmp/2025/06/13/bc/174977006808e167abb22a817dfb4e9eeaaa60c9e7_square.jpg" alt="1 tinte para el cabello, rojo uva" title="1 tinte para el cabello, rojo uva">
+									</div>
+									<div class="productName">1 tinte para el cabello, rojo uva</div>
+									<div class="price">
+										$ 47.00 MXN
+									</div>
+								</a>
+							</div>
+							<div class="productItem">
+								<a href="goods.php?id=11728" title="1 tinte para el cabello color uva morado" target="_blank">
+									<div class="productItem_img">
+										<img src="https://img.ltwebstatic.com/v4/j/spmp/2025/06/13/31/17497699655145f036bbb2d493c51abd3ffc2de3a9_square.jpg" alt="1 tinte para el cabello color uva morado" title="1 tinte para el cabello color uva morado">
+									</div>
+									<div class="productName">1 tinte para el cabello color uva morado</div>
+									<div class="price">
+										$ 47.00 MXN
+									</div>
+								</a>
+							</div>
+							
 						</div>
+						
 						
 						<div class="paginaition">
 						            	    <a href="index.php?page=0" style="display: none;">
@@ -387,7 +388,7 @@
 		</div>
 	
 	<div class="footer" style="text-align: center;color: #333333;font-size: 14px;margin-top: 120px;">
-	Copyright 2024 © AYAMCN.COM
+	Copyright 2024 © Topm.tech
 </div>
 
 <style>
