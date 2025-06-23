@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;"><head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+		
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" href="https://ayamcn.com/css/index/0308/bootstrap.min.css">
+		
+		<link rel="stylesheet" href="https://ayamcn.com/css/index/0429/common.css">
+		<link rel="stylesheet" href="https://ayamcn.com/css/flow/0628/jquery.mCustomScrollbar.min.css">
+		<link rel="stylesheet" href="https://ayamcn.com/css/user/0707/user.css">
+		<link rel="stylesheet" href="https://topm.tech/css/index/0708/category.css?d=2">
+		<link rel="stylesheet" href="https://ayamcn.com/css/index/0708/paganition.css">
+		
+		<title>用户中心_转发商品历史记录</title>
+	<body>
+		<div class="app row user_con">
+			<div>
+				<link rel="stylesheet" href="/css/index/0429/common.css?t=1.0">
+<link rel="stylesheet" href="https://ayamcn.com/css/index/0708/topCon.css">
+<link rel="stylesheet" href="https://ayamcn.com/css/index/0708/shoppingCar.css">
+<link rel="stylesheet" href="https://ayamcn.com/css/index/0708/common/user.css">
+<link rel="stylesheet" href="https://ayamcn.com/css/common/toast.css">
+<script>
+ function resizeFont() {
+			//获取屏幕宽度
+			let clientWidth = document.documentElement.clientWidth || document.body.clientWidth;
+			//设计图参考宽度
+			let design = 1920;
+			if (clientWidth >= 1920){
+				document.getElementsByTagName('html')[0].style.fontSize = '16px';
+			}else if(clientWidth < 1920 && clientWidth > 1200){
+				document.getElementsByTagName('html')[0].style.fontSize = clientWidth / design * 16 + 'px';
+			}else{
+				document.getElementsByTagName('html')[0].style.fontSize = clientWidth / design *40 + 'px';
+			}
+		}
+		resizeFont();
+</script>
+
+<div class="container top">
+	<div class="topCon col-lg-12">
+		<div class="logoCon" style="display: flex;align-items: center;gap: 40px;">
+			<a href="/" title="TOPM" alt="TOPM"><div class="logo">TOPM</div></a>
+			<div class="oneKeypress" style="cursor:pointer;">希音代发</div>
+		</div>
+		<div class="userCenterCon">
+			<div class="userIconsgroups">
+				<div class="userIcon shopCar" id="shopCar">
+					<img src="/images/icons/shop_icon.svg">
+				</div>
+				<div class="userIcon login-skip login_icons" data-href="user.php">
+					<div class="icon">
+						<img src="/images/icons/user_icon.svg">
+						<div class="dropdownMenu">
+								<a href="javascript:;" class="login-skip" data-href="user.php" title="Mi cuenta">
+									<div class="dropItem">
+										Mi cuenta
+									</div>
+								</a>
+								<a href="javascript:;" class="login-skip" data-href="user.php?act=order_list" title="Mis pedidos">
+									<div class="dropItem">
+										Mis pedidos
+									</div>
+								</a>
+								<a href="javascript:;" class="login-skip" data-href="user.php?act=value_card" title="Tarjeta de Regalo">
+									<div class="dropItem">
+										Tarjeta de Regalo
+									</div>
+								</a>
+															<a href="/user.php?act=logout" title="Cerrar sesión">
+									<div class="dropItem">
+										Cerrar sesión
+									</div>
+								</a>
+													</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="searchCon">
+	<div class="container">
+		<div class="searchInner">
+			<div class="categoryIcon">
+				<div class="cateIcon">
+					<img src="/images/icons/menu_icon.svg">
+				</div>
+				<div class="categoryTxt">
+					全部商品
+				</div>
+			</div>
+			<form action="index.php" name="search" method="get" class="search_form" id="searchForm">
+				<div class="searchInput">
+					<div class="searchEle">
+						<label class="labelName">请输入想要搜索的商品</label>
+						<input class="searchName" name="keywords" required="">
+						<div class="seachIconEle">
+							<img class="searchIcon" src="/images/icons/search_icon.svg" onclick="document.forms[0].submit()">
+						</div>
+					</div>
+				</div>
+			</form>
+			<div class="balance">
+				<div class="balance_icon">
+					<img src="/images/icons/bags_icon.svg">
+				</div>
+				<div class="balance_value">
+					<span>余额:</span>
+					<span>0</span>
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>			</div>
+			<div class="person_center container">
+				<div class="my_info_menu col-lg-3 col-md-3">
+					<!-- <div class="avator">
+						<div class="avator_img">
+							<img src="themes/ecmoban_dsc2017/images/hzp/BEAURLY-LOGO.png" width="104" height="104">
+						</div>
+						<div class="user_name">739842930@qq.com</div>
+						<div class="user_mail" style="display: none;"></div>
+					</div> -->
+					<div class="menu_list">
+					    <ul>
+	<li>
+		<div class="parentLi expand" data-haschild="true">
+			<span>Mi mensaje</span>
+			<span class="icons">
+				<img src="/images/hzp2/dadd.svg">
+			</span>
+		</div>
+		<div class="childList expandList">
+			<div class="item" style="display: none;">Página principal</div>
+			<div class="item login-skip " data-href="user.php">首页</div>
+			<div class="item login-skip " data-href="user.php?act=order_list">Mis pedidos</div>
+			<div class="item login-skip " data-href="user.php?act=address_list">Dirección de entrega</div>
+			<div class="item login-skip " data-href="user.php?act=return_list">Mis devoluciones</div>
+			<div class="item login-skip " data-href="user.php?act=wholesale_order_list">Mis mayorista</div>
+		</div>
+	</li>
+	<li>
+		<div class="parentLi noChild">
+			<span>Información de cuenta</span>
+			<span class="icons">
+				<img src="/images/hzp2/dadd.svg">
+			</span>
+		</div>
+		<div class="childList">
+			<div class="item login-skip " data-href="user.php?act=profile">Mi perfil</div>
+			<div class="item login-skip " data-href="user.php?act=collection_list">Mis favoritos</div>
+			<div class="item login-skip " data-href="user.php?act=affiliate">Mis recomendados</div>
+			<div class="item login-skip " data-href="user.php?act=comment_list">Lista de reseñas</div>
+			<div class="item login-skip " data-href="user.php?act=take_list"></div>
+			<div class="item login-skip " data-href="user.php?act=complaint_list">Disputas</div>
+			<div class="item login-skip " data-href="user.php?act=value_card">Tarjeta de regalos</div>
+			<div class="item login-skip " data-href="user.php?act=coupons">Mis cupones</div>
+			<div class="item login-skip " data-href="user.php?act=coupons">余额</div>
+			<div class="item login-skip " data-href="user.php?act=coupons">配置</div>
+			<div class="item login-skip active" data-href="">会员与店铺配置</div>
+		</div>
+	</li>
+</ul>
+</div>
+</div>
+<style>
+.memberList{
+	background-color: #fff;
+	padding: 24px;
+	border-radius: 8px;
+	margin-top: 16px;
+}
+.memberList .thead{
+	padding: 0 24px;
+	background-color: #F4F4F4;
+}
+.memberList .thead .cell{
+	height: 52px;
+	line-height: 52px;
+	font-size: 14px;
+	color: #333333;
+}
+.tbody.productList{
+	display: block;
+	margin: 0;
+}
+.tbody.productList .productItem{
+	padding: 0;
+	width: 100%;
+	max-width: 100%;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+.tbody.productList .productItem .name{
+	font-weight: 800;
+	font-size: 16px;
+	color: #333333;
+	font-weight: 800;
+	font-size: 16px;
+	line-height: 20px;
+	color: #333333;
+	line-clamp: 2;
+}
+.tbody.productList .productItem .props{
+	font-weight: 400;
+	font-size: 14px;
+	color: #999999;
+}
+.tbody.productList .productItem .price{
+	font-weight: 600;
+	font-size: 18px;
+	color: #F42F54;
+	line-height: 25px;
+}
+.tbody .trow{
+	padding: 0 24px;
+	background-color: #fff;
+}
+.tbody .trow .cell{
+	height: 160px;
+	display: inline-flex;
+	align-items: center;
+	font-size: 14px;
+	border-bottom: 1px solid #EDEDED;
+}
+.tbody .trow .cell.caozuo{
+	display: flex;
+	justify-content: space-around;
+}
+.tbody .trow .delete{
+	color: #165BD5;
+	cursor: pointer;
+	text-decoration: underline;
+}
+.tbody .trow .renew{
+	color: #F42F54;
+	cursor: pointer;
+}
+.member_types{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 24px;
+	background-color: #fff;
+	padding: 18px 24px;
+	margin-top: 16px;
+}
+.member_types .member_type_btn{
+	width: 181px;
+	height: 42px;
+	line-height: 42px;
+	border-radius: 4px;
+	background-color: #F8F8F8;
+	font-size: 16px;
+	color: #666666;
+	text-align: center;
+	cursor: pointer;
+}
+.member_types .member_type_btn.active{
+	background-color: #3B4656;
+	color: #fff;
+}
+.memberImg{
+	width: 100%;
+}
+.memberImg img{
+	width: 100%;
+	aspect-ratio: 1052 / 90;
+}
+.memberTips{
+	height: 54px;
+	background: rgba(22,91,213,0.05);
+	border-radius: 8px;
+	border: 1px solid #165BD5;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	color: #165BD5;
+	margin-top: 16px;
+	padding: 0 24px;
+}
+.memberList_title{
+	display: flex;
+	justify-content: space-between;
+}
+.memberList_title .title{
+	font-weight: 400;
+	font-size: 20px;
+	color: #333333;
+}
+.memberList_title .bind_member{
+	height: 45px;
+	background: #FFFFFF;
+	border-radius: 4px;
+	border: 1px solid #D5D5D5;
+	line-height: 45px;
+	padding: 0 16px;
+	cursor: pointer;
+	color: #333333;
+	cursor: pointer;
+}
+.memberList .table{
+	margin-top: 24px;
+}
+.table .productInfor .productImg{
+	width: 108px;
+	height: 108px;
+	object-fit: contain;
+	aspect-ratio: 1/1;
+}
+.table .productInfor .productImg img{
+	width: 100%;
+	aspect-ratio: 1/1;
+	object-fit: contain;
+}
+</style>				
+				<div class="info_con col-lg-9 col-md-9" style="display: ;">
+					<div class="memberList">
+						<div class="memberList_title">
+							<div class="title">转发商品记录</div>
+							<div class="filterList">
+								<select class="cite" id="order_status">
+									<option id="order_status_-1"><a href="javascript:void(0);" data-idtxt="status_list" data-action="order_list" data-type="order_status" data-id="-1" data-value="-1">Todos los estados</a></option>
+									<option id="order_status_0" data-idtxt="status_list" data-action="order_list" data-type="order_status" data-id="0" data-value="0">Confirmación pendiente</option>
+									<option id="order_status_100" data-idtxt="status_list" data-action="order_list" data-type="order_status" data-id="100" data-value="100">Pago pendiente</option>
+									<option id="order_status_101" data-idtxt="status_list" data-action="order_list" data-type="order_status" data-id="101" data-value="101">Envío pendiente</option>
+									<option id="order_status_103" data-idtxt="status_list" data-action="order_list" data-type="order_status" data-id="103" data-value="103">productos por confirmar</option>
+									<option id="order_status_102" data-idtxt="status_list" data-action="order_list" data-type="order_status" data-id="102" data-value="102">completado</option>
+									<option id="order_status_1" data-idtxt="status_list" data-action="order_list" data-type="order_status" data-id="1" data-value="1">En pago</option>
+									<option id="order_status_2" data-idtxt="status_list" data-action="order_list" data-type="order_status" data-id="2" data-value="2">cancelar</option>
+									<option id="order_status_3" data-idtxt="status_list" data-action="order_list" data-type="order_status" data-id="3" data-value="3">invalido</option>
+									<option id="order_status_4" data-idtxt="status_list" data-action="order_list" data-type="order_status" data-id="4" data-value="4">Regresar productos</option>
+									<option id="order_status_6" data-idtxt="status_list" data-action="order_list" data-type="order_status" data-id="6" data-value="6">Envío parcial</option>
+								</select>
+								<select class="dateTime" id="dateTime">
+									<option id="time_allDate" data-idtxt="submitDate" data-action="order_list" data-type="dateTime" data-id="allDate" data-value="allDate">Tiempo total</option>
+									<option id="time_today" data-idtxt="submitDate" data-action="order_list" data-type="dateTime" data-id="today" data-value="today">Hoy</option>
+									<option id="time_three_today" data-idtxt="submitDate" data-action="order_list" data-type="dateTime" data-id="three_today" data-value="three_today">three today</option>
+									<option id="time_aweek" data-idtxt="submitDate" data-action="order_list" data-type="dateTime" data-id="aweek" data-value="aweek">aweek</option>
+									<option id="time_thismonth" data-idtxt="submitDate" data-action="order_list" data-type="dateTime" data-id="thismonth" data-value="thismonth">un mes</option>
+								</select>
+								<input name="order_submitDate" type="hidden" value="allDate" id="dateTime_val">
+							</div>
+						</div>
+						<div class="table">
+						  <div class="row thead">
+						    <div class="cell col-lg-5 col-md-5 col-sm-5">商品</div>
+						    <div class="cell col-lg-2 col-md-2 col-sm-2">转发店铺</div>
+							<div class="cell col-lg-2 col-md-2 col-sm-2">商品状态</div>
+							<div class="cell col-lg-2 col-md-2 col-sm-2">库存状态</div>
+							<div class="cell col-lg-1 col-md-1 col-sm-1">操作</div>
+						  </div>
+						  <div class="row tbody productList">
+							<div class="trow">
+								<div class="cell col-lg-5 col-md-5 col-sm-5">
+									<div class="productInfor productItem ">
+										<div class="productImg">
+											<div class="productItem_img">
+												<div class="isInsure">
+													<img src="https://topm.tech/images/shield-check-fill.svg" />
+													<div class="showInsureTxt">
+														该商品有供应商保险
+													</div>
+												</div>
+												<img src="https://img.ltwebstatic.com/v4/j/spmp/2025/06/14/90/17498719296d122bc0f85e8b69391e5ac112b9302e_square.jpg" alt="Cargador Tipo C To Tipo C 20W Carga Rápida Con Cable C A C" title="Cargador Tipo C To Tipo C 20W Carga Rápida Con Cable C A C">
+											</div>
+										</div>
+										<div class="productDetail">
+											<div class="name">
+												Cargador Tipo C To Tipo C 20W Carga Rápida Con Cable C A C
+											</div>
+											<div class="props">
+												Número de producto:US-A702-1pz
+											</div>
+											<div class="price">
+												$99.00MXN
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="cell col-lg-2 col-md-2 col-sm-2">店铺名称店铺名称店铺名称</div>
+								<div class="cell col-lg-2 col-md-2 col-sm-2">商品下架</div>
+								<div class="cell col-lg-2 col-md-2 col-sm-2">库存不足</div>
+								<div class="cell col-lg-1 col-md-1 col-sm-1 caozuo">
+									<span class="delete">删除</span>
+								</div>
+							</div>
+							<div class="trow">
+								<div class="cell col-lg-5 col-md-5 col-sm-5">
+									<div class="productInfor productItem ">
+										<div class="productImg">
+											<div class="productItem_img">
+												<div class="isInsure">
+													<img src="https://topm.tech/images/shield-check-fill.svg" />
+													<div class="showInsureTxt">
+														该商品有供应商保险
+													</div>
+												</div>
+												<img src="https://img.ltwebstatic.com/v4/j/spmp/2025/06/14/90/17498719296d122bc0f85e8b69391e5ac112b9302e_square.jpg" alt="Cargador Tipo C To Tipo C 20W Carga Rápida Con Cable C A C" title="Cargador Tipo C To Tipo C 20W Carga Rápida Con Cable C A C">
+											</div>
+										</div>
+										<div class="productDetail">
+											<div class="name">
+												Cargador Tipo C To Tipo C 20W Carga Rápida Con Cable C A C
+											</div>
+											<div class="props">
+												Número de producto:US-A702-1pz
+											</div>
+											<div class="price">
+												$99.00MXN
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="cell col-lg-2 col-md-2 col-sm-2">店铺名称店铺名称店铺名称</div>
+								<div class="cell col-lg-2 col-md-2 col-sm-2">商品下架</div>
+								<div class="cell col-lg-2 col-md-2 col-sm-2">库存不足</div>
+								<div class="cell col-lg-1 col-md-1 col-sm-1 caozuo">
+									<span class="delete">删除</span>
+								</div>
+							</div>
+
+						  </div>
+						</div>
+						
+						<div class="paginaition">
+						            	    <a href="index.php?page=0" style="display: none;">
+						    <div class="pagitItem last">
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30px" height="30px" viewBox="0 0 30 30" version="1.1">
+								    <g id="效果图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								        <g id="首页" transform="translate(-1354, -1625)">
+								            <g id="上一页" transform="translate(1354, 1625)">
+								                <rect id="矩形" fill="#F8F8F8" x="0" y="0" width="30" height="30"></rect>
+								                <g id="下" transform="translate(15, 15) rotate(-270) translate(-15, -15)translate(7, 7)" fill="#999999" fill-rule="nonzero">
+								                    <g id="下拉" transform="translate(1.3333, 4.3333)">
+								                        <path d="M6.6666623,7.33333333 C6.48137404,7.33333333 6.3038218,7.26018958 6.17412002,7.13038938 L0.197115736,1.14973436 C-0.0695065485,0.882985637 -0.0650859556,0.45477645 0.206944479,0.193331327 C0.478951406,-0.0680907209 0.915625063,-0.0638017101 1.18220031,0.202970069 L6.6666623,5.69078099 L12.1511243,0.202970069 C12.4176996,-0.063824785 12.8543262,-0.0681829751 13.1263801,0.193331327 C13.3984341,0.454799502 13.4028312,0.882985637 13.1362089,1.14973436 L7.15920459,7.13038938 C7.02950281,7.26018958 6.8519741,7.33333333 6.6666623,7.33333333 Z" id="路径"></path>
+								                    </g>
+								                </g>
+								            </g>
+								        </g>
+								    </g>
+								</svg>
+						    </div>
+						</a>
+						
+							    <div class="pagitItem active">1</div>
+						    	    <a href="index.php?page=2"><div class="pagitItem">2</div></a>
+						    	    <a href="index.php?page=3"><div class="pagitItem">3</div></a>
+						    
+						<a href="index.php?page=2">
+						    <div class="pagitItem next">
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30px" height="30px" viewBox="0 0 30 30" version="1.1">
+								    <g id="效果图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								        <g id="首页" transform="translate(-1630, -1625)">
+								            <g id="分页" transform="translate(1354, 1625)">
+								                <g id="下一页" transform="translate(291, 15) scale(-1, 1) translate(-291, -15)translate(276, 0)">
+								                    <rect id="矩形" fill="#F8F8F8" x="0" y="0" width="30" height="30"></rect>
+								                    <g id="下" transform="translate(15, 15) rotate(-270) translate(-15, -15)translate(7, 7)" fill="#999999" fill-rule="nonzero">
+								                        <g id="下拉" transform="translate(1.3333, 4.3333)">
+								                            <path d="M6.6666623,7.33333333 C6.48137404,7.33333333 6.3038218,7.26018958 6.17412002,7.13038938 L0.197115736,1.14973436 C-0.0695065485,0.882985637 -0.0650859556,0.45477645 0.206944479,0.193331327 C0.478951406,-0.0680907209 0.915625063,-0.0638017101 1.18220031,0.202970069 L6.6666623,5.69078099 L12.1511243,0.202970069 C12.4176996,-0.063824785 12.8543262,-0.0681829751 13.1263801,0.193331327 C13.3984341,0.454799502 13.4028312,0.882985637 13.1362089,1.14973436 L7.15920459,7.13038938 C7.02950281,7.26018958 6.8519741,7.33333333 6.6666623,7.33333333 Z" id="路径"></path>
+								                        </g>
+								                    </g>
+								                </g>
+								            </g>
+								        </g>
+								    </g>
+								</svg>
+						    </div>
+						</a>            		
+						</div>
+					</div>	
+			
+				
+				
+				
+				</div>
+				
+			</div>	
+		</div>
+	
+	<div class="footer" style="text-align: center;color: #333333;font-size: 14px;margin-top: 120px;">
+	Copyright 2024 © TOPM.COM
+</div>
+
+<script type="text/javascript" src="https://ayamcn.com/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="https://ayamcn.com/js/index/0708/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://ayamcn.com/js/flow/0629/jquery.mCustomScrollbar.concat.min.js"></script>
+<script>
+	
+</script>
