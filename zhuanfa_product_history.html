@@ -54,27 +54,27 @@
 					<div class="icon">
 						<img src="/images/icons/user_icon.svg">
 						<div class="dropdownMenu">
-								<a href="javascript:;" class="login-skip" data-href="user.php" title="Mi cuenta">
-									<div class="dropItem">
-										Mi cuenta
-									</div>
-								</a>
-								<a href="javascript:;" class="login-skip" data-href="user.php?act=order_list" title="Mis pedidos">
-									<div class="dropItem">
-										Mis pedidos
-									</div>
-								</a>
-								<a href="javascript:;" class="login-skip" data-href="user.php?act=value_card" title="Tarjeta de Regalo">
-									<div class="dropItem">
-										Tarjeta de Regalo
-									</div>
-								</a>
-															<a href="/user.php?act=logout" title="Cerrar sesión">
-									<div class="dropItem">
-										Cerrar sesión
-									</div>
-								</a>
-													</div>
+							<a href="javascript:;" class="login-skip" data-href="user.php" title="Mi cuenta">
+								<div class="dropItem">
+									Mi cuenta
+								</div>
+							</a>
+							<a href="javascript:;" class="login-skip" data-href="user.php?act=order_list" title="Mis pedidos">
+								<div class="dropItem">
+									Mis pedidos
+								</div>
+							</a>
+							<a href="javascript:;" class="login-skip" data-href="user.php?act=value_card" title="Tarjeta de Regalo">
+								<div class="dropItem">
+									Tarjeta de Regalo
+								</div>
+							</a>
+							<a href="/user.php?act=logout" title="Cerrar sesión">
+								<div class="dropItem">
+									Cerrar sesión
+								</div>
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -317,11 +317,69 @@
 	aspect-ratio: 1/1;
 	object-fit: contain;
 }
-</style>				
+</style>
+<style>
+.searchandFilter{
+	display: flex;
+	justify-content: space-between;
+	height: 95px;
+	background-color: #fff;
+	padding: 24px;
+}
+.searchandFilter .tableSearch{
+	height: 47px;
+	background-color:#F8F8F8;
+	position: relative;
+	max-width: 334px;
+	width: 100%;
+}
+.searchandFilter .tableSearch .seachIconEle{
+	position: absolute;
+	right: 16px;
+	top: 16px;
+	width: 16px;
+}
+.searchandFilter .tableSearch .seachIconEle .searchIcon{
+	width: 100%;
+}
+.searchandFilter .tableSearch input{
+	border: 0;
+	outline: none;
+	width: 100%;
+	background-color: transparent;
+	height: 100%;
+	padding: 0 16px;
+}
+.searchandFilter .filter_con select{
+	outline: none;
+	height: 47px;
+	border: 0;
+	background-color: #F8F8F8;
+}
+.memberList_title .title{
+	font-weight: bold;
+}
+.memberList_title .dropDownBtns{
+	display: flex;
+	gap: 24px;
+}
+.memberList_title .dropDownBtns .dorpBtn{
+	background: #FFFFFF;
+	border-radius: 4px;
+	border: 1px solid #E0E0E0;
+	padding: 11px 24px;
+	cursor: pointer;
+}
+</style>
 				<div class="info_con col-lg-9 col-md-9" style="display: ;">
-					<div class="memberList">
-						<div class="memberList_title">
-							<div class="title">转发商品记录</div>
+					<div class="searchandFilter">
+						<div class="tableSearch">
+							<input type="search" placeholder="请输入关键词"/>
+							<div class="seachIconEle">
+								<img class="searchIcon" src="https://topm.tech/images/icons/search_icon.svg" />
+							</div>
+						</div>
+						<div class="filter_con">
 							<div class="filterList">
 								<select class="cite" id="order_status">
 									<option id="order_status_-1"><a href="javascript:void(0);" data-idtxt="status_list" data-action="order_list" data-type="order_status" data-id="-1" data-value="-1">Todos los estados</a></option>
@@ -344,6 +402,15 @@
 									<option id="time_thismonth" data-idtxt="submitDate" data-action="order_list" data-type="dateTime" data-id="thismonth" data-value="thismonth">un mes</option>
 								</select>
 								<input name="order_submitDate" type="hidden" value="allDate" id="dateTime_val">
+							</div>
+						</div>
+					</div>
+					<div class="memberList">
+						<div class="memberList_title">
+							<div class="title">转发商品记录</div>
+							<div class="dropDownBtns">
+								<div class="onekeyDrop dorpBtn">一键下架</div>
+								<div class="xiajiaMenu dorpBtn">下架清单</div>
 							</div>
 						</div>
 						<div class="table">
