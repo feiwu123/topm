@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;"><head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+		
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" href="https://ayamcn.com/css/index/0308/bootstrap.min.css">
+		
+		<link rel="stylesheet" href="https://ayamcn.com/css/index/0429/common.css">
+		<link rel="stylesheet" href="https://ayamcn.com/css/flow/0628/jquery.mCustomScrollbar.min.css">
+		<link rel="stylesheet" href="https://ayamcn.com/css/user/0707/user.css">
+		<link rel="stylesheet" href="https://topm.tech/css/index/0708/category.css?d=2">
+		<link rel="stylesheet" href="https://ayamcn.com/css/index/0708/paganition.css">
+		
+		<title>用户中心_保险设置</title>
+		
+		<script src="./ai_js/tailwindcss.js"></script>
+		
+		<script defer src="./ai_js/alpinejs.js"></script>
+		
+		<script defer src="./ai_js/lucide@latest.js"></script>
+		
+		<link rel="stylesheet" href="./ai_js/boxicons.min.css" />
+	<body>
+		<div class="app row user_con">
+			<div>
+				<link rel="stylesheet" href="/css/index/0429/common.css?t=1.0">
+<link rel="stylesheet" href="https://ayamcn.com/css/index/0708/topCon.css">
+<link rel="stylesheet" href="https://ayamcn.com/css/index/0708/shoppingCar.css">
+<link rel="stylesheet" href="https://ayamcn.com/css/index/0708/common/user.css">
+<link rel="stylesheet" href="https://ayamcn.com/css/common/toast.css">
+<script>
+ function resizeFont() {
+			//获取屏幕宽度
+			let clientWidth = document.documentElement.clientWidth || document.body.clientWidth;
+			//设计图参考宽度
+			let design = 1920;
+			if (clientWidth >= 1920){
+				document.getElementsByTagName('html')[0].style.fontSize = '16px';
+			}else if(clientWidth < 1920 && clientWidth > 1200){
+				document.getElementsByTagName('html')[0].style.fontSize = clientWidth / design * 16 + 'px';
+			}else{
+				document.getElementsByTagName('html')[0].style.fontSize = clientWidth / design *40 + 'px';
+			}
+		}
+		resizeFont();
+</script>
+
+<div class="container top">
+	<div class="topCon col-lg-12">
+		<div class="logoCon" style="display: flex;align-items: center;gap: 40px;">
+			<a href="/" title="TOPM" alt="TOPM"><div class="logo">TOPM</div></a>
+			<div class="oneKeypress" style="cursor:pointer;">希音代发</div>
+		</div>
+		<div class="userCenterCon">
+			<div class="userIconsgroups">
+				<div class="userIcon shopCar" id="shopCar">
+					<img src="/images/icons/shop_icon.svg">
+				</div>
+				<div class="userIcon login-skip login_icons" data-href="user.php">
+					<div class="icon">
+						<img src="/images/icons/user_icon.svg">
+						<div class="dropdownMenu">
+							<a href="javascript:;" class="login-skip" data-href="user.php" title="Mi cuenta">
+								<div class="dropItem">
+									Mi cuenta
+								</div>
+							</a>
+							<a href="javascript:;" class="login-skip" data-href="user.php?act=order_list" title="Mis pedidos">
+								<div class="dropItem">
+									Mis pedidos
+								</div>
+							</a>
+							<a href="javascript:;" class="login-skip" data-href="user.php?act=value_card" title="Tarjeta de Regalo">
+								<div class="dropItem">
+									Tarjeta de Regalo
+								</div>
+							</a>
+							<a href="/user.php?act=logout" title="Cerrar sesión">
+								<div class="dropItem">
+									Cerrar sesión
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="searchCon">
+	<div class="container">
+		<div class="searchInner">
+			<div class="categoryIcon">
+				<div class="cateIcon">
+					<img src="/images/icons/menu_icon.svg">
+				</div>
+				<div class="categoryTxt">
+					全部商品
+				</div>
+			</div>
+			<form action="index.php" name="search" method="get" class="search_form" id="searchForm">
+				<div class="searchInput">
+					<div class="searchEle">
+						<label class="labelName">请输入想要搜索的商品</label>
+						<input class="searchName" name="keywords" required="">
+						<div class="seachIconEle">
+							<img class="searchIcon" src="/images/icons/search_icon.svg" onclick="document.forms[0].submit()">
+						</div>
+					</div>
+				</div>
+			</form>
+			<div class="balance">
+				<div class="balance_icon">
+					<img src="/images/icons/bags_icon.svg">
+				</div>
+				<div class="balance_value">
+					<span>余额:</span>
+					<span>0</span>
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>			</div>
+			<div class="person_center container">
+				<div class="my_info_menu col-lg-3 col-md-3">
+					<!-- <div class="avator">
+						<div class="avator_img">
+							<img src="themes/ecmoban_dsc2017/images/hzp/BEAURLY-LOGO.png" width="104" height="104">
+						</div>
+						<div class="user_name">739842930@qq.com</div>
+						<div class="user_mail" style="display: none;"></div>
+					</div> -->
+					<div class="menu_list">
+					    <ul>
+	<li>
+		<div class="parentLi expand" data-haschild="true">
+			<span>Mi mensaje</span>
+			<span class="icons">
+				<img src="/images/hzp2/dadd.svg">
+			</span>
+		</div>
+		<div class="childList expandList">
+			<div class="item" style="display: none;">Página principal</div>
+			<div class="item login-skip " data-href="user.php">首页</div>
+			<div class="item login-skip " data-href="user.php?act=order_list">Mis pedidos</div>
+			<div class="item login-skip " data-href="user.php?act=address_list">Dirección de entrega</div>
+			<div class="item login-skip " data-href="user.php?act=return_list">Mis devoluciones</div>
+			<div class="item login-skip " data-href="user.php?act=wholesale_order_list">Mis mayorista</div>
+		</div>
+	</li>
+	<li>
+		<div class="parentLi noChild">
+			<span>Información de cuenta</span>
+			<span class="icons">
+				<img src="/images/hzp2/dadd.svg">
+			</span>
+		</div>
+		<div class="childList">
+			<div class="item login-skip " data-href="user.php?act=profile">Mi perfil</div>
+			<div class="item login-skip " data-href="user.php?act=collection_list">Mis favoritos</div>
+			<div class="item login-skip " data-href="user.php?act=affiliate">Mis recomendados</div>
+			<div class="item login-skip " data-href="user.php?act=comment_list">Lista de reseñas</div>
+			<div class="item login-skip " data-href="user.php?act=take_list"></div>
+			<div class="item login-skip " data-href="user.php?act=complaint_list">Disputas</div>
+			<div class="item login-skip " data-href="user.php?act=value_card">Tarjeta de regalos</div>
+			<div class="item login-skip " data-href="user.php?act=coupons">Mis cupones</div>
+			<div class="item login-skip " data-href="user.php?act=coupons">余额</div>
+			<div class="item login-skip " data-href="user.php?act=coupons">配置</div>
+			<div class="item login-skip active" data-href="">会员与店铺配置</div>
+		</div>
+	</li>
+</ul>
+</div>
+</div>
+<style>
+    /* Switch 基础样式 */
+    .switch {
+      position: relative;
+      display: inline-flex;
+      width: 2.5rem; /* 40px */
+      height: 1.25rem; /* 20px */
+      border-radius: 9999px;
+      background-color: #d1d5db; /* gray-300 */
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+    }
+    .switch span {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 16px;
+      height: 16px;
+      background: #ffffff;
+      border-radius: 9999px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease-in-out;
+    }
+    input:checked + .switch {
+      background-color: #3B4656; /* green-600 */
+    }
+    input:checked + .switch span {
+      transform: translateX(20px);
+    }
+    /* 禁用复选框淡色 */
+    input[type="checkbox"][disabled] {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+	.topTabs button{
+		height: 42px;
+		text-align: center;
+		background-color: #F8F8F8;
+	}
+	.topTabs button.border-b-2{
+		background: #3B4656;
+		border-radius: 4px;
+		border-bottom-width:0;
+		color: #fff;
+	}
+	.info_con input[type=checkbox], input[type=radio]{
+		position: absolute!important;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border-width: 0;
+	}
+  </style>
+				<div class="info_con col-lg-9 col-md-9" x-data="app()" x-init="init()" @keydown.escape.window="isPayOpen = false">
+					<div class="p-6 max-w-7xl mx-auto">
+					    <div class="grid grid-cols-2 mb-6 bg-white topTabs px-8" style="height: 90px;gap:24px;align-items: center;">
+					      <button :class="{'border-b-2 border-primary font-semibold': activeTab==='shops'}" class="py-2" @click="activeTab='shops'">店铺 / 保险设置</button>
+					      <button :class="{'border-b-2 border-primary font-semibold': activeTab==='orders'}" class="py-2" @click="activeTab='orders'">拉单记录</button>
+					    </div>
+					
+					    
+					    <div x-show="activeTab==='shops'" x-transition.opacity.duration.300ms class="space-y-6 bg-white p-8">
+					      
+					      <div class="max-w-lg bg-white rounded-xl shadow p-6">
+					        <h2 class="text-lg font-semibold mb-4">保险偏好设置</h2>
+					        <div class="space-y-4">
+					          <div class="flex items-center justify-between"><span>供应商保险 (强制)</span><span class="text-green-600">已启用</span></div>
+					          <div class="flex items-center justify-between">
+					            <span>商家自选保险默认开启</span>
+					            <label class="inline-flex items-center">
+					              <input type="checkbox" class="sr-only" data-type="insurance" x-model="merchantOpt" />
+					              <div class="switch" :class="merchantOpt ? 'bg-green-600' : 'bg-gray-300'">
+					                <span aria-hidden="true"></span>
+					              </div>
+					            </label>
+					          </div>
+					        </div>
+					      </div>
+					
+					      
+					      <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+					        <template x-for="s in stores" :key="s.id">
+					          <div class="bg-white rounded-xl shadow p-4 flex flex-col gap-4">
+					            <div class="flex items-center gap-2 text-lg font-semibold">
+					              <i data-lucide="store" class="w-5 h-5"></i>
+					              <span x-text="s.name"></span>
+					            </div>
+					            <div class="flex items-center justify-between">
+					              <span class="text-sm" :class="s.status==='expired' ? 'text-red-500' : 'text-green-600'" x-text="s.status==='expired' ? '⚠️ 会员到期' : '✅ 已授权'"></span>
+					              <label class="inline-flex items-center" :class="{'opacity-50 pointer-events-none': s.status==='expired'}">
+					                <input type="checkbox" class="sr-only" data-type="auto" :data-id="s.id" x-model="s.auto" :disabled="s.status==='expired'" />
+					                <div class="switch" :class="s.auto ? 'bg-green-600' : 'bg-gray-300'">
+					                  <span aria-hidden="true"></span>
+					                </div>
+					              </label>
+					            </div>
+					          </div>
+					        </template>
+					        
+					        <button class="bg-white rounded-xl border-2 border-dashed border-gray-300 flex items-center justify-center hover:shadow-md transition p-6" @click="alert('TODO: add store')">
+					          <i data-lucide="plus" class="w-8 h-8 text-gray-400"></i>
+					        </button>
+					      </div>
+					    </div>
+					
+					    
+					    <div x-show="activeTab==='orders'" x-transition.opacity.duration.300ms>
+					      
+					      <div class="flex flex-wrap items-center gap-2 mb-4 bg-white py-4 px-8">
+					        
+							 <input x-model="keyword" type="text" placeholder="搜索订单号 / SKU" class="border rounded px-3 py-1 h-9 max-w-sm" />
+					        <select x-model="platform" class="border rounded px-3 py-1 h-9">
+					          <template x-for="p in ['TIKTOK','TEMU','SHEIN']" :key="p">
+					            <option :value="p" x-text="p"></option>
+					          </template>
+					        </select>
+					        
+					        <div class="flex items-center gap-1">
+					          <input type="datetime-local" x-model="syncStart" class="border rounded px-3 py-1 h-9" placeholder="YYYY-MM-DD" />
+					          <span class="mx-1 text-gray-500">-</span>
+					          <input type="datetime-local" x-model="syncEnd" class="border rounded px-3 py-1 h-9" placeholder="YYYY-MM-DD" />
+					        </div>
+					        <button style="min-width: 110px;text-align: center;" class="h-9 px-4 rounded border text-black border-black-500 hover:bg-black-50 flex justify-center items-center gap-1" @click="syncOrders()">
+					          搜索
+					        </button>
+					        
+					       <!-- <label class="flex items-center gap-1 ml-auto text-sm">
+					          <span>每页</span>
+					          <input type="number" min="1" max="50" class="w-16 border rounded px-1 py-0.5" x-model.number="listPerPage" @input="listPage = 1" />
+					          <span>条 (≤50)</span>
+					        </label> -->
+					      </div>
+					
+					      
+					      <div class="bg-white rounded-xl shadow overflow-x-auto px-8 py-4">
+							 <div class="table_filter flex items-center justify-between">
+								 <div class="font-bold" style="font-size: 20px; ">
+									 拉单记录
+								 </div>
+								 <div class="filte_list flex flex-wrap items-center gap-2">
+									 <button class="h-9 px-4 rounded border text-red-600 border-red-500 hover:bg-red-50 flex items-center gap-1" @click="syncOrders()">
+									   <i data-lucide="refresh-cw" class="w-4 h-4"></i>同步订单
+									 </button>
+									 <button class="h-9 px-3 rounded border flex items-center gap-1" @click="alert('刷新 (demo)')">
+									   <i data-lucide="refresh-ccw" class="w-4 h-4"></i>刷新
+									 </button>
+									 <button class="h-9 px-4 rounded border flex items-center gap-1"
+									         :class="hasMissingLabels ? 'border-orange-500 text-orange-600 hover:bg-orange-50' : 'border-gray-300 text-gray-400 cursor-not-allowed'"
+									         @click="retryLabels()"
+									         :disabled="!hasMissingLabels">
+									   <i data-lucide="file-plus" class="w-4 h-4"></i>重新获取面单
+									 </button>
+									 <button class="h-9 px-4 rounded text-white"
+									         :class="selected.length ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-400 cursor-not-allowed'"
+									         @click="openPay()" :disabled="!selected.length">
+									   批量结算 (<span x-text="selected.length"></span>)
+									 </button>
+								 </div>
+							 </div> 
+					        <table class="min-w-full text-sm mt-4">
+					          <thead class="bg-gray-100">
+					            <tr>
+					              <th class="w-12 p-2 text-left"><input type="checkbox" :checked="pageDisplayOrders.length && selected.includesAll(pageDisplayOrders.filter(o => o.labelPdf))" @change="toggleAll()" /></th>
+					              <th class="p-2 text-left">订单号</th>
+					              <th class="p-2 text-left">店铺</th>
+					              <th class="p-2 text-left">SKU</th>
+					              <th class="p-2 text-left">面单</th>
+					              <th class="p-2 text-left">数量</th>
+					              <th class="p-2 text-left">供应商险</th>
+					              <th class="p-2 text-right">单价</th>
+					            </tr>
+					          </thead>
+					          <tbody>
+					            <template x-for="o in pageDisplayOrders" :key="o.id">
+					              <tr :class="selected.includes(o.id) ? 'bg-gray-50' : ''">
+					                <td class="p-2"><input type="checkbox" :checked="selected.includes(o.id)" @change="toggleSelect(o.id)" :disabled="!o.labelPdf" /></td>
+					                <td class="p-2" x-text="o.id"></td>
+					                <td class="p-2" x-text="o.shop"></td>
+					                <td class="p-2" x-text="o.sku"></td>
+					                <td class="p-2">
+					                  <template x-if="o.labelPdf">
+					                    <span class="text-green-600 flex items-center gap-1"><i data-lucide="file-check" class="inline w-4 h-4"></i>已获取</span>
+					                  </template>
+					                  <template x-if="!o.labelPdf">
+					                    <span class="text-orange-500 flex items-center gap-1"><i data-lucide="file-warning" class="inline w-4 h-4"></i>未获取</span>
+					                  </template>
+					                </td>
+					                <td class="p-2" x-text="o.qty"></td>
+					                <td class="p-2" x-text="o.supplierIns ? '✔️' : '✖️'"></td>
+					                <td class="p-2 text-right">¥<span x-text="o.price"></span></td>
+					              </tr>
+					            </template>
+					          </tbody>
+					        </table>
+							<div class="flex justify-center items-center gap-2 text-sm mt-2">
+							  <button class="border rounded px-2 py-1" @click="prevListPage()" :disabled="listPage===1">首页</button>
+							  <button class="border rounded px-2 py-1" @click="prevListPage()" :disabled="listPage===1">上一页</button>
+							  <span x-text="listPage + ' / ' + totalListPages"></span>
+							  <button class="border rounded px-2 py-1" @click="nextListPage()" :disabled="listPage===totalListPages">下一页</button>
+							  <button class="border rounded px-2 py-1" @click="prevListPage()" :disabled="listPage===1">末页</button>
+							  <div class="routeLink flex justify-center items-center gap-2">
+								  <span>前往</span>
+								  <input x-model="pageIndex" type="text"  class="border rounded px-3 py-1 h-8 w-12">
+								  <button class="border rounded px-2 py-1" @click="prevListPage()" >跳转</button>
+							  </div>
+							</div>
+					      </div>
+					
+					      
+					    </div>
+					  </div>
+
+					  <div x-show="isPayOpen" x-transition class="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+					    <div class="bg-white rounded-xl shadow-xl w-full max-w-3xl p-6" @click.outside="closePay()">
+					      <h3 class="text-lg font-semibold mb-4">批量结算 - <span x-text="platform"></span></h3>
+					      <template x-if="!selectedOrders.length">
+					        <p class="text-center text-gray-400">暂无订单可结算</p>
+					      </template>
+					      <template x-if="selectedOrders.length">
+					        <div class="max-h-[55vh] overflow-y-auto">
+					          <table class="min-w-full text-sm">
+					            <thead class="bg-gray-100">
+					              <tr>
+					                <th class="p-2 text-left">订单号</th>
+					                <th class="p-2 text-left">店铺</th>
+					                <th class="p-2 text-left">SKU</th>
+					                <th class="p-2 text-left">数量</th>
+					                <th class="p-2 text-left">保险</th>
+					                <th class="p-2 text-right">金额</th>
+					              </tr>
+					            </thead>
+					            <tbody>
+					              <template x-for="o in selectedOrders" :key="o.id">
+					                <tr>
+					                  <td class="p-2" x-text="o.id"></td>
+					                  <td class="p-2" x-text="o.shop"></td>
+					                  <td class="p-2" x-text="o.sku"></td>
+					                  <td class="p-2" x-text="o.qty"></td>
+					                  <td class="p-2">
+					                    <template x-if="o.supplierIns">
+					                      <span>供应商已保</span>
+					                    </template>
+					                    <template x-if="!o.supplierIns">
+					                      <label class="inline-flex items-center">
+					                        <input type="checkbox" class="sr-only" :checked="optIns[o.id]" @change="toggleOpt(o.id)" />
+					                        <div class="switch" :class="optIns[o.id] ? 'bg-green-600' : 'bg-gray-300'">
+					                          <span aria-hidden="true"></span>
+					                        </div>
+					                      </label>
+					                    </template>
+					                  </td>
+					                  <td class="p-2 text-right">¥<span x-text="o.qty * o.price + (o.supplierIns ? 0 : (optIns[o.id] ? o.qty * 2 : 0))"></span></td>
+					                </tr>
+					              </template>
+					            </tbody>
+					          </table>
+					
+					          
+					          <div class="border-t pt-2 mt-2 text-sm space-y-1">
+					            <div class="flex justify-between"><span>商品金额</span><span>¥<span x-text="goodsTotal"></span></span></div>
+					            <div class="flex justify-between"><span>自选保险</span><span>¥<span x-text="optTotal"></span></span></div>
+					            <div class="border-t pt-2 font-semibold flex justify-between text-base"><span>应付总额</span><span>¥<span x-text="payable"></span></span></div>
+					          </div>
+					        </div>
+					      </template>
+					      <div class="flex justify-end mt-4 gap-2">
+					        <button class="px-4 py-2 rounded border" @click="closePay()">取消</button>
+					        <button class="px-4 py-2 rounded text-white bg-blue-600 hover:bg-blue-700" :disabled="!selectedOrders.length" @click="pay()">立即付款</button>
+					      </div>
+					    </div>
+					  </div>
+					  
+					<script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
+					  
+					  <script>
+					    /* 小工具：判断数组是否全部包含 */
+					    Array.prototype.includesAll = function(arr) {
+					      return arr.every(item => this.includes(item.id || item));
+					    };
+					
+					    function app() {
+					        var orders = [];
+					        var stores = [];
+					        var merchantOpt = true;
+					   //      $.ajax({
+								// 	url:"insurance.php",
+								// 	type:"post",
+								// 	async:false,
+								// 	data: {act:'getOrders'},
+								// 	dataType: "json",
+								// 	success:function(data){
+								// 	    orders = data.lists;
+								// 	    stores = data.stores;
+								// 	    merchantOpt = data.merchantOpt;
+								// 	}
+								// });
+					      return {
+					        /* --- State --- */
+					        activeTab: 'orders',
+					        platform: 'TIKTOK',
+					        merchantOpt: merchantOpt, // 默认开启
+					        isPayOpen: false,
+					        keyword: '',
+					        selected: [],
+					        listPage: 1,
+							pageIndex:1,
+					        listPerPage: 10, // 列表每页数量 (≤50)
+					        syncStart: '',
+					        syncEnd: '',
+					        stores: stores,
+					        orders: orders,
+					        optIns: {},
+					
+					        /* --- Computed --- */
+					        get displayOrders() {
+					          return this.orders.filter(o => o.platform === this.platform).filter(o => {
+					            return !this.keyword || o.id.includes(this.keyword) || o.sku.includes(this.keyword);
+					          });
+					        },
+					        get totalListPages() {
+					          return Math.max(1, Math.ceil(this.displayOrders.length / this.listPerPage));
+					        },
+					        get pageDisplayOrders() {
+					          const start = (this.listPage - 1) * this.listPerPage;
+					          return this.displayOrders.slice(start, start + this.listPerPage);
+					        },
+					        get selectedOrders() {
+					          return this.orders.filter(o => this.selected.includes(o.id));
+					        },
+					        get goodsTotal() {
+					          return this.selectedOrders.reduce((sum, o) => sum + o.qty * o.price, 0);
+					        },
+					        get optTotal() {
+					          return this.selectedOrders.reduce((sum, o) => {
+					            return o.supplierIns ? sum : sum + (this.optIns[o.id] ? o.qty * 2 : 0);
+					          }, 0);
+					        },
+					        get payable() {
+					          return this.goodsTotal + this.optTotal;
+					        },
+					        get hasMissingLabels() {
+					          return this.displayOrders.some(o => !o.labelPdf);
+					        },
+					
+					        /* --- Methods --- */
+					        toggleSelect(id) {
+					          const order = this.orders.find(o => o.id === id);
+					          if (!order || !order.labelPdf) return; // 无面单不允许选择
+					          if (this.selected.includes(id)) {
+					            this.selected = this.selected.filter(x => x !== id);
+					          } else {
+					            this.selected.push(id);
+					          }
+					        },
+					        toggleAll() {
+					          const idsOnPage = this.pageDisplayOrders.filter(o => o.labelPdf).map(o => o.id);
+					          const allSelected = idsOnPage.every(id => this.selected.includes(id));
+					          console.log(this.displayOrders);
+					          if (allSelected) {
+					            this.selected = this.selected.filter(id => !idsOnPage.includes(id));
+					          } else {
+					            this.selected = [...new Set([...this.selected, ...idsOnPage])];
+					          }
+					        },
+					        nextListPage() {
+					          if (this.listPage < this.totalListPages) this.listPage++;
+					        },
+					        prevListPage() {
+					          if (this.listPage > 1) this.listPage--;
+					        },
+					        openPay() {
+					          if (!this.selectedOrders.length) return;
+					          this.isPayOpen = true;
+					          this.optIns = {};
+					          this.selectedOrders.forEach(o => {
+					            this.optIns[o.id] = this.merchantOpt && !o.supplierIns;
+					          });
+					        },
+					        closePay() {
+					          this.isPayOpen = false;
+					        },
+					        toggleOpt(id) {
+					          this.optIns[id] = !this.optIns[id];
+					        },
+					        pay() {
+					          alert('付款成功 (demo) - 共 ' + this.selectedOrders.length + ' 条');
+					          const paidIds = this.selectedOrders.map(o => o.id);
+					          // 清空已付勾选
+					          this.selected = this.selected.filter(id => !paidIds.includes(id));
+					          this.isPayOpen = false;
+					        },
+					        /* 同步订单 */
+					        syncOrders() {
+					          if (!this.syncStart || !this.syncEnd) {
+					            alert('请选择同步时间段');
+					            return;
+					          }
+					          if (this.syncStart > this.syncEnd) {
+					            alert('开始日期不能晚于结束日期');
+					            return;
+					          }
+					          // TODO: 调用接口拉取 [this.syncStart, this.syncEnd] 时间段内的订单
+					          alert('同步订单：' + this.syncStart + ' 至 ' + this.syncEnd + ' (demo)');
+					        },
+					        /* 批量重新获取面单 */
+					        retryLabels() {
+					          if (!this.hasMissingLabels) return;
+					          const toRetry = this.orders.filter(o => !o.labelPdf && o.platform === this.platform);
+					          // 模拟调用接口后全部成功
+					          alert('已重新请求 ' + toRetry.length + ' 个订单面单 (demo)');
+					          toRetry.forEach(o => {
+					            o.labelPdf = true; // demo：假设成功
+					          });
+					          // 清理可能被选择的无面单订单(安全)
+					          this.selected = this.selected.filter(id => {
+					            const ord = this.orders.find(o => o.id === id);
+					            return ord && ord.labelPdf;
+					          });
+					          this.$nextTick(() => {
+					            if (window.lucide) window.lucide.createIcons();
+					          });
+					        },
+					        init() {
+					          // 渲染 Lucide 图标
+					          this.$nextTick(() => {
+					            if (window.lucide) window.lucide.createIcons();
+					          });
+					        }
+					      };
+					    }
+					    
+					    $(document).ready(function() {
+					        $("input[type=checkbox]").change(function(){
+					            var type = $(this).data("type");
+					            
+					            if(type == 'insurance'){
+					                var insurance = $(this).next("div").hasClass("bg-gray-300")?2:1;
+					                $.ajax({
+					    				url:"insurance.php",
+					    				type:"post",
+					    				async:false,
+					    				data: {act:'change',insurance:insurance},
+					    				dataType: "json",
+					    				success:function(data){
+					    				}
+					    			});
+					            }else if(type == 'auto'){
+					                var auto = $(this).next("div").hasClass("bg-gray-300")?0:1;
+					                var id   = $(this).data("id");
+					                $.ajax({
+					    				url:"insurance.php",
+					    				type:"post",
+					    				async:false,
+					    				data: {act:'changeAuto',id:id,auto,auto},
+					    				dataType: "json",
+					    				success:function(data){
+					    				}
+					    			});
+					            }
+					        })
+					    })
+					  </script>
+				
+				</div>
+				
+			</div>	
+		</div>
+	
+	<div class="footer" style="text-align: center;color: #333333;font-size: 14px;margin-top: 120px;">
+	Copyright 2024 © TOPM.COM
+</div>
+
+<script type="text/javascript" src="https://ayamcn.com/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="https://ayamcn.com/js/index/0708/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://ayamcn.com/js/flow/0629/jquery.mCustomScrollbar.concat.min.js"></script>

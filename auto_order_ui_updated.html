@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auto Order UI (HTML 版) ‑ 更新版</title>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Alpine.js CDN -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <!-- Lucide Icons CDN -->
+  <link href="https://unpkg.com/@lucide/cdn/dist/lucide.min.css" rel="stylesheet">
+  <script defer src="https://unpkg.com/lucide@latest"></script>
+  <!-- 小图标（Font Awesome 6）CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" integrity="sha512-L0AwbSpL1DZ6F4xLDE+AeSfuv+R1bUDMyu7sZ/g5dWHSVAg0SqOnPcaVoZqZXp6w/n6M4lCp0IYLHBScZBqi2Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* 简易 Switch 样式 */
+    .switch {
+      @apply relative inline-flex h-5 w-10 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out;
+    }
+    .switch > span {
+      @apply pointer-events-none inline-block h-4 w-4 translate-x-0 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out;
+    }
+    input:checked + .switch {
+      @apply bg-green-600;
+    }
+    input:checked + .switch > span {
+      @apply translate-x-5;
+    }
+  </style>
+</head>
+<body class="bg-gray-50" x-data="app()" x-init="init()" @keydown.escape.window="isPayOpen = false">
+  <!-- 主容器 -->
+  <div class="p-6 max-w-7xl mx-auto">
+    <!-- Tabs -->
+    <div class="grid grid-cols-2 mb-6">
+      <button :class="{'border-b-2 border-primary font-semibold': activeTab==='shops'}" class="py-2" @click="activeTab='shops'">店铺 / 保险设置</button>
+      <button :class="{'border-b-2 border-primary font-semibold': activeTab==='orders'}" class="py-2" @click="activeTab='orders'">拉单记录</button>
+    </div>
+
+    <!-- 店铺 / 保险设置 -->
+    <div x-show="activeTab==='shops'" x-transition.opacity.duration.300ms class="space-y-6">
+      <!-- 保险偏好设置 -->
+      <div class="max-w-lg bg-white rounded-xl shadow p-6">
+        <h2 class="text-lg font-semibold mb-4">保险偏好设置</h2>
+        <div class="space-y-4">
+          <div class="flex items-center justify-between"><span>供应商保险 (强制)</span><span class="text-green-600">已启用</span></div>
+          <!-- 全局自选保险开关：文本后紧跟开关 -->
+          <div class="flex items-center gap-3">
+            <span>商家自选保险默认开启</span>
+            <label class="inline-flex items-center">
+              <input type="checkbox" class="sr-only" x-model="merchantOpt" />
+              <div class="switch" :class="merchantOpt ? 'bg-green-600' : 'bg-gray-300'">
+                <span aria-hidden="true"></span>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- 店铺列表 -->
+      <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <template x-for="s in stores" :key="s.id">
+          <div class="bg-white rounded-xl shadow p-4 flex flex-col gap-4">
+            <!-- 店铺名称 -->
+            <div class="flex items-center gap-2 text-lg font-semibold">
+              <i data-lucide="store" class="w-5 h-5"></i>
+              <span x-text="s.name"></span>
+            </div>
+            <!-- 授权状态 + 自动拉单开关 -->
+            <div class="flex items-center justify-between">
+              <span class="text-sm" :class="s.status==='expired' ? 'text-red-500' : 'text-green-600'" x-text="s.status==='expired' ? '⚠️ 授权失效' : '✅ 已授权'"></span>
+              <label class="inline-flex items-center" :class="{'opacity-50 pointer-events-none': s.status==='expired'}">
+                <input type="checkbox" class="sr-only" x-model="s.auto" :disabled="s.status==='expired'" />
+                <div class="switch" :class="s.auto ? 'bg-green-600' : 'bg-gray-300'">
+                  <span aria-hidden="true"></span>
+                </div>
+              </label>
+            </div>
+            <!-- 新增：店铺级自选保险开关 -->
+            <div class="flex items-center justify-between">
+              <span class="text-sm">自选保险默认开启</span>
+              <label class="inline-flex items-center" :class="{'opacity-50 pointer-events-none': s.status==='expired'}">
+                <input type="checkbox" class="sr-only" x-model="s.insOpt" :disabled="s.status==='expired'" />
+                <div class="switch" :class="s.insOpt ? 'bg-green-600' : 'bg-gray-300'">
+                  <span aria-hidden="true"></span>
+                </div>
+              </label>
+            </div>
+          </div>
+        </template>
+        <!-- 新增店铺卡片 -->
+        <button class="bg-white rounded-xl border-2 border-dashed border-gray-300 flex items-center justify-center hover:shadow-md transition p-6" @click="alert('TODO: add store')">
+          <i data-lucide="plus" class="w-8 h-8 text-gray-400"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- 拉单记录 -->
+    <div x-show="activeTab==='orders'" x-transition.opacity.duration.300ms>
+      <!-- 操作栏 -->
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <select x-model="platform" class="border rounded px-3 py-1 h-9">
+          <template x-for="p in ['TikTok','TEMU','SHEIN']" :key="p">
+            <option :value="p" x-text="p"></option>
+          </template>
+        </select>
+        <input x-model="keyword" type="text" placeholder="搜索订单号 / SKU" class="border rounded px-3 py-1 h-9 max-w-sm" />
+        <button class="h-9 px-3 rounded border flex items-center gap-1" @click="alert('刷新 (demo)')">
+          <i data-lucide="refresh-ccw" class="w-4 h-4"></i>刷新
+        </button>
+        <button class="h-9 px-4 rounded text-white" :class="selected.length ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-400 cursor-not-allowed'" @click="openPay()" :disabled="!selected.length">
+          批量结算 (<span x-text="selected.length"></span>)
+        </button>
+      </div>
+      <!-- 表格 -->
+      <div class="bg-white rounded-xl shadow overflow-x-auto">
+        <table class="min-w-full text-sm">
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="w-12 p-2 text-left"><input type="checkbox" :checked="displayOrders.length && selected.length===displayOrders.length" @change="toggleAll" /></th>
+              <th class="p-2 text-left">订单号</th>
+              <th class="p-2 text-left">店铺</th>
+              <th class="p-2 text-left">SKU</th>
+              <th class="p-2 text-left">数量</th>
+              <th class="p-2 text-left">供应商险</th>
+              <th class="p-2 text-right">单价</th>
+            </tr>
+          </thead>
+          <tbody>
+            <template x-for="o in displayOrders" :key="o.id">
+              <tr :class="selected.includes(o.id) ? 'bg-gray-50' : ''">
+                <td class="p-2"><input type="checkbox" :checked="selected.includes(o.id)" @change="toggleSelect(o.id)" /></td>
+                <td class="p-2" x-text="o.id"></td>
+                <td class="p-2" x-text="o.shop"></td>
+                <td class="p-2" x-text="o.sku"></td>
+                <td class="p-2" x-text="o.qty"></td>
+                <td class="p-2" x-text="o.supplierIns ? '✔️' : '✖️'"></td>
+                <td class="p-2 text-right">¥<span x-text="o.price"></span></td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 结算 Dialog -->
+  <div x-show="isPayOpen" x-transition class="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+    <div class="bg-white rounded-xl shadow-xl w-full max-w-3xl p-6" @click.outside="closePay()">
+      <h3 class="text-lg font-semibold mb-4">批量结算 - <span x-text="platform"></span></h3>
+      <div class="flex justify-between items-center mb-2 text-sm">
+        <span>订单列表（逐条控制保险）</span>
+        <button class="border rounded px-2 py-1" @click="toggleAllOpt()" :disabled="!selectedOrders.length" x-text="selectedOrders.length && selectedOrders.every(o=>o.supplierIns||optIns[o.id]) ? '取消全选保险' : '全部投保'"></button>
+      </div>
+      <template x-if="!selectedOrders.length">
+        <p class="text-center text-gray-400">未选择订单</p>
+      </template>
+      <template x-if="selectedOrders.length">
+        <div class="max-h-[55vh] overflow-y-auto">
+          <table class="min-w-full text-sm">
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="p-2 text-left">订单号</th>
+                <th class="p-2 text-left">店铺</th>
+                <th class="p-2 text-left">SKU</th>
+                <th class="p-2 text-left">数量</th>
+                <th class="p-2 text-left">保险</th>
+                <th class="p-2 text-right">金额</th>
+              </tr>
+            </thead>
+            <tbody>
+              <template x-for="o in selectedOrders" :key="o.id">
+                <tr>
+                  <td class="p-2" x-text="o.id"></td>
+                  <td class="p-2" x-text="o.shop"></td>
+                  <td class="p-2" x-text="o.sku"></td>
+                  <td class="p-2" x-text="o.qty"></td>
+                  <td class="p-2">
+                    <template x-if="o.supplierIns">
+                      <span>供应商已保</span>
+                    </template>
+                    <template x-if="!o.supplierIns">
+                      <label class="inline-flex items-center">
+                        <input type="checkbox" class="sr-only" :checked="optIns[o.id]" @change="toggleOpt(o.id)" />
+                        <div class="switch" :class="optIns[o.id] ? 'bg-green-600' : 'bg-gray-300'">
+                          <span aria-hidden="true"></span>
+                        </div>
+                      </label>
+                    </template>
+                  </td>
+                  <td class="p-2 text-right">¥<span x-text="o.qty * o.price + (o.supplierIns ? 0 : (optIns[o.id] ? o.qty * 2 : 0))"></span></td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+
+          <!-- 合计 -->
+          <div class="border-t pt-2 mt-2 text-sm space-y-1">
+            <div class="flex justify-between"><span>商品金额</span><span>¥<span x-text="goodsTotal"></span></span></div>
+            <div class="flex justify-between"><span>自选保险</span><span>¥<span x-text="optTotal"></span></span></div>
+            <div class="border-t pt-2 font-semibold flex justify-between text-base"><span>应付总额</span><span>¥<span x-text="payable"></span></span></div>
+          </div>
+        </div>
+      </template>
+      <div class="flex justify-end mt-4 gap-2">
+        <button class="px-4 py-2 rounded border" @click="closePay()">取消</button>
+        <button class="px-4 py-2 rounded text-white bg-blue-600 hover:bg-blue-700" :disabled="!selectedOrders.length" @click="pay()">立即付款</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- App State & Methods -->
+  <script>
+    function app() {
+      return {
+        /* --- State --- */
+        activeTab: 'orders',
+        platform: 'TikTok',
+        merchantOpt: false,
+        isPayOpen: false,
+        keyword: '',
+        selected: [],
+        stores: [
+          { id: 1, name: 'TikTok-旗舰店', status: 'active', auto: false, insOpt: true },
+          { id: 2, name: 'TikTok-折扣店', status: 'expired', auto: false, insOpt: false },
+          { id: 3, name: 'TEMU-精品店',  status: 'active', auto: true,  insOpt: true },
+        ],
+        orders: [
+          { id: '#TK123', platform: 'TikTok', shop: '旗舰店', sku: '夏日短袖', qty: 2, price: 20, supplierIns: true },
+          { id: '#TK124', platform: 'TikTok', shop: '旗舰店', sku: '夏日短袖', qty: 1, price: 20, supplierIns: true },
+          { id: '#TK200', platform: 'TikTok', shop: '折扣店', sku: '彩虹杯', qty: 1, price: 20, supplierIns: false },
+          { id: '#TK201', platform: 'TikTok', shop: '旗舰店', sku: '彩虹杯', qty: 1, price: 20, supplierIns: false },
+          { id: '#TK202', platform: 'TikTok', shop: '旗舰店', sku: '彩虹杯', qty: 2, price: 20, supplierIns: false },
+          { id: '#TM456', platform: 'TEMU',   shop: '精品店', sku: '彩虹杯', qty: 2, price: 20, supplierIns: false },
+        ],
+        optIns: {},
+
+        /* --- Computed --- */
+        get displayOrders() {
+          return this.orders
+            .filter(o => o.platform === this.platform)
+            .filter(o => !this.keyword || o.id.includes(this.keyword) || o.sku.includes(this.keyword));
+        },
+        get selectedOrders() {
+          return this.orders.filter(o => this.selected.includes(o.id));
+        },
+        get goodsTotal() {
+          return this.selectedOrders.reduce((sum, o) => sum + o.qty * o.price, 0);
+        },
+        get optTotal() {
+          return this.selectedOrders.reduce((sum, o) => {
+            return o.supplierIns ? sum : sum + (this.optIns[o.id] ? o.qty * 2 : 0);
+          }, 0);
+        },
+        get payable() {
+          return this.goodsTotal + this.optTotal;
+        },
+
+        /* --- Methods --- */
+        toggleSelect(id) {
+          if (this.selected.includes(id)) {
+            this.selected = this.selected.filter(x => x !== id);
+          } else {
+            this.selected.push(id);
+          }
+        },
+        toggleAll() {
+          const ids = this.displayOrders.map(o => o.id);
+          this.selected = this.selected.length === ids.length ? [] : ids;
+        },
+        openPay() {
+          if (!this.selectedOrders.length) return;
+          this.isPayOpen = true;
+          this.optIns = {};
+          this.selectedOrders.forEach(o => {
+            // 查找店铺对象，用店铺级自选保险开关覆盖全局设置
+            const store = this.stores.find(st => st.name.includes(o.shop));
+            const storeOpt = store ? store.insOpt : false;
+            this.optIns[o.id] = (storeOpt || this.merchantOpt) && !o.supplierIns;
+          });
+        },
+        closePay() {
+          this.isPayOpen = false;
+          this.selected = [];
+        },
+        toggleOpt(id) {
+          this.optIns[id] = !this.optIns[id];
+        },
+        toggleAllOpt() {
+          const allOn = this.selectedOrders.every(o => o.supplierIns || this.optIns[o.id]);
+          this.selectedOrders.forEach(o => {
+            if (!o.supplierIns) this.optIns[o.id] = !allOn;
+          });
+        },
+        pay() {
+          alert('付款成功 (demo)');
+          this.closePay();
+        },
+        init() {
+          // 让 Lucide 渲染图标
+          this.$nextTick(() => {
+            if (window.lucide) window.lucide.createIcons();
+          });
+        }
+      };
+    }
+  </script>
+</body>
+</html>
