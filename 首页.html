@@ -654,6 +654,256 @@
 		</div>
 	</div> -->
 	
+	<style>
+	#popBuyOrder .eleDiv .inputEle{
+		margin-top: 16px;
+		background: #F8F8F8;
+		border-radius: 8px;
+		width: 100%;
+		margin-bottom: 24px;
+		height: 50px;
+		position: relative;
+	}
+	#popBuyOrder .eleDiv .selectEle select{
+		width: 100%;
+		outline: none;
+		border: 0;
+		padding: 10px;
+		background-color: transparent;
+		height: 100%;
+	}
+	#popBuyOrder .eleDiv .inputEle input{
+		background-color: transparent;
+		width: 100%;
+		height: 100%;
+		outline: none;
+		border: 0;
+		padding: 10px;
+	}
+	#popBuyOrder .uploadPDF{
+		width: 100%;
+		padding: 0 16px;
+		height: 100%;
+		line-height: 50px;
+		cursor: pointer;
+	}
+	#popBuyOrder .uploadPDF label{
+		cursor: pointer;
+	}
+	#popBuyOrder .matchproductList .matchProductDiv{
+		padding: 24px;
+		background-color: #F8F8F8;
+		margin-top: 16px;
+		width: 100%;
+		border-radius: 8px;
+	}
+	#popBuyOrder .matchproductList .matchProTitle{
+		display: flex;
+		justify-content: space-between;	
+	}
+	#popBuyOrder .matchproductList .matchProTitle .deleteMatchPro{
+		font-size: 16px;
+		color: #165BD5;
+		cursor: pointer;
+	}
+	#popBuyOrder .matchProDiv{
+		display: flex;
+		gap: 16px;
+		align-items: center;
+		margin-top: 16px;
+	}
+	#popBuyOrder .matchProDiv .proSnInput{
+		width: 334px;
+		height: 46px;
+		background: #FFFFFF;
+		border-radius: 8px;
+	}
+	#popBuyOrder .matchProDiv .proSnInput input{
+		border: 0;
+		outline: none;
+	}
+	#popBuyOrder .matchProDiv .matchBtn{
+		width: 131px;
+		height: 46px;
+		line-height: 46px;
+		text-align: center;
+		background: #3B4656;
+		border-radius: 8px;
+		color:#fff;
+		cursor: pointer;
+	}
+	#popBuyOrder .showProDiv{
+		margin-top: 22px;
+	}
+	#popBuyOrder .showProDiv table{
+		width: 100%;
+		
+	}
+	#popBuyOrder .showProDiv table th{
+		font-weight: 400;
+		background-color: #fff;
+		padding: 5px 24px;
+	}
+	#popBuyOrder .showProDiv table td{
+		padding: 20px 24px;
+	}
+	#popBuyOrder .showProDiv table td .proNum{
+		width: 100px;
+		height: 46px;
+		background: #FFFFFF;
+		border-radius: 8px;
+		text-align: center;
+		outline: none;
+		border: 0;
+	}
+	#popBuyOrder .add_pro_item{
+		width: 151px;
+		height: 46px;
+		line-height: 46px;
+		background: #FFFFFF;
+		border-radius: 8px;
+		border: 1px solid #E0E0E0;
+		display: flex;
+		align-items: center
+		gap: 6px;
+		justify-content: center;
+		margin-top: 16px;
+		cursor: pointer;
+	}
+	#popBuyOrder .submitProOrder{
+		width: 264px;
+		height: 70px;
+		background: #3B4656;
+		border-radius: 8px;
+		color: #fff;
+		text-align: center;
+		line-height: 70px;
+		float: right;
+	}
+	</style>
+	<div class="simpleBuyOrder shoppingCar" id="popBuyOrder">
+		<div class="bgCon"></div>
+		<div class="carCon">
+			<div class="topCon">
+				<div class="title">商品下单</div>
+				<div class="deleteIcon">
+					<img src="https://topm.tech/images/hzp2/delete.svg">
+				</div>
+			</div>
+			<div class="submitOrders" style="height: calc(100vh - 140px - 3.4rem)">
+				<form id="myForm" class="generateOrder" enctype="multipart/form-data" method="post">
+					<div class="eleDiv">
+						<label>平台选择</label>
+						<div class="inputEle selectEle">
+							<select name="plateName">
+								<option>Tiktok</option>
+								<option>Temu</option>
+								<option>Alibaba</option>
+							</select>
+						</div>
+					</div>
+					<div class="eleDiv">
+						<label>Order ID</label>
+						<div class="inputEle">
+							<input name="orderId" type="text" />
+						</div>
+					</div>
+					<div class="eleDiv">
+						<label>物流编号</label>
+						<div class="inputEle">
+							<input name="expressId" type="text"/>
+						</div>
+					</div>
+					<div class="eleDiv">
+						<label>上传面单</label>
+						<div class="inputEle">
+							<input id="uploadPDF" name="filePdf" type="file" style="display: none;" />
+							<div class="uploadPDF">
+								<svg width="20px" height="18px" viewBox="0 0 20 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+								    <title>upload-2-line</title>
+								    <g id="效果图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								        <g id="商品下单（购物车）" transform="translate(-869, -602)" fill="#000000" fill-rule="nonzero">
+								            <g id="订单信息" transform="translate(829, 535)">
+								                <g transform="translate(0, 41)" id="希音订单号框">
+								                    <g id="upload-2-line" transform="translate(40, 26)">
+								                        <path d="M2,16 L18,16 L18,9 L20,9 L20,17 C20,17.5522847 19.5522847,18 19,18 L1,18 C0.447715253,18 0,17.5522847 0,17 L0,9 L2,9 L2,16 Z M11,6 L11,13 L9,13 L9,6 L4,6 L10,0 L16,6 L11,6 Z" id="形状"></path>
+								                    </g>
+								                </g>
+								            </g>
+								        </g>
+								    </g>
+								</svg>
+								<label for="uploadPDF">点击上传面单pdf</label>
+							</div>
+						</div>
+					</div>
+					<div class="matchproductList">
+						<div class="eleDiv">
+							<label>匹配商品</label>
+							<div class="matchProductDiv">
+								<div class="matchProTitle">
+									<div class="title">商品货号</div>
+									<div class="deleteMatchPro">删除</div>
+								</div>
+								<div class="matchProDiv">
+									<div class="proSnInput">
+										<input name="pro_sn" />
+									</div>
+									<div class="matchBtn">
+										匹配
+									</div>
+								</div>
+								<div class="showProDiv">
+									<table class="showPro">
+										<thead>
+											<th>商品名称</th>
+											<th>价格</th>
+											<th>数量</th>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Pinzas para ensalada con mango de color sólido</td>
+												<td>$ 49.00 MXN</td>
+												<td>
+													<input type="text" class="proNum" />
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="add_pro_item">
+						<div>
+						<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+						    <title>ICON/新增</title>
+						    <g id="效果图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+						        <g id="商品下单（购物车）" transform="translate(-845, -979)">
+						            <g id="编组-4" transform="translate(829, 673)">
+						                <g id="编组-3" transform="translate(0, 290)">
+						                    <g id="ICON/新增" transform="translate(16, 16)">
+						                        <rect id="矩形" x="0" y="0" width="14" height="14"></rect>
+						                        <polygon id="路径" fill="#000000" fill-rule="nonzero" points="6.33333333 6.33333333 6.33333333 2.33333333 7.66666667 2.33333333 7.66666667 6.33333333 11.6666667 6.33333333 11.6666667 7.66666667 7.66666667 7.66666667 7.66666667 11.6666667 6.33333333 11.6666667 6.33333333 7.66666667 2.33333333 7.66666667 2.33333333 6.33333333"></polygon>
+						                    </g>
+						                </g>
+						            </g>
+						        </g>
+						    </g>
+						</svg>
+						</div>
+						<span>新增商品货号</span>
+					</div>
+				
+				</form>
+			</div>
+			<div class="confirmDiv">
+				<div class="submitProOrder">确认下单</div>
+			</div>
+		</div>
+	</div>
+	
+	
 	<!-- 分包提示 -->
 	<div class="modal fade" id="checkPackages" tabindex="-1" role="dialog" aria-labelledby="checkPackagesLabel" aria-hidden="true">
 	    <div class="modal-dialog" role="document">
@@ -969,4 +1219,13 @@
 	});	
 	$("#checkPackages").modal('hide');
 	
+	
+	$('#popBuyOrder').addClass('popup');
+	$("#popBuyOrder .submitOrders").mCustomScrollbar();
+	$('#shopCar').on('click',function(){
+		$('#popBuyOrder').addClass('popup');
+		$("#popBuyOrder .submitOrders").mCustomScrollbar();
+		$('body').addClass('guding');
+		return false;
+	})
 </script>

@@ -1,8 +1,8 @@
 //点击弹出购物车列表
-$('#shopCar').on('click',function(){
-	$('#shoppingCar').addClass('popup');
-	$('body').addClass('guding');
-})
+// $('#shopCar').on('click',function(){
+// 	$('#shoppingCar').addClass('popup');
+// 	$('body').addClass('guding');
+// })
 
 $('.menu_tabs .tabItem').on('click',function(){
 	var cate_id = $(this).data("cate_id");

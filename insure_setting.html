@@ -650,6 +650,123 @@
 	Copyright 2024 © TOPM.COM
 </div>
 
+<!-- 弹窗提示 -->
+<style>
+#insureDiolog .diologsImg{
+	position: relative;
+}	
+#insureDiolog .diologsImg .insureIcon{
+	height: 270px;
+	width: 306px;
+	margin: 0 auto;
+}
+#insureDiolog .dialogsTxt{
+	font-weight: 600;
+	font-size: 18px;
+	color: #333333;
+	position: absolute;
+	top: 188px;
+	text-align: center;
+	width: 100%;
+}
+#insureDiolog .showLogs table{
+	width: 100%;
+}
+#insureDiolog .showLogs thead th{
+	font-size: 14px;
+	color: #333333;
+	background-color: #F4F4F4;
+	height: 40px;
+	line-height: 40px;
+}
+#insureDiolog .showLogs thead th:first-child{
+	padding-left: 32px;
+}
+#insureDiolog .showLogs tr td{
+	height: 40px;
+	line-height: 40px;
+	font-size: 12px;
+}
+#insureDiolog .showLogs tr td:first-child{
+	padding-left: 32px;
+}
+#insureDiolog .msg_btns{
+	display: flex;
+	justify-content: center;
+	gap: 32px;
+	margin-top: 24px;
+}
+#insureDiolog .msg_btns .msg_btn{
+	width: 131px;
+	height: 46px;
+	line-height: 46px;
+	background: #FFFFFF;
+	border-radius: 8px;
+	border: 1px solid #D0D0D0;
+	font-size: 16px;
+	text-align: center;
+	cursor: pointer;
+}
+#insureDiolog .msg_btns .msg_btn.ok{
+	background-color: #3B4656;
+	color: #fff;
+}
+</style>
+<div class="modal fade" id="insureDiolog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="padding-right: 17px;" aria-hidden="true" data-backdrop="static">
+	<div class="modal-dialog" role="document">
+		<div class="closeBtn" data-dismiss="modal" aria-label="Close" style="position: absolute;right: 24px;top:24px; cursor: pointer;z-index: 1;">
+			<img src="https://ayamcn.com/images/hzp2/delete.svg" style="width: 18px;height: 18px;">
+		</div>
+		<div class="modal-content">
+			<div class="modal-body row">
+				<div class="diologsImg">
+					<div class="insureIcon">
+						<img src="./images/success_insure_icon.png" />
+					</div>
+					<div class="dialogsTxt">
+						操作已完成
+					</div>
+				</div>
+				<div class="showLogs">
+					<table>
+						<colgroup>
+							<col style="width: 50%;"></col>
+							<col style="width: 50%;"></col>
+						</colgroup>
+						<thead>
+							<th>编号</th>
+							<th>消息</th>
+						</thead>
+						<tr>
+							<td>579609764204217943</td>
+							<td>Package has already beenshipped.</td>
+						</tr>
+						<tr>
+							<td>579609764204217943</td>
+							<td>Package has already beenshipped.</td>
+						</tr>
+						<tr>
+							<td>579609764204217943</td>
+							<td>Package has already beenshipped.</td>
+						</tr>
+						<tr>
+							<td>579609764204217943</td>
+							<td>Package has already beenshipped.</td>
+						</tr>
+					</table>
+				</div>
+				<div class="msg_btns">
+					<div class="close msg_btn" data-dismiss="modal" aria-label="Close">关闭</div>
+					<div class="ok msg_btn">确认</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 <script type="text/javascript" src="https://ayamcn.com/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="https://ayamcn.com/js/index/0708/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://ayamcn.com/js/flow/0629/jquery.mCustomScrollbar.concat.min.js"></script>
+<script>
+	$("#insureDiolog").modal();
+</script>
