@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;"><head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+		
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" href="https://ayamcn.com/css/index/0308/bootstrap.min.css">
+		
+		<link rel="stylesheet" href="https://ayamcn.com/css/index/0429/common.css">
+		<link rel="stylesheet" href="https://ayamcn.com/css/flow/0628/jquery.mCustomScrollbar.min.css">
+		<link rel="stylesheet" href="https://ayamcn.com/css/index/0708/topCon.css">
+		
+		<link rel="stylesheet" href="./css/buyOrder.css">
+		
+		
+		<title>购买产品</title>
+<script>
+    function loadScript(a){
+        var b=document.getElementsByTagName("head")[0],c=document.createElement("script");
+            c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)
+    }
+    loadScript(function(){
+        beTracker.t({hash:"7ced7523b237663ea3b0650f2c6907a3"})}
+    );
+</script><script type="text/javascript" src="https://tracker.metricool.com/resources/be.js"></script>	</head>
+
+	<body style="background-color: #F4F4F4;">
+		<div class="app row user_con">
+			<div>
+
+<div class="container top">
+	<div class="topCon col-lg-12">
+		<div class="logoCon" style="display: flex;align-items: center;gap: 40px;">
+			<a href="/" title="TOPM" alt="TOPM"><div class="logo">TOPM</div></a>
+			<div class="oneKeypress" style="cursor:pointer;">希音代发</div>
+		</div>
+		<div class="userCenterCon">
+			<div class="userIconsgroups">
+				<div class="userIcon shopCar" id="shopCar">
+					<img src="/images/icons/shop_icon.svg">
+				</div>
+				<div class="userIcon login-skip login_icons" data-href="user.php">
+					<div class="icon">
+						<img src="/images/icons/user_icon.svg">
+						<div class="dropdownMenu">
+								<a href="javascript:;" class="login-skip" data-href="user.php" title="Mi cuenta">
+									<div class="dropItem">
+										Mi cuenta
+									</div>
+								</a>
+								<a href="javascript:;" class="login-skip" data-href="user.php?act=order_list" title="Mis pedidos">
+									<div class="dropItem">
+										Mis pedidos
+									</div>
+								</a>
+								<a href="javascript:;" class="login-skip" data-href="user.php?act=value_card" title="Tarjeta de Regalo">
+									<div class="dropItem">
+										Tarjeta de Regalo
+									</div>
+								</a>
+															<a href="/user.php?act=logout" title="Cerrar sesión">
+									<div class="dropItem">
+										Cerrar sesión
+									</div>
+								</a>
+													</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="searchCon">
+	<div class="container">
+		<div class="searchInner">
+			<div class="categoryIcon">
+				<div class="cateIcon">
+					<img src="/images/icons/menu_icon.svg">
+				</div>
+				<div class="categoryTxt">
+					全部商品
+				</div>
+			</div>
+			<form action="index.php" name="search" method="get" class="search_form" id="searchForm">
+				<div class="searchInput">
+					<div class="searchEle">
+						<label class="labelName">请输入想要搜索的商品</label>
+						<input class="searchName" name="keywords" required="">
+						<div class="seachIconEle">
+							<img class="searchIcon" src="/images/icons/search_icon.svg" onclick="document.forms[0].submit()">
+						</div>
+					</div>
+				</div>
+			</form>
+			<div class="balance">
+				<div class="balance_icon">
+					<img src="/images/icons/bags_icon.svg">
+				</div>
+				<div class="balance_value">
+					<span>余额:</span>
+					<span>0</span>
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>
+</div>
+<div class="breaknaps container">
+	<a><span>home</span></a><span>/</span><span>商品下单</span>
+</div>	
+<div class="buyorderContent container">
+	<div class="matchProductContent" id="popBuyOrder">
+		<form id="myForm" class="generateOrder" enctype="multipart/form-data" method="post">
+			<div class="card searchOrder">
+				<div class="title">商品下单</div>
+				<div class="prodownload">
+					<div class="eleDiv">
+						<label>平台选择</label>
+						<div class="inputEle selectEle">
+							<select name="plateName">
+								<option>Tiktok</option>
+								<option>Temu</option>
+								<option>Alibaba</option>
+							</select>
+						</div>
+					</div>
+					<div class="eleDiv">
+						<label>Order ID</label>
+						<div class="inputEle">
+							<input name="orderId" type="text" />
+						</div>
+					</div>
+					<div class="eleDiv">
+						<label>物流编号</label>
+						<div class="inputEle">
+							<input name="expressId" type="text"/>
+						</div>
+					</div>
+					<div class="eleDiv">
+						<label>上传面单</label>
+						<div class="inputEle">
+							<input id="uploadPDF" name="filePdf" type="file" style="display: none;" />
+							<div class="uploadPDF">
+								<svg width="20px" height="18px" viewBox="0 0 20 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+								    <title>upload-2-line</title>
+								    <g id="效果图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								        <g id="商品下单（购物车）" transform="translate(-869, -602)" fill="#000000" fill-rule="nonzero">
+								            <g id="订单信息" transform="translate(829, 535)">
+								                <g transform="translate(0, 41)" id="希音订单号框">
+								                    <g id="upload-2-line" transform="translate(40, 26)">
+								                        <path d="M2,16 L18,16 L18,9 L20,9 L20,17 C20,17.5522847 19.5522847,18 19,18 L1,18 C0.447715253,18 0,17.5522847 0,17 L0,9 L2,9 L2,16 Z M11,6 L11,13 L9,13 L9,6 L4,6 L10,0 L16,6 L11,6 Z" id="形状"></path>
+								                    </g>
+								                </g>
+								            </g>
+								        </g>
+								    </g>
+								</svg>
+								<label for="uploadPDF">点击上传面单pdf</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="card searchProduct matchproductList">
+				<div class="title">匹配商品<span class="errorTips">
+				<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>错误</title>
+    <g id="新增" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="商品下单" transform="translate(-383, -607)" fill="#F42F54" fill-rule="nonzero">
+            <g id="匹配商品" transform="translate(260, 577)">
+                <g id="错误" transform="translate(123, 30)">
+                    <path d="M8,0 C3.58171875,0 0,3.58171875 0,8 C0,12.4182812 3.58171875,16 8,16 C12.41825,16 16,12.4182812 16,8 C16,3.58171875 12.4182812,0 8,0 Z M11.668125,10.2539375 C11.790125,10.3759375 11.7900937,10.5738125 11.6681562,10.695875 L10.6958437,11.668125 C10.5738437,11.790125 10.376,11.7902187 10.253875,11.6681562 L8,9.41421875 L5.74609375,11.668125 C5.6240625,11.7901875 5.4261875,11.790125 5.30415625,11.668125 L4.331875,10.695875 C4.20984375,10.573875 4.2098125,10.376 4.331875,10.2539375 L6.5858125,8 L4.33190625,5.74609375 C4.209875,5.62409375 4.209875,5.4261875 4.33190625,5.30415625 L5.3041875,4.33190625 C5.42621875,4.20984375 5.62409375,4.209875 5.746125,4.33190625 L8,6.58578125 L10.2539375,4.331875 C10.3759062,4.2098125 10.5737812,4.20984375 10.6958437,4.331875 L11.668125,5.304125 C11.7900937,5.4261875 11.790125,5.62403125 11.668125,5.7460625 L9.41421875,8 L11.668125,10.2539375 Z" id="形状"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>禁止跨店铺下单</span></div>
+			<div class="eleDiv">
+				<div class="matchProductDiv">
+					<div class="matchProTitle">
+						<div class="title">商品货号</div>
+						<div class="deleteMatchPro">删除</div>
+					</div>
+					<div class="matchProDiv">
+						<div class="proSnInput">
+							<input name="pro_sn" />
+						</div>
+						<div class="matchBtn">
+							匹配
+						</div>
+					</div>
+					<div class="showProDiv">
+						<table class="showPro">
+							<thead>
+								<th>店铺信息</th>
+								<th>商品名称</th>
+								<th>价格</th>
+								<th>数量</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td>这里是店铺名称文案…</td>
+									<td>Pinzas para ensalada con mango de color sólido</td>
+									<td>$ 49.00 MXN</td>
+									<td>
+										<div style="display: flex;align-items: center;gap: 12px;">
+										<input type="text" class="proNum" /><div>库存：<span>99</span></div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				
+			</div>
+			<div class="add_pro_item">
+				<div>
+				<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				    <title>ICON/新增</title>
+				    <g id="效果图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+				        <g id="商品下单（购物车）" transform="translate(-845, -979)">
+				            <g id="编组-4" transform="translate(829, 673)">
+				                <g id="编组-3" transform="translate(0, 290)">
+				                    <g id="ICON/新增" transform="translate(16, 16)">
+				                        <rect id="矩形" x="0" y="0" width="14" height="14"></rect>
+				                        <polygon id="路径" fill="#000000" fill-rule="nonzero" points="6.33333333 6.33333333 6.33333333 2.33333333 7.66666667 2.33333333 7.66666667 6.33333333 11.6666667 6.33333333 11.6666667 7.66666667 7.66666667 7.66666667 7.66666667 11.6666667 6.33333333 11.6666667 6.33333333 7.66666667 2.33333333 7.66666667 2.33333333 6.33333333"></polygon>
+				                    </g>
+				                </g>
+				            </g>
+				        </g>
+				    </g>
+				</svg>
+				</div>
+				<span>新增商品货号</span>
+			</div>
+			</div>
+			<div class="card orderAddress">
+				<div class="title">收货地址</div>
+				<div class="addressContent">
+					<div class="eleDiv halfWidth">
+						<label>名字</label>
+						<div class="inputEle">
+							<input name="lastName" type="text"/>
+						</div>
+					</div>
+					<div class="eleDiv halfWidth">
+						<label>姓氏</label>
+						<div class="inputEle">
+							<input name="firstName" type="text"/>
+						</div>
+					</div>
+					<div class="eleDiv halfWidth">
+						<label>国家</label>
+						<div class="inputEle">
+							<input name="country" type="text"/>
+						</div>
+					</div>
+					<div class="eleDiv halfWidth">
+						<label>省份</label>
+						<div class="inputEle">
+							<input name="province" type="text"/>
+						</div>
+					</div>
+					<div class="eleDiv halfWidth">
+						<label>城市</label>
+						<div class="inputEle">
+							<input name="city" type="text"/>
+						</div>
+					</div>
+					<div class="eleDiv halfWidth">
+						<label>区县</label>
+						<div class="inputEle">
+							<input name="regin" type="text"/>
+						</div>
+					</div>
+					<div class="eleDiv">
+						<label>详细地址</label>
+						<div class="inputEle">
+							<input name="address" type="text"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>	
+	</div>			
+	<div class="amountInfo_con" style="display: ;">
+		<div class="card">
+			<div class="title">物流费用</div>
+			<div class="amount_price">
+				<div class="name">支付金额</div>
+				<div class="val">$500.00</div>
+			</div>
+			<div class="priceDetail">
+				<ul>
+					<li>
+						<span class="tit">商品总额</span>
+						<span class="val">$300.00</span>
+					</li>
+					<li>
+						<span class="tit">操作费</span>
+						<span class="val">$300.00</span>
+					</li>
+				</ul>
+			</div>
+			<div class="submitBtn">
+				<div class="payOrder">
+					确认下单
+				</div>
+				<div class="noPay">
+					无法下单
+				</div>
+			</div>
+		</div>		
+	</div>
+</div>	
+</div>
+	
+	<div class="footer" style="text-align: center;color: #333333;font-size: 14px;margin-top: 120px;">
+	Copyright 2024 © AYAMCN.COM
+</div>
+
+
+<script type="text/javascript" src="https://ayamcn.com/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="https://ayamcn.com/js/index/0708/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://ayamcn.com/js/flow/0629/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="https://ayamcn.com/js/index/0708/common.js?d=1"></script>
+
+<script type="text/javascript" src="./js/jquery.cookie.js"></script>
+	
+</body></html>
+<script>
+	
+</script>

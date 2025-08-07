@@ -790,7 +790,7 @@
 					<img src="https://topm.tech/images/hzp2/delete.svg">
 				</div>
 			</div>
-			<div class="submitOrders" style="height: calc(100vh - 140px - 3.4rem)">
+			<div class="submitOrders" style="height: calc(100vh - 150px - 3.4rem)">
 				<form id="myForm" class="generateOrder" enctype="multipart/form-data" method="post">
 					<div class="eleDiv">
 						<label>平台选择</label>
@@ -1222,10 +1222,31 @@
 	
 	$('#popBuyOrder').addClass('popup');
 	$("#popBuyOrder .submitOrders").mCustomScrollbar();
-	$('#shopCar').on('click',function(){
+	$('#点击购买').on('click',function(){
 		$('#popBuyOrder').addClass('popup');
 		$("#popBuyOrder .submitOrders").mCustomScrollbar();
 		$('body').addClass('guding');
 		return false;
 	})
+</script>
+<script src="js/jquery.toaster.js"></script>
+<script>
+	$.toaster({settings:{
+		'toaster':{
+			'css'       :
+			{
+				'top'      : '10%',
+				'width'    : '10%',
+				'left'     : '45%'
+			},
+		},
+		'toast':{
+			'css'      : {
+				'backgroundColor':'#f0f0f0',
+				'border': 0	,
+				'color':'#3B4656'
+			}
+		}
+	}});
+	$.toaster();
 </script>
