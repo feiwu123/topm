@@ -520,3 +520,59 @@ jQuery.multiTemuSale = function(divselectid,data) {
 		console.log("数据传入不是数组！")	
 	}
 }
+
+
+
+jQuery.multiSaleMustCheck = function(divselectid,data){
+	if(Array.isArray(data)){
+		var templateStr = "";
+		data.forEach((item)=>{
+			var refPid = item.refPid;
+			var name = item.name;
+			var valuesSubgroups = [];
+			var subCheckboxlist = "";
+			var subRadiolist = "";
+			if(Array.isArray(item.values)){
+				item.values.forEach((valueItem)=>{
+					var tempId = valueItem.specId;
+					var tempName = valueItem.value;
+					subCheckboxlist += `<div class="sale_props_item">
+										<input type="checkbox" id="sale_must_prop_${tempId}"/>
+										<label for="sale_must_prop_${tempId}">${tempName}</label>
+									</div>`;
+					if(valuesSubgroups.findIndex(groupItem=>groupItem.id==valueItem.subGroup.id)==-1){
+						valuesSubgroups.push(valueItem.subGroup);
+					}
+				})
+			}
+			if(valuesSubgroups.length>0){
+				valuesSubgroups.forEach((radioItem)=>{
+					var groupId = radioItem.id;
+					var groupName = radioItem.name;
+					subRadiolist += `<div class="sale_props_item">
+										<input type="radio" id="sale_must_group_prop_${groupId}" name="sale_must_group_prop_${refPid}"/>
+										<label for="sale_must_group_prop_${groupId}">${groupName}</label>
+									</div>`;
+				})
+			}
+			
+			templateStr += `<div class="salePropsItem">
+							<label class="chosen_sale_props">
+								<span>*</span><span class="sale_name">${name}</span>
+							</label>
+							<div class="salePropsChilds">
+								<div class="salePropsChildsName">
+									Variants:
+								</div>
+								<div class="salePropsChildList">
+									<div class="subGroup">${subRadiolist}</div>
+									<div class="subChildsValue">${subCheckboxlist}</div>
+								</div>
+							</div>
+						</div>`;
+		})
+		$(divselectid).html(templateStr);
+	}else{
+		console.log("数据传入不是数组！")	
+	}
+}

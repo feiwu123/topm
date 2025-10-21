@@ -1,0 +1,23 @@
+.select_sale_props label{
+	margin-bottom: 0;
+}
+.salePropsMustList{
+	margin-top: 8px;
+}
+.salePropsMustList .subGroup{
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+	margin-top: 10px;
+} 
+.salePropsMustList .subChildsValue{
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+.salePropsMustList .salePropsChilds{
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 10px;
+	box-sizing: border-box;
+}

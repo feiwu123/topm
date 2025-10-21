@@ -7,14 +7,17 @@
 		<link rel="stylesheet" type="text/css" href="./css/menu.css" />
 		<link rel="stylesheet" type="text/css" href="./css/index.css" />
 		<link rel="stylesheet" type="text/css" href="./css/goods_temu.css" />
-		
+
+		<link rel="stylesheet" type="text/css" href="./css/sale_extend_props.css" />
+
 		<link rel="stylesheet" type="text/css" href="https://topm.tech/css/index/0308/bootstrap.min.css" />
-		
-		
+
+
 		<!-- 滚动条样式 -->
-		<link rel="stylesheet" type="text/css" href="https://topm.tech/js/perfect-scrollbar/perfect-scrollbar.min.css"/>
+		<link rel="stylesheet" type="text/css"
+			href="https://topm.tech/js/perfect-scrollbar/perfect-scrollbar.min.css" />
 		<!-- 引入字体文件 -->
-		<link rel="stylesheet" type="text/css" href="https://at.alicdn.com/t/c/font_4643688_kl63fem66fj.css"/>
+		<link rel="stylesheet" type="text/css" href="https://at.alicdn.com/t/c/font_4643688_kl63fem66fj.css" />
 	</head>
 	<body>
 		<div id="app">
@@ -168,7 +171,7 @@
 								<div class="formEle">
 									<div style="display: flex;align-items: center;gap: 16px;">
 										<div class="inputEle " style="flex: 1;">
-											<input type="text"  maxlength="500"/>
+											<input type="text" maxlength="500" />
 										</div>
 										<div class="getrecommendCates">
 											获取推荐类目
@@ -200,7 +203,7 @@
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="card goodsInfo goodsmiaosu">
 						<div class="title">
 							商品描述
@@ -220,13 +223,13 @@
 											<div class="formEle">
 												<div style="display: flex;align-items: center;gap: 16px;">
 													<div class="inputEle " style="flex: 1;">
-														<input type="text" >
+														<input type="text">
 													</div>
 												</div>
 												<div class="tips">
 												</div>
 											</div>
-											
+
 										</div>
 										<div class="attr_infor">
 											<label>商品类目</label>
@@ -253,7 +256,7 @@
 														</div>
 														<div class="select_icon">
 															<span class="iconfont icon-ICON-xia"></span>
-														</div>	
+														</div>
 														<input name="goods_weight" type="hidden">
 													</div>
 													<div class="addTrademarkCertificate">
@@ -269,15 +272,16 @@
 											<label>包装规格（每单位）</label>
 											<div class="formEle">
 												<div style="display: flex;align-items: center;gap: 8px;">
-													<input type="checkbox" name="is_dingzhi_product" id="is_dingzhi_pro"/>
+													<input type="checkbox" name="is_dingzhi_product"
+														id="is_dingzhi_pro" />
 													<label for="is_dingzhi_pro">这是一个定制商品</label>
 												</div>
 											</div>
 										</div>
 									</div>
-								</div>	
+								</div>
 							</div>
-						</div>	
+						</div>
 						<div class="bodyInform" style="border: 0;margin: 0;">
 							<div class="elems">
 								<div class="label">
@@ -300,12 +304,13 @@
 													商品描述应详细阐述产品的特点和用途，该内容将展示在商品详情里。
 												</div>
 											</div>
-											
+
 										</div>
 										<div class="attr_infor">
 											<label>要点</label>
-											<div class="formEle" id="productImport" style="display: flex;flex-direction: column;gap: 16px;">
-												<div class="mainProducttd" >
+											<div class="formEle" id="productImport"
+												style="display: flex;flex-direction: column;gap: 16px;">
+												<div class="mainProducttd">
 													<div class="inputEle textareaEle" style="flex: 1;">
 														<textarea type="text" id="product_detail_important"></textarea>
 													</div>
@@ -330,7 +335,7 @@
 														<div>详情视频将显示在商品详情的顶部。</div>
 														<div>上传视频，最大大小为 500 MB，长度不超过 180 秒，最低分辨率为 720 P。</div>
 													</div>
-												</div>	
+												</div>
 												<div class="tips">
 												</div>
 											</div>
@@ -346,17 +351,17 @@
 														<div>详情视频将显示在商品详情的顶部。</div>
 														<div>上传视频，最大大小为 500 MB，长度不超过 180 秒，最低分辨率为 720 P。</div>
 													</div>
-												</div>	
+												</div>
 												<div class="tips">
 												</div>
 											</div>
 										</div>
 									</div>
-								</div>	
+								</div>
 							</div>
 						</div>
 					</div>
-						
+
 					<div class="card goodsInfo goods_props">
 						<div class="title">
 							商品详情
@@ -531,11 +536,11 @@
 							
 							</div> -->
 							<div id="attrgroups">
-								
-							</div>	
-						</div>	
-					</div>		
-					
+
+							</div>
+						</div>
+					</div>
+
 					<div class="card goodsInfo goods_sale_props">
 						<div class="title">
 							变体
@@ -553,9 +558,12 @@
 										<div class="select_sale_props">
 											<div class="title">变体类型</div>
 											<div class="sale_props_content" id="temu_sale_props">
-												
+
 											</div>
-										</div>	
+										</div>
+										<div class="salePropsMustList" id="saleMustProps">
+											
+										</div>
 										<div class="salePropsList">
 											<div class="salePropsItem">
 												<label class="chosen_sale_props">
@@ -563,7 +571,7 @@
 												</label>
 												<div class="chosen_sale_val">
 													<div class="chosen_sale_val_input">
-														<input type="text" placeholder="输入"/>
+														<input type="text" placeholder="输入" />
 													</div>
 													<div class="add_sale_val">
 														添加
@@ -572,13 +580,14 @@
 												<div class="chosen_sale_show">
 													<div>规格:</div>
 													<div class="chosen_sale_show_list">
-														<div class="chosen_sale_attr">红色<span class="iconfont icon-guanbi"></span></div>
+														<div class="chosen_sale_attr">红色<span
+																class="iconfont icon-guanbi"></span></div>
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
-								
+
 								</div>
 							</div>
 							<div class="elems">
@@ -586,14 +595,16 @@
 									<span>商品 SKU:</span>
 									<div class="error_tips" style="font-size: 14px;color: #999999;">
 										<span style="margin-left: 8px;">供货价是结算给商家的实际金额——即标准、非促销条件下的订单完成后您将收到的款项。</span>
-										<span class="red">查看影响供货价的因素</span><span class="iconfont icon-ICON-xia turnRight"></span>
+										<span class="red">查看影响供货价的因素</span><span
+											class="iconfont icon-ICON-xia turnRight"></span>
 									</div>
 								</div>
 								<div class="btn_SKU_groups">
 									<div class="delete_SKU">删除所选SKU</div>
 									<div class="delete_SKU">取消删除所选内容</div>
 								</div>
-								<div class="formEle" style="background: #F7F8FA;border-radius: 2px;padding: 12px;margin-top: 24px;">
+								<div class="formEle"
+									style="background: #F7F8FA;border-radius: 2px;padding: 12px;margin-top: 24px;">
 									<div class="sku_table exter_attr_table">
 										<table>
 											<colgroup>
@@ -613,7 +624,8 @@
 											</colgroup>
 											<thead class="tableHead">
 												<tr class="tableRow">
-													<th class="td"><input type="checkbox" id="all_sku_checkboxes"/></th>
+													<th class="td"><input type="checkbox" id="all_sku_checkboxes" />
+													</th>
 													<th class="td">颜色</th>
 													<th class="td">SKU编码</th>
 													<th class="td">图片<span class="red">*</span></th>
@@ -624,27 +636,28 @@
 													<th class="td">包装清单</th>
 													<th class="td">重量<span class="red">*</span></th>
 													<th class="td">体积<span class="red">*</span></th>
-													<th class="td">	外部商品编码</th>
+													<th class="td"> 外部商品编码</th>
 													<th class="td">操作</th>
-												</tr>	
+												</tr>
 											</thead>
 											<tbody class="tableBody">
-												<tr class="tableRow" >
-													<td class="td" style="display: none;"><input type="checkbox" id="sku_items_1"/></td>
+												<tr class="tableRow">
+													<td class="td" style="display: none;"><input type="checkbox"
+															id="sku_items_1" /></td>
 													<td class="td red" colspan="2">
 														批量应用至已选择的 0 件SKU
 													</td>
 													<td class="td">
 														<div class="eleInput inputEle">
-															<input type="text" class="materalValue"/>
+															<input type="text" class="materalValue" />
 														</div>
 													</td>
 													<td class="td">
-														
+
 													</td>
 													<td class="td">
 														<div class="eleInput inputEle">
-															<input type="text" class="materalValue"/>
+															<input type="text" class="materalValue" />
 														</div>
 													</td>
 													<td class="td">
@@ -656,7 +669,7 @@
 													<td class="td">
 														<div class="eleInput inputEle">
 															<span class="rate">MX$</span>
-															<input type="text" class="materalValue"/>
+															<input type="text" class="materalValue" />
 														</div>
 													</td>
 													<td class="td">
@@ -669,7 +682,7 @@
 															</div>
 															<div class="select_icon">
 																<span class="iconfont icon-ICON-xia"></span>
-															</div>	
+															</div>
 															<input name="goods_exter_name" type="hidden">
 														</div>
 													</td>
@@ -685,15 +698,18 @@
 														</div>
 													</td>
 													<td class="td">
-														<div class="cubeBox" >
+														<div class="cubeBox">
 															<div class="cubeNum cubeBox_length">
-																<span>长</span><input type="number" class="cubeNumval" /><span>cm</span>
+																<span>长</span><input type="number"
+																	class="cubeNumval" /><span>cm</span>
 															</div>
 															<div class="cubeNum cubeBox_width">
-																<span>宽</span><input type="number" class="cubeNumval"  /><span>cm</span>
+																<span>宽</span><input type="number"
+																	class="cubeNumval" /><span>cm</span>
 															</div>
 															<div class="cubeNum cubeBox_height">
-																<span>高</span><input type="number" class="cubeNumval" /><span>cm</span>
+																<span>高</span><input type="number"
+																	class="cubeNumval" /><span>cm</span>
 															</div>
 														</div>
 													</td>
@@ -711,10 +727,10 @@
 														<span class="applySet">应用</span>
 													</td>
 												</tr>
-												<tr class="tableRow" >
-													<td class="td"><input type="checkbox" id="sku_items_1"/></td>
+												<tr class="tableRow">
+													<td class="td"><input type="checkbox" id="sku_items_1" /></td>
 													<td class="td">
-														 color
+														color
 													</td>
 													<td class="td">
 														<div class="add_sku_images">
@@ -736,7 +752,7 @@
 													</td>
 													<td class="td">
 														<div class="eleInput inputEle">
-															<input type="text" class="materalValue"/>
+															<input type="text" class="materalValue" />
 														</div>
 													</td>
 													<td class="td">
@@ -748,7 +764,7 @@
 													<td class="td">
 														<div class="eleInput inputEle">
 															<span class="rate">MX$</span>
-															<input type="text" class="materalValue"/>
+															<input type="text" class="materalValue" />
 														</div>
 													</td>
 													<td class="td">
@@ -761,7 +777,7 @@
 															</div>
 															<div class="select_icon">
 																<span class="iconfont icon-ICON-xia"></span>
-															</div>	
+															</div>
 															<input name="goods_exter_name" type="hidden">
 														</div>
 													</td>
@@ -778,7 +794,7 @@
 													</td>
 													<td class="td">
 														<div class="eleInput inputEle">
-															<input type="text" class="materalValue"/>
+															<input type="text" class="materalValue" />
 														</div>
 													</td>
 													<td class="td">
@@ -800,14 +816,15 @@
 									</div>
 								</div>
 								<div class="sku_tips">
-									<input type="checkbox" id="accept_sku_rules" checked/>
-									<label for="accept_sku_rules">在此，本人许可并授权系统对我的商品进行自动零售价调整，最终零售价不高于在自动零售价调整页面中指定的零售价上限。本人对此完全知悉、理解并认可。具体零售价以C端页面实时展示为准。</label>
+									<input type="checkbox" id="accept_sku_rules" checked />
+									<label
+										for="accept_sku_rules">在此，本人许可并授权系统对我的商品进行自动零售价调整，最终零售价不高于在自动零售价调整页面中指定的零售价上限。本人对此完全知悉、理解并认可。具体零售价以C端页面实时展示为准。</label>
 								</div>
 							</div>
 							<div class="elems">
 								<div class="label">
 									<span>商品视频:</span>
-									<div class="error_tips" >
+									<div class="error_tips">
 									</div>
 								</div>
 								<div class="formEle">
@@ -819,14 +836,14 @@
 											<div>详情视频将显示在商品详情的顶部。</div>
 											<div>上传视频，最大大小为 500 MB，长度不超过 180 秒，最低分辨率为 720 P。</div>
 										</div>
-									</div>	
+									</div>
 									<div class="tips">
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>		
-					
+					</div>
+
 					<div class="card goodsInfo safeAndRule">
 						<div class="title">
 							安全与合规
@@ -849,7 +866,7 @@
 										</div>
 										<input id="uploadVideo" type="file" class="upload_files">
 									</div>
-								</div>	
+								</div>
 							</div>
 							<div class="elems">
 								<div class="label">
@@ -861,7 +878,8 @@
 								<div class="formEle">
 									<div class="inputEle selectEle" id="selectCountry">
 										<div class="default_val">China</div>
-										<div class="icons"><span class="iconfont icon-ICON-xia select_icons"></span></div>
+										<div class="icons"><span class="iconfont icon-ICON-xia select_icons"></span>
+										</div>
 										<div class="dropList brandDroplist" style="display: none;">
 											<div class="brandSearch">
 												<input type="text" name="searchBrand" placeholder="Search">
@@ -873,21 +891,30 @@
 													<label for="brand_1">xiaomi</label>
 												</li>
 												<li><input type="radio" name="brandName" id="brand_2" value="apple">
-													<label for="brand_2">apple</label></li>
+													<label for="brand_2">apple</label>
+												</li>
 												<li><input type="radio" name="brandName" id="brand_3" value="huawei">
-													<label for="brand_3">huawei</label></li>
+													<label for="brand_3">huawei</label>
+												</li>
 												<li><input type="radio" name="brandName" id="brand_4" value="sangxin">
-													<label for="brand_4">sangxin</label></li>
+													<label for="brand_4">sangxin</label>
+												</li>
 											</ul>
-											<div class="fgx" style="height: 1px;border-top: 1px solid #DCDFE6;margin-top: 9px;margin-bottom: 9px;"></div>
+											<div class="fgx"
+												style="height: 1px;border-top: 1px solid #DCDFE6;margin-top: 9px;margin-bottom: 9px;">
+											</div>
 											<div class="zdy_brand">
-												¿No encuentras tu marca?<span class="add_new_brand">Agrega una nueva marca</span> o <span class="empty_brand"> selecciona “Sin marca”</span>
+												¿No encuentras tu marca?<span class="add_new_brand">Agrega una nueva
+													marca</span> o <span class="empty_brand"> selecciona “Sin
+													marca”</span>
 											</div>
 											<div class="zdy_brand_con" style="display: none;">
 												<div class="zdy_brand_title">Agrega una nueva marca</div>
 												<div class="zdy_brand_contion">
 													<div class="zdy_brand_txt">
-														Otros vendedores podrán usar cualquier marca que agregues puede ser utilizada por otros vendedores. Antes de agregar una marca, asegúrate de que acate las reglas del nombre de las marcas.
+														Otros vendedores podrán usar cualquier marca que agregues puede
+														ser utilizada por otros vendedores. Antes de agregar una marca,
+														asegúrate de que acate las reglas del nombre de las marcas.
 													</div>
 													<div class="zdy_brand_enter">
 														<div class="zdy_brand_input">
@@ -906,191 +933,209 @@
 									<div style="font-size: 14px;color: #9FA0A1;margin-top: 8px;">
 										如果商品是完全在一个国家/地区生产或制造的，则该国家/地区通常即为此商品的原产国/原产地。如果商品的生产或制造涉及多个国家/地区，那么原产国/原产地通常是商品最后发生“实质性转变”的地方。
 									</div>
-								</div>	
+								</div>
 							</div>
 						</div>
-					</div>	
+					</div>
 				</div>
-				
+
 				<div class="submitBtns">
 					<div class="preStep">Previous step</div>
 					<div class="nextStep">Next step</div>
 				</div>
-			</div>	
+			</div>
 		</div>
-		
-		
+
+
 		<!-- 添加SKU图片 -->
-<style>
-#popAddSKUimages .modal-dialog{
-	width: 900px;
-	transform: translate(0, 10vh);
-}
-#popAddSKUimages .modal-body{
-	padding: 32px 24px 40px 24px;
-}
-#popAddSKUimages .title{
-	font-weight: 600;
-	font-size: 18px;
-	color: #333333;
-}
-#popAddSKUimages .tips{
-	margin-top: 12px;
-}
-#popAddSKUimages .imagesList{
-	margin-top: 12px;
-	display: flex;
-	gap: 24px;
-	flex-wrap: wrap;
-}
-#popAddSKUimages .imagesList .imageSKUitem{
-	width: 120px;
-	height: 120px;
-	border-radius: 6px;
-	border: 2px solid #DCDEE0;
-	border-style: dotted;
-	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-#popAddSKUimages .imagesList .imageSKUitem .icon-xinzeng{
-	font-size: 30px;
-	color: #969799;
-}
-#popAddSKUimages .imagesList .uploadSKUImg{
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
-	opacity: 0;
-	z-index: 2;
-	cursor: pointer;
-}
-#popAddSKUimages .imagesList .imageSKUitem .hasimg{
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 9;
-}
-#popAddSKUimages .imagesList .imageSKUitem .hasimg img{
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-}
-#popAddSKUimages .imagesList .imageSKUitem .hasimg .icon-guanbi{
-	position: absolute;
-	top: 0;
-	right: 0;
-	cursor: pointer;
-}
-#popAddSKUimages .msg_btns{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-top: 40px;
-	gap: 24px;
-}
-#popAddSKUimages .msg_btns .msg_btn{
-	width: 106px;
-	height: 38px;
-	background: #FFFFFF;
-	border-radius: 6px;
-	border: 1px solid #CCCCCC;
-	text-align: center;
-	line-height: 38px;
-	font-size: 14px;
-	color: #333333;
-	cursor: pointer;
-}
-#popAddSKUimages .msg_btns .msg_btn.ok{
-	background-color: #1D1D1D;
-	color: #fff;
-}
-</style>
-<div class="modal fade" id="popAddSKUimages" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
-	<div class="modal-dialog" role="document">
-		<div class="closeBtn" data-dismiss="modal" aria-label="Close" style="position: absolute;right: 24px;top:24px; cursor: pointer;z-index: 1;">
-			<img src="https://topm.tech/images/hzp2/delete.svg" style="width: 18px;height: 18px;">
-		</div>
-		<div class="modal-content">
-			<div class="modal-body">
-				<div class="uploadList">
-					<div class="uploadCon">
-						<div class="title">
-							上传 SKU 图片
-						</div>
-						<div class="tips">
-							上传图片大小不超过3MB，宽高比为3:4，宽度≥1340px，高度≥1785px。上传1-10张图片。您可以在上传后重新调整图片顺序。您可以选择并 一次上传多张图片 并在上传后调整顺序。
-						</div>
-					</div>
-					<div class="uploadCon" style="margin-top: 24px;">
-						<div class="title">
-							SKU 图片<span class="red">*</span>
-						</div>
-						<div class="tips">
-							提供更多 SKU 图片，例如主图、不同尺寸、不同场景、不同角度的商品图片。请确保所有上传的图片均符合我们的指南，因为不符合指南的图片可能会导致产品无法列出和/或访问首先。
-						</div>
-					</div>
-					<div class="imagesList">
-						<div class="imageSKUitem no_pic">
-							<span class="iconfont icon-xinzeng"></span>
-							<input type="file" class="uploadSKUImg" name="skuImage1"/>
-							<div class="hasimg">
-								<span class="delete iconfont icon-guanbi"></span>
-								<img src="https://img.kwcdn.com/local-goods-image-g/201365d3339/a4c50bbb-9100-48e8-8472-490f9f1ca20d_1080x1080.png" />
+		<style>
+			#popAddSKUimages .modal-dialog {
+				width: 900px;
+				transform: translate(0, 10vh);
+			}
+
+			#popAddSKUimages .modal-body {
+				padding: 32px 24px 40px 24px;
+			}
+
+			#popAddSKUimages .title {
+				font-weight: 600;
+				font-size: 18px;
+				color: #333333;
+			}
+
+			#popAddSKUimages .tips {
+				margin-top: 12px;
+			}
+
+			#popAddSKUimages .imagesList {
+				margin-top: 12px;
+				display: flex;
+				gap: 24px;
+				flex-wrap: wrap;
+			}
+
+			#popAddSKUimages .imagesList .imageSKUitem {
+				width: 120px;
+				height: 120px;
+				border-radius: 6px;
+				border: 2px solid #DCDEE0;
+				border-style: dotted;
+				position: relative;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			#popAddSKUimages .imagesList .imageSKUitem .icon-xinzeng {
+				font-size: 30px;
+				color: #969799;
+			}
+
+			#popAddSKUimages .imagesList .uploadSKUImg {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				opacity: 0;
+				z-index: 2;
+				cursor: pointer;
+			}
+
+			#popAddSKUimages .imagesList .imageSKUitem .hasimg {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 9;
+			}
+
+			#popAddSKUimages .imagesList .imageSKUitem .hasimg img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			#popAddSKUimages .imagesList .imageSKUitem .hasimg .icon-guanbi {
+				position: absolute;
+				top: 0;
+				right: 0;
+				cursor: pointer;
+			}
+
+			#popAddSKUimages .msg_btns {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin-top: 40px;
+				gap: 24px;
+			}
+
+			#popAddSKUimages .msg_btns .msg_btn {
+				width: 106px;
+				height: 38px;
+				background: #FFFFFF;
+				border-radius: 6px;
+				border: 1px solid #CCCCCC;
+				text-align: center;
+				line-height: 38px;
+				font-size: 14px;
+				color: #333333;
+				cursor: pointer;
+			}
+
+			#popAddSKUimages .msg_btns .msg_btn.ok {
+				background-color: #1D1D1D;
+				color: #fff;
+			}
+		</style>
+		<div class="modal fade" id="popAddSKUimages" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="closeBtn" data-dismiss="modal" aria-label="Close"
+					style="position: absolute;right: 24px;top:24px; cursor: pointer;z-index: 1;">
+					<img src="https://topm.tech/images/hzp2/delete.svg" style="width: 18px;height: 18px;">
+				</div>
+				<div class="modal-content">
+					<div class="modal-body">
+						<div class="uploadList">
+							<div class="uploadCon">
+								<div class="title">
+									上传 SKU 图片
+								</div>
+								<div class="tips">
+									上传图片大小不超过3MB，宽高比为3:4，宽度≥1340px，高度≥1785px。上传1-10张图片。您可以在上传后重新调整图片顺序。您可以选择并 一次上传多张图片
+									并在上传后调整顺序。
+								</div>
+							</div>
+							<div class="uploadCon" style="margin-top: 24px;">
+								<div class="title">
+									SKU 图片<span class="red">*</span>
+								</div>
+								<div class="tips">
+									提供更多 SKU
+									图片，例如主图、不同尺寸、不同场景、不同角度的商品图片。请确保所有上传的图片均符合我们的指南，因为不符合指南的图片可能会导致产品无法列出和/或访问首先。
+								</div>
+							</div>
+							<div class="imagesList">
+								<div class="imageSKUitem no_pic">
+									<span class="iconfont icon-xinzeng"></span>
+									<input type="file" class="uploadSKUImg" name="skuImage1" />
+									<div class="hasimg">
+										<span class="delete iconfont icon-guanbi"></span>
+										<img
+											src="https://img.kwcdn.com/local-goods-image-g/201365d3339/a4c50bbb-9100-48e8-8472-490f9f1ca20d_1080x1080.png" />
+									</div>
+								</div>
+								<div class="imageSKUitem no_pic">
+									<span class="iconfont icon-xinzeng"></span>
+									<input type="file" class="uploadSKUImg" name="skuImage2" />
+								</div>
+								<div class="imageSKUitem no_pic">
+									<span class="iconfont icon-xinzeng"></span>
+									<input type="file" class="uploadSKUImg" name="skuImage3" />
+								</div>
+								<div class="imageSKUitem no_pic">
+									<span class="iconfont icon-xinzeng"></span>
+									<input type="file" class="uploadSKUImg" name="skuImage4" />
+								</div>
+								<div class="imageSKUitem no_pic">
+									<span class="iconfont icon-xinzeng"></span>
+									<input type="file" class="uploadSKUImg" name="skuImage5" />
+								</div>
+								<div class="imageSKUitem no_pic">
+									<span class="iconfont icon-xinzeng"></span>
+									<input type="file" class="uploadSKUImg" name="skuImage6" />
+								</div>
+								<div class="imageSKUitem no_pic">
+									<span class="iconfont icon-xinzeng"></span>
+									<input type="file" class="uploadSKUImg" name="skuImage7" />
+								</div>
+								<div class="imageSKUitem no_pic">
+									<span class="iconfont icon-xinzeng"></span>
+									<input type="file" class="uploadSKUImg" name="skuImage8" />
+								</div>
+								<div class="imageSKUitem no_pic">
+									<span class="iconfont icon-xinzeng"></span>
+									<input type="file" class="uploadSKUImg" name="skuImage9" />
+								</div>
+								<div class="imageSKUitem no_pic">
+									<span class="iconfont icon-xinzeng"></span>
+									<input type="file" class="uploadSKUImg" name="skuImage10" />
+								</div>
 							</div>
 						</div>
-						<div class="imageSKUitem no_pic">
-							<span class="iconfont icon-xinzeng"></span>
-							<input type="file" class="uploadSKUImg" name="skuImage2"/>
-						</div>
-						<div class="imageSKUitem no_pic">
-							<span class="iconfont icon-xinzeng"></span>
-							<input type="file" class="uploadSKUImg" name="skuImage3"/>
-						</div>
-						<div class="imageSKUitem no_pic">
-							<span class="iconfont icon-xinzeng"></span>
-							<input type="file" class="uploadSKUImg" name="skuImage4"/>
-						</div>
-						<div class="imageSKUitem no_pic">
-							<span class="iconfont icon-xinzeng"></span>
-							<input type="file" class="uploadSKUImg" name="skuImage5"/>
-						</div>
-						<div class="imageSKUitem no_pic">
-							<span class="iconfont icon-xinzeng"></span>
-							<input type="file" class="uploadSKUImg" name="skuImage6"/>
-						</div>
-						<div class="imageSKUitem no_pic">
-							<span class="iconfont icon-xinzeng"></span>
-							<input type="file" class="uploadSKUImg" name="skuImage7"/>
-						</div>
-						<div class="imageSKUitem no_pic">
-							<span class="iconfont icon-xinzeng"></span>
-							<input type="file" class="uploadSKUImg" name="skuImage8"/>
-						</div>
-						<div class="imageSKUitem no_pic">
-							<span class="iconfont icon-xinzeng"></span>
-							<input type="file" class="uploadSKUImg" name="skuImage9"/>
-						</div>
-						<div class="imageSKUitem no_pic">
-							<span class="iconfont icon-xinzeng"></span>
-							<input type="file" class="uploadSKUImg" name="skuImage10"/>
+						<div class="msg_btns">
+							<div class="cancel msg_btn" data-dismiss="modal" aria-label="Close" data-dismiss="modal"
+								aria-label="Close">取消</div>
+							<div class="ok msg_btn"> 确认</div>
 						</div>
 					</div>
-				</div>
-				<div class="msg_btns">
-					<div class="cancel msg_btn" data-dismiss="modal" aria-label="Close" data-dismiss="modal" aria-label="Close">取消</div>
-					<div class="ok msg_btn"> 确认</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</div>
-		
+
 	</body>
 </html>
 <script type="text/javascript" src="https://topm.tech/js/jquery-1.9.1.min.js"></script>
@@ -1100,28 +1145,28 @@
 <script src="js/wu_temu_attr.js"></script>
 <script>
 	//属性展示
-	var inputMaxSpecNum,singleSpecValueNum;
+	var inputMaxSpecNum, singleSpecValueNum;
 	var materals = {};
-	
+
 	$.ajax({
-	  url: 'temuprops2.json',
-	  dataType: 'json',
-	  success: function(jsonData) {
-	    // 在success回调中可以访问返回的JSON数据
-		inputMaxSpecNum = jsonData.inputMaxSpecNum;
-		singleSpecValueNum = jsonData.singleSpecValueNum;
-		$.multiTemuSelect("#attrgroups",jsonData.templateInfo);
-		$.multiTemuSale("#temu_sale_props",jsonData.userInputParentSpecList);
-	  },
-	  error: function(xhr, status, error) {
-	    // 当请求发生错误时的处理代码
-	    console.log(error);
-	  }
+		url: 'temuprops2.json',
+		dataType: 'json',
+		success: function(jsonData) {
+			// 在success回调中可以访问返回的JSON数据
+			inputMaxSpecNum = jsonData.inputMaxSpecNum;
+			singleSpecValueNum = jsonData.singleSpecValueNum;
+			$.multiTemuSelect("#attrgroups", jsonData.templateInfo);
+			$.multiTemuSale("#temu_sale_props", jsonData.userInputParentSpecList);
+		},
+		error: function(xhr, status, error) {
+			// 当请求发生错误时的处理代码
+			console.log(error);
+		}
 	});
-	
+
 	//添加要点
-	$(".add_product_td").on("click",function(){
-		
+	$(".add_product_td").on("click", function() {
+
 		var template1 = `<div class="mainProducttd" >
 							<div class="inputEle textareaEle" style="flex: 1;">
 								<textarea type="text" id="product_detail_important" maxlength="700"></textarea>
@@ -1130,11 +1175,248 @@
 						</div>`;
 		$("#productImport").prepend(template1);
 	})
-	
+
 	//$("#popAddSKUimages").modal();
-	$(document).on("click","#popAddSKUimages .icon-guanbi",function(){
+	$(document).on("click", "#popAddSKUimages .icon-guanbi", function() {
 		$(this).parent(".hasimg").remove();
 	})
+
+
+	var sale_props_arrs = [{
+		"numberInputTitle": null,
+		"templatePropertyValueParentList": null,
+		"values": [{
+			"vid": 311,
+			"specId": 10002,
+			"subGroup": {
+				"name": "Alpha",
+				"id": 10
+			},
+			"parentVids": null,
+			"brandId": null,
+			"additionalInfo": null,
+			"extendInfo": "",
+			"value": "XXS",
+			"group": {
+				"name": "Regular Size",
+				"id": 2
+			}
+		}, {
+			"vid": 313,
+			"specId": 12001,
+			"subGroup": {
+				"name": "Alpha",
+				"id": 10
+			},
+			"parentVids": null,
+			"brandId": null,
+			"additionalInfo": null,
+			"extendInfo": "",
+			"value": "XS",
+			"group": {
+				"name": "Regular Size",
+				"id": 2
+			}
+		}, {
+			"vid": 315,
+			"specId": 10004,
+			"subGroup": {
+				"name": "Alpha",
+				"id": 10
+			},
+			"parentVids": null,
+			"brandId": null,
+			"additionalInfo": null,
+			"extendInfo": "",
+			"value": "S",
+			"group": {
+				"name": "Regular Size",
+				"id": 2
+			}
+		}, {
+			"vid": 317,
+			"specId": 9005,
+			"subGroup": {
+				"name": "Alpha",
+				"id": 10
+			},
+			"parentVids": null,
+			"brandId": null,
+			"additionalInfo": null,
+			"extendInfo": "",
+			"value": "M",
+			"group": {
+				"name": "Regular Size",
+				"id": 2
+			}
+		}, {
+			"vid": 319,
+			"specId": 11002,
+			"subGroup": {
+				"name": "Alpha",
+				"id": 10
+			},
+			"parentVids": null,
+			"brandId": null,
+			"additionalInfo": null,
+			"extendInfo": "",
+			"value": "L",
+			"group": {
+				"name": "Regular Size",
+				"id": 2
+			}
+		}, {
+			"vid": 320,
+			"specId": 12003,
+			"subGroup": {
+				"name": "Alpha",
+				"id": 10
+			},
+			"parentVids": null,
+			"brandId": null,
+			"additionalInfo": null,
+			"extendInfo": "",
+			"value": "XL",
+			"group": {
+				"name": "Regular Size",
+				"id": 2
+			}
+		}, {
+			"vid": 321,
+			"specId": 8002,
+			"subGroup": {
+				"name": "Alpha",
+				"id": 10
+			},
+			"parentVids": null,
+			"brandId": null,
+			"additionalInfo": null,
+			"extendInfo": "",
+			"value": "XXL",
+			"group": {
+				"name": "Regular Size",
+				"id": 2
+			}
+		}, {
+			"vid": 325,
+			"specId": 9007,
+			"subGroup": {
+				"name": "Alpha",
+				"id": 10
+			},
+			"parentVids": null,
+			"brandId": null,
+			"additionalInfo": null,
+			"extendInfo": "",
+			"value": "3XL",
+			"group": {
+				"name": "Regular Size",
+				"id": 2
+			}
+		}, {
+			"vid": 326,
+			"specId": 11004,
+			"subGroup": {
+				"name": "Alpha",
+				"id": 10
+			},
+			"parentVids": null,
+			"brandId": null,
+			"additionalInfo": null,
+			"extendInfo": "",
+			"value": "4XL",
+			"group": {
+				"name": "Regular Size",
+				"id": 2
+			}
+		}, {
+			"vid": 327,
+			"specId": 10005,
+			"subGroup": {
+				"name": "Alpha",
+				"id": 10
+			},
+			"parentVids": null,
+			"brandId": null,
+			"additionalInfo": null,
+			"extendInfo": "",
+			"value": "5XL",
+			"group": {
+				"name": "Regular Size",
+				"id": 2
+			}
+		}, {
+			"vid": 1969,
+			"specId": 16135,
+			"subGroup": {
+				"name": "Alpha",
+				"id": 10
+			},
+			"parentVids": null,
+			"brandId": null,
+			"additionalInfo": null,
+			"extendInfo": "",
+			"value": "6XL",
+			"group": {
+				"name": "Regular Size",
+				"id": 2
+			}
+		}, {
+			"vid": 31570,
+			"specId": 168147,
+			"subGroup": {
+				"name": "Alpha",
+				"id": 10
+			},
+			"parentVids": null,
+			"brandId": null,
+			"additionalInfo": null,
+			"extendInfo": "",
+			"value": "7XL",
+			"group": {
+				"name": "Regular Size",
+				"id": 2
+			}
+		}, {
+			"vid": 26018,
+			"specId": 17014,
+			"subGroup": {
+				"name": "One Size",
+				"id": 1
+			},
+			"parentVids": null,
+			"brandId": null,
+			"additionalInfo": null,
+			"extendInfo": "",
+			"value": "One-size",
+			"group": {
+				"name": "Regular Size",
+				"id": 2
+			}
+		}],
+		"referenceType": null,
+		"pid": 14,
+		"templatePid": 1378140,
+		"required": true,
+		"propertyValueType": 0,
+		"minValue": "",
+		"feature": 2,
+		"valueRule": null,
+		"propertyChooseTitle": null,
+		"showType": null,
+		"parentTemplatePid": null,
+		"mainSale": false,
+		"templateModuleId": 271737,
+		"parentSpecId": 3001,
+		"maxValue": "",
+		"chooseMaxNum": null,
+		"showCondition": null,
+		"valuePrecision": 0,
+		"controlType": 1,
+		"valueUnitList": null,
+		"name": "Size",
+		"isSale": true,
+		"refPid": 65
+	}];
+	$.multiSaleMustCheck("#saleMustProps",sale_props_arrs);
 </script>
-
-
