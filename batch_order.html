@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>批量下单</title>
+		<link rel="stylesheet" href="https://topm.tech/css/index/0308/bootstrap.min.css">
+	</head>
+	<style>
+	#batchOrders{
+		position: fixed;
+		top: 0px;
+		right: 0px;
+		width: 100%;
+		z-index: 999;
+	}
+	#batchOrders .bgCon{
+		background-color: #000;
+		opacity: 0.5;
+		width: 100%;
+		height: 100vh;
+		position: absolute;
+		display: none;
+	}
+	#batchOrders.popup .bgCon{
+		display: block;
+	}
+	#batchOrders .carCon{
+		width: 44%;
+		min-width: 836px;
+		background-color: #fff;
+		position: absolute;
+		top: 0;
+		right: 0px;
+		height: 100vh;
+		padding: 3rem;
+		transform: translateX(101%);
+		visibility: hidden;
+		overflow: hidden;
+	}
+	#batchOrders.popup .carCon{
+		transform: translateX(0px);
+		visibility: visible;
+		transition: all 300ms;
+	}
+	#batchOrders 	.carCon .topCon{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	#batchOrders 	.contain_info{
+		margin-top: 32px;
+	}
+	#batchOrders .orderEnter{
+		font-size: 15px;
+		color: #333333;
+	}
+	#batchOrders .batchInputOrders{
+		margin-top: 15px;
+		width: 100%;
+		height: 141px;
+		background-color: #F8F8F8;
+		border: 0;
+		outline: none;
+		resize: none;
+		padding: 10px;
+		box-sizing: border-box;
+	}
+	#batchOrders .batchOrdersInput .tips{
+		color: #999;
+		font-size: 15px;	
+	}
+	#batchOrders .batchOrdersInput .confirmUpload{
+		width: 264px;
+		height: 70px;
+		line-height: 70px;
+		text-align: center;
+		color: #fff;
+		background: #3B4656;
+		border-radius: 8px;
+		cursor: pointer;
+		position: fixed;
+		bottom: 16px;
+	}
+	#batchOrders  #batchPaybtn{
+		width: 264px;
+		height: 70px;
+		line-height: 70px;
+		text-align: center;
+		color: #fff;
+		background: #3B4656;
+		border-radius: 8px;
+		cursor: pointer;
+		position: fixed;
+		bottom: 16px;
+	}
+	.progressLine{
+		display: flex;
+		align-items: center;
+		margin-top: 26px;
+		gap: 8px;
+		color: #666666;
+	}
+	.batchProgress .batchProgressHead{
+		font-weight: 600;
+		font-size: 18px;
+		color: #333333;
+	}
+	.progressLine .progressBar{
+		flex: 1;
+		background-color: #F8F8F8;
+		height: 22px;
+		border-radius: 4px;
+		position: relative;
+	}
+	.progressLine .progressBar .progressInnerBar{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: #3B4656;
+		width: 10%;
+		transition: all 1s;
+	}
+	#batchOrders .bartchOrders .batchOrdersHead{
+		font-weight: 600;
+		font-size: 18px;
+		color: #333333;
+		margin-top: 40px;
+	}
+	#batchOrders .batchOrderTable{
+		background: #F8F8F8;
+		border-radius: 8px;
+		box-sizing: border-box;
+		padding: 10px 24px;
+		margin-top: 24px;
+	}
+	.batchOrderTable table{
+		width: 100%;
+	}
+	.batchOrderTable .thead th{
+		height: 48px;
+		line-height: 48px;
+		background-color: #fff;
+		padding: 0 10px;
+	}
+	.batchOrderTable .trow td{
+		height: 48px;
+		line-height: 48px;
+		background-color: transparent;
+		padding: 0 10px;
+	}
+	.batchOrderTable .trow .noPay{
+		color: #F42F54;
+	}
+	</style>
+	<body>
+		<div class="refund" id="batchOrders">
+			<div class="bgCon"></div>
+			<div class="carCon">
+				<div class="topCon">
+					<div class="title" style="font-weight: 600;font-size: 24px;color: #333333;">批量下单</div>
+					<div class="deleteIcon" style="cursor: pointer;">
+						<img src="https://topm.tech/images/hzp2/delete.svg">
+					</div>
+				</div>
+				<div class="contain_info">
+					<div class="batchOrdersInput" style="display: none;">
+						<div class="orderEnter">订单号批量录入</div>
+						<textarea class="batchInputOrders"></textarea>
+						<div class="tips">注意：每行为一个订单号，以‘；’结束。</div>
+						<div style="display:flex;align-items:center;gap:10px;justify-content:end;margin-top: 100px;">
+							<div class="confirmUpload" >确认</div>
+						</div>
+					</div>
+					<div class="batchProgress">
+						<div class="batchProgressHead">
+							批量下单进度
+						</div>
+						<div class="progressLine">
+							<div class="grogressTxt">批量下单进度</div>
+							<div class="progressBar">
+								<div class="progressInnerBar"></div>
+							</div>
+							<div class="progressNumber" style="margin-right: 10px;">
+								<span class="successNumber">0</span>/<span class="progTotal">300</span>
+							</div>
+						</div>
+						<div class="bartchOrders">
+							<div class="batchOrdersHead">订单信息</div>
+							<div class="batchOrderTable">
+								<table>
+									<tr class="thead">
+										<th class="w50"><input type="checkbox" class="all_checkboxs"/></th>
+										<th>订单号</th>
+										<th>商品总数量</th>
+										<th>商品总价格</th>
+										<th>操作费</th>
+										<th>订单总价</th>
+										<th>订单状态</th>
+									</tr>
+									<tr class="trow">
+										<td><input type="checkbox" /></td>
+										<td>12312371823812731</td>
+										<td>
+										    200
+										</td>
+										<td>
+											$555.00
+										</td>
+										<td>$555.00</td>
+										<td>
+											$555.00
+										</td>
+										<td>
+											<span class="orderState noPay">未支付</span>
+										</td>
+									</tr>
+								</table>
+							</div>	
+						</div>
+						<div style="display:flex;align-items:center;gap:10px;justify-content:end;margin-top: 100px;">
+							<div  id="batchPaybtn">支付</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+<style>
+#confirmBatchOrder 	.modal-dialog{
+	width: 1083px;
+	height: 694px;
+}
+#confirmBatchOrder .title{
+	text-align: right;
+	display: flex;
+	justify-content: end;
+}	
+#confirmBatchOrder .title .closeIcon{
+	width: 32px;
+	height: 32px;
+}
+#confirmBatchOrder .msg{
+	text-align: center;
+	font-weight: 600;
+	font-size: 18px;
+	color: #333333;
+	line-height: 25px;
+}
+#confirmBatchOrder .msg_icon{
+	width: 100px;
+	height: 100px;
+	text-align: center;
+	gap: 6px;
+}
+#confirmBatchOrder .payStatusMsg{
+	font-weight: 600;
+	font-size: 18px;
+	color: #333333;
+}
+#confirmBatchOrder .payDetail{
+	font-size: 14px;
+	color: #999;
+	margin-top: 8px;
+}
+#confirmBatchOrder .payOrderTable{
+	background-color: #F8F8F8;
+	border-radius: 8px;
+	box-sizing: border-box;
+	padding: 18px 24px;
+}
+#confirmBatchOrder .payOrderTable table{
+	width: 100%;
+}
+#confirmBatchOrder .payOrderTable .thead th{
+	height: 48px;
+	line-height: 48px;
+	background-color: #fff;
+	padding: 0 16px;
+}
+#confirmBatchOrder .payOrderTable .trow td{
+	height: 48px;
+	line-height: 48px;
+	padding: 0 16px;
+}
+#confirmBatchOrder .payOrderTable .trow td .uploadState.fail{
+	color: #F42F54;
+}
+#confirmBatchOrder .payOrderTable .trow td .uploadState.success{
+	color:#03BD78;
+}
+#confirmBatchOrder .trunMsgBtn{
+	width: 262px;
+	height: 61px;
+	line-height: 61px;
+	text-align: center;
+	background: #3B4656;
+	border-radius: 6px;
+	margin-top: 15px;
+	color: #fff;
+	margin-left: auto;
+	margin-right: 0;
+	cursor: pointer;
+}
+</style>
+<div class="modal fade" id="confirmBatchOrder" tabindex="-1" role="dialog" aria-labelledby="checkPackagesLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-body">
+			<div class="title">
+					<div class="closeIcon">
+						<img src="https://topm.tech/images/hzp2/delete.svg">
+					</div>  
+			</div>
+			<div style="display: flex;align-items: center;">
+				<div class="msg_icon">
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100px" height="100px" viewBox="0 0 120 120" version="1.1">
+						<title>搜索</title>
+						<g id="退换货-催发货" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							<g id="弹窗_申请提交成功" transform="translate(-901, -345)">
+								<g id="编组-2" transform="translate(586, 289)">
+									<g id="搜索" transform="translate(315, 56)">
+										<g id="ICON" transform="translate(15, 15)">
+											<circle id="椭圆形" fill="#F42F54" cx="45" cy="45" r="45"/>
+											<g id="打勾" transform="translate(23, 23)" fill="#FFFFFF" fill-rule="nonzero">
+												<g transform="translate(3.6667, 10.0833)" id="路径">
+													<path d="M32.1654526,0.701511255 L12.9956955,18.1026274 L4.51039334,10.2718848 C4.04139558,9.82765359 3.37207987,9.5696948 2.66591865,9.56101184 C1.95975744,9.55232887 1.28176687,9.79372117 0.797538128,10.2262315 C-0.244658527,11.1582754 -0.268208222,12.6056304 0.743273321,13.5613253 L11.0992833,23.1196848 C11.1045219,23.1257348 11.1113679,23.1306715 11.1192756,23.1341017 C11.118141,23.1404736 11.118141,23.1469522 11.1192756,23.1533241 C11.2895971,23.2911384 11.4818347,23.4083932 11.6904841,23.5017309 C11.7818868,23.5592826 11.8772547,23.6122367 11.9760884,23.660316 C12.2894851,23.7755025 12.6279952,23.8344247 12.9699911,23.8333333 C13.3076032,23.8333333 13.6417744,23.7762579 13.9524697,23.6651217 C14.0512279,23.6169396 14.1465888,23.5639894 14.238074,23.5065365 C14.447547,23.4182765 14.6400933,23.3040733 14.8092825,23.167741 C14.8142566,23.1623522 14.8200135,23.1575089 14.8264187,23.1533241 C14.831013,23.1455802 14.8378977,23.1389606 14.846411,23.1341017 L35.9097243,4.0221882 C36.9276742,3.07164501 36.9177726,1.62530705 35.8868759,0.684691618 C35.4076956,0.245459642 34.7303785,-0.0031722588 34.0217386,0 C33.3130987,0.00323339044 32.6389959,0.257973274 32.1654526,0.701511255 L32.1654526,0.701511255 Z"/>
+												</g>
+											</g>
+										</g>
+									</g>
+								</g>
+							</g>
+						</g>
+					</svg>
+				</div>
+				<div class="payStatus">
+					<div class="payStatusMsg">支付成功</div>
+					<div class="payDetail">共<span class="payTotal">300</span>单，下单成功<span class="sucessPayorder">200</span>单，失败<span class="failOrder">100</span></div>
+				</div>
+			</div>
+			<div class="payOrderTable">
+				<table>
+					<tr class="thead">
+						<th>订单号</th>
+						<th>商品总数量</th>
+						<th>商品总价格</th>
+						<th>操作费</th>
+						<th>订单总价</th>
+						<th>下单状态</th>
+					</tr>
+					<tr class="trow">
+						<td>12312371823812731</td>
+						<td>
+						    200
+						</td>
+						<td>
+							$555.00
+						</td>
+						<td>$555.00</td>
+						<td>
+							$555.00
+						</td>
+						<td>
+							<span class="uploadState success">成功</span>
+							<span class="uploadState fail" style="display: flex;align-items: center;">
+								<span>失败</span>
+								<span style="display: inline-block;" class="failMsg" data-toggle="tooltip" data-placement="bottom" title="错误信息:这里显示失败原因的文案，这里显示">
+									<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1">
+									    <g id="批量抓单" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+									        <g id="结果页" transform="translate(-1369, -508)" fill="#F42F54">
+									            <g id="information-line" transform="translate(1369, 508)">
+									                <path d="M9,18 C4.0293,18 0,13.9707 0,9 C0,4.0293 4.0293,0 9,0 C13.9707,0 18,4.0293 18,9 C18,13.9707 13.9707,18 9,18 Z M9,16.2 C12.9764502,16.2 16.2,12.9764502 16.2,9 C16.2,5.02354981 12.9764502,1.80000001 9,1.80000001 C5.02354987,1.80000001 1.80000016,5.02354987 1.80000016,9 C1.80000016,12.9764501 5.02354987,16.2 9,16.2 Z M8.09999999,4.50000001 L9.90000001,4.50000001 L9.90000001,6.3 L8.09999999,6.3 L8.09999999,4.50000001 Z M8.09999999,8.09999999 L9.90000001,8.09999999 L9.90000001,13.5 L8.09999999,13.5 L8.09999999,8.09999999 Z" id="形状" fill-rule="nonzero"/>
+									            </g>
+									        </g>
+									    </g>
+									</svg>
+								</span>
+							</span>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="trunMsgBtn">
+				confirmación
+			</div>
+		  </div>
+		</div>
+	</div>
+</div>
+		
+	</body>
+</html>
+<script type="text/javascript" src="https://topm.tech/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="https://topm.tech/js/index/0708/bootstrap.min.js"></script>
+<script>
+	$("#batchOrders").addClass("popup");
+	$("#batchOrders").on("click",".deleteIcon",()=>{
+		$("#batchOrders").removeClass("popup");
+	})
+
+   $("#confirmBatchOrder").modal('show');
+   
+   $('.uploadState .failMsg').tooltip();
+</script>
