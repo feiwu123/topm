@@ -42,12 +42,12 @@
 		visibility: visible;
 		transition: all 300ms;
 	}
-	#batchOrders 	.carCon .topCon{
+	#batchOrders .carCon .topCon{
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 	}
-	#batchOrders 	.contain_info{
+	#batchOrders .contain_info{
 		margin-top: 32px;
 	}
 	#batchOrders .orderEnter{
@@ -132,6 +132,8 @@
 		box-sizing: border-box;
 		padding: 10px 24px;
 		margin-top: 24px;
+		height: 50vh;
+		overflow: auto;
 	}
 	.batchOrderTable table{
 		width: 100%;
@@ -141,6 +143,83 @@
 		line-height: 48px;
 		background-color: #fff;
 		padding: 0 10px;
+	}
+	.batchOrderTable .trow{
+		position: relative;
+		margin-top: 8px;
+	}
+	.batchOrderTable .hoverTr:hover{
+		background-color: #fff;
+	}
+	.batchOrderTable .hoverTr  .order_products{
+		display: none;
+	}
+	.batchOrderTable .hoverTr:hover .order_products{
+		display: block;
+	}
+	.batchOrderTable .trow .order_products{
+		position: absolute;
+		top: 58px;
+		left: 0;
+		width: 100%;
+		padding: 0;
+		z-index:99;
+	}
+	.batchOrderTable .trow .order_products .order_products_table{
+		background-color: #fff;
+		padding: 12px;	
+	}
+	.batchOrderTable .trow .order_products .productInfor{
+		display: flex;
+		gap: 8px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	.batchOrderTable .trow .order_products .productInfor .productImg{
+		width: 100px;
+		height: 100px;
+	}
+	.batchOrderTable .trow .order_products .productInfor .productImg img{
+		width: 100%;
+		aspect-ratio: 1 / 1;
+		object-fit: cover;
+	}
+	.batchOrderTable .trow .order_products .productInfor .productDetail .name{
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		font-weight: 600;
+		line-height: 20px;
+	}
+	.batchOrderTable .trow .order_products .productInfor .productDetail .props{
+		color: #999999;
+		font-size: 14px;
+		margin-top: 10px;
+		line-height: 20px;
+	}
+	.batchOrderTable .trow .order_products .product_unit_price{
+		font-size: 16px;
+		color: #333333;
+		line-height: 20px;
+		text-align: center;
+	}
+	.batchOrderTable .trow .order_products .product_number{
+		font-size: 16px;
+		color: #999;
+		line-height: 20px;
+		text-align: center;
+	}
+	.batchOrderTable .trow .order_products .pro_total{
+		color:#F42F54;
+		font-size: 18px;
+		line-height: 20px;
+	}
+	.batchOrderTable .trow .order_products table{
+		width: 100%;
+	}
+	.batchOrderTable .trow .order_products .thead th{
+		background: #F8F8F8;
 	}
 	.batchOrderTable .trow td{
 		height: 48px;
@@ -197,7 +276,7 @@
 										<th>订单总价</th>
 										<th>订单状态</th>
 									</tr>
-									<tr class="trow">
+									<tr class="trow hoverTr">
 										<td><input type="checkbox" /></td>
 										<td>12312371823812731</td>
 										<td>
@@ -212,6 +291,145 @@
 										</td>
 										<td>
 											<span class="orderState noPay">未支付</span>
+										</td>
+										<td class="order_products">
+											<div class="order_products_table">
+												<table>
+													<colgroup>
+													    <col style="width: 50%;">
+													    <col style="width: 25%;">
+														<col style="width: 25%;">
+													    <!-- 更多列定义 -->
+													</colgroup>
+													<tr class="thead">
+														<th>商品</th>
+														<th style="text-align: center;">单价</th>
+														<th>总价</th>
+													</tr>
+													<tr>
+														<td>
+															<div class="productInfor">
+																<div class="productImg">
+																	<img src="https://img.ltwebstatic.com/v4/j/spmp/2025/11/06/99/17623729326d0fd8ce3f5e02ec371f8988b27c1019_square.jpg" />
+																</div>
+																<div class="productDetail">
+																	<div class="name">Xiaomi 14 Ultra 徕卡光学 Summilux 镜头，第三代骁龙</div>
+																	<div class="props">颜色：白色；内存：16G+521G</div>
+																</div>
+															</div>
+														</td>
+														<td>
+															<div class="product_unit_price">￥100.00</div>
+															<div style="text-align: center;">×<span class="product_number">2</span></div>
+														</td>
+														<td class="pro_total">￥100.00</td>
+													</tr>
+												</table>
+											</div>
+										</td>
+									</tr>
+									<tr class="trow hoverTr">
+										<td><input type="checkbox" /></td>
+										<td>12312371823812731</td>
+										<td>
+										    200
+										</td>
+										<td>
+											$555.00
+										</td>
+										<td>$555.00</td>
+										<td>
+											$555.00
+										</td>
+										<td>
+											<span class="orderState noPay">未支付</span>
+										</td>
+										<td class="order_products">
+											<div class="order_products_table">
+												<table>
+													<colgroup>
+													    <col style="width: 50%;">
+													    <col style="width: 25%;">
+														<col style="width: 25%;">
+													    <!-- 更多列定义 -->
+													</colgroup>
+													<tr class="thead">
+														<th>商品</th>
+														<th style="text-align: center;">单价</th>
+														<th>总价</th>
+													</tr>
+													<tr>
+														<td>
+															<div class="productInfor">
+																<div class="productImg">
+																	<img src="https://img.ltwebstatic.com/v4/j/spmp/2025/11/06/99/17623729326d0fd8ce3f5e02ec371f8988b27c1019_square.jpg" />
+																</div>
+																<div class="productDetail">
+																	<div class="name">Xiaomi 14 Ultra 徕卡光学 Summilux 镜头，第三代骁龙</div>
+																	<div class="props">颜色：白色；内存：16G+521G</div>
+																</div>
+															</div>
+														</td>
+														<td>
+															<div class="product_unit_price">￥100.00</div>
+															<div style="text-align: center;">×<span class="product_number">2</span></div>
+														</td>
+														<td class="pro_total">￥100.00</td>
+													</tr>
+												</table>
+											</div>
+										</td>
+									</tr>
+									<tr class="trow hoverTr">
+										<td><input type="checkbox" /></td>
+										<td>12312371823812731</td>
+										<td>
+										    200
+										</td>
+										<td>
+											$555.00
+										</td>
+										<td>$555.00</td>
+										<td>
+											$555.00
+										</td>
+										<td>
+											<span class="orderState noPay">未支付</span>
+										</td>
+										<td class="order_products">
+											<div class="order_products_table">
+												<table>
+													<colgroup>
+													    <col style="width: 50%;">
+													    <col style="width: 25%;">
+														<col style="width: 25%;">
+													    <!-- 更多列定义 -->
+													</colgroup>
+													<tr class="thead">
+														<th>商品</th>
+														<th style="text-align: center;">单价</th>
+														<th>总价</th>
+													</tr>
+													<tr>
+														<td>
+															<div class="productInfor">
+																<div class="productImg">
+																	<img src="https://img.ltwebstatic.com/v4/j/spmp/2025/11/06/99/17623729326d0fd8ce3f5e02ec371f8988b27c1019_square.jpg" />
+																</div>
+																<div class="productDetail">
+																	<div class="name">Xiaomi 14 Ultra 徕卡光学 Summilux 镜头，第三代骁龙</div>
+																	<div class="props">颜色：白色；内存：16G+521G</div>
+																</div>
+															</div>
+														</td>
+														<td>
+															<div class="product_unit_price">￥100.00</div>
+															<div style="text-align: center;">×<span class="product_number">2</span></div>
+														</td>
+														<td class="pro_total">￥100.00</td>
+													</tr>
+												</table>
+											</div>
 										</td>
 									</tr>
 								</table>
@@ -306,7 +524,7 @@
 		<div class="modal-content">
 		  <div class="modal-body">
 			<div class="title">
-					<div class="closeIcon">
+					<div class="closeIcon" data-dismiss="modal" aria-label="Close">
 						<img src="https://topm.tech/images/hzp2/delete.svg">
 					</div>  
 			</div>
@@ -392,12 +610,19 @@
 <script type="text/javascript" src="https://topm.tech/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="https://topm.tech/js/index/0708/bootstrap.min.js"></script>
 <script>
-	$("#batchOrders").addClass("popup");
+	$("#batchOrders").addClass("popup");//侧边栏显示
+	//$("#batchOrders").removeClass("popup");//侧边栏隐藏
+	
 	$("#batchOrders").on("click",".deleteIcon",()=>{
 		$("#batchOrders").removeClass("popup");
 	})
 
-   $("#confirmBatchOrder").modal('show');
-   
+   //$("#confirmBatchOrder").modal('show');//中间弹窗显示
+   //$("#confirmBatchOrder").modal('hide');//中间弹窗隐藏
+   //$(".batchOrdersInput").show();//多行输入显示
+   //$(".batchOrdersInput").hide();//多行输入隐藏
+   // $(".batchProgress").hide();上传进度隐藏
+   // $(".batchProgress").show();上传进度显示
+	
    $('.uploadState .failMsg').tooltip();
 </script>

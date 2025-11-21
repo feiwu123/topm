@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="Keywords" content="" />
+		<meta name="Description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+		<title>TOPM批发</title>
+		<link rel="stylesheet" href="./css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="./css/swiper.min.css">
+		
+		<link rel="stylesheet" href="./css/common.css"/>
+		
+		
+		<link rel="stylesheet" href="./css/jquery.mCustomScrollbar.min.css"/>	
+		<link rel="stylesheet" href="./css/topCon.css"/>
+		<link rel="stylesheet" href="./css/category.css"/>
+		<link rel="stylesheet" href="./css/paganition.css"/>
+		<link rel="stylesheet" href="./css/common/user.css"/>
+		<link rel="stylesheet" href="./css/shoppingCar.css"/>
+		
+		<!-- 批发 -->
+		<link rel="stylesheet" href="./css/pifaIndex.css" />
+	</head>
+	<script type="text/javascript">
+	    function resizeFont() {
+			//获取屏幕宽度
+			let clientWidth = document.documentElement.clientWidth || document.body.clientWidth;
+			//设计图参考宽度
+			let design = 1920;
+			if (clientWidth >= 1920){
+				document.getElementsByTagName('html')[0].style.fontSize = '16px';
+			}else if(clientWidth < 1920 && clientWidth > 1200){
+				document.getElementsByTagName('html')[0].style.fontSize = clientWidth / design * 16 + 'px';
+			}else{
+				document.getElementsByTagName('html')[0].style.fontSize = clientWidth / design *40 + 'px';
+			}
+		}
+		resizeFont();
+		var json_languages = {"ok":"ok","determine":"Confirmar","cancel":"Cancelar","drop":"Eliminar","edit":"Editar","remove":"Eliminar","follow":"Seguir","pb_title":"Mensaje","Prompt_information":"Anuncio","title":"Anuncio","not_login":"A\u00fan no ha iniciado sesi\u00f3n","close":"Cerrar","cart":"Mi carrito","js_cart":"Mi carrito","all":"Todos","go_login":"Ir a iniciar sesi\u00f3n","select_city":"Seleccione una ciudad","comment_goods":"Publicar comentarios","submit_order":"Enviar pedido","sys_msg":"Mensaje del sistema","no_keywords":"\u00a1Ingrese palabras clave de b\u00fasqueda!","adv_packup_one":"Vaya a la ubicaci\u00f3n publicitaria en segundo plano","adv_packup_two":"\u00a1Establecer anuncios dentro! ","more":"M\u00e1s","Please":"Por favor, vaya a","set_up":"\u00a1Configurar! ","login_phone_packup_one":"Ingrese su n\u00famero de tel\u00e9fono","more_options":"M\u00e1s opciones","Pack_up":"Guardar","no_attr":"No hay m\u00e1s atributos","search_Prompt":"Puede ingresar caracteres chinos, pinyin para buscar marcas","most_input":"Solo puede seleccionar 5 elementos como m\u00e1ximo","multi_select":"Selecci\u00f3n m\u00faltiple","checkbox_Packup":"Guarde todas las selecciones m\u00faltiples","radio_Packup":"Por favor, guarde toda la selecci\u00f3n individual","contrast":"Comparar","empty_contrast":"Eliminar","Prompt_add_one":"Solo puede agregar 4 productos como m\u00e1ximo ^ _ ^","Prompt_add_two":"Puede continuar agregando","button_compare":"Comparar productos seleccionados","exist":"Ha seleccionado %s","count_limit":"Solo puede seleccionar hasta 4 productos para comparar","goods_type_different":"%s y los tipos de productos seleccionados son diferentes y no se pueden comparar","compare_no_goods":"No ha seleccionado ning\u00fan producto para comparar o la cantidad de productos a comparar es inferior a 2. ","btn_buy":"Comprar","is_cancel":"Cancelar","select_spe":"Seleccione los atributos del producto","Province":"Seleccione su provincia","City":"Seleccione su ciudad","District":"Seleccione su \u00e1rea","Street":"Por favor seleccione la calle","Detail_address_null":"La direcci\u00f3n detallada no puede estar vac\u00eda","Select_attr":"Por favor, seleccione los atributos","Focus_prompt_one":"\u00a1Has seguido esta tienda! ","Focus_prompt_two":"Incie sesi\u00f3n como miembro del centro comercial","Focus_prompt_login":"Inicia\u00a0sesi\u00f3n primero. ","store_focus":"Compre atenci\u00f3n. ","Focus_prompt_three":"\u00bfEst\u00e1 seguro de que desea seguir la tienda seleccionada? ","Focus_prompt_four":"\u00bfEst\u00e1 seguro de que desea dejar de seguir la tienda? ","Focus_prompt_five":"\u00bfDesea seguir esta tienda? ","Purchase_quantity":"L\u00edmite de compra excedido","Me_collection":"Mi favorito","shiping_prompt":"El env\u00edo no es disponible actualmente","Have_goods":"En stock","No_goods":"Agotado","No_shipping":"No se puede enviar","Deliver_back_order":"Entrega inmediatamente despu\u00e9s de realizar el pedido","Time_delivery":"Entrega de tiempo","goods_over":"Este producto est\u00e1 agotado temporalmente","Stock_goods_null":"Inventario de producto insuficiente","purchasing_prompt_two":"Lo sentimos, este producto ha acumulado m\u00e1s del l\u00edmite de compra","day_not_available":"Agotado hoy","day_yes_available":"En stock hoy","Already_buy":"Comprado","Already_buy_two":"El art\u00edculo ha alcanzado el l\u00edmite de compra y ya no se puede comprar","Already_buy_three":"Este producto solo se puede comprar de nuevo","goods_buy_empty_p":"La cantidad de productos no puede ser inferior a 1 pieza","goods_number_p":"La cantidad de productos debe ser un n\u00famero","search_one":"Complete el precio del filtro","search_two":"Complete el precio del filtro a la izquierda","search_three":"Complete el precio del filtro a la derecha","search_four":"El precio de la izquierda no puede ser mayor o igual que el precio de la derecha","jian":"piezas","letter":"Piezas","inventory":"Inventario","move_collection":"Mover a mi colecci\u00f3n","select_shop":"Seleccione un producto de paquete","Parameter_error":"Error de par\u00e1metro","screen_price":"Por favor, complete el precio de selecci\u00f3n","screen_price_left":"Por favor complete el precio del filtro a la izquierda","screen_price_right":"Complete el precio del filtro a la derecha","screen_price_dy":"El precio de la izquierda no puede ser mayor o igual que el precio de la derecha","invoice_ok":"Guardar informaci\u00f3n de la factura","invoice_desc_null":"\u00a1El contenido de entrada no puede estar vac\u00edo! ","invoice_desc_number":"\u00a1Puede agregar hasta 3 facturas de la compa\u00f1\u00eda! ","invoice_packup":"\u00a1Seleccione o complete el encabezado de la factura! ","invoice_tax_null":"Complete el c\u00f3digo de identificaci\u00f3n del contribuyente","add_address_10":"Solo puede agregar hasta 10 direcciones de env\u00edo","msg_phone_not":"El n\u00famero de tel\u00e9fono m\u00f3vil es incorrecto","captcha_not":"El c\u00f3digo de verificaci\u00f3n no puede estar vac\u00edo","captcha_xz":"Ingrese un c\u00f3digo de verificaci\u00f3n de 4 d\u00edgitos","captcha_cw":"Error de c\u00f3digo de verificaci\u00f3n","Detailed_map":"Mapa detallado","email_error":"\u00a1El formato del correo electr\u00f3nico es incorrecto! ","bid_prompt_null":"\u00a1El precio no puede estar vac\u00edo!","bid_prompt_error":"\u00a1El formato de precio es incorrecto! ","mobile_error_goods":"\u00a1El formato del tel\u00e9fono m\u00f3vil es incorrecto! ","null_email_goods":"El Email no puede estar vac\u00edo","null_zipcode":"El c\u00f3digo postal no puede quedar vac\u00edo.","select_store":"\u00a1Seleccione una tienda! ","Product_spec_prompt":"Seleccione el tipo de especificaci\u00f3n del producto","reply_desc_one":"El contenido de la publicaci\u00f3n de respuesta no puede estar vac\u00edo","go_shoping":"Ir de compras","loading":"","purchasing_minamount":"Lo sentimos, la cantidad de compra no puede ser inferior al precio m\u00ednimo de escalera","highest_price":"\u00a1El precio m\u00e1s alto!","lowest_price":"\u00a1El precio m\u00e1s bajo!","no_history":"Ha borrado sus productos vistos recientemente","receive_coupons":"Recibir cupones","Immediate_use":"Usar ahora","no_enabled":"Cerrar"};
+	</script>
+	<body>
+		<div class="container top">
+			<div class="topCon col-lg-12">
+				<div class="logoCon">
+					<div class="logo">
+						TOPM
+						<!-- <img class="logoImg" src=""/> -->
+					</div>
+				</div>
+				<style>
+					.languages{
+						position: relative;
+						width: 128px;
+						height: 40px;
+						background: #F6F6F6;
+						border-radius: 20px;
+						line-height: 40px;
+						font-size: 14px;
+					}
+					.languages .language_selected{
+						display: flex;
+						justify-content: space-around;
+						align-items: center;
+						cursor: pointer;
+					}
+					.language_selected:after{
+						content: "";
+						position: absolute;
+						height: 15px;
+						width: 100%;
+						bottom: -15px;
+					}
+					.language_selected_item{
+						display: flex;
+						align-items: center;
+						gap: 6px;
+					}
+					.languages .language_select_menus{
+						position: absolute;
+						width: 100%;
+						background: #F6F6F6;
+						border-radius: 8px;
+						margin-top: 14px;
+						display: none;
+					}
+					.language_select_menus li{
+						height: 40px;
+						line-height: 40px;
+					}
+					.language_select_menus li .select_menus_item{
+						display: flex;
+						gap: 6px;
+						align-items: center;
+						padding: 0 16px;
+						cursor: pointer;
+					}
+					.languages:hover .language_select_menus{
+						display: block;
+					}
+				</style>
+				<div class="userCenterCon">
+					<div class="userIconsgroups">
+						<div class="languages">
+							<div class="language_selected">
+								<div class="language_selected_item">
+									<span>语言:</span>
+									<img src="./images/guoqi/es.png" />
+								</div>
+								<div class="dropDown_icon">
+									<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+									    <g id="效果图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+									        <g id="余额" transform="translate(-1474, -47)" fill="#000000" fill-rule="nonzero">
+									            <g id="编组-2" transform="translate(1374, 32)">
+									                <g id="ICON/下_12×12_未选择" transform="translate(100, 15)">
+									                    <g id="下拉" transform="translate(1, 3.25)">
+									                        <path d="M5,5.5 C4.86103053,5.5 4.72786635,5.44514219 4.63059001,5.34779204 L0.147836802,0.862300773 C-0.0521299113,0.662239228 -0.0488144667,0.341082337 0.155208359,0.144998495 C0.359213555,-0.0510680406 0.686718797,-0.0478512826 0.886650233,0.152227552 L5,4.26808574 L9.11334324,0.152227552 C9.31327467,-0.0478685887 9.64074464,-0.0511372313 9.84478511,0.144998495 C10.0488256,0.341099627 10.0521234,0.662239228 9.85215667,0.862300773 L5.36940344,5.34779204 C5.2721271,5.44514219 5.13898057,5.5 5,5.5 Z" id="路径"></path>
+									                    </g>
+									                </g>
+									            </g>
+									        </g>
+									    </g>
+									</svg>
+								</div>
+							</div>
+							<div class="language_select_menus">
+								<ul>
+									<li>
+										<div class="select_menus_item">
+											<span>语言:</span>
+											<img src="./images/guoqi/es.png" />
+										</div>
+									</li>
+									<li>
+										<div class="select_menus_item">
+											<span>语言:</span>
+											<img src="./images/guoqi/zh.png" />
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="userIcon shopCar" id="shopCar">
+							<img src="./images/icons/shop_icon.svg" />
+						</div>
+						<div class="userIcon login-skip login_icons">
+							<div class="icon">
+								<img src="./images/icons/user_icon.svg" />
+								<div class="dropdownMenu">
+										<a href="javascript:;" class="login-skip" data-href="user.php" title="Mi cuenta">
+											<div class="dropItem">
+												Mi cuenta
+											</div>
+										</a>
+										<a href="javascript:;" class="login-skip" data-href="user.php?act=order_list" title="Mis pedidos">
+											<div class="dropItem">
+												Mis pedidos
+											</div>
+										</a>
+										<a href="javascript:;" class="login-skip" data-href="user.php?act=value_card" title="Tarjeta de Regalo">
+											<div class="dropItem">
+												Tarjeta de Regalo
+											</div>
+										</a>
+										<a href="history_list.php" title="Mi historial">
+											<div class="dropItem">
+												Mi historial
+											</div>
+										</a>
+															<a href="/user.php?act=logout" title="Cerrar sesión">
+											<div class="dropItem">
+												Cerrar sesión
+											</div>
+										</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="searchCon">
+			<div class="container">
+				<div class="searchInner">
+					<div class="categoryIcon">
+						<div class="cateIcon">
+							<img src="./images/icons/menu_icon.svg"/>
+						</div>
+						<div class="categoryTxt">
+							全部商品
+						</div>
+					</div>
+					<form action="/search.php" name="search" method="get" class="search_form" id="searchForm">
+						<div class="searchInput">
+							<div class="searchEle">
+								<label class="labelName">请输入想要搜索的商品</label>
+								<input class="searchName" name="keywords" required/>
+								<div class="seachIconEle">
+									<img class="searchIcon" src="./images/icons/search_icon.svg" onclick="document.search[1].submit()"/>
+								</div>
+							</div>
+						</div>
+					</form>
+					<div class="balance">
+						<div class="balance_icon">
+							<img src="./images/icons/bags_icon.svg" />
+						</div>
+						<div class="balance_value">
+							<span>余额:</span>
+							<span>0</span>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+		<div class="container breadCon">
+			<div class="categoryBreads">
+				<div class="breadName">
+					<a>Home</a>
+				</div>
+				<div class="breadName">
+					<a>批发商品列表</a>
+				</div>
+			</div>
+			<div class="filterCate">
+				<div class="filterCategory">
+					<select>
+						<option>类目筛选</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container pifa_products">
+			<div class="pifa_tables">
+				<table>
+					<thead>
+						<tr>
+							<th>商品图</th>
+							<th>sku</th>
+							<th>类目</th>
+							<th>商品名</th>
+							<th>库存</th>
+							<th>价格</th>
+							<th>长（cm）</th>
+							<th>宽（cm）</th>
+							<th>高（cm）</th>
+							<th>重量（kg）</th>
+							<th>数量</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<div class="pro_img">
+									<img src="https://img.ltwebstatic.com/v4/j/spmp/2025/07/24/79/1753288316d750b397e94888f59df3c33cae5b918d_square.jpg" />
+								</div>
+							</td>
+							<td>
+								ME-92006-3
+							</td>
+							<td>
+								这里是类目名称
+							</td>
+							<td>
+								Bolsa impermeable para teléfono móvil - [Negro] Regular
+							</td>
+							<td>
+								3000
+							</td>
+							<td>
+								$99.00MXN
+							</td>
+							<td>
+								1000
+							</td>
+							<td>
+								1000
+							</td>
+							<td>
+								1000
+							</td>
+							<td>
+								1000
+							</td>
+							<td>
+								<div class="countOperate">
+									<div class="counterCon">
+										<div class="operateAdd operateIcon">
+										</div>
+										<div class="operateInput">
+											<input type="number" class="operateNumber" min="0" max="100" value="0" required/>
+										</div>
+										<div class="operateDec operateIcon">
+										</div>
+									</div>
+									<div class="addCar">
+										添加
+									</div>	
+								</div>
+								<div class="addNumberTips">
+									注：最低 100 个
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
+		<!-- 分页 -->
+		<div class="paginaition container">
+			<div class="pagitItem page1" style="padding: 0 10px;">
+				首页
+			</div>
+			<div class="pagitItem last">
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30px" height="30px" viewBox="0 0 30 30" version="1.1">
+				    <g id="效果图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+				        <g id="首页" transform="translate(-1354, -1625)">
+				            <g id="上一页" transform="translate(1354, 1625)">
+				                <rect id="矩形" fill="#F8F8F8" x="0" y="0" width="30" height="30"/>
+				                <g id="下" transform="translate(15, 15) rotate(-270) translate(-15, -15)translate(7, 7)" fill="#999999" fill-rule="nonzero">
+				                    <g id="下拉" transform="translate(1.3333, 4.3333)">
+				                        <path d="M6.6666623,7.33333333 C6.48137404,7.33333333 6.3038218,7.26018958 6.17412002,7.13038938 L0.197115736,1.14973436 C-0.0695065485,0.882985637 -0.0650859556,0.45477645 0.206944479,0.193331327 C0.478951406,-0.0680907209 0.915625063,-0.0638017101 1.18220031,0.202970069 L6.6666623,5.69078099 L12.1511243,0.202970069 C12.4176996,-0.063824785 12.8543262,-0.0681829751 13.1263801,0.193331327 C13.3984341,0.454799502 13.4028312,0.882985637 13.1362089,1.14973436 L7.15920459,7.13038938 C7.02950281,7.26018958 6.8519741,7.33333333 6.6666623,7.33333333 Z" id="路径"/>
+				                    </g>
+				                </g>
+				            </g>
+				        </g>
+				    </g>
+				</svg>
+			</div>
+			<div class="pagitItem active">
+				1
+			</div>
+			<div class="pagitItem">
+				2
+			</div>
+			<div class="pagitItem">
+				3
+			</div>
+			<div class="pagitItem">
+				4
+			</div>
+			<div class="pagitItem">
+				5
+			</div>
+			<div class="pagitItem next">
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30px" height="30px" viewBox="0 0 30 30" version="1.1">
+				    <g id="效果图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+				        <g id="首页" transform="translate(-1630, -1625)">
+				            <g id="分页" transform="translate(1354, 1625)">
+				                <g id="下一页" transform="translate(291, 15) scale(-1, 1) translate(-291, -15)translate(276, 0)">
+				                    <rect id="矩形" fill="#F8F8F8" x="0" y="0" width="30" height="30"/>
+				                    <g id="下" transform="translate(15, 15) rotate(-270) translate(-15, -15)translate(7, 7)" fill="#999999" fill-rule="nonzero">
+				                        <g id="下拉" transform="translate(1.3333, 4.3333)">
+				                            <path d="M6.6666623,7.33333333 C6.48137404,7.33333333 6.3038218,7.26018958 6.17412002,7.13038938 L0.197115736,1.14973436 C-0.0695065485,0.882985637 -0.0650859556,0.45477645 0.206944479,0.193331327 C0.478951406,-0.0680907209 0.915625063,-0.0638017101 1.18220031,0.202970069 L6.6666623,5.69078099 L12.1511243,0.202970069 C12.4176996,-0.063824785 12.8543262,-0.0681829751 13.1263801,0.193331327 C13.3984341,0.454799502 13.4028312,0.882985637 13.1362089,1.14973436 L7.15920459,7.13038938 C7.02950281,7.26018958 6.8519741,7.33333333 6.6666623,7.33333333 Z" id="路径"/>
+				                        </g>
+				                    </g>
+				                </g>
+				            </g>
+				        </g>
+				    </g>
+				</svg>
+			</div>
+			<div class="pagitItem page1" style="padding: 0 10px;">
+				末页
+			</div>
+			<div class="gotoPage" style="display: flex;align-items: center;gap: 8px;font-size: 14px;">
+				<div>前往</div>
+				<div class="pageNum" style="width: 60px;height: 30px;border: 1px solid #EDEDED;">
+					<input class="pageInput" name="pageNumber" value="" style="outline: none;border: 0;width: 100%;height: 100%;"/>
+				</div>
+				<div class="routeBtn pagitItem" style="height: 30px;line-height: 30px;padding: 0 10px;">
+					跳转
+				</div>
+			</div>
+		</div>
+	
+	
+	<div class="footer" style="text-align: center;color: #333333;font-size: 14px;background-color: #fff;margin-top: 120px;">
+		Copyright 2024 © TOPM.COM
+	</div>
+<input type="text" id="color-picker" class="minicolors" value="#f7f7f7">
+
+	
+	<!-- 购物车按钮 -->
+	<div class="shoppingCar">
+		<div class="shoppingCar_icon">
+			<img src="./images/pifa/icons/car.svg" />
+			<div class="shopNumber">
+				0
+			</div>
+		</div>	
+		<div class="shoppingCar_text">
+			批发购物车
+		</div>
+	</div>	
+</body>
+</html>	
+
+<script src="./js/jquery-1.9.1.min.js"></script>
+<script src="./js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/common.js"></script>
+	
+	
+<script>
+const operateInput = document.querySelectorAll('.operateNumber');
+
+// 1. 监听输入事件，过滤非数字字符
+for(let i=0;i<operateInput.length;i++){
+	operateInput[i].addEventListener('input', function() {
+	  // 移除非数字字符（保留负号，但结合 min="0" 会自动过滤负数）
+	  this.value = this.value.replace(/[^0-9]/g, '');
+	  
+	  // 2. 限制范围：如果输入超过100，自动修正为100
+	  if (this.value > 100) {
+		this.value = 100;
+	  }
+	  // 3. 移除前导零（如输入 "0012" 改为 "12"，但保留 "0"）
+	  if (this.value.length > 1 && this.value[0] === '0') {
+		this.value = parseInt(this.value, 10);
+	  }
+	});
+
+	// 4. 失去焦点时的最终校验（防止粘贴非整数）
+	operateInput[i].addEventListener('blur', function() {
+	  const val = parseInt(this.value, 10);
+	  // 若输入为空、非数字或超出范围，重置为空（或给出提示）
+	  if (isNaN(val) || val < 0 || val > 100) {
+		this.value = '';
+		//alert('请输入0-100之间的整数！');
+	  }
+	});
+}
+
+$(".countOperate .operateAdd").on("click",function(event){
+	const inputEle = $(this).siblings('.operateInput').find("input");
+	const inputVal = Number($(this).siblings('.operateInput').find("input").val());
+	if(inputVal===100){
+		inputEle.val(100);
+	}else{
+		inputEle.val(Number(inputVal)+1);
+	}
+})
+$(".countOperate .operateDec").on("click",function(event){
+	const inputEle = $(this).siblings('.operateInput').find("input");
+	const inputVal = Number($(this).siblings('.operateInput').find("input").val());
+	if(inputVal===0){
+		inputEle.val(0);
+	}else{
+		inputEle.val(Number(inputVal)-1);
+	}
+})
+
+
+
+</script>
+	
+	
+	
+	
+	
+
+	
+	
+	
+
+	
+	
