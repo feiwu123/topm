@@ -6,7 +6,7 @@
 		<meta name="Keywords" content="" />
 		<meta name="Description" content="" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-		<title>TOPM批发购物车</title>
+		<title>TOPM批发订单</title>
 		<link rel="stylesheet" href="./css/bootstrap.min.css"/>
 		<link rel="stylesheet" href="./css/swiper.min.css">
 		
@@ -221,7 +221,7 @@
 						<a>Home</a>
 					</div>
 					<div class="breadName">
-						<a>批发商品列表</a>
+						<a>确认订单</a>
 					</div>
 				</div>
 			</div>
@@ -229,289 +229,84 @@
 			<div class="container">
 				<div class="pifa_products">
 					<div class="car_products_list">
-						<div class="shop_car_list">
-							<div class="table_row table_header">
-								<div class="table_th selectAll selectTd">
-									<input class="all_checkes" type="checkbox" name="all_checks" />
-								</div>
-								<div class="table_th table_td productImg">
-									商品图
-								</div>
-								<div class="table_th table_td skuTd">
-									sku
-								</div>
-								<div class="table_th table_td proTd">
-									商品名
-								</div>
-								<div class="table_th table_td priceTd">
-									价格
-								</div>
-								<div class="table_th table_td numberTd">
-									数据2
-								</div>
-								<div class="table_th table_td operateTd">
-									数量
-								</div>
-								<div class="table_th table_td caozuoTd">
-									操作
-								</div>
+						<div class="card">
+							<div class="title">
+								地址选择
 							</div>
-							<!-- 店铺数据 -->
-							<div class="table_row">
-								<div class="shop_detail">
-									<div>
-										<input class="shop_all_checkbox" type="checkbox" name="item_check" />
-									</div>
-									<div class="shop_img">
-										<img src="https://topm.tech/img/shop_logo.png" />
-									</div>
-									<div class="shop_name">
-										这里是店铺名称
-									</div>
+							<div class="addressList">
+								<div class="addAddress">
+									+&nbsp;&nbsp;新增地址
 								</div>
-								<div class="shop_product_list">
-									<div class="shop_product_list_item">
-										<div class="selectTd">
-											<input class="td_checkbox" type="checkbox" name="item_check" />
-										</div>
-										<div class="tableTd productImg">
-											<img src="https://img.ltwebstatic.com/v4/j/spmp/2025/11/11/e7/1762800757366797c531671b3ca0f3f58a8ae6215f_square.jpg" />
-										</div>
-										<div class="tableTd skuTd">
-											ME-92006-3
-										</div>
-										<div class="tableTd proTd">
-											Bolsa impermeable para teléfono móvil - [Negro] Regular
-										</div>
-										<div class="tableTd priceTd">
-											$99.00MXN
-										</div>
-										<div class="tableTd numberTd">
-											1000
-										</div>
-										<div class="tableTd operateTd">
-											<div class="countOperate">
-												<div class="counterCon">
-													<div class="operateAdd operateIcon">
-													</div>
-													<div class="operateInput">
-														<input type="number" class="operateNumber" min="0" max="100" value="0" required/>
-													</div>
-													<div class="operateDec operateIcon">
-													</div>
-												</div>
-											</div>
-											<div class="addNumberTips">
-												注：最低 100 个
-											</div>
-										</div>
-										<div class="tableTd deleteTd">
-											删除
-										</div>
+								<div class="addressItem TompAccept cur">
+									TOPM收货仓
+								</div>
+								<div class="addressItem">
+									<div class="kehuName">
+										<div class="name">客户名称</div>
+										<div class="tel">18429192321</div>
 									</div>
-									<div class="shop_product_list_item">
-										<div class="selectTd">
-											<input class="td_checkbox" type="checkbox" name="item_check" />
-										</div>
-										<div class="tableTd productImg">
-											<img src="https://img.ltwebstatic.com/v4/j/spmp/2025/11/11/e7/1762800757366797c531671b3ca0f3f58a8ae6215f_square.jpg" />
-										</div>
-										<div class="tableTd skuTd">
-											ME-92006-3
-										</div>
-										<div class="tableTd proTd">
-											Bolsa impermeable para teléfono móvil - [Negro] Regular
-										</div>
-										<div class="tableTd priceTd">
-											$99.00MXN
-										</div>
-										<div class="tableTd numberTd">
-											1000
-										</div>
-										<div class="tableTd operateTd">
-											<div class="countOperate">
-												<div class="counterCon">
-													<div class="operateAdd operateIcon">
-													</div>
-													<div class="operateInput">
-														<input type="number" class="operateNumber" min="0" max="100" value="0" required/>
-													</div>
-													<div class="operateDec operateIcon">
-													</div>
-												</div>
-											</div>
-											<div class="addNumberTips">
-												注：最低 100 个
-											</div>
-										</div>
-										<div class="tableTd deleteTd">
-											删除
-										</div>
+									<div class="kehuAddress">
+										地址信息详情地址信息详情地址信息详情地址信息详情地址信息
 									</div>
 								</div>
 							</div>
 							
-							<div class="table_row">
-								<div class="shop_detail">
-									<div>
-										<input class="shop_all_checkbox" type="checkbox" name="item_check" />
+						</div>
+						<div class="card">
+							<div class="title">
+								确认订单信息
+							</div>
+							<div class="orderDetail">
+								<div class="tableHead" style="margin-top: 28px;">
+									<div class="tableHeadName proTd">
+										店铺商品
 									</div>
-									<div class="shop_img">
-										<img src="https://topm.tech/img/shop_logo.png" />
+									<div class="tableHeadName proNumTd">
+										单价数量
 									</div>
-									<div class="shop_name">
-										这里是店铺名称
+									<div class="tableHeadName priceTd">
+										总价
 									</div>
 								</div>
-								<div class="shop_product_list">
-									<div class="shop_product_list_item">
-										<div class="selectTd">
-											<input class="td_checkbox" type="checkbox" name="item_check" />
+								<div class="shopProducts">
+									<div class="shopDetail">
+										<div class="shop_img">
+											<img src="https://topm.tech/img/shop_logo.png" />
 										</div>
-										<div class="tableTd productImg">
-											<img src="https://img.ltwebstatic.com/v4/j/spmp/2025/11/11/e7/1762800757366797c531671b3ca0f3f58a8ae6215f_square.jpg" />
-										</div>
-										<div class="tableTd skuTd">
-											ME-92006-3
-										</div>
-										<div class="tableTd proTd">
-											Bolsa impermeable para teléfono móvil - [Negro] Regular
-										</div>
-										<div class="tableTd priceTd">
-											$99.00MXN
-										</div>
-										<div class="tableTd numberTd">
-											1000
-										</div>
-										<div class="tableTd operateTd">
-											<div class="countOperate">
-												<div class="counterCon">
-													<div class="operateAdd operateIcon">
-													</div>
-													<div class="operateInput">
-														<input type="number" class="operateNumber" min="0" max="100" value="0" required/>
-													</div>
-													<div class="operateDec operateIcon">
-													</div>
-												</div>
-											</div>
-											<div class="addNumberTips">
-												注：最低 100 个
-											</div>
-										</div>
-										<div class="tableTd deleteTd">
-											删除
+										<div class="shop_name">
+											这里是店铺名称
 										</div>
 									</div>
-									<div class="shop_product_list_item">
-										<div class="selectTd">
-											<input class="td_checkbox" type="checkbox" name="item_check" />
-										</div>
-										<div class="tableTd productImg">
-											<img src="https://img.ltwebstatic.com/v4/j/spmp/2025/11/11/e7/1762800757366797c531671b3ca0f3f58a8ae6215f_square.jpg" />
-										</div>
-										<div class="tableTd skuTd">
-											ME-92006-3
-										</div>
-										<div class="tableTd proTd">
-											Bolsa impermeable para teléfono móvil - [Negro] Regular
-										</div>
-										<div class="tableTd priceTd">
-											$99.00MXN
-										</div>
-										<div class="tableTd numberTd">
-											1000
-										</div>
-										<div class="tableTd operateTd">
-											<div class="countOperate">
-												<div class="counterCon">
-													<div class="operateAdd operateIcon">
+									<div class="shop_product_list">
+										<div class="shop_product_list_item">
+											<div class="productInform proTd">
+												<div class="tableTd productImg">
+													<img src="https://img.ltwebstatic.com/v4/j/spmp/2025/11/11/e7/1762800757366797c531671b3ca0f3f58a8ae6215f_square.jpg" />
+												</div>
+												<div class="product_name_props">
+													<div class="product_name">
+														<span class="product_online online">上架</span>
+														<span class="name">Xiaomi 14 Ultra 徕卡光学 Summilux镜头，第三代骁龙...</span>
 													</div>
-													<div class="operateInput">
-														<input type="number" class="operateNumber" min="0" max="100" value="0" required/>
-													</div>
-													<div class="operateDec operateIcon">
+													<div class="product_props">
+														颜色：白色；内存：16G+521G
 													</div>
 												</div>
 											</div>
-											<div class="addNumberTips">
-												注：最低 100 个
+											<div class="tableTd proNumTd">
+												<div class="per_price">$99.00MXN</div>
+												<div class="pro_num">×2</div>
 											</div>
-										</div>
-										<div class="tableTd deleteTd">
-											删除
+											<div class="tableTd priceTd">
+												<span class="total_price">$99.00MXN</span>
+											</div>
+											
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					<!-- 分页 -->
-						<div class="paginaition ">
-							<div class="pagitItem page1" style="padding: 0 10px;">
-								首页
-							</div>
-							<div class="pagitItem last">
-								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30px" height="30px" viewBox="0 0 30 30" version="1.1">
-									<g id="效果图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-										<g id="首页" transform="translate(-1354, -1625)">
-											<g id="上一页" transform="translate(1354, 1625)">
-												<rect id="矩形" fill="#F8F8F8" x="0" y="0" width="30" height="30"/>
-												<g id="下" transform="translate(15, 15) rotate(-270) translate(-15, -15)translate(7, 7)" fill="#999999" fill-rule="nonzero">
-													<g id="下拉" transform="translate(1.3333, 4.3333)">
-														<path d="M6.6666623,7.33333333 C6.48137404,7.33333333 6.3038218,7.26018958 6.17412002,7.13038938 L0.197115736,1.14973436 C-0.0695065485,0.882985637 -0.0650859556,0.45477645 0.206944479,0.193331327 C0.478951406,-0.0680907209 0.915625063,-0.0638017101 1.18220031,0.202970069 L6.6666623,5.69078099 L12.1511243,0.202970069 C12.4176996,-0.063824785 12.8543262,-0.0681829751 13.1263801,0.193331327 C13.3984341,0.454799502 13.4028312,0.882985637 13.1362089,1.14973436 L7.15920459,7.13038938 C7.02950281,7.26018958 6.8519741,7.33333333 6.6666623,7.33333333 Z" id="路径"/>
-													</g>
-												</g>
-											</g>
-										</g>
-									</g>
-								</svg>
-							</div>
-							<div class="pagitItem active">
-								1
-							</div>
-							<div class="pagitItem">
-								2
-							</div>
-							<div class="pagitItem">
-								3
-							</div>
-							<div class="pagitItem">
-								4
-							</div>
-							<div class="pagitItem">
-								5
-							</div>
-							<div class="pagitItem next">
-								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30px" height="30px" viewBox="0 0 30 30" version="1.1">
-									<g id="效果图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-										<g id="首页" transform="translate(-1630, -1625)">
-											<g id="分页" transform="translate(1354, 1625)">
-												<g id="下一页" transform="translate(291, 15) scale(-1, 1) translate(-291, -15)translate(276, 0)">
-													<rect id="矩形" fill="#F8F8F8" x="0" y="0" width="30" height="30"/>
-													<g id="下" transform="translate(15, 15) rotate(-270) translate(-15, -15)translate(7, 7)" fill="#999999" fill-rule="nonzero">
-														<g id="下拉" transform="translate(1.3333, 4.3333)">
-															<path d="M6.6666623,7.33333333 C6.48137404,7.33333333 6.3038218,7.26018958 6.17412002,7.13038938 L0.197115736,1.14973436 C-0.0695065485,0.882985637 -0.0650859556,0.45477645 0.206944479,0.193331327 C0.478951406,-0.0680907209 0.915625063,-0.0638017101 1.18220031,0.202970069 L6.6666623,5.69078099 L12.1511243,0.202970069 C12.4176996,-0.063824785 12.8543262,-0.0681829751 13.1263801,0.193331327 C13.3984341,0.454799502 13.4028312,0.882985637 13.1362089,1.14973436 L7.15920459,7.13038938 C7.02950281,7.26018958 6.8519741,7.33333333 6.6666623,7.33333333 Z" id="路径"/>
-														</g>
-													</g>
-												</g>
-											</g>
-										</g>
-									</g>
-								</svg>
-							</div>
-							<div class="pagitItem page1" style="padding: 0 10px;">
-								末页
-							</div>
-							<div class="gotoPage" style="display: flex;align-items: center;gap: 8px;font-size: 14px;">
-								<div>前往</div>
-								<div class="pageNum" style="width: 60px;height: 30px;border: 1px solid #EDEDED;">
-									<input class="pageInput" name="pageNumber" value="" style="outline: none;border: 0;width: 100%;height: 100%;"/>
-								</div>
-								<div class="routeBtn pagitItem" style="height: 30px;line-height: 30px;padding: 0 10px;">
-									跳转
-								</div>
-							</div>
-						</div>
+						
 					</div>
 				
 					<div class="car_summary">

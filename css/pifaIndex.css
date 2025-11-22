@@ -181,6 +181,7 @@
 }
 .pifa_products  .car_products_list{
 	flex: 1;
+	font-size: 14px;
 }
 .pifa_products .car_summary{
 	background-color: #fff;
@@ -260,6 +261,9 @@
 	margin-left: 8px;
 }
 .shop_product_list{
+	
+}
+.shop_product_list .shop_product_list_item{
 	display: flex;
 	align-items: center;
 	padding: 17px 0;
@@ -268,9 +272,208 @@
 	width: 80px;
 	height: 80px;
 	aspect-ratio: 1 / 1;
+	position: relative;
 }
 .shop_product_list .productImg img{
 	width: 100%;
 	aspect-ratio: 1 / 1;
 	object-fit: cover;
+}
+.car_products_list .productImg{
+	width: 100px;
+	padding: 0 10px;
+	position: relative;
+}
+.car_products_list .skuTd{
+	width: 100px;
+	padding: 0 10px;
+}
+.car_products_list .proTd{
+	width: 250px;
+	padding: 0 10px;
+	color: #333;
+	overflow: hidden;
+	font-size: 14px;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+.car_products_list .priceTd,.car_products_list .numberTd{
+	width: 100px;
+	padding: 0 10px;
+}
+.car_products_list  .operateTd{
+	width: 250px;
+	padding: 0 10px;
+}
+.car_products_list  .shop_product_list .deleteTd{
+	font-size: 14px;
+	color: #165BD5;
+	cursor: pointer;
+}
+
+/* 批发订单确认 */
+.card{
+	background-color: #fff;
+	border-radius: 8px;
+	padding: 24px;
+	box-sizing: border-box;
+	margin-bottom: 24px;
+}
+.card .title{
+	font-weight: 600;
+	font-size: 18px;
+	color: #333333;
+}
+.addressList{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 24px;
+	margin-top: 24px;
+}
+.addressList .addressItem{
+	background-image: url(../images/addressBg.png);
+	background-size: cover;
+	width: 318px;
+	height: 116px;
+	cursor: pointer;
+	padding: 16px;
+	box-sizing: border-box;
+}
+.addressList .addAddress{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 16px;
+	background-image: url(../images/addressBg.png);
+	background-size: cover;
+	width: 318px;
+	height: 116px;
+	cursor: pointer;
+}
+.addressList .addressItem.cur{
+	border: 1px solid #F42F54;
+	border-style: dashed;
+}
+.addressList .TompAccept{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 16px;
+	font-weight: 600;
+	color: #F42F54;
+}
+.addressList .addressItem .kehuName{
+	display: flex;
+	justify-content: space-between;
+}
+.addressList .addressItem .kehuName .name{
+	font-weight: 600;
+	font-size: 16px;
+	color: #333333;
+}
+.addressList .addressItem .kehuName .tel{
+	font-size: 14px;
+	color: #333333;
+}
+.addressList .addressItem .kehuAddress{
+	margin-top: 13px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+/* 订单详情 */
+.orderDetail .tableHead{
+	display: flex;
+	align-items: center;
+}
+.orderDetail .shopProducts{
+	margin-top: 8px;
+	margin-bottom: 24px;
+	border: 1px solid #F4F4F4;
+	border-radius: 6px;
+}
+.orderDetail .shopProducts .shopDetail{
+	height: 52px;
+	background-color: #F4F4F4;
+	padding: 14px 16px;
+	box-sizing: border-box;
+	display: flex;
+	gap: 8px;
+	align-items: center;
+} 
+.orderDetail .shopProducts .shopDetail .shop_img{
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.orderDetail .shopProducts .shopDetail .shop_img img{
+	width: 100%;
+	aspect-ratio: 1/1;
+	object-fit: cover;
+}
+.shop_product_list_item .productInform{
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+.shop_product_list_item .product_name{
+	font-weight: 600;
+	font-size: 16px;
+	color: #333333;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 2;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+.online{
+	width: 33px;
+	height: 17px;
+	background: #03BD78;
+	border-radius: 2px;
+	color: #fff;
+	font-size: 12px;
+	display: inline-block;
+	text-align: center;
+	line-height: 17px;
+}
+.orderDetail .proTd{
+	width: 50%;
+}
+.orderDetail .proNumTd,.orderDetail .priceTd{
+	width: 25%;
+}
+.product_name_props .product_props{
+	color: #999;
+	font-size: 14px;
+	margin-top: 4px;
+}
+.orderDetail .proNumTd .per_price{
+	font-size: 16px;
+	color: #333333;
+	width: 150px;
+	text-align: center;
+}
+.orderDetail .proNumTd  .pro_num{
+	font-size: 16px;
+	color: #999999;
+	margin-top: 4px;
+	width: 150px;
+	text-align: center;
+}
+.orderDetail .priceTd .total_price{
+	font-weight: 800;
+	font-size: 18px;
+	color: #F42F54;
 }
