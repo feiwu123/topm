@@ -477,3 +477,100 @@
 	font-size: 18px;
 	color: #F42F54;
 }
+
+/* 修改地址弹出框 */
+.popContent{
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	width: 100%;
+	z-index: 999;
+}
+.popContent .bgCon{
+	background-color: #000;
+	opacity: 0.5;
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	display: none;
+} 
+.popContent.popup .bgCon {
+    display: block;
+}
+.popContent .carCon{
+    width: 836px;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    right: 0px;
+    height: 100vh;
+    padding: 56px;
+    transform: translateX(900px);
+    visibility: hidden;
+}
+.popContent.popup .carCon {
+    transform: translateX(0px);
+    visibility: visible;
+    transition: all 300ms;
+}
+.popContent .carCon .topCon{
+	height: initial;
+	line-height: initial;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.popContent .carCon .topCon .title{
+	font-size: 1.6rem;
+	font-family: PingFangSC-Semibold, PingFang SC;
+	font-weight: 600;
+	color: #333333;
+}
+
+.submitAddress{
+	display: flex;
+	column-gap: 56px;
+	row-gap: 16px;
+	flex-wrap: wrap;
+	margin-top: 63px;
+}
+.submitAddress .addressEle{
+	width: calc(50% - 28px);
+}
+.submitAddress .addressEle .labelName span{
+	font-weight: 500;
+	font-size: 15px;
+	color: #333333;
+}
+.submitAddress .addressEle .labelName span.xing{
+	font-weight: 500;
+	font-size: 15px;
+	color: #F42F54;
+}
+.submitAddress .addressEleInput{
+	width: 100%;
+	height: 47px;
+	line-height: 47px;
+	background: #F8F8F8;
+	margin-top: 12px;
+}
+.submitAddress .addressEleInput input{
+	border: 0;
+	outline: none;
+	width: 100%;
+	background-color: transparent;
+	padding: 0 16px;
+}
+.sumbitAddressBtn{
+	width: 264px;
+	height: 76px;
+	background: #3B4656;
+	border-radius: 8px;
+	text-align: center;
+	line-height: 76px;
+	color: #fff;
+	cursor: pointer;
+	margin: 0 0 0 auto;
+	box-sizing: border-box;
+}

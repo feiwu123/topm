@@ -234,13 +234,13 @@
 								地址选择
 							</div>
 							<div class="addressList">
-								<div class="addAddress">
+								<div class="addAddress" id="addAddress">
 									+&nbsp;&nbsp;新增地址
 								</div>
 								<div class="addressItem TompAccept cur">
 									TOPM收货仓
 								</div>
-								<div class="addressItem">
+								<div class="addressItem customAddress">
 									<div class="kehuName">
 										<div class="name">客户名称</div>
 										<div class="tel">18429192321</div>
@@ -352,7 +352,129 @@
 		<div class="shoppingCar_text">
 			批发购物车
 		</div>
-	</div>	
+	</div>
+	
+
+	<div class="popContent popup" id="editAddress">
+		<div class="bgCon"></div>
+		<div class="carCon">
+			<div class="topCon">
+				<div class="title">添加新地址</div>
+				<div class="deleteIcon">
+					<img src="/images/hzp2/delete.svg">
+				</div>
+			</div>
+			<div class="submitAddress">
+				<div class="addressEle">
+					<div class="labelName">
+						<span class="xing">*</span><span>Apellidos</span>
+					</div>
+					<div class="addressEleInput">
+						<input name="lastName" placeholder="" autocomplete="off"/>
+					</div>
+				</div>
+				<div class="addressEle">
+					<div class="labelName">
+						<span class="xing">*</span><span>Nombre</span>
+					</div>
+					<div class="addressEleInput">
+						<input name="firstName" placeholder="" autocomplete="off"/>
+					</div>
+				</div>
+				<div class="addressEle">
+					<div class="labelName">
+						<span class="xing">*</span><span>Teléfono Celular</span>
+					</div>
+					<div class="addressEleInput">
+						<input name="mobile" placeholder="" autocomplete="off"/>
+					</div>
+				</div>
+				<div class="addressEle">
+					<div class="labelName">
+						<span class="xing">*</span><span>Correo electrónico</span>
+					</div>
+					<div class="addressEleInput">
+						<input name="email" placeholder="" autocomplete="off"/>
+					</div>
+				</div>
+				<div class="addressEle">
+					<div class="labelName">
+						<span>Otro Teléfono (opcional)</span>
+					</div>
+					<div class="addressEleInput">
+						<input name="tel" placeholder="" autocomplete="off"/>
+					</div>
+				</div>
+				<div class="addressEle">
+					<div class="labelName">
+						<span class="xing">*</span><span>Código Postal</span>
+					</div>
+					<div class="addressEleInput">
+						<input name="emailCode" placeholder="" autocomplete="off"/>
+					</div>
+				</div>
+				<div class="addressEle">
+					<div class="labelName">
+						<span class="xing">*</span><span>Estado</span>
+					</div>
+					<div class="addressEleInput">
+						<input name="province" placeholder="" autocomplete="off"/>
+					</div>
+				</div>
+				<div class="addressEle">
+					<div class="labelName">
+						<span class="xing">*</span><span>Alcaldía/Delegación/Municipio</span>
+					</div>
+					<div class="addressEleInput">
+						<input name="city" placeholder="" autocomplete="off"/>
+					</div>
+				</div>
+				<div class="addressEle">
+					<div class="labelName">
+						<span class="xing">*</span><span>Colonia</span>
+					</div>
+					<div class="addressEleInput">
+						<input name="country" placeholder="" autocomplete="off"/>
+					</div>
+				</div>
+				<div class="addressEle">
+					<div class="labelName">
+						<span class="xing">*</span><span>Entre calles</span>
+					</div>
+					<div class="addressEleInput">
+						<input name="calles" placeholder="" autocomplete="off"/>
+					</div>
+				</div>
+				<div class="addressEle">
+					<div class="labelName">
+						<span class="xing">*</span><span>Domicilio (Núm. Interior, etc)</span>
+					</div>
+					<div class="addressEleInput">
+						<input name="street" placeholder="" autocomplete="off"/>
+					</div>
+				</div>
+				<div class="addressEle">
+					<div class="labelName">
+						<span class="xing">*</span><span>Calle</span>
+					</div>
+					<div class="addressEleInput">
+						<input name="Calle" placeholder="" autocomplete="off"/>
+					</div>
+				</div>
+				<div class="addressEle">
+					<div class="labelName">
+						<span class="xing">*</span><span>Número</span>
+					</div>
+					<div class="addressEleInput">
+						<input name="calleNumber" placeholder="" autocomplete="off"/>
+					</div>
+				</div>
+				<div class="addressEle">
+					<div class="sumbitAddressBtn">确认</div>
+				</div>	
+			</div>
+		</div>
+	</div>
 </body>
 </html>	
 
@@ -489,6 +611,16 @@ $(".shop_product_list_item .deleteTd").on("click",function(){
 	if(productNum==0){
 		$(".shop_car_list").remove();
 	}
+})
+
+
+//地址编辑
+$(".customAddress").on("click",function(){
+	$(".popContent").addClass('popup');
+})
+
+$("#addAddress").on("click",function(){
+	$(".popContent").addClass('popup');
 })
 </script>
 	
