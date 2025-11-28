@@ -475,6 +475,49 @@
 			</div>
 		</div>
 	</div>
+	
+	<div class="popContent popup" id="expressPath">
+		<div class="bgCon"></div>
+		<div class="carCon">
+			<div class="topCon">
+				<div class="title">物流轨迹</div>
+				<div class="deleteIcon">
+					<img src="/images/hzp2/delete.svg">
+				</div>
+			</div>
+			<div class="productDetail">
+				<div class="proImg">
+					<img src="https://img.ltwebstatic.com/v4/j/spmp/2025/07/24/79/1753288316d750b397e94888f59df3c33cae5b918d_square.jpg" />
+				</div>
+				<div class="proInfor">
+					<div class="expressState">运输中</div>
+					<div class="productName">这里是商品名称的文案这里是商品名称的文案这里是商品名称的文案这里是商品名…</div>
+				</div>
+			</div>
+			<div class="expressList">
+				<div class="expressItem cur">
+					<div class="expressIcon"></div>
+					<div class="expressTop">
+						<div class="expressState">运输中</div>
+						<div class="expressTime">2024-10-22 10:22:22</div>
+					</div>
+					<div class="expressDetail">
+						【金华市】您的包裹已到达【义乌诚信】，准备分配派送员
+					</div>
+				</div>
+				<div class="expressItem">
+					<div class="expressIcon"></div>
+					<div class="expressTop">
+						<div class="expressState">运输中</div>
+						<div class="expressTime">2024-10-22 10:22:22</div>
+					</div>
+					<div class="expressDetail">
+						【金华市】您的包裹已到达【义乌诚信】，准备分配派送员
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>	
 
@@ -622,6 +665,8 @@ $(".customAddress").on("click",function(){
 $("#addAddress").on("click",function(){
 	$(".popContent").addClass('popup');
 })
+
+$("#expressPath").addClass("popup");
 </script>
 	
 	
